@@ -284,7 +284,7 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
               "scripts_syntax_checked": len(scripts), "font_hook_behavior": "pass",
               "native_message_csv_cases_checked": len(csv_fixtures),
               "native_cjk_layout_cases_checked": layout_cases_checked, "english_layout_unchanged_cases_checked": 4,
-              "original_cjk_overflow_reproduced": True, "layout_metrics": "FreeType-Fusion-Pixel-12px-zh-Hant-at-24px",
+              "original_cjk_overflow_reproduced": True, "layout_metrics": "FreeType-Fusion-Pixel-12px-zh-TW-at-24px",
               "layout_test_sha256": fire_ash.digest((ROOT / "tools/verify_layout.rb").read_bytes()),
               "runtime_ui_unique_checked": len(runtime_targets), "runtime_display_behavior": "pass",
               "runtime_support_sha256": fire_ash.digest(runtime_scripts[0]),

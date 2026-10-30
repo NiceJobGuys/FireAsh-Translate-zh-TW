@@ -12,6 +12,7 @@ from fire_ash import ARTIFACTS, GAME, ROOT, digest, json_write
 
 FILES = ("Data/Scripts.rxdata", "Data/traditional_chinese.dat", "Fonts/fire-ash-zhtw.ttf",
          "Fonts/fire-ash-zhtw-OFL.txt")
+LEGACY_FILES = FILES[:3]
 BACKUPS = ARTIFACTS / "backup"
 
 
@@ -84,8 +85,8 @@ def restore(backup):
     manifest = json.loads((backup / "manifest.json").read_text(encoding="utf-8"))
     game = Path(manifest["game"]).resolve()
     entries = manifest["files"]
-    if tuple(row["relative"] for row in entries) != FILES:
-        raise ValueError("備份清單不是本工具的三個指定檔案。")
+    if tuple(row["relative"] for row in entries) not in (LEGACY_FILES, FILES):
+        raise ValueError("備份清單不是支援的舊版三檔或新版四檔清單。")
     require_closed(game)
     # Validate every file before restoring any of them. User edits are never overwritten.
     for row in entries:

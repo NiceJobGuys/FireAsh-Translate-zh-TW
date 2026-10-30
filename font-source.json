@@ -1,9 +1,10 @@
 {
-  "family": "Fusion Pixel 12px Mono zh-Hant",
+  "family": "Fusion Pixel 12px Mono zh-TW",
   "version": "2026.10.25",
-  "filename": "fusion-pixel-12px-monospaced-zh_hant.ttf",
+  "filename": "fusion-pixel-12px-monospaced-zh_tw.ttf",
   "url": "https://github.com/TakWolf/fusion-pixel-font/releases/download/2026.10.25/fusion-pixel-font-12px-monospaced-ttf-v2026.10.25.zip",
-  "sha256": "9790b782a81af2a9c32812e7e08247102575b90bdc9327afe8f2a7794a6e9cfa",
+  "sha256": "780a81e9ab70281f0f0563be0d90f1916edd4c68719072c7b65c7d0a9d295be8",
+  "variant_reason": "採用以台灣常用國字標準字體為參考的zh_tw字形；zh_hant為傳統印刷字形。兩者皆零缺字、字寬相同，但本專案以台灣繁中為目標，因此選zh_tw。譯文及PokeAPI zh-Hant詞彙不變。",
   "license": "OFL-1.1",
   "licenses": {
     "OFL.txt": "bc518cf64b8032c07690f33cc270c35c179255a6ac8efa7c165ebae7e8f76a63",

@@ -56,6 +56,39 @@ class DeploymentTests(unittest.TestCase):
         shutil.copy2(built, target)
         deploy.restore(self.backup)
 
+    def test_restore_legacy_three_file_manifest(self):
+        before = {str(p.relative_to(self.root)): deploy.sha(p)
+                  for p in self.root.rglob("*") if p.is_file()}
+        # Reproduce the original installer format, then use the current restore.
+        with patch.object(deploy, "FILES", deploy.FILES[:3]):
+            deploy.install(self.root, self.backup)
+        manifest_bytes = (self.backup / "manifest.json").read_bytes()
+        self.assertEqual(len(json.loads(manifest_bytes)["files"]), 3)
+        deploy.restore(self.backup)
+        self.assertEqual(manifest_bytes, (self.backup / "manifest.json").read_bytes())
+        after = {str(p.relative_to(self.root)): deploy.sha(p)
+                 for p in self.root.rglob("*") if p.is_file()}
+        self.assertEqual(before, after)
+
+    def test_refuse_unknown_or_incomplete_manifest(self):
+        deploy.install(self.root, self.backup)
+        manifest_path = self.backup / "manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        entries = manifest["files"]
+        before = {str(p.relative_to(self.root)): deploy.sha(p)
+                  for p in self.root.rglob("*") if p.is_file()}
+        unsafe = dict(entries[-1], relative="../outside-fixture")
+        unknown = dict(entries[-1], relative="Data/unknown.dat")
+        for bad in (entries[:2], entries + [unknown], entries + [entries[0]], entries[:3] + [unsafe]):
+            with self.subTest(paths=[row["relative"] for row in bad]):
+                deploy.json_write(manifest_path, dict(manifest, files=bad))
+                with self.assertRaisesRegex(ValueError, "備份清單"):
+                    deploy.restore(self.backup)
+                self.assertEqual(before, {str(p.relative_to(self.root)): deploy.sha(p)
+                                          for p in self.root.rglob("*") if p.is_file()})
+        deploy.json_write(manifest_path, manifest)
+        deploy.restore(self.backup)
+
     def test_failed_install_rolls_back(self):
         original = deploy.sha(self.root / deploy.FILES[0])
         copy = shutil.copy2

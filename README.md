@@ -20,7 +20,7 @@
 | --- | --- | --- |
 | 繁中語言檔 | `release\fire-ash-zh-tw-preview\Data\traditional_chinese.dat` | 已建置並由原遊戲 Ruby DLL 載入驗證 |
 | 修改後腳本 | `data\fire-ash-work\patched\Scripts.rxdata` | 新增繁中選項、字型與中文斷行支援；僅本機保留 |
-| 本機中文字型 | `data\fire-ash-work\fonts\fire-ash-zhtw.ttf` | Fusion Pixel Font 12px zh_hant，OFL 1.1；不 commit 字型 |
+| 本機中文字型 | `data\fire-ash-work\fonts\fire-ash-zhtw.ttf` | Fusion Pixel Font 12px zh_tw，OFL 1.1；不 commit 字型 |
 | 字型授權 | `data\fire-ash-work\fonts\fire-ash-zhtw-OFL.txt` | 原始及上游授權文字，隨字型套用 |
 | 覆蓋報告 | `release\fire-ash-zh-tw-preview\coverage.json` | 各類別詳細統計 |
 
@@ -33,7 +33,7 @@
 3. 新增 `Fonts\fire-ash-zhtw.ttf`。
 4. 新增 `Fonts\fire-ash-zhtw-OFL.txt`，保留字型與上游授權。
 
-實機回報舊版正黑體模糊後，已改用 [Fusion Pixel Font](https://github.com/TakWolf/fusion-pixel-font) 2026.10.25 的 `zh_hant` 等寬版（OFL 1.1）。Cubic 11 缺「戽」「桄」而未採用；新字型涵蓋全部 3,195 個用字。普通／小字實際為 24／12px，皆為原生 12px 格線的整數倍。本機引擎會將 API 字級乘 0.9 後取整數，因此 `Font.size` 設為 27／14。字型 SHA、下載來源與原始授權雜湊見 `font-source.json`。
+實機回報舊版正黑體模糊後，已改用 [Fusion Pixel Font](https://github.com/TakWolf/fusion-pixel-font) 2026.10.25 的 `zh_tw` 等寬版（OFL 1.1）。`zh_tw` 參考台灣標準字形，`zh_hant` 參考傳統印刷字形；兩者零缺字、字寬相同，本專案以台灣繁中為目標而選 `zh_tw`，不改譯文或 PokeAPI 的 zh-Hant 詞彙來源。Cubic 11 缺「戽」「桄」而未採用；新字型涵蓋全部 3,195 個用字。普通／小字實際為 24／12px，皆為原生 12px 格線的整數倍。本機引擎會將 API 字級乘 0.9 後取整數，因此 `Font.size` 設為 27／14。字型 SHA、下載來源與原始授權雜湊見 `font-source.json`。
 
 `solidFonts` 維持原設定，不修改 `mkxp.json`。完整字集在 12／24px 的未二值化 FreeType 灰階遮罩只有 0／255，無需全域改動英文渲染。中文繪製暫停人工粗體／斜體，結束後還原樣式；原有硬邊陰影仍保留。新版本仍須 Claude 1 還原舊版、重新套用後完成實機驗收。
 
@@ -48,6 +48,8 @@
 套用前先把原始腳本與原有同名檔案備份到 `Artifacts\backup\`，並記錄原始 SHA-256。還原時放回原腳本，移回／移出本次新增的語言檔與字型。請保留 Claude 1 套用時的完整備份；本次 repo 建立作業不執行套用或還原。
 
 本機套用工具預設只顯示計畫，核對來源與產物雜湊。`install` 先備份原檔，再透過同目錄暫存檔校驗與替換；`restore` 從備份還原腳本，將新增語言與字型移回備份目錄。套用後另被修改的檔案會拒絕覆寫。工具不啟動或關閉遊戲。
+
+還原接受兩種完整清單：舊版三檔，或含 OFL 的新版四檔。仍拒絕不完整、重複、額外及越界路徑，且還原前校驗全部原檔／套用檔雜湊；不需要修改既有備份 manifest。
 
 `plan`／`install` 的基準是尚未套用、符合 `source-manifest.json` 的原版檔案。已套用中的遊戲不應重跑安裝；驗收期間不要對該目錄重新匯出或建置。以下指令供未套用的基準副本及後續維護使用。
 

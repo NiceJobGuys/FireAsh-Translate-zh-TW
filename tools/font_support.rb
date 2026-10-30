@@ -1,7 +1,7 @@
 # encoding: UTF-8
 # Installed before Main. Also renders the Chinese label in an English menu.
 module FireAshZHTW
-  FONT = "Fusion Pixel 12px Mono zh-Hant"
+  FONT = "Fusion Pixel 12px Mono zh-TW"
   # This game's mkxp truncates Font.size * 0.90 before opening the font.
   PIXEL_SIZES = [14, 27, 40, 54, 67, 80, 94].freeze
   NO_LINE_START = "，。、！？：；％）］｝〉》」』】〕〗〙〛…・·‧—,.!?:;%)]}”’"

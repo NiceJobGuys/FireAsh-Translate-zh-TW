@@ -387,15 +387,15 @@
     }
   },
   "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
-  "scripts_sha256": "491e7cc5c1c3a31ab97b852f2e6df0d55fb873d4c1864f3cd795d83ed192c51f",
+  "scripts_sha256": "07069042f33f429720b4c08b177ed8b36ad85fdec0b1ba1f2f06c9c7d660fcda",
   "font": {
-    "family": "Fusion Pixel 12px Mono zh-Hant",
+    "family": "Fusion Pixel 12px Mono zh-TW",
     "version": "2026.10.25",
     "license": "OFL-1.1",
     "checked_characters": 3195,
     "missing_characters": 0,
     "missing": [],
-    "sha256": "9790b782a81af2a9c32812e7e08247102575b90bdc9327afe8f2a7794a6e9cfa",
+    "sha256": "780a81e9ab70281f0f0563be0d90f1916edd4c68719072c7b65c7d0a9d295be8",
     "license_sha256": "ce99f7290eb3f8b169448ab94563325676cb0cc7a75fda18353717a62469034b",
     "native_grid_px": 12,
     "raster_sizes_px": [
