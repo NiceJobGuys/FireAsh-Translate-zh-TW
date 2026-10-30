@@ -258,7 +258,7 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
     for row in original_scripts:
         name = fire_ash.text(row[1])
         if name in ("UI_Options", "StartGame"):
-            expected_code = fire_ash.patch_screen_options(zlib.decompress(row[2]).decode("utf-8"), name)
+            expected_code = zlib.decompress(row[2]).decode("utf-8")
             assert script_text[name] == expected_code.replace("\r", ""), f"Stale screen options: {name}"
     resize_method = re.search(r"^def pbSetResizeFactor\b.*?^end$", script_text["MKXP_Compatibility"], re.M | re.S)
     option = re.search(r'EnumOption.new\(_INTL\("Screen Size"\).*?^       \)', script_text["UI_Options"], re.M | re.S)
@@ -325,14 +325,15 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
                                for en, zh in sorted(runtime_targets.items()))
     assert native_runtime == expected_runtime, "Native Ruby supplemental dictionary differs from JSON"
     print("PASS: all", len(runtime_targets), "supplemental UI entries match native Ruby")
-    report = {"ruby_version": ruby_version, "native_slots_checked": sum(1 for _ in fire_ash.records(data)),
+    report = {"passed": True, "ruby_version": ruby_version, "native_slots_checked": sum(1 for _ in fire_ash.records(data)),
               "scripts_syntax_checked": len(scripts), "font_hook_behavior": "pass",
               "native_message_csv_cases_checked": len(csv_fixtures),
               "native_cjk_layout_cases_checked": layout_cases_checked, "english_layout_unchanged_cases_checked": 4,
               "original_cjk_overflow_reproduced": True, "layout_metrics": "FreeType-Fusion-Pixel-12px-zh-TW-at-24px",
               "layout_test_sha256": fire_ash.digest((ROOT / "tools/verify_layout.rb").read_bytes()),
               "native_painter_cases_checked": int(evaluate("$fire_ash_display_cases.to_s")),
-              "native_scale_options_checked": 6, "scale_3x_survives_startup": True,
+              "native_scale_options_checked": 5, "legacy_2x_scale_survives_startup": True,
+              "native_scale_limit": 2.0, "default_screen_scale": 1.5,
               "display_test_sha256": fire_ash.digest((ROOT / "tools/verify_display.rb").read_bytes()),
               "runtime_ui_unique_checked": len(runtime_targets), "runtime_display_behavior": "pass",
               "runtime_support_sha256": fire_ash.digest(runtime_scripts[0]),
@@ -352,4 +353,12 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as error:
+        # A failed rerun must not leave the previous PASS report looking current.
+        fire_ash.json_write(ROOT / "validation.json", {
+            "passed": False, "error": str(error), "game_started": False, "installed": False,
+            "validated_at_utc": datetime.now(timezone.utc).isoformat(),
+            "verifier_sha256": fire_ash.digest(Path(__file__).read_bytes())})
+        raise

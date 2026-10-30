@@ -11,6 +11,9 @@ import install_preview as deploy
 
 RUN_ID = "run-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
 SOURCE_GAME = deploy.GAME
+# Pin the historical schema independently of any future installer FILES changes.
+LEGACY_FOUR_FILES = ("Data/Scripts.rxdata", "Data/traditional_chinese.dat",
+                     "Fonts/fire-ash-zhtw.ttf", "Fonts/fire-ash-zhtw-OFL.txt")
 
 
 class DeploymentTests(unittest.TestCase):
@@ -56,19 +59,25 @@ class DeploymentTests(unittest.TestCase):
         shutil.copy2(built, target)
         deploy.restore(self.backup)
 
-    def test_restore_legacy_three_file_manifest(self):
+    def restore_legacy_manifest(self, relative_paths):
         before = {str(p.relative_to(self.root)): deploy.sha(p)
                   for p in self.root.rglob("*") if p.is_file()}
         # Reproduce the original installer format, then use the current restore.
-        with patch.object(deploy, "FILES", deploy.FILES[:3]):
+        with patch.object(deploy, "FILES", relative_paths):
             deploy.install(self.root, self.backup)
         manifest_bytes = (self.backup / "manifest.json").read_bytes()
-        self.assertEqual(len(json.loads(manifest_bytes)["files"]), 3)
+        self.assertEqual(tuple(row["relative"] for row in json.loads(manifest_bytes)["files"]), relative_paths)
         deploy.restore(self.backup)
         self.assertEqual(manifest_bytes, (self.backup / "manifest.json").read_bytes())
         after = {str(p.relative_to(self.root)): deploy.sha(p)
                  for p in self.root.rglob("*") if p.is_file()}
         self.assertEqual(before, after)
+
+    def test_restore_legacy_three_file_manifest(self):
+        self.restore_legacy_manifest(LEGACY_FOUR_FILES[:3])
+
+    def test_restore_legacy_four_file_manifest(self):
+        self.restore_legacy_manifest(LEGACY_FOUR_FILES)
 
     def test_refuse_unknown_or_incomplete_manifest(self):
         deploy.install(self.root, self.backup)

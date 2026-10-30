@@ -7,20 +7,20 @@
   ],
   "scales": [
     1,
-    3,
+    2,
     4
   ],
   "resampling": "NEAREST",
   "font_sha256": "780a81e9ab70281f0f0563be0d90f1916edd4c68719072c7b65c7d0a9d295be8",
   "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
-  "scripts_sha256": "be67ad665ba1793796e3251e9732e73f5454f7d1ee535294d912ab56eb42bae5",
-  "draw_calls_sha256": "8dd856b711f8b1cbd830ccb5ddf1f145eec809794317db3a1412e1b038a20a2d",
-  "preview_tool_sha256": "c98729331142ff6d57eb63147350c17f201f6c58a6f1c94a6f97ea5a1d7063e9",
-  "glyph_bounds_checked": 305,
+  "scripts_sha256": "151bbb766b74273fec155ac4b6a895cd4472ffb850de7956d701384ccf8fb706",
+  "draw_calls_sha256": "705a25356b21ee9a6893350ecd07afb1bacf818c313982251a6f6c159b209fdd",
+  "preview_tool_sha256": "ca7099220e2bc8cfd12b089e09ad444eae6b22ddda118993c62e8bde207570ca",
+  "glyph_bounds_checked": 300,
   "horizontal_squeeze_cases": 0,
   "scene_call_counts": {
-    "settings-before": 116,
-    "settings-after": 32,
+    "settings-before": 112,
+    "settings-after": 31,
     "dialogue-before": 132,
     "dialogue-after": 33
   },
@@ -829,19 +829,19 @@
       "scene": "settings-before",
       "text": "M",
       "box": [
-        256,
+        270,
         292,
+        282,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "M",
+      "box": [
         268,
-        308
-      ]
-    },
-    {
-      "scene": "settings-before",
-      "text": "M",
-      "box": [
-        254,
         294,
-        266,
+        280,
         310
       ]
     },
@@ -849,19 +849,19 @@
       "scene": "settings-before",
       "text": "M",
       "box": [
-        256,
+        270,
         294,
+        282,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "M",
+      "box": [
         268,
-        310
-      ]
-    },
-    {
-      "scene": "settings-before",
-      "text": "M",
-      "box": [
-        254,
         292,
-        266,
+        280,
         308
       ]
     },
@@ -869,9 +869,9 @@
       "scene": "settings-before",
       "text": "L",
       "box": [
-        277,
+        305,
         292,
-        289,
+        317,
         308
       ]
     },
@@ -879,9 +879,9 @@
       "scene": "settings-before",
       "text": "L",
       "box": [
-        275,
+        303,
         294,
-        287,
+        315,
         310
       ]
     },
@@ -889,9 +889,9 @@
       "scene": "settings-before",
       "text": "L",
       "box": [
-        277,
+        305,
         294,
-        289,
+        317,
         310
       ]
     },
@@ -899,9 +899,9 @@
       "scene": "settings-before",
       "text": "L",
       "box": [
-        275,
+        303,
         292,
-        287,
+        315,
         308
       ]
     },
@@ -909,9 +909,9 @@
       "scene": "settings-before",
       "text": "XL",
       "box": [
-        298,
+        340,
         292,
-        322,
+        364,
         308
       ]
     },
@@ -919,9 +919,9 @@
       "scene": "settings-before",
       "text": "XL",
       "box": [
-        296,
+        338,
         294,
-        320,
+        362,
         310
       ]
     },
@@ -929,9 +929,9 @@
       "scene": "settings-before",
       "text": "XL",
       "box": [
-        298,
+        340,
         294,
-        322,
+        364,
         310
       ]
     },
@@ -939,90 +939,50 @@
       "scene": "settings-before",
       "text": "XL",
       "box": [
-        296,
+        338,
         292,
-        320,
+        362,
         308
       ]
     },
     {
       "scene": "settings-before",
-      "text": "全螢幕",
+      "text": "已滿",
       "box": [
-        331,
+        387,
         290,
-        403,
+        435,
         312
       ]
     },
     {
       "scene": "settings-before",
-      "text": "全螢幕",
+      "text": "已滿",
       "box": [
-        329,
+        385,
         292,
-        401,
+        433,
         314
       ]
     },
     {
       "scene": "settings-before",
-      "text": "全螢幕",
+      "text": "已滿",
       "box": [
-        331,
+        387,
         292,
-        403,
+        435,
         314
       ]
     },
     {
       "scene": "settings-before",
-      "text": "全螢幕",
+      "text": "已滿",
       "box": [
-        329,
+        385,
         290,
-        401,
+        433,
         312
-      ]
-    },
-    {
-      "scene": "settings-before",
-      "text": "3x",
-      "box": [
-        412,
-        292,
-        436,
-        308
-      ]
-    },
-    {
-      "scene": "settings-before",
-      "text": "3x",
-      "box": [
-        410,
-        294,
-        434,
-        310
-      ]
-    },
-    {
-      "scene": "settings-before",
-      "text": "3x",
-      "box": [
-        412,
-        294,
-        436,
-        310
-      ]
-    },
-    {
-      "scene": "settings-before",
-      "text": "3x",
-      "box": [
-        410,
-        292,
-        434,
-        308
       ]
     },
     {
@@ -1349,9 +1309,9 @@
       "scene": "settings-after",
       "text": "M",
       "box": [
-        254,
+        268,
         292,
-        266,
+        280,
         308
       ]
     },
@@ -1359,9 +1319,9 @@
       "scene": "settings-after",
       "text": "L",
       "box": [
-        275,
+        303,
         292,
-        287,
+        315,
         308
       ]
     },
@@ -1369,30 +1329,20 @@
       "scene": "settings-after",
       "text": "XL",
       "box": [
-        296,
+        338,
         292,
-        320,
+        362,
         308
       ]
     },
     {
       "scene": "settings-after",
-      "text": "全螢幕",
+      "text": "已滿",
       "box": [
-        329,
+        385,
         290,
-        401,
+        433,
         312
-      ]
-    },
-    {
-      "scene": "settings-after",
-      "text": "3x",
-      "box": [
-        410,
-        292,
-        434,
-        308
       ]
     },
     {
@@ -3077,22 +3027,22 @@
     }
   ],
   "previews": [
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-three-shadows-1x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-three-shadows-3x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-three-shadows-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-1x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-3x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-three-shadows-1x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-three-shadows-3x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-three-shadows-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-1x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-3x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-shadow-comparison-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-shadow-comparison-4x.png"
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-three-shadows-only-1x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-three-shadows-only-2x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-three-shadows-only-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-only-1x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-only-2x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-only-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-three-shadows-only-1x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-three-shadows-only-2x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-three-shadows-only-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-only-1x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-only-2x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-only-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-only-comparison-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-only-comparison-4x.png"
   ],
   "game_started": false,
   "installed": false,
-  "limitations": "已執行遊戲實際選單及文字函式，圖形API由記錄器替代；重播採FreeType。背景／游標為測試畫布，非SDL實機截圖；3x實際視窗尺寸仍需Claude 1驗收。"
+  "limitations": "已執行遊戲實際選單及文字函式，圖形API由記錄器替代；重播採FreeType。背景／游標為測試畫布，非SDL實機截圖；4x圖僅為檢查放大，不是新增遊戲顯示選項。"
 }

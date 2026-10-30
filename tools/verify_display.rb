@@ -75,12 +75,15 @@ eval($fire_ash_options_code, TOPLEVEL_BINDING)
 module Graphics
   class << self
     attr_accessor :fullscreen, :scale, :screen, :centered
+    # Verified in this Game.exe at VA 0x140038bd8/0x140038be0: upper limit 2.0.
+    def scale=(value); @scale = [[value,0.5].max,2.0].min; end
     def resize_screen(w,h); self.screen = [w,h]; end
     def center; self.centered = true; end
   end
 end
 Settings.const_set(:SCREEN_WIDTH, 512)
 Settings.const_set(:SCREEN_HEIGHT, 384)
+Settings.const_set(:SCREEN_SCALE, 1.5)
 class << $PokemonSystem
   attr_accessor :screensize
 end
@@ -90,8 +93,9 @@ def _INTL(text, *args)
 end
 $PokemonSystem.language = 0
 scale_option = eval($fire_ash_scale_option_code, TOPLEVEL_BINDING)
-raise 'Old scale indices changed' unless scale_option.values == ['S','M','L','XL','Full','3x']
-6.times do |value|
+raise 'Old scale indices changed' unless scale_option.values == ['S','M','L','XL','Full']
+raise 'Default scale changed' unless PokemonSystem.new.screensize == 2
+5.times do |value|
   $PokemonSystem.screensize = -1
   scale_option.set(value)
   raise 'Scale setting lost' unless scale_option.get == value
@@ -101,16 +105,16 @@ raise 'Old scale indices changed' unless scale_option.values == ['S','M','L','XL
     raise 'Scale changed' unless Graphics.scale == (value+1)*0.5 && !Graphics.fullscreen
   end
 end
-raise 'Invalid legacy scale changed' unless FireAshZHTW.screen_factor(99) == 4
+Graphics.scale = 3.0
+raise 'Native 2x limit was lost from the stub' unless Graphics.scale == 2.0
 $ResizeInitialized = false
-$PokemonSystem.screensize = 5
+$PokemonSystem.screensize = 3
 Graphics.fullscreen = true
 eval($fire_ash_startup_resize_code, TOPLEVEL_BINDING)
-raise '3x did not survive startup' unless Graphics.scale == 3.0 && !Graphics.fullscreen
+raise 'Existing 2x did not survive startup' unless Graphics.scale == 2.0 && !Graphics.fullscreen
 raise 'Internal resolution changed' unless Graphics.screen == [512,384]
 
 $PokemonSystem.language = 1
-raise 'Fullscreen label uses capacity translation' unless eval($fire_ash_scale_option_code).values[4] == '全螢幕'
 ui = $fire_ash_preview_ui
 options = [
   SliderOption.new(ui['Music Volume'],0,100,5,nil,nil),
@@ -127,7 +131,7 @@ $fire_ash_preview_calls = {}
   painter = mode == :before ? original : patched
   Object.send(:define_method, :pbDrawShadowText, painter[:pbDrawShadowText])
   window = Window_PokemonOption.new(options,0,64,512,304)
-  [100,80,1,0,0,0,5,1].each_with_index { |value,i| window.setValueNoRefresh(i,value) }
+  [100,80,1,0,0,0,3,1].each_with_index { |value,i| window.setValueNoRefresh(i,value) }
   bitmap = window.contents
   bitmap.clear_display_calls
   pbDrawShadowText(bitmap,32,16,448,32,ui['Options'],base,shadow)
@@ -142,4 +146,4 @@ $fire_ash_preview_calls = {}
   $fire_ash_preview_calls["dialogue-#{mode}"] = bitmap.display_calls.dup
 end
 Object.send(:define_method, :pbDrawShadowText, patched[:pbDrawShadowText])
-'PASS: 12 native painter cases; Chinese shadows removed, English/explicit outlines preserved; six scale choices, 3x startup at 512x384'
+'PASS: 12 native painter cases; Chinese shadows removed, English/explicit outlines preserved; five original scale choices, default 1.5x, 2x startup and native 2x cap'

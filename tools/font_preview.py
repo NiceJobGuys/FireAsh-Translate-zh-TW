@@ -60,9 +60,9 @@ def main():
 
     previews = []
     for name, canvas in samples.items():
-        suffix = "no-shadow" if name.endswith("after") else "three-shadows"
+        suffix = "no-shadow-only" if name.endswith("after") else "three-shadows-only"
         kind = name.split("-")[0]
-        for scale in (1,3,4):
+        for scale in (1,2,4):
             path = output / f"font-preview-{kind}-{suffix}-{scale}x.png"
             canvas.resize((512*scale,384*scale), Image.Resampling.NEAREST).save(path)
             previews.append(str(path))
@@ -73,21 +73,21 @@ def main():
         for x, version in ((0,"before"),(2048,"after")):
             crop = samples[f"{kind}-{version}"].crop((0,top,512,bottom))
             comparison.paste(crop.resize((2048,crop.height*4), Image.Resampling.NEAREST), (x,0))
-        path = output / f"font-preview-{kind}-shadow-comparison-4x.png"
+        path = output / f"font-preview-{kind}-no-shadow-only-comparison-4x.png"
         comparison.save(path)
         previews.append(str(path))
     json_write(ROOT / "font-preview-validation.json", {
         "passed": True, "renderer": "Native Ruby call capture -> Pillow/FreeType grayscale; no threshold; not game screenshots",
-        "canvas": [512,384], "scales": [1,3,4], "resampling": "NEAREST",
+        "canvas": [512,384], "scales": [1,2,4], "resampling": "NEAREST",
         "font_sha256": digest(font_path.read_bytes()), "language_sha256": coverage["language_sha256"],
         "scripts_sha256": coverage["scripts_sha256"], "draw_calls_sha256": digest(recorded_path.read_bytes()),
         "preview_tool_sha256": digest(Path(__file__).read_bytes()),
         "glyph_bounds_checked": len(bounds), "horizontal_squeeze_cases": 0,
         "scene_call_counts": {name:len(calls) for name,calls in recorded["scenes"].items()},
         "bounds": bounds, "previews": previews, "game_started": False, "installed": False,
-        "limitations": "已執行遊戲實際選單及文字函式，圖形API由記錄器替代；重播採FreeType。背景／游標為測試畫布，非SDL實機截圖；3x實際視窗尺寸仍需Claude 1驗收。"
+        "limitations": "已執行遊戲實際選單及文字函式，圖形API由記錄器替代；重播採FreeType。背景／游標為測試畫布，非SDL實機截圖；4x圖僅為檢查放大，不是新增遊戲顯示選項。"
     })
-    print(f"PASS: {len(previews)} previews; {len(bounds)} text bounds; no horizontal squeeze; 1x/3x/4x nearest-neighbor")
+    print(f"PASS: {len(previews)} previews; {len(bounds)} text bounds; no horizontal squeeze; 1x/2x/4x nearest-neighbor")
 
 
 if __name__ == "__main__":
