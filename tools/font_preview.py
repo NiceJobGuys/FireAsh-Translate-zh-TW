@@ -1,10 +1,10 @@
-"""Render actual font masks on 512x384 samples, never a game screenshot."""
+"""Replay native Ruby draw calls with FreeType; never a game screenshot."""
 import json
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-from fire_ash import ARTIFACTS, ROOT, digest, json_write, loads, text
+from fire_ash import ARTIFACTS, ROOT, digest, json_write
 
 
 def main():
@@ -12,85 +12,82 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     font_path = ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"
     coverage = json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))
-    assert digest(font_path.read_bytes()) == coverage["font"]["sha256"]
-    font = ImageFont.truetype(str(font_path), 24)
-    old_font = ImageFont.truetype(r"C:\Windows\Fonts\msjh.ttc", 20, index=0)
-    layout = json.loads((ARTIFACTS / "data/fire-ash-work/font-preview-layout.json").read_text(encoding="utf-8"))
-    assert layout["font_sha256"] == coverage["font"]["sha256"]
-    data = loads((ARTIFACTS / "release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat").read_bytes())
-    keys, values = loads(data[24]._dump())
-    ui = {text(k): text(v) for k, v in zip(keys, values)}
-    samples = []
+    recorded_path = ARTIFACTS / "data/fire-ash-work/font-preview-draw-calls.json"
+    recorded = json.loads(recorded_path.read_text(encoding="utf-8"))
+    assert digest(font_path.read_bytes()) == recorded["font_sha256"] == coverage["font"]["sha256"]
+    assert recorded["scripts_sha256"] == coverage["scripts_sha256"]
+    samples = {}
     bounds = []
+    fonts = {}
 
-    def label(draw, xy, value, used_font, color=(48, 48, 48), right=480, bottom=376):
-        x, y = xy
-        box = draw.textbbox((x, y), value, font=used_font)
-        assert box[0] >= 0 and box[2] + 2 <= right and box[3] + 2 <= bottom, (value, box, right, bottom)
-        bounds.append({"text": value, "box": box, "right_limit": right, "bottom_limit": bottom})
-        draw.text((x+2, y+2), value, font=used_font, fill=(184, 184, 176))
-        draw.text((x, y), value, font=used_font, fill=color)
-
-    def frame(dialogue=False):
-        image = Image.new("RGB", (512, 384), (216, 232, 208) if dialogue else (248, 248, 232))
-        draw = ImageDraw.Draw(image)
+    for name, calls in recorded["scenes"].items():
+        dialogue = name.startswith("dialogue")
+        canvas = Image.new("RGB", (512, 384), (216, 232, 208) if dialogue else (248, 248, 248))
+        draw = ImageDraw.Draw(canvas, "RGBA")
         if dialogue:
             draw.rectangle((16, 256, 495, 375), fill=(248, 248, 240), outline=(56, 72, 80), width=4)
         else:
             draw.rectangle((8, 8, 503, 375), outline=(56, 72, 80), width=4)
             draw.line((16, 57, 495, 57), fill=(56, 72, 80), width=2)
-        return image, draw
-
-    for old in (False, True):
-        used = old_font if old else font
-        suffix = "old" if old else "new"
-        settings, draw = frame()
-        label(draw, (32, 20), ui["Options"], used)
-        rows = [("Music Volume", "100"), ("SE Volume", "80"), ("Text Speed", "Normal"),
-                ("Battle Effects", "On"), ("Battle Style", "Switch"), ("Default Movement", "Walking"),
-                ("Text Entry", "Keyboard"), ("Weather Effects", "On")]
-        for i, (key, value) in enumerate(rows):
-            y = 72 + i * 36
-            label(draw, (32, y), ui[key], used, right=232)
-            label(draw, (248, y), ui.get(value, value), used)
-        samples.append((f"settings-{suffix}", settings))
-        dialogue, draw = frame(True)
-        # Keep the same formatter positions to isolate font rasterization.
-        for cp, x, y, width, height in layout["rows"]:
-            assert x + width - 2 <= 480 and y + height <= 368
-            label(draw, (x, y), chr(cp), used, bottom=368)
-        samples.append((f"dialogue-{suffix}", dialogue))
+        for call in calls:
+            x, y, width, height = call["rect"]
+            if call["kind"] == "rect":
+                assert 0 <= x < x+width <= 512 and 0 <= y < y+height <= 384
+                draw.rectangle((x, y, x+width-1, y+height-1), fill=tuple(call["color"]))
+                continue
+            assert call["family"] == coverage["font"]["family"], call
+            pixels = int(call["api_size"] * 0.9)
+            if pixels not in fonts:
+                fonts[pixels] = ImageFont.truetype(str(font_path), pixels)
+            font = fonts[pixels]
+            value = call["text"]
+            text_width = font.getlength(value)
+            # mkxp would squeeze an oversized draw_text into its rectangle.
+            assert text_width <= width, ("Engine would squeeze text", name, value, text_width, width)
+            assert text_width == int(text_width) and pixels % 12 == 0
+            if call["align"] == 1:
+                x += max(0, int((width-text_width)/2))
+            elif call["align"] == 2:
+                x += max(0, int(width-text_width))
+            # Bitmap::drawText centers the unoutlined font surface vertically.
+            y += int((height-sum(font.getmetrics()))/2)
+            box = draw.textbbox((x, y), value, font=font)
+            assert 16 <= box[0] and box[2] <= 496 and 8 <= box[1] and box[3] <= 372, (name,value,box)
+            assert set(bytes(font.getmask(value, mode="L"))) <= {0,255}
+            draw.text((x, y), value, font=font, fill=tuple(call["color"]))
+            bounds.append({"scene": name, "text": value, "box": box})
+        samples[name] = canvas
 
     previews = []
-    for name, image in samples:
-        native = output / f"font-preview-{name}-512.png"
-        enlarged = output / f"font-preview-{name}-4x.png"
-        image.save(native)
-        image.resize((2048, 1536), Image.Resampling.NEAREST).save(enlarged)
-        previews.extend([str(native), str(enlarged)])
-    for kind in ("settings", "dialogue"):
-        # One before/after comparison per image, as required for visual review.
-        before = next(im for name, im in samples if name == f"{kind}-old")
-        after = next(im for name, im in samples if name == f"{kind}-new")
+    for name, canvas in samples.items():
+        suffix = "no-shadow" if name.endswith("after") else "three-shadows"
+        kind = name.split("-")[0]
+        for scale in (1,3,4):
+            path = output / f"font-preview-{kind}-{suffix}-{scale}x.png"
+            canvas.resize((512*scale,384*scale), Image.Resampling.NEAREST).save(path)
+            previews.append(str(path))
+    for kind in ("settings","dialogue"):
         top = 8 if kind == "settings" else 256
         bottom = 376
-        comparison = Image.new("RGB", (4096, (bottom-top)*4))
-        for x, im in ((0, before), (2048, after)):
-            crop = im.crop((0, top, 512, bottom))
-            comparison.paste(crop.resize((2048, crop.height*4), Image.Resampling.NEAREST), (x, 0))
-        path = output / f"font-preview-{kind}-comparison-4x.png"
+        comparison = Image.new("RGB", (4096,(bottom-top)*4))
+        for x, version in ((0,"before"),(2048,"after")):
+            crop = samples[f"{kind}-{version}"].crop((0,top,512,bottom))
+            comparison.paste(crop.resize((2048,crop.height*4), Image.Resampling.NEAREST), (x,0))
+        path = output / f"font-preview-{kind}-shadow-comparison-4x.png"
         comparison.save(path)
         previews.append(str(path))
     json_write(ROOT / "font-preview-validation.json", {
-        "passed": True, "renderer": "Pillow/FreeType grayscale; no threshold; not game screenshots",
-        "canvas": [512, 384], "scale": 4, "resampling": "NEAREST",
+        "passed": True, "renderer": "Native Ruby call capture -> Pillow/FreeType grayscale; no threshold; not game screenshots",
+        "canvas": [512,384], "scales": [1,3,4], "resampling": "NEAREST",
         "font_sha256": digest(font_path.read_bytes()), "language_sha256": coverage["language_sha256"],
-        "scripts_sha256": coverage["scripts_sha256"], "glyph_bounds_checked": len(bounds),
+        "scripts_sha256": coverage["scripts_sha256"], "draw_calls_sha256": digest(recorded_path.read_bytes()),
         "preview_tool_sha256": digest(Path(__file__).read_bytes()),
-        "bounds": bounds, "dialogue_layout": layout["source"], "previews": previews,
-        "game_started": False, "installed": False,
-        "limitations": "預覽重現字型與排版尺寸，背景為測試用畫布；不是遊戲實機畫面，仍須Claude 1重新套用後驗收。"})
-    print(f"PASS: {len(previews)} raster previews; {len(bounds)} text bounds; 512x384 -> 2048x1536 nearest-neighbor")
+        "glyph_bounds_checked": len(bounds), "horizontal_squeeze_cases": 0,
+        "scene_call_counts": {name:len(calls) for name,calls in recorded["scenes"].items()},
+        "bounds": bounds, "previews": previews, "game_started": False, "installed": False,
+        "limitations": "已執行遊戲實際選單及文字函式，圖形API由記錄器替代；重播採FreeType。背景／游標為測試畫布，非SDL實機截圖；3x實際視窗尺寸仍需Claude 1驗收。"
+    })
+    print(f"PASS: {len(previews)} previews; {len(bounds)} text bounds; no horizontal squeeze; 1x/3x/4x nearest-neighbor")
 
 
 if __name__ == "__main__":

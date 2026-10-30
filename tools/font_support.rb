@@ -21,6 +21,11 @@ module FireAshZHTW
     language && language[1] == "traditional_chinese.dat"
   end
 
+  def self.screen_factor(value)
+    # Index 4 remains fullscreen in existing saves; append 3x as index 5.
+    value == 5 ? 5 : [value, 4].min
+  end
+
   def self.size(value)
     # Idempotent API sizes yield exactly 12, 24, ... 84 raster pixels.
     return value if PIXEL_SIZES.include?(value)

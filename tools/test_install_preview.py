@@ -129,6 +129,7 @@ if __name__ == "__main__":
         "fixture_run": RUN_ID, "installer_sha256": deploy.sha(deploy.ROOT / "tools/install_preview.py"),
         "source_baseline": str(SOURCE_GAME), "font_sha256": deploy.sha(
             deploy.ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"),
+        "scripts_sha256": deploy.sha(deploy.ARTIFACTS / "data/fire-ash-work/patched/Scripts.rxdata"),
         "test_sha256": deploy.sha(__file__), "language_sha256": deploy.sha(
             deploy.ARTIFACTS / "release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat")})
     sys.exit(0 if result.wasSuccessful() and unchanged else 1)

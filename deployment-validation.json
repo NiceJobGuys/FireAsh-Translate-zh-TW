@@ -6,10 +6,11 @@
   "source_game_unchanged": true,
   "game_started": false,
   "scope": "僅在Artifacts內的檔案測試副本套用及還原；未套用到安裝目錄，未啟動遊戲。",
-  "fixture_run": "run-20261030-091002-118976",
+  "fixture_run": "run-20261030-224904-090863",
   "installer_sha256": "370713e33345b7f09d0d7a0aa28b2ae34f782eb9f12e7663b7678f810f5ae2e1",
   "source_baseline": "D:\\Code\\Lab Testing\\Artifacts\\data\\fire-ash-work\\original-baseline",
   "font_sha256": "780a81e9ab70281f0f0563be0d90f1916edd4c68719072c7b65c7d0a9d295be8",
-  "test_sha256": "502a0ef16dfa93dd608c3f33e767de29b030d977081e8c9ca87e1d6c52daf7ac",
+  "scripts_sha256": "be67ad665ba1793796e3251e9732e73f5454f7d1ee535294d912ab56eb42bae5",
+  "test_sha256": "9a66639cf3e3e9de331be8238ababe9ab00430912bcba3bbfbc9e5792d48c0a9",
   "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85"
 }

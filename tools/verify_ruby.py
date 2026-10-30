@@ -224,7 +224,7 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
                          if fire_ash.text(row[1]) == "DrawText")
     patched_draw = next(zlib.decompress(row[2]).decode("utf-8") for row in scripts
                         if fire_ash.text(row[1]) == "DrawText")
-    assert patched_draw == fire_ash.patch_text_layout(original_draw), "Text layout build is stale"
+    assert patched_draw == fire_ash.patch_text_effects(fire_ash.patch_text_layout(original_draw)), "Text display build is stale"
     for name, code in [(b"$fire_ash_original_draw", original_draw), (b"$fire_ash_patched_draw", patched_draw)]:
         encoded = ("# encoding: UTF-8\n" + code).encode("utf-8")
         ruby.rb_gv_set(name, ruby.rb_utf8_str_new(encoded, len(encoded)))
@@ -235,10 +235,12 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
     raster_font = ImageFont.truetype(str(font_path), 24)
     visible_characters = set("".join(value for _, _, _, value in fire_ash.records(data)))
     visible_characters.update((ROOT / "tools/verify_layout.rb").read_text(encoding="utf-8"))
+    visible_characters.update((ROOT / "tools/verify_display.rb").read_text(encoding="utf-8"))
     metrics = {c: raster_font.getlength(c) for c in visible_characters}
     assert all(width == int(width) for width in metrics.values()), "Fractional glyph advances"
     evaluate("$fire_ash_glyph_widths = {" + ",".join(
         fire_ash.ruby_string(c) + "=>" + str(int(width)) for c, width in metrics.items()) + "}; 'metrics ready'")
+    evaluate(f"$fire_ash_font_height = {sum(raster_font.getmetrics())}; 'height ready'")
     print(evaluate((ROOT / "tools/verify_layout.rb").read_text(encoding="utf-8")))
     layout_cases_checked = int(evaluate("$fire_ash_layout_cases_checked.to_s"))
     preview_text = "這是桄榔島的戽斗尖梭。小智與皮卡丘一起旅行，歡迎來到寶可夢的世界！"
@@ -251,6 +253,49 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
     fire_ash.json_write(ARTIFACTS / "data/fire-ash-work/font-preview-layout.json", {
         "text": preview_text, "rows": native_layout, "font_sha256": fire_ash.digest(font_path.read_bytes()),
         "source": "Original game getFormattedText + CJK wrap patch + actual FreeType advances at 24px"})
+    script_text = {fire_ash.text(row[1]): zlib.decompress(row[2]).decode("utf-8").replace("\r", "")
+                   for row in scripts}
+    for row in original_scripts:
+        name = fire_ash.text(row[1])
+        if name in ("UI_Options", "StartGame"):
+            expected_code = fire_ash.patch_screen_options(zlib.decompress(row[2]).decode("utf-8"), name)
+            assert script_text[name] == expected_code.replace("\r", ""), f"Stale screen options: {name}"
+    resize_method = re.search(r"^def pbSetResizeFactor\b.*?^end$", script_text["MKXP_Compatibility"], re.M | re.S)
+    option = re.search(r'EnumOption.new\(_INTL\("Screen Size"\).*?^       \)', script_text["UI_Options"], re.M | re.S)
+    startup = [line.strip() for line in script_text["StartGame"].splitlines() if "pbSetResizeFactor(" in line]
+    assert resize_method and option and len(startup) == 1
+    for name, code in [(b"$fire_ash_options_code", script_text["UI_Options"]),
+                       (b"$fire_ash_resize_code", resize_method[0]),
+                       (b"$fire_ash_scale_option_code", option[0]),
+                       (b"$fire_ash_startup_resize_code", startup[0]),
+                       (b"$fire_ash_preview_dialogue", preview_text)]:
+        encoded = code.encode("utf-8")
+        ruby.rb_gv_set(name, ruby.rb_utf8_str_new(encoded, len(encoded)))
+    ui_keys, ui_values = loads(data[24]._dump())
+    ui = {fire_ash.text(k): fire_ash.text(v) for k, v in zip(ui_keys, ui_values)}
+    needed = ["Options", "Music Volume", "SE Volume", "Text Speed", "Slow", "Normal", "Fast",
+              "Battle Effects", "On", "Off", "Battle Style", "Switch", "Set", "Default Movement",
+              "Walking", "Running", "Screen Size", "S", "M", "L", "XL", "Full", "Text Entry", "Cursor", "Keyboard"]
+    evaluate("$fire_ash_preview_ui = {" + ",".join(fire_ash.ruby_string(k)+"=>"+fire_ash.ruby_string(ui[k])
+                                                for k in needed) + "}; 'preview UI ready'")
+    print(evaluate((ROOT / "tools/verify_display.rb").read_text(encoding="utf-8")))
+    recorded_scenes = {}
+    for scene in ("settings-before", "settings-after", "dialogue-before", "dialogue-after"):
+        packed = evaluate("$fire_ash_preview_calls[" + fire_ash.ruby_string(scene) + "].map { |c| "
+                          "[c[0],*c[1..4],c[6],c[8],*c[9..12],c[5].unpack1('H*'),c[7].unpack1('H*')].join('|') }.join(10.chr)")
+        calls = []
+        for line in packed.splitlines():
+            fields = line.split("|")
+            calls.append({"kind": fields[0], "rect": list(map(int, fields[1:5])),
+                          "align": int(fields[5]), "api_size": int(fields[6]),
+                          "color": list(map(int, fields[7:11])),
+                          "text": bytes.fromhex(fields[11]).decode("utf-8"),
+                          "family": bytes.fromhex(fields[12]).decode("utf-8")})
+        recorded_scenes[scene] = calls
+    fire_ash.json_write(ARTIFACTS / "data/fire-ash-work/font-preview-draw-calls.json", {
+        "scenes": recorded_scenes, "font_sha256": font_sha256,
+        "scripts_sha256": fire_ash.digest(scripts_path.read_bytes()),
+        "source": "Native Ruby Window_PokemonOption.drawItem, pbDrawShadowText and drawSingleFormattedChar calls"})
     runtime_scripts = [zlib.decompress(row[2]) for row in scripts
                        if fire_ash.text(row[1]) == "FireAsh_ZHTW_Runtime"]
     runtime_targets = json.loads((ROOT / "translations/runtime-ui.json").read_text(encoding="utf-8"))["102"]
@@ -286,6 +331,9 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
               "native_cjk_layout_cases_checked": layout_cases_checked, "english_layout_unchanged_cases_checked": 4,
               "original_cjk_overflow_reproduced": True, "layout_metrics": "FreeType-Fusion-Pixel-12px-zh-TW-at-24px",
               "layout_test_sha256": fire_ash.digest((ROOT / "tools/verify_layout.rb").read_bytes()),
+              "native_painter_cases_checked": int(evaluate("$fire_ash_display_cases.to_s")),
+              "native_scale_options_checked": 6, "scale_3x_survives_startup": True,
+              "display_test_sha256": fire_ash.digest((ROOT / "tools/verify_display.rb").read_bytes()),
               "runtime_ui_unique_checked": len(runtime_targets), "runtime_display_behavior": "pass",
               "runtime_support_sha256": fire_ash.digest(runtime_scripts[0]),
               "runtime_test_sha256": fire_ash.digest((ROOT / "tools/verify_runtime.rb").read_bytes()),

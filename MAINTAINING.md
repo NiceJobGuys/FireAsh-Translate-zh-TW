@@ -39,7 +39,7 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_i
 
 依序等待上一個程序成功，再執行下一個。`coverage.json`、`validation.json` 及 `deployment-validation.json` 的語言檔雜湊必須一致，不能用舊報告證明新產物。
 
-`build` 不寫入遊戲；只產生獨立語言檔、本機修改腳本、像素字型與完整 OFL 授權。原生 Ruby 使用遊戲 DLL 做資料與函式測試，不啟動 Game.exe。排版改用新字型的實際 FreeType 字寬，預覽用未二值化灰階遮罩在 512x384 畫布算繪、最近鄰放大四倍；仍不能代替遊戲實機畫面。
+`build` 不寫入遊戲；只產生獨立語言檔、本機修改腳本、像素字型與完整 OFL 授權。原生 Ruby 使用遊戲 DLL 做資料與函式測試，不啟動 Game.exe。`verify_display.rb` 以原遊戲的 drawItem／文字函式錄下實際繪製呼叫，`font_preview.py` 再以 FreeType 重播、最近鄰輸出 1／3／4 倍圖；不可另手寫一層陰影代替原本三層。這仍不能代替 SDL 遊戲實機畫面。
 
 上述建置與原生驗證指令須使用符合 `source-manifest.json` 的原版副本，不對目前正在實機驗收的已套用目錄重新匯出或建置。套用前的驗證報告保留當時 `installed=false` 等歷史狀態；不得為了配合目前狀態，手動改寫既有測試結果。
 
@@ -50,6 +50,8 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_i
 repo 僅收原文／譯文、術語、工具與文件；完整原版／修改後 Scripts.rxdata、語言二進位、字型、存檔與備份不 commit。改用 Fusion Pixel Font 12px zh_tw（OFL 1.1），台灣標準字形較符合本專案目標；兩版字寬與覆蓋相同，翻譯與 PokeAPI zh-Hant 術語不變。下載及授權核對見 `font-source.json`；來源副本仍置於 repo 外。
 
 本機 mkxp 將 API 字級乘 0.9 後取整數；一般文字 `Font.size=27` 對應實際 24px，小字 `14` 對應 12px。不得直接把 API 改成 24，否則實際成為 21px 而偏離原生格線。中文繪製暫停人工粗體／斜體，完成後還原；英文模式不動字型或樣式。完整字集 12／24px 已驗證無灰邊，`solidFonts` 不啟用、`mkxp.json` 不列入套用。這個決定只針對本次固定雜湊的引擎與字型，升級後需重驗。
+
+繁中模式停用三條一般文字路徑的三層陰影：`pbDrawShadowText`、`renderLineBrokenChunksWithShadow`、`drawSingleFormattedChar`；保留明確 outline 標記及英文行為。新增 `3x` 顯示沿用 `pbSetResizeFactor`，追加索引 5，原全螢幕索引 4 不變；UI_Options 與 StartGame 讀取時都必須接受索引 5。不要改內部畫布尺寸來實現視窗縮放，也不要改寫玩家存檔。
 
 使用者已決定 repo 維持私人。來源修改前先 `git pull --ff-only`，修改後檢查 `git diff`、`git ls-files`，確認只有可 diff 的文字、工具與文件，再 commit、push。README、排除規則與 repo 設定參照私人 CoA-Translate-zh-TW；不把 CoA 用於二進位包的 `translations/` 排除規則直接套用，本專案的 `translations/` 是必須追蹤的 JSON／JSONL 來源。
 

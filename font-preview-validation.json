@@ -1,1133 +1,3098 @@
 {
   "passed": true,
-  "renderer": "Pillow/FreeType grayscale; no threshold; not game screenshots",
+  "renderer": "Native Ruby call capture -> Pillow/FreeType grayscale; no threshold; not game screenshots",
   "canvas": [
     512,
     384
   ],
-  "scale": 4,
+  "scales": [
+    1,
+    3,
+    4
+  ],
   "resampling": "NEAREST",
   "font_sha256": "780a81e9ab70281f0f0563be0d90f1916edd4c68719072c7b65c7d0a9d295be8",
   "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
-  "scripts_sha256": "07069042f33f429720b4c08b177ed8b36ad85fdec0b1ba1f2f06c9c7d660fcda",
-  "glyph_bounds_checked": 100,
-  "preview_tool_sha256": "870156680ef8951f12789cc2776db115b9d24b5a75a68ccf04c44fdf39aec358",
+  "scripts_sha256": "be67ad665ba1793796e3251e9732e73f5454f7d1ee535294d912ab56eb42bae5",
+  "draw_calls_sha256": "8dd856b711f8b1cbd830ccb5ddf1f145eec809794317db3a1412e1b038a20a2d",
+  "preview_tool_sha256": "c98729331142ff6d57eb63147350c17f201f6c58a6f1c94a6f97ea5a1d7063e9",
+  "glyph_bounds_checked": 305,
+  "horizontal_squeeze_cases": 0,
+  "scene_call_counts": {
+    "settings-before": 116,
+    "settings-after": 32,
+    "dialogue-before": 132,
+    "dialogue-after": 33
+  },
   "bounds": [
     {
+      "scene": "settings-before",
+      "text": "設定",
+      "box": [
+        34,
+        26,
+        82,
+        48
+      ]
+    },
+    {
+      "scene": "settings-before",
       "text": "設定",
       "box": [
         32,
-        22,
+        28,
         80,
-        44
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
+        50
+      ]
     },
     {
+      "scene": "settings-before",
+      "text": "設定",
+      "box": [
+        34,
+        28,
+        82,
+        50
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "設定",
+      "box": [
+        32,
+        26,
+        80,
+        48
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "音樂音量",
+      "box": [
+        34,
+        74,
+        130,
+        96
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "音樂音量",
+      "box": [
+        32,
+        76,
+        128,
+        98
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "音樂音量",
+      "box": [
+        34,
+        76,
+        130,
+        98
+      ]
+    },
+    {
+      "scene": "settings-before",
       "text": "音樂音量",
       "box": [
         32,
         74,
         128,
         96
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
       "text": "100",
       "box": [
-        248,
+        400,
         76,
-        284,
+        436,
         92
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
+      "text": "100",
+      "box": [
+        398,
+        78,
+        434,
+        94
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "100",
+      "box": [
+        400,
+        78,
+        436,
+        94
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "100",
+      "box": [
+        398,
+        76,
+        434,
+        92
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "音效音量",
+      "box": [
+        34,
+        110,
+        130,
+        132
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "音效音量",
+      "box": [
+        32,
+        112,
+        128,
+        134
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "音效音量",
+      "box": [
+        34,
+        112,
+        130,
+        134
+      ]
+    },
+    {
+      "scene": "settings-before",
       "text": "音效音量",
       "box": [
         32,
         110,
         128,
         132
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
       "text": "80",
       "box": [
-        248,
+        412,
         112,
-        272,
+        436,
         128
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
+      "text": "80",
+      "box": [
+        410,
+        114,
+        434,
+        130
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "80",
+      "box": [
+        412,
+        114,
+        436,
+        130
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "80",
+      "box": [
+        410,
+        112,
+        434,
+        128
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "文字速度",
+      "box": [
+        34,
+        146,
+        130,
+        168
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "文字速度",
+      "box": [
+        32,
+        148,
+        128,
+        170
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "文字速度",
+      "box": [
+        34,
+        148,
+        130,
+        170
+      ]
+    },
+    {
+      "scene": "settings-before",
       "text": "文字速度",
       "box": [
         32,
         146,
         128,
         168
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
+      "text": "慢",
+      "box": [
+        235,
+        146,
+        259,
+        168
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "慢",
+      "box": [
+        233,
+        148,
+        257,
+        170
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "慢",
+      "box": [
+        235,
+        148,
+        259,
+        170
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "慢",
+      "box": [
+        233,
+        146,
+        257,
+        168
+      ]
+    },
+    {
+      "scene": "settings-before",
       "text": "一般",
       "box": [
-        248,
+        311,
         146,
-        296,
+        359,
         168
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
+      "text": "一般",
+      "box": [
+        309,
+        148,
+        357,
+        170
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "一般",
+      "box": [
+        311,
+        148,
+        359,
+        170
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "一般",
+      "box": [
+        309,
+        146,
+        357,
+        168
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "快",
+      "box": [
+        411,
+        146,
+        435,
+        168
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "快",
+      "box": [
+        409,
+        148,
+        433,
+        170
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "快",
+      "box": [
+        411,
+        148,
+        435,
+        170
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "快",
+      "box": [
+        409,
+        146,
+        433,
+        168
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "對戰動畫",
+      "box": [
+        34,
+        182,
+        130,
+        204
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "對戰動畫",
+      "box": [
+        32,
+        184,
+        128,
+        206
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "對戰動畫",
+      "box": [
+        34,
+        184,
+        130,
+        206
+      ]
+    },
+    {
+      "scene": "settings-before",
       "text": "對戰動畫",
       "box": [
         32,
         182,
         128,
         204
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
       "text": "開啟",
       "box": [
-        248,
+        235,
         182,
-        296,
+        283,
         204
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
+      "text": "開啟",
+      "box": [
+        233,
+        184,
+        281,
+        206
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "開啟",
+      "box": [
+        235,
+        184,
+        283,
+        206
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "開啟",
+      "box": [
+        233,
+        182,
+        281,
+        204
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "關閉",
+      "box": [
+        388,
+        182,
+        436,
+        204
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "關閉",
+      "box": [
+        386,
+        184,
+        434,
+        206
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "關閉",
+      "box": [
+        388,
+        184,
+        436,
+        206
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "關閉",
+      "box": [
+        386,
+        182,
+        434,
+        204
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "對戰方式",
+      "box": [
+        34,
+        218,
+        130,
+        240
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "對戰方式",
+      "box": [
+        32,
+        220,
+        128,
+        242
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "對戰方式",
+      "box": [
+        34,
+        220,
+        130,
+        242
+      ]
+    },
+    {
+      "scene": "settings-before",
       "text": "對戰方式",
       "box": [
         32,
         218,
         128,
         240
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
       "text": "替換",
       "box": [
-        248,
+        235,
         218,
-        296,
+        283,
         240
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
+      "text": "替換",
+      "box": [
+        233,
+        220,
+        281,
+        242
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "替換",
+      "box": [
+        235,
+        220,
+        283,
+        242
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "替換",
+      "box": [
+        233,
+        218,
+        281,
+        240
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "連戰",
+      "box": [
+        388,
+        218,
+        436,
+        240
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "連戰",
+      "box": [
+        386,
+        220,
+        434,
+        242
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "連戰",
+      "box": [
+        388,
+        220,
+        436,
+        242
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "連戰",
+      "box": [
+        386,
+        218,
+        434,
+        240
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "預設移動方式",
+      "box": [
+        34,
+        254,
+        178,
+        276
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "預設移動方式",
+      "box": [
+        32,
+        256,
+        176,
+        278
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "預設移動方式",
+      "box": [
+        34,
+        256,
+        178,
+        278
+      ]
+    },
+    {
+      "scene": "settings-before",
       "text": "預設移動方式",
       "box": [
         32,
         254,
         176,
         276
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
       "text": "步行",
       "box": [
-        248,
+        235,
         254,
-        296,
+        283,
         276
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
+      "text": "步行",
+      "box": [
+        233,
+        256,
+        281,
+        278
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "步行",
+      "box": [
+        235,
+        256,
+        283,
+        278
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "步行",
+      "box": [
+        233,
+        254,
+        281,
+        276
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "跑步",
+      "box": [
+        388,
+        254,
+        436,
+        276
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "跑步",
+      "box": [
+        386,
+        256,
+        434,
+        278
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "跑步",
+      "box": [
+        388,
+        256,
+        436,
+        278
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "跑步",
+      "box": [
+        386,
+        254,
+        434,
+        276
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "畫面大小",
+      "box": [
+        34,
+        290,
+        130,
+        312
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "畫面大小",
+      "box": [
+        32,
+        292,
+        128,
+        314
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "畫面大小",
+      "box": [
+        34,
+        292,
+        130,
+        314
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "畫面大小",
+      "box": [
+        32,
+        290,
+        128,
+        312
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "S",
+      "box": [
+        235,
+        292,
+        247,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "S",
+      "box": [
+        233,
+        294,
+        245,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "S",
+      "box": [
+        235,
+        294,
+        247,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "S",
+      "box": [
+        233,
+        292,
+        245,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "M",
+      "box": [
+        256,
+        292,
+        268,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "M",
+      "box": [
+        254,
+        294,
+        266,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "M",
+      "box": [
+        256,
+        294,
+        268,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "M",
+      "box": [
+        254,
+        292,
+        266,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "L",
+      "box": [
+        277,
+        292,
+        289,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "L",
+      "box": [
+        275,
+        294,
+        287,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "L",
+      "box": [
+        277,
+        294,
+        289,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "L",
+      "box": [
+        275,
+        292,
+        287,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "XL",
+      "box": [
+        298,
+        292,
+        322,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "XL",
+      "box": [
+        296,
+        294,
+        320,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "XL",
+      "box": [
+        298,
+        294,
+        322,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "XL",
+      "box": [
+        296,
+        292,
+        320,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "全螢幕",
+      "box": [
+        331,
+        290,
+        403,
+        312
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "全螢幕",
+      "box": [
+        329,
+        292,
+        401,
+        314
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "全螢幕",
+      "box": [
+        331,
+        292,
+        403,
+        314
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "全螢幕",
+      "box": [
+        329,
+        290,
+        401,
+        312
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "3x",
+      "box": [
+        412,
+        292,
+        436,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "3x",
+      "box": [
+        410,
+        294,
+        434,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "3x",
+      "box": [
+        412,
+        294,
+        436,
+        310
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "3x",
+      "box": [
+        410,
+        292,
+        434,
+        308
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "文字輸入",
+      "box": [
+        34,
+        326,
+        130,
+        348
+      ]
+    },
+    {
+      "scene": "settings-before",
       "text": "文字輸入",
       "box": [
         32,
-        290,
+        328,
         128,
-        312
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
+        350
+      ]
     },
     {
-      "text": "鍵盤",
+      "scene": "settings-before",
+      "text": "文字輸入",
       "box": [
-        248,
-        290,
-        296,
-        312
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
+        34,
+        328,
+        130,
+        350
+      ]
     },
     {
-      "text": "天氣效果",
+      "scene": "settings-before",
+      "text": "文字輸入",
       "box": [
         32,
         326,
         128,
         348
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
+      ]
     },
     {
+      "scene": "settings-before",
+      "text": "游標",
+      "box": [
+        235,
+        326,
+        283,
+        348
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "游標",
+      "box": [
+        233,
+        328,
+        281,
+        350
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "游標",
+      "box": [
+        235,
+        328,
+        283,
+        350
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "游標",
+      "box": [
+        233,
+        326,
+        281,
+        348
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "鍵盤",
+      "box": [
+        388,
+        326,
+        436,
+        348
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "鍵盤",
+      "box": [
+        386,
+        328,
+        434,
+        350
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "鍵盤",
+      "box": [
+        388,
+        328,
+        436,
+        350
+      ]
+    },
+    {
+      "scene": "settings-before",
+      "text": "鍵盤",
+      "box": [
+        386,
+        326,
+        434,
+        348
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "設定",
+      "box": [
+        32,
+        26,
+        80,
+        48
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "音樂音量",
+      "box": [
+        32,
+        74,
+        128,
+        96
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "100",
+      "box": [
+        398,
+        76,
+        434,
+        92
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "音效音量",
+      "box": [
+        32,
+        110,
+        128,
+        132
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "80",
+      "box": [
+        410,
+        112,
+        434,
+        128
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "文字速度",
+      "box": [
+        32,
+        146,
+        128,
+        168
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "慢",
+      "box": [
+        233,
+        146,
+        257,
+        168
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "一般",
+      "box": [
+        309,
+        146,
+        357,
+        168
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "快",
+      "box": [
+        409,
+        146,
+        433,
+        168
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "對戰動畫",
+      "box": [
+        32,
+        182,
+        128,
+        204
+      ]
+    },
+    {
+      "scene": "settings-after",
       "text": "開啟",
       "box": [
-        248,
-        326,
-        296,
-        348
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
+        233,
+        182,
+        281,
+        204
+      ]
     },
     {
+      "scene": "settings-after",
+      "text": "關閉",
+      "box": [
+        386,
+        182,
+        434,
+        204
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "對戰方式",
+      "box": [
+        32,
+        218,
+        128,
+        240
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "替換",
+      "box": [
+        233,
+        218,
+        281,
+        240
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "連戰",
+      "box": [
+        386,
+        218,
+        434,
+        240
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "預設移動方式",
+      "box": [
+        32,
+        254,
+        176,
+        276
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "步行",
+      "box": [
+        233,
+        254,
+        281,
+        276
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "跑步",
+      "box": [
+        386,
+        254,
+        434,
+        276
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "畫面大小",
+      "box": [
+        32,
+        290,
+        128,
+        312
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "S",
+      "box": [
+        233,
+        292,
+        245,
+        308
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "M",
+      "box": [
+        254,
+        292,
+        266,
+        308
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "L",
+      "box": [
+        275,
+        292,
+        287,
+        308
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "XL",
+      "box": [
+        296,
+        292,
+        320,
+        308
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "全螢幕",
+      "box": [
+        329,
+        290,
+        401,
+        312
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "3x",
+      "box": [
+        410,
+        292,
+        434,
+        308
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "文字輸入",
+      "box": [
+        32,
+        326,
+        128,
+        348
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "游標",
+      "box": [
+        233,
+        326,
+        281,
+        348
+      ]
+    },
+    {
+      "scene": "settings-after",
+      "text": "鍵盤",
+      "box": [
+        386,
+        326,
+        434,
+        348
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "這",
+      "box": [
+        34,
+        274,
+        58,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "這",
+      "box": [
+        32,
+        276,
+        56,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "這",
+      "box": [
+        34,
+        276,
+        58,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "這",
       "box": [
         32,
         274,
         56,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "是",
+      "box": [
+        58,
+        274,
+        82,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "是",
+      "box": [
+        56,
+        276,
+        80,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "是",
+      "box": [
+        58,
+        276,
+        82,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "是",
       "box": [
         56,
         274,
         80,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "桄",
+      "box": [
+        82,
+        274,
+        106,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "桄",
+      "box": [
+        80,
+        276,
+        104,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "桄",
+      "box": [
+        82,
+        276,
+        106,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "桄",
       "box": [
         80,
         274,
         104,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "榔",
+      "box": [
+        106,
+        274,
+        130,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "榔",
+      "box": [
+        104,
+        276,
+        128,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "榔",
+      "box": [
+        106,
+        276,
+        130,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "榔",
       "box": [
         104,
         274,
         128,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "島",
+      "box": [
+        130,
+        274,
+        154,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "島",
+      "box": [
+        128,
+        276,
+        152,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "島",
+      "box": [
+        130,
+        276,
+        154,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "島",
       "box": [
         128,
         274,
         152,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "的",
+      "box": [
+        154,
+        274,
+        178,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "的",
+      "box": [
+        152,
+        276,
+        176,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "的",
+      "box": [
+        154,
+        276,
+        178,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "的",
       "box": [
         152,
         274,
         176,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "戽",
+      "box": [
+        178,
+        274,
+        202,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "戽",
+      "box": [
+        176,
+        276,
+        200,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "戽",
+      "box": [
+        178,
+        276,
+        202,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "戽",
       "box": [
         176,
         274,
         200,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "斗",
+      "box": [
+        202,
+        274,
+        226,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "斗",
+      "box": [
+        200,
+        276,
+        224,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "斗",
+      "box": [
+        202,
+        276,
+        226,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "斗",
       "box": [
         200,
         274,
         224,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "尖",
+      "box": [
+        226,
+        274,
+        250,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "尖",
+      "box": [
+        224,
+        276,
+        248,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "尖",
+      "box": [
+        226,
+        276,
+        250,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "尖",
       "box": [
         224,
         274,
         248,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "梭",
+      "box": [
+        250,
+        274,
+        274,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "梭",
+      "box": [
+        248,
+        276,
+        272,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "梭",
+      "box": [
+        250,
+        276,
+        274,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "梭",
       "box": [
         248,
         274,
         272,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "。",
+      "box": [
+        274,
+        282,
+        298,
+        292
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "。",
+      "box": [
+        272,
+        284,
+        296,
+        294
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "。",
+      "box": [
+        274,
+        284,
+        298,
+        294
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "。",
       "box": [
         272,
         282,
         296,
         292
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "小",
+      "box": [
+        298,
+        274,
+        322,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "小",
+      "box": [
+        296,
+        276,
+        320,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "小",
+      "box": [
+        298,
+        276,
+        322,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "小",
       "box": [
         296,
         274,
         320,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "智",
+      "box": [
+        322,
+        274,
+        346,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "智",
+      "box": [
+        320,
+        276,
+        344,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "智",
+      "box": [
+        322,
+        276,
+        346,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "智",
       "box": [
         320,
         274,
         344,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "與",
+      "box": [
+        346,
+        274,
+        370,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "與",
+      "box": [
+        344,
+        276,
+        368,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "與",
+      "box": [
+        346,
+        276,
+        370,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "與",
       "box": [
         344,
         274,
         368,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "皮",
+      "box": [
+        370,
+        274,
+        394,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "皮",
+      "box": [
+        368,
+        276,
+        392,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "皮",
+      "box": [
+        370,
+        276,
+        394,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "皮",
       "box": [
         368,
         274,
         392,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "卡",
+      "box": [
+        394,
+        274,
+        418,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "卡",
+      "box": [
+        392,
+        276,
+        416,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "卡",
+      "box": [
+        394,
+        276,
+        418,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "卡",
       "box": [
         392,
         274,
         416,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "丘",
+      "box": [
+        418,
+        274,
+        442,
+        296
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "丘",
+      "box": [
+        416,
+        276,
+        440,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "丘",
+      "box": [
+        418,
+        276,
+        442,
+        298
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "丘",
       "box": [
         416,
         274,
         440,
         296
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "一",
+      "box": [
+        442,
+        284,
+        466,
+        292
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "一",
+      "box": [
+        440,
+        286,
+        464,
+        294
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "一",
+      "box": [
+        442,
+        286,
+        466,
+        294
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "一",
       "box": [
         440,
         284,
         464,
         292
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "起",
+      "box": [
+        34,
+        306,
+        58,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "起",
+      "box": [
+        32,
+        308,
+        56,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "起",
+      "box": [
+        34,
+        308,
+        58,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "起",
       "box": [
         32,
         306,
         56,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "旅",
+      "box": [
+        58,
+        306,
+        82,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "旅",
+      "box": [
+        56,
+        308,
+        80,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "旅",
+      "box": [
+        58,
+        308,
+        82,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "旅",
       "box": [
         56,
         306,
         80,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "行",
+      "box": [
+        82,
+        306,
+        106,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "行",
+      "box": [
+        80,
+        308,
+        104,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "行",
+      "box": [
+        82,
+        308,
+        106,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "行",
       "box": [
         80,
         306,
         104,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "，",
+      "box": [
+        106,
+        314,
+        130,
+        324
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "，",
+      "box": [
+        104,
+        316,
+        128,
+        326
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "，",
+      "box": [
+        106,
+        316,
+        130,
+        326
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "，",
       "box": [
         104,
         314,
         128,
         324
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "歡",
+      "box": [
+        130,
+        306,
+        154,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "歡",
+      "box": [
+        128,
+        308,
+        152,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "歡",
+      "box": [
+        130,
+        308,
+        154,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "歡",
       "box": [
         128,
         306,
         152,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "迎",
+      "box": [
+        154,
+        306,
+        178,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "迎",
+      "box": [
+        152,
+        308,
+        176,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "迎",
+      "box": [
+        154,
+        308,
+        178,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "迎",
       "box": [
         152,
         306,
         176,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "來",
+      "box": [
+        178,
+        306,
+        202,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "來",
+      "box": [
+        176,
+        308,
+        200,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "來",
+      "box": [
+        178,
+        308,
+        202,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "來",
       "box": [
         176,
         306,
         200,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "到",
+      "box": [
+        202,
+        306,
+        226,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "到",
+      "box": [
+        200,
+        308,
+        224,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "到",
+      "box": [
+        202,
+        308,
+        226,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "到",
       "box": [
         200,
         306,
         224,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "寶",
+      "box": [
+        226,
+        306,
+        250,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "寶",
+      "box": [
+        224,
+        308,
+        248,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "寶",
+      "box": [
+        226,
+        308,
+        250,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "寶",
       "box": [
         224,
         306,
         248,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "可",
+      "box": [
+        250,
+        306,
+        274,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "可",
+      "box": [
+        248,
+        308,
+        272,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "可",
+      "box": [
+        250,
+        308,
+        274,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "可",
       "box": [
         248,
         306,
         272,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "夢",
+      "box": [
+        274,
+        306,
+        298,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "夢",
+      "box": [
+        272,
+        308,
+        296,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "夢",
+      "box": [
+        274,
+        308,
+        298,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "夢",
       "box": [
         272,
         306,
         296,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "的",
+      "box": [
+        298,
+        306,
+        322,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "的",
+      "box": [
+        296,
+        308,
+        320,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "的",
+      "box": [
+        298,
+        308,
+        322,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "的",
       "box": [
         296,
         306,
         320,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "世",
+      "box": [
+        322,
+        306,
+        346,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "世",
+      "box": [
+        320,
+        308,
+        344,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "世",
+      "box": [
+        322,
+        308,
+        346,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "世",
       "box": [
         320,
         306,
         344,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "界",
+      "box": [
+        346,
+        306,
+        370,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "界",
+      "box": [
+        344,
+        308,
+        368,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "界",
+      "box": [
+        346,
+        308,
+        370,
+        330
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "界",
       "box": [
         344,
         306,
         368,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-before",
+      "text": "！",
+      "box": [
+        370,
+        308,
+        394,
+        326
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "！",
+      "box": [
+        368,
+        310,
+        392,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
+      "text": "！",
+      "box": [
+        370,
+        310,
+        394,
+        328
+      ]
+    },
+    {
+      "scene": "dialogue-before",
       "text": "！",
       "box": [
         368,
         308,
         392,
         326
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
-      "text": "設定",
-      "box": [
-        32,
-        25,
-        72,
-        44
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
-    },
-    {
-      "text": "音樂音量",
-      "box": [
-        32,
-        77,
-        112,
-        95
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
-    },
-    {
-      "text": "100",
-      "box": [
-        248,
-        79,
-        284,
-        94
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
-    },
-    {
-      "text": "音效音量",
-      "box": [
-        32,
-        113,
-        112,
-        131
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
-    },
-    {
-      "text": "80",
-      "box": [
-        248,
-        115,
-        272,
-        130
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
-    },
-    {
-      "text": "文字速度",
-      "box": [
-        32,
-        149,
-        112,
-        168
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
-    },
-    {
-      "text": "一般",
-      "box": [
-        248,
-        149,
-        288,
-        168
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
-    },
-    {
-      "text": "對戰動畫",
-      "box": [
-        32,
-        185,
-        112,
-        203
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
-    },
-    {
-      "text": "開啟",
-      "box": [
-        248,
-        186,
-        288,
-        203
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
-    },
-    {
-      "text": "對戰方式",
-      "box": [
-        32,
-        221,
-        112,
-        239
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
-    },
-    {
-      "text": "替換",
-      "box": [
-        248,
-        221,
-        288,
-        239
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
-    },
-    {
-      "text": "預設移動方式",
-      "box": [
-        32,
-        257,
-        152,
-        276
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
-    },
-    {
-      "text": "步行",
-      "box": [
-        248,
-        257,
-        288,
-        275
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
-    },
-    {
-      "text": "文字輸入",
-      "box": [
-        32,
-        293,
-        112,
-        311
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
-    },
-    {
-      "text": "鍵盤",
-      "box": [
-        248,
-        293,
-        288,
-        312
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
-    },
-    {
-      "text": "天氣效果",
-      "box": [
-        32,
-        329,
-        112,
-        347
-      ],
-      "right_limit": 232,
-      "bottom_limit": 376
-    },
-    {
-      "text": "開啟",
-      "box": [
-        248,
-        330,
-        288,
-        347
-      ],
-      "right_limit": 480,
-      "bottom_limit": 376
-    },
-    {
+      "scene": "dialogue-after",
       "text": "這",
       "box": [
         32,
-        278,
-        52,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        56,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "是",
       "box": [
         56,
-        278,
-        76,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        80,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "桄",
       "box": [
         80,
-        277,
-        100,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        104,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "榔",
       "box": [
         104,
-        277,
-        124,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        128,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "島",
       "box": [
         128,
-        276,
-        148,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        152,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "的",
       "box": [
         152,
-        278,
-        172,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        176,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "戽",
       "box": [
         176,
-        277,
-        196,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        200,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "斗",
       "box": [
         200,
-        277,
-        220,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        224,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "尖",
       "box": [
         224,
-        277,
-        244,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        248,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "梭",
       "box": [
         248,
-        277,
-        268,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        272,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "。",
       "box": [
         272,
-        284,
-        292,
-        294
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        282,
+        296,
+        292
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "小",
       "box": [
         296,
-        278,
-        316,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        320,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "智",
       "box": [
         320,
-        277,
-        340,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        344,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "與",
       "box": [
         344,
-        277,
-        364,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        368,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "皮",
       "box": [
         368,
-        278,
-        388,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        392,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "卡",
       "box": [
         392,
-        277,
-        412,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        416,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "丘",
       "box": [
         416,
-        277,
-        436,
-        295
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        274,
+        440,
+        296
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "一",
       "box": [
         440,
-        285,
-        460,
-        294
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        284,
+        464,
+        292
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "起",
       "box": [
         32,
-        309,
-        52,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        56,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "旅",
       "box": [
         56,
-        309,
-        76,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        80,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "行",
       "box": [
         80,
-        309,
-        100,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        104,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "，",
       "box": [
         104,
-        318,
-        124,
-        326
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        314,
+        128,
+        324
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "歡",
       "box": [
         128,
-        309,
-        148,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        152,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "迎",
       "box": [
         152,
-        310,
-        172,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        176,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "來",
       "box": [
         176,
-        309,
-        196,
+        306,
+        200,
         328
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "到",
       "box": [
         200,
-        309,
-        220,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        224,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "寶",
       "box": [
         224,
-        309,
-        244,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        248,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "可",
       "box": [
         248,
-        310,
-        268,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        272,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "夢",
       "box": [
         272,
-        310,
-        292,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        296,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "的",
       "box": [
         296,
-        310,
-        316,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        320,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "世",
       "box": [
         320,
-        310,
-        340,
-        326
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        344,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "界",
       "box": [
         344,
-        310,
-        364,
-        327
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+        306,
+        368,
+        328
+      ]
     },
     {
+      "scene": "dialogue-after",
       "text": "！",
       "box": [
         368,
-        311,
-        388,
+        308,
+        392,
         326
-      ],
-      "right_limit": 480,
-      "bottom_limit": 368
+      ]
     }
   ],
-  "dialogue_layout": "Original game getFormattedText + CJK wrap patch + actual FreeType advances at 24px",
   "previews": [
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-new-512.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-new-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-new-512.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-new-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-old-512.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-old-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-old-512.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-old-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-comparison-4x.png",
-    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-comparison-4x.png"
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-three-shadows-1x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-three-shadows-3x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-three-shadows-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-1x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-3x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-no-shadow-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-three-shadows-1x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-three-shadows-3x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-three-shadows-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-1x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-3x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-no-shadow-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-shadow-comparison-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-shadow-comparison-4x.png"
   ],
   "game_started": false,
   "installed": false,
-  "limitations": "預覽重現字型與排版尺寸，背景為測試用畫布；不是遊戲實機畫面，仍須Claude 1重新套用後驗收。"
+  "limitations": "已執行遊戲實際選單及文字函式，圖形API由記錄器替代；重播採FreeType。背景／游標為測試畫布，非SDL實機截圖；3x實際視窗尺寸仍需Claude 1驗收。"
 }

@@ -24,7 +24,7 @@
 | 字型授權 | `data\fire-ash-work\fonts\fire-ash-zhtw-OFL.txt` | 原始及上游授權文字，隨字型套用 |
 | 覆蓋報告 | `release\fire-ash-zh-tw-preview\coverage.json` | 各類別詳細統計 |
 
-本機已由 Claude 1 套用，原檔備份位於 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-install-20261030`。套用與實機驗收由 Claude 1 管理；repo 不包含遊戲檔、字型、存檔或還原備份。
+本機目前由 Claude 1 套用像素字型版，對應備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-pixel-font-20261030`。較早的 `fire-ash-zhtw-before-install-20261030` 已還原過。新的無陰影／3x 版本仍待重新套用與實機驗收；repo 不包含遊戲檔、字型、存檔或還原備份。
 
 本機套用範圍僅有：
 
@@ -35,7 +35,9 @@
 
 實機回報舊版正黑體模糊後，已改用 [Fusion Pixel Font](https://github.com/TakWolf/fusion-pixel-font) 2026.10.25 的 `zh_tw` 等寬版（OFL 1.1）。`zh_tw` 參考台灣標準字形，`zh_hant` 參考傳統印刷字形；兩者零缺字、字寬相同，本專案以台灣繁中為目標而選 `zh_tw`，不改譯文或 PokeAPI 的 zh-Hant 詞彙來源。Cubic 11 缺「戽」「桄」而未採用；新字型涵蓋全部 3,195 個用字。普通／小字實際為 24／12px，皆為原生 12px 格線的整數倍。本機引擎會將 API 字級乘 0.9 後取整數，因此 `Font.size` 設為 27／14。字型 SHA、下載來源與原始授權雜湊見 `font-source.json`。
 
-`solidFonts` 維持原設定，不修改 `mkxp.json`。完整字集在 12／24px 的未二值化 FreeType 灰階遮罩只有 0／255，無需全域改動英文渲染。中文繪製暫停人工粗體／斜體，結束後還原樣式；原有硬邊陰影仍保留。新版本仍須 Claude 1 還原舊版、重新套用後完成實機驗收。
+`solidFonts` 維持原設定，不修改 `mkxp.json`。完整字集在 12／24px 的未二值化 FreeType 灰階遮罩只有 0／255。繁中模式的選單、分行文字與格式對話不再疊畫三層陰影；英文模式及明確指定的外框效果保留。中文字型仍暫停人工粗體／斜體，結束後還原樣式。
+
+設定 → 畫面大小新增 `3x`，呼叫既有縮放功能顯示 `1536×1152` 視窗，內部畫布維持 `512×384`。原有 S／M／L／XL／全螢幕的儲存索引不變，`3x` 追加為索引 5；重新啟動能讀回此設定。全螢幕選項在繁中改用情境正確的「全螢幕」，不再誤用容量已滿的翻譯。請以 `3x` 視窗驗收清晰度，實際 Windows 視窗尺寸與 DPI 行為仍待確認。
 
 保留所有既有語言的索引，繁中加在語言清單最後。遊戲內由 Options → Language 選擇「繁體中文」。此路徑已由程式與資料結構核對，遊戲畫面結果待 Claude 1 完成驗收後更新。
 
@@ -66,7 +68,7 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 目前這次套用的還原指令如下。重新套用後，還原時須改用該次實際備份目錄：
 
 ```powershell
-python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\install_preview.py' restore --backup 'D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-install-20261030'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\install_preview.py' restore --backup 'D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-pixel-font-20261030'
 ```
 
 遊戲更新後重新比對來源雜湊、匯出新增文字並重建，不直接覆蓋新版腳本。發佈包不應包含修改後完整 `Scripts.rxdata`，應由套用工具對玩家本機原檔重建；目前的修改後腳本僅供本機驗證。
@@ -95,9 +97,10 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 | `tools/font_support.rb` | 字型切換、中文選項字型、中文斷行及標點禁則 |
 | `tools/verify_ruby.py` | 用原遊戲 Ruby DLL 驗證 Marshal、腳本語法與字型切換邏輯 |
 | `tools/verify_layout.rb` | 重現原版中文超框；原遊戲排版函式搭配新字型實際 FreeType 字寬 |
+| `tools/verify_display.rb` | 執行原版／修改後繪字函式、選單 drawItem 與縮放流程；錄下真實繪製呼叫 |
 | `font-source.json` | 固定字型來源、雜湊、OFL、原生字級與引擎換算證據 |
 | `tools/prepare_baseline.py` | 從既有備份與未改動原檔建立四檔原版建置副本，不寫入遊戲 |
-| `tools/font_preview.py` | 512x384 字型算繪與四倍最近鄰預覽，非遊戲截圖 |
+| `tools/font_preview.py` | 以 FreeType 重播原生 Ruby 繪製呼叫，產生 1／3／4 倍最近鄰對照；非遊戲截圖 |
 | `font-preview-validation.json` | 預覽字界、排版與產物雜湊，不代表實機通過 |
 | `tools/runtime_support.rb` | 動態句子查詢、舊編碼字串相容及只用於顯示的強化名稱 |
 | `tools/verify_runtime.rb` | 用原強化程式驗證翻譯後的選項、購買、升級、能量與原始識別名稱 |
@@ -134,6 +137,7 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_i
 
 ## 驗證與已知限制
 
+- 本輪無陰影／3x 預覽經 Codex 與 Claude 1 檢查通過；Gemini 第二意見因三次 HTTP 503 未取得結果，三方圖像驗收仍待補齊，不能視為整體驗收完成。
 - 尚未完成實機驗收。Claude 1 已套用本機並正在驗收，以下為先前的文字與原生函式測試結果，不能代替最終遊戲畫面驗收。
 - 905 種不同英文寶可夢名稱全部對照完成，涵蓋 1,295 個型態共用名稱欄位；不代表 1,295 種不同寶可夢。
 - 1,064／1,065 種不同招式名稱已有譯文，剩餘 `UUDDLRLRBAS` 為按鍵代碼名稱，保留原文。
@@ -145,12 +149,13 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_i
 - 原始基底可逐位元組往返序列化；產出的所有 42,534 個文字欄位，位置與內容均通過 Python／原生 Ruby 讀取比對。
 - 404 段腳本均通過原遊戲 Ruby 3.0.2 語法編譯，並驗證英文／繁中兩種設定下的字型初始化與 setter 行為。
 - 每次建置核對像素字型來源 SHA、全部 3,195 個用字及 12／24px 未二值化灰階遮罩；無缺字且透明度僅有 0／255。512x384 設定與對話樣本已實際算繪並放大四倍檢查；測試畫布非遊戲實機截圖。
+- 12 個原生繪製案例確認繁中一般文字由四次繪字降為一次，主字位置／色彩不變；英文與明確外框呼叫序列不變。原遊戲實際選單 getter／setter、六種顯示選項及 3x 啟動讀回通過。預覽錄下原始三層陰影與修正後的實際呼叫，305 處文字邊界通過、橫向壓縮 0；仍不代表所有場景實機通過。
 - 英文模式中遇到中文選項時，文字量測與繪製也會暫時切換至中文字型，完成後還原；已通過邏輯測試，遊戲畫面仍待實測。
 - 已在原生 Ruby 重現原版中文無空白時超框。以原遊戲的純文字及格式排版函式搭配新字型實際 FreeType 字寬，驗證 12 個中文案例，涵蓋標點、名字中間點、混合英文、明確換行與停頓碼，並核對 4 個英文排版案例維持相同結果；仍不能代替遊戲截圖驗收。
 - 補充介面在覆蓋報告列為工具專用 section 102，不是新的遊戲訊息區段。它的 `occurrences=0` 代表不在原訊息檔中；115 種譯文嵌入腳本，不增加或改動原 42,534 個訊息位置。
 - 原生 Ruby 已逐筆核對全部補充字串，並用原強化程式驗證中文選項、說明、數值插入、選項順序、購買價格、升級、裝備及卸下能量。內部英文名稱與舊字串編碼未被顯示翻譯改寫；英文模式回到原顯示方式。
 - 術語檢查包含 3,703 筆參考名稱、2,832 處寶可夢名稱、1,036 處地名、2,792 筆具名發話者及 111 筆招式教學台詞。姓名表與劇情以雙向檢查確保同步，21 筆 Drake／Flint 發話維持明示同名例外；其他同名人物的特定劇情對照列於 `glossary.json` 的 `contextual_terms`。
-- 本機套用工具已通過 3 個檔案測試：套用與還原、複製中途失敗後還原、拒絕覆寫套用後另行修改的檔案。測試只用 Artifacts 內的副本，原安裝基準檔案雜湊保持相同。
+- 本機套用工具已通過 5 個檔案測試：套用與還原、複製中途失敗後還原、拒絕覆寫使用者修改、舊三檔備份還原、拒絕未知／不完整清單。測試只用 Artifacts 內的原版副本。
 - 測試副本曾出現一次 WinError 5 替換錯誤；備份與原檔完整，單獨再執行三個測試通過，原因未確認，見 deployment-notes.json。實際套用若受阻，保留備份與錯誤，不強制覆寫。
 - 已確認原版用「訓練家類型＋姓名」顯示名稱，8 個博士姓名移除重複頭銜，劇情頭銜維持不變；11 個實際組合已核對。Claude 1 兩輪退回項目均已補正，但未發起第三輪驗收，尚無最終接受結論。
 - 原版 Masked／Royal 將類型與姓名拆開，可能顯示「蒙面者 Royal」，列為實機待核項。

@@ -657,6 +657,44 @@ def patch_text_layout(code):
     return code.replace(marker, replacement)
 
 
+def patch_text_effects(code):
+    newline = "\r\n" if "\r\n" in code else "\n"
+    shadow_calls = newline.join([
+        "      bitmap.font.color=shadowColor",
+        "      bitmap.draw_text(textx+2,texty,width+2,height,text)",
+        "      bitmap.draw_text(textx,texty+2,width+2,height,text)",
+        "      bitmap.draw_text(textx+2,texty+2,width+2,height,text)"])
+    changes = [
+        ("pbDrawShadowText", "if shadowColor && shadowColor.alpha>0",
+         "if shadowColor && shadowColor.alpha>0 && !FireAshZHTW.active?"),
+        ("drawSingleFormattedChar", "if ch[9] # shadow",
+         "if ch[9] && (!FireAshZHTW.active? || (ch[16]&3)!=0) # keep explicit outlines"),
+        ("renderLineBrokenChunksWithShadow", shadow_calls,
+         "      unless FireAshZHTW.active?" + newline +
+         newline.join("  " + line for line in shadow_calls.split(newline)) + newline + "      end")]
+    for name, before, after in changes:
+        method = re.search(r"^def " + name + r"\b.*?^end\b", code, re.M | re.S)
+        if not method or method[0].count(before) != 1:
+            raise ValueError(f"Unexpected original text effect method: {name}")
+        code = code[:method.start()] + method[0].replace(before, after) + code[method.end():]
+    return code
+
+
+def patch_screen_options(code, name):
+    if name == "UI_Options":
+        before = '[_INTL("S"),_INTL("M"),_INTL("L"),_INTL("XL"),_INTL("Full")]'
+        if code.count(before) != 1:
+            raise ValueError("Unexpected original screen-size option list")
+        after = before.replace('_INTL("Full")', '(FireAshZHTW.active? ? "全螢幕" : _INTL("Full"))')
+        code = code.replace(before, after[:-1] + ',"3x"]')
+    if name in ("UI_Options", "StartGame"):
+        before = "[$PokemonSystem.screensize, 4].min"
+        if code.count(before) != 1:
+            raise ValueError(f"Unexpected screen-size getter: {name}")
+        code = code.replace(before, "FireAshZHTW.screen_factor($PokemonSystem.screensize)")
+    return code
+
+
 def ruby_string(value):
     # JSON's quoted-string subset is valid Ruby; suppress Ruby interpolation.
     return re.sub(r"#(?=[{@$])", r"\\#", json.dumps(value, ensure_ascii=False))
@@ -726,10 +764,15 @@ def build_scripts(game, runtime_targets):
     draw_scripts = [row for row in scripts if text(row[1]) == "DrawText"]
     assert len(draw_scripts) == 1, "Cannot uniquely identify text layout script"
     row = draw_scripts[0]
-    row[2] = zlib.compress(patch_text_layout(zlib.decompress(row[2]).decode("utf-8")).encode("utf-8"))
+    row[2] = zlib.compress(patch_text_effects(patch_text_layout(
+        zlib.decompress(row[2]).decode("utf-8"))).encode("utf-8"))
     ui_keys = {en for section, _, _, en in records(source_data(game)) if section == 24}
     runtime_patches = []
     for row in scripts:
+        original_code = zlib.decompress(row[2]).decode("utf-8")
+        display_code = patch_screen_options(original_code, text(row[1]))
+        if display_code != original_code:
+            row[2] = zlib.compress(display_code.encode("utf-8"))
         code, changes = patch_runtime_text(zlib.decompress(row[2]).decode("utf-8"), text(row[1]), ui_keys)
         if changes:
             row[2] = zlib.compress(code.encode("utf-8"))
