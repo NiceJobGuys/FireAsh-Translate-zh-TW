@@ -1,0 +1,28 @@
+{
+  "all": {
+    "Credit": "點數",
+    "Credits": "點數",
+    "Club Challenge": "俱樂部挑戰",
+    "Practice Challenge": "練習挑戰",
+    "Gauntlet Challenge": "連戰挑戰",
+    "Mayhem Challenge": "狂亂挑戰",
+    "Sync Challenge": "同步挑戰",
+    "Titan Challenge": "泰坦挑戰",
+    "Duet": "二重奏",
+    "Duet Challenge": "二重奏挑戰",
+    "Gauntlet": "連戰",
+    "Mayhem": "狂亂",
+    "Sync": "同步",
+    "Titan": "泰坦",
+    "Pika Cup": "皮卡丘盃",
+    "Fancy Cup": "華麗盃",
+    "Poké Cup": "寶可夢盃",
+    "Little Cup": "小小盃",
+    "B Move": "Ｂ招式",
+    "Alterfication": "異化",
+    "Lounge": "交誼廳"
+  },
+  "retained_terms": {
+    "A/B/C/D/E/F": "入口等選項的字母識別符，保留原樣。"
+  }
+}

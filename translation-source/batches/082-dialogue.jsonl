@@ -1,0 +1,180 @@
+{"section": 0, "en": "\\G\\bWe only use a special kind of Poké Ball here."}
+{"section": 0, "en": "\\G\\bWe'll call you on the PA when you run out of time or Safari Balls."}
+{"section": 0, "en": "\\G\\bWell, I'll wish you the best of luck!"}
+{"section": 0, "en": "\\G\\bWonderful\\nHere's your Pokémon."}
+{"section": 0, "en": "\\G\\bWould you like to play?"}
+{"section": 0, "en": "\\G\\bYou can roam the wide-open safari and catch what you like."}
+{"section": 0, "en": "\\G\\rAwesome\\nHere's your Pokémon."}
+{"section": 0, "en": "\\PN filled in the questionnaire."}
+{"section": 0, "en": "\\PN is the player's name, \\PM is the player's money, \\v[12] is the content of Variable 12."}
+{"section": 0, "en": "\\PN obtained six different Pokémon."}
+{"section": 0, "en": "\\PN put the Effort Ribbon on \\v[1]."}
+{"section": 0, "en": "\\PN put the Footprint Ribbon on \\v[2]."}
+{"section": 0, "en": "\\PN put the Special Ribbon on \\v[1]."}
+{"section": 0, "en": "\\PN put the \\v[3] on \\v[2]."}
+{"section": 0, "en": "\\PN received 20 Sport Balls.\\me[Item get]\\wtnp[40]"}
+{"section": 0, "en": "\\PN received a Pokédex!"}
+{"section": 0, "en": "\\PN received the Effort Ribbon. \\se[itemlevel]\\wtnp[20]"}
+{"section": 0, "en": "\\PN received the Egg from the Day-Care Man."}
+{"section": 0, "en": "\\PN received the Footprint Ribbon. \\se[itemlevel]\\wtnp[20]"}
+{"section": 0, "en": "\\PN received the Special Ribbon. \\me[Item get]\\wtnp[20]"}
+{"section": 0, "en": "\\PN received the \\v[3]. \\se[itemlevel]\\wtnp[20]"}
+{"section": 0, "en": "\\PN teamed up with Brendan!\\se[itemlevel]\\wtnp[20]"}
+{"section": 0, "en": "\\PN teamed up with Cilan!\\me[Item get]\\wtnp[40]"}
+{"section": 0, "en": "\\PN teamed up with Cynthia!\\se[itemlevel]\\wtnp[20]"}
+{"section": 0, "en": "\\PN teamed up with Gladion!\\me[Item get]\\wtnp[40]"}
+{"section": 0, "en": "\\PN teamed up with Goh!\\me[Item get]\\wtnp[40]"}
+{"section": 0, "en": "\\PN teamed up with Kiawe!\\me[Item get]\\wtnp[40]"}
+{"section": 0, "en": "\\PN teamed up with Lana!\\me[Item get]\\wtnp[40]"}
+{"section": 0, "en": "\\PN teamed up with Paul!\\me[Item get]\\wtnp[40]"}
+{"section": 0, "en": "\\PN teamed up with Paul!\\se[itemlevel]\\wtnp[20]"}
+{"section": 0, "en": "\\PN teamed up with Royal!\\me[Item get]\\wtnp[40]"}
+{"section": 0, "en": "\\PN teamed up with Sophocles!\\me[Item get]\\wtnp[40]"}
+{"section": 0, "en": "\\PN took \\v[3] back from Aiden."}
+{"section": 0, "en": "\\PN took \\v[3] back from Anthony."}
+{"section": 0, "en": "\\PN took \\v[3] back from Keanan."}
+{"section": 0, "en": "\\PN took \\v[3] back from Liza."}
+{"section": 0, "en": "\\PN took \\v[3] back from McCann."}
+{"section": 0, "en": "\\PN took \\v[3] back from the aid."}
+{"section": 0, "en": "\\PN traded Aipom for Buizel!"}
+{"section": 0, "en": "\\PN traded Bellsprout for Onix!"}
+{"section": 0, "en": "\\PN traded Buizel for Chatot!"}
+{"section": 0, "en": "\\PN traded Bunnelby for Farfetch'd!"}
+{"section": 0, "en": "\\PN traded Butterfree for Bellossom!"}
+{"section": 0, "en": "\\PN traded Butterfree for Raticate!"}
+{"section": 0, "en": "\\PN traded Cinccino for Munchlax!"}
+{"section": 0, "en": "\\PN traded Corsola for Lickitung!"}
+{"section": 0, "en": "\\PN traded Cottonee for Petilil!"}
+{"section": 0, "en": "\\PN traded Dragonair for Dodrio!"}
+{"section": 0, "en": "\\PN traded Electabuzz for Magmortar!"}
+{"section": 0, "en": "\\PN traded Emolga for Boldore!"}
+{"section": 0, "en": "\\PN traded Jolteon for Leafeon!"}
+{"section": 0, "en": "\\PN traded Koffing for Gurdurr!"}
+{"section": 0, "en": "\\PN traded Krabby for Voltorb!"}
+{"section": 0, "en": "\\PN traded Machoke for Kadabra!"}
+{"section": 0, "en": "\\PN traded Magikarp for Feebas!"}
+{"section": 0, "en": "\\PN traded Magmar for Electivire!"}
+{"section": 0, "en": "\\PN traded Magneton for Togetic!"}
+{"section": 0, "en": "\\PN traded Mankey for Aipom!"}
+{"section": 0, "en": "\\PN traded Minccino for Zorua!"}
+{"section": 0, "en": "\\PN traded Ninetales for Porygon!"}
+{"section": 0, "en": "\\PN traded Pancham for Happiny!"}
+{"section": 0, "en": "\\PN traded Pichu for Togedemaru!"}
+{"section": 0, "en": "\\PN traded Pikachu for Skitty!"}
+{"section": 0, "en": "\\PN traded Psyduck for Stunfisk!"}
+{"section": 0, "en": "\\PN traded Raichu for Electrode!"}
+{"section": 0, "en": "\\PN traded Raichu for Porygon-Z!"}
+{"section": 0, "en": "\\PN traded Raticate for Butterfree!"}
+{"section": 0, "en": "\\PN traded Rattata for Haunter!"}
+{"section": 0, "en": "\\PN traded Rattata for Tangela!"}
+{"section": 0, "en": "\\PN traded Seedot for Makuhita!"}
+{"section": 0, "en": "\\PN traded Seel for Ponyta!"}
+{"section": 0, "en": "\\PN traded Slowbro for Lickitung!"}
+{"section": 0, "en": "\\PN traded Spearow for Farfetch'd!"}
+{"section": 0, "en": "\\PN traded Sylveon for Cufant!"}
+{"section": 0, "en": "\\PN traded Tauros for Nidoqueen!"}
+{"section": 0, "en": "\\PN traded Tauros for Rhyhorn!"}
+{"section": 0, "en": "\\PN traded Teddiursa for Igglybuff!"}
+{"section": 0, "en": "\\PN traded Venonat for Haunter!"}
+{"section": 0, "en": "\\PN traded Wailord for Zorua!"}
+{"section": 0, "en": "\\PN's Battle Arena Level 50 results:"}
+{"section": 0, "en": "\\PN's Battle Arena Open Level results:"}
+{"section": 0, "en": "\\PN's Battle Factory Double Battle results:"}
+{"section": 0, "en": "\\PN's Battle Factory Single Battle results:"}
+{"section": 0, "en": "\\PN's Battle Palace Level 50 Double Battle results:"}
+{"section": 0, "en": "\\PN's Battle Palace Level 50 Single Battle results:"}
+{"section": 0, "en": "\\PN's Battle Palace Open Level Double Battle results:"}
+{"section": 0, "en": "\\PN's Battle Palace Open Level Single Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Fancy Cup Double Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Fancy Cup Single Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Level 50 Double Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Level 50 Single Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Little Cup Double Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Little Cup Single Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Open Level Double Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Open Level Single Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Pika Cup Double Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Pika Cup Single Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Poké Cup Double Battle results:"}
+{"section": 0, "en": "\\PN's Battle Tower Poké Cup Single Battle results:"}
+{"section": 0, "en": "\\PN's Pokémon were left with the Contest Helper.\\se[Pkmn exp full]\\wtnp[20]"}
+{"section": 0, "en": "\\PN, it's been wonderful being your Pokédex. Until next time."}
+{"section": 0, "en": "\\Pn's Pokémon were fully healed."}
+{"section": 0, "en": "\\b\"Check out my bug Pokémon.\" What a stupid phrase."}
+{"section": 0, "en": "\\b$Trainer.shadowcaught is an array (like the Pokédex seen/owned arrays) which keeps track of which Shadow Pokémon species have been caught."}
+{"section": 0, "en": "\\b... Except you got here way too fast. Give me some time to get ready."}
+{"section": 0, "en": "\\b... Oh, a Trainer? Battle time?"}
+{"section": 0, "en": "\\b... Oh, you again? Battle time?"}
+{"section": 0, "en": "\\b... You are not ready."}
+{"section": 0, "en": "\\b... You don't have enough for one."}
+{"section": 0, "en": "\\b... You don't want it?"}
+{"section": 0, "en": "\\b... and done! Enjoy!"}
+{"section": 0, "en": "\\b... is what I would say if that wasn't a dream I had last night. I actually just get Gym Leaders as my choices. AHHHHH!"}
+{"section": 0, "en": "\\b....what the other is thinking... \\r...all in our minds!"}
+{"section": 0, "en": "\\b...And done! Now just give it a sweet and level it up for it to evolve."}
+{"section": 0, "en": "\\b...How wasteful... Such emotions are but mere illusions. ...But that doesn't matter. I doubt you will ever understand my position."}
+{"section": 0, "en": "\\b...How?"}
+{"section": 0, "en": "\\b...I'm Allister. ...You look well."}
+{"section": 0, "en": "\\b...Oh, you went to Johto and got one too? Well, I guess my collection isn't that impressive. You might as well get rid of some of it for me."}
+{"section": 0, "en": "\\b...Oh? You don't need me to judge. I get it."}
+{"section": 0, "en": "\\b...So you're \\PN. My brother Paul has mentioned you a few times. I take care of his Pokémon while he is traveling."}
+{"section": 0, "en": "\\b...Sorry! Swallowed some water."}
+{"section": 0, "en": "\\b...Though you should ask your mom first."}
+{"section": 0, "en": "\\b...You're here to battle my sister? That's in Wyndon. "}
+{"section": 0, "en": "\\b...what the other is thinking... \\r...all in our minds!"}
+{"section": 0, "en": "\\b1 GC Credit has been awarded to you."}
+{"section": 0, "en": "\\b10 GC Credits have been awarded to you."}
+{"section": 0, "en": "\\b15 GC Credits have been awarded to you."}
+{"section": 0, "en": "\\b2 GC Credits have been awarded to you."}
+{"section": 0, "en": "\\b20 GC Credits have been awarded to you."}
+{"section": 0, "en": "\\b3 GC Credits have been awarded to you."}
+{"section": 0, "en": "\\b40 GC Credits have been awarded to you."}
+{"section": 0, "en": "\\b5 GC Credits have been awarded to you."}
+{"section": 0, "en": "\\b50 GC Credits have been awarded to you."}
+{"section": 0, "en": "\\b75 GC Credits have been awarded to you."}
+{"section": 0, "en": "\\b:Ilima: This isn't the Kalos League, but it looks promising."}
+{"section": 0, "en": "\\b:Ilima: This isn't the Kalos League, but it's still amazing."}
+{"section": 0, "en": "\\b<i>Sobs</i>. <i>Sobs</i>... My team of Rattatas... obliterated. Waaaaaaaaaa~"}
+{"section": 0, "en": "\\b???: Ehhh, there really was someone here."}
+{"section": 0, "en": "\\b?desufnoC"}
+{"section": 0, "en": "\\bA Good Rod allows you to fish for better Pokémon."}
+{"section": 0, "en": "\\bA Life Orb raises the power of a Pokémon for some of its HP."}
+{"section": 0, "en": "\\bA Lycanium Z. With that you can power up your Stone Edge if Lycanroc knows it."}
+{"section": 0, "en": "\\bA Macho Brace doubles any effort values the Pokémon holding it gets, but halves its Speed in battle, so be careful."}
+{"section": 0, "en": "\\bA Mystic Water raises the power of Water moves. "}
+{"section": 0, "en": "\\bA Normalium Z, huh? With that you can finally use Z-Moves. Your Pokémon can use Z-Power now! But you can only use it once in a battle."}
+{"section": 0, "en": "\\bA Performer just won a contest here. She seemed really happy."}
+{"section": 0, "en": "\\bA Pokémon raised by a Trainer is stronger than one in the wild."}
+{"section": 0, "en": "\\bA Prism Scale evolves a Feebas. I think."}
+{"section": 0, "en": "\\bA Seaking Contest is held here annually. We try and catch the biggest Seaking."}
+{"section": 0, "en": "\\bA Secret Base is supposed to stay a secret."}
+{"section": 0, "en": "\\bA TM, Technical Machine, contains a technique for Pokémon."}
+{"section": 0, "en": "\\bA Trainer like you needs some power."}
+{"section": 0, "en": "\\bA Trainer?"}
+{"section": 0, "en": "\\bA Water Stone can evolve a certain Pokémon for you. Enjoy it."}
+{"section": 0, "en": "\\bA Zoom Lens increases accuracy if you move slower."}
+{"section": 0, "en": "\\bA battle, s'il vous plaît."}
+{"section": 0, "en": "\\bA bit of trivia: That actually wasn't my original name! But that really doesn't matter now."}
+{"section": 0, "en": "\\bA challenge already? Are you prepared?"}
+{"section": 0, "en": "\\bA challenger! Perhaps you can help me train."}
+{"section": 0, "en": "\\bA challenger."}
+{"section": 0, "en": "\\bA fine day for a stroll, isn't it?"}
+{"section": 0, "en": "\\bA fire type would be a big help in the fight in Lush Jungle."}
+{"section": 0, "en": "\\bA float stone lightens the load if you know what I mean."}
+{"section": 0, "en": "\\bA fresh start at last."}
+{"section": 0, "en": "\\bA gate opened up here after a battle from Dialga and Palkia. It has strange Pokémon inside it."}
+{"section": 0, "en": "\\bA heart-pounding battle like that always sends a shiver through my whole body! I'm sure my Pokémon felt it, too!"}
+{"section": 0, "en": "\\bA kid?"}
+{"section": 0, "en": "\\bA little advice for you. Love your Pokémon like family. It will carry you far."}
+{"section": 0, "en": "\\bA long journey is a reward in and of itself. During it, my partner had an Egg. I've raised it a little, <i>bug</i> I think it deserves to explore with someone else."}
+{"section": 0, "en": "\\bA loss is a loss. Right now, you and your Pokémon are shining brilliantly."}
+{"section": 0, "en": "\\bA lot of Ghost Pokémon live in this section of the Wild Area."}
+{"section": 0, "en": "\\bA lot of people don't come to Marts nowadays. I wonder why."}
+{"section": 0, "en": "\\bA lot of people who want to battle go to the underground."}
+{"section": 0, "en": "\\bA man of the sea never turns down an opponent."}
+{"section": 0, "en": "\\bA mass outbreak of Ivysaur has appeared in the city. Head out and investigate it."}
+{"section": 0, "en": "\\bA match at last. Bring it on."}
+{"section": 0, "en": "\\bA minor mishap made me bedridden and out of action from work. The pandemic also kept me away from my loved one. I got bored till I found this world. 2 months of running around, gathering allies and defeating foes to the finish line."}
+{"section": 0, "en": "\\bA new Trainer?"}
+{"section": 0, "en": "\\bA new battle. Let's go."}
+{"section": 0, "en": "\\bA new face?"}

@@ -1,0 +1,8 @@
+{
+ "all":{"Fennel":"真菰"},
+ "retained_terms":{
+ "Amanitha":"原文角色姓名拼字；未確認是否等同Amanita，保留原拼字。",
+ "Caleb":"一般角色姓名，保留原拼字。","Carol":"一般角色姓名，保留原拼字。","Christopher":"一般角色姓名，保留原拼字。","Cosmo":"原文姓名，身分未確認，保留原拼字。","Dave":"一般角色姓名，保留原拼字。","David":"一般角色姓名，保留原拼字。","Don":"一般角色姓名，保留原拼字。","Dorima":"原文角色姓名，保留原拼字。","Draco":"原文角色姓名，保留原拼字。","Exial":"原文角色姓名，保留原拼字。","Falink":"原文單獨出現的名稱，未確認身分，不擅自視為Falinks的錯字。","Fernando":"一般角色姓名，保留原拼字。","Flamey":"原文寶可夢暱稱，保留原拼字。"
+ },
+ "preserved_sources":{"0":{"Caleb":"trainer-name-original","Carol":"trainer-name-original","Christopher":"trainer-name-original","Cosmo":"trainer-name-original","Dave":"trainer-name-original","David":"trainer-name-original","Don":"trainer-name-original","Dorima":"trainer-name-original","Draco":"trainer-name-original","Exial":"trainer-name-original","Falink":"unconfirmed-name","Fernando":"trainer-name-original","Flamey":"pokemon-nickname-original"}}
+}

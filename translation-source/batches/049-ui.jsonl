@@ -1,0 +1,200 @@
+{"section": 24, "en": "Can't find trainer ({1}, {2}, ID {3})"}
+{"section": 24, "en": "Can't find {1}"}
+{"section": 24, "en": "Can't have battles larger than 2v2 where both sides have multiple trainers"}
+{"section": 24, "en": "Can't mix old and new formats.\r\n{1}"}
+{"section": 24, "en": "Can't place a Shadow Pokémon there."}
+{"section": 24, "en": "Can't place an egg there."}
+{"section": 24, "en": "Can't save. No name was entered."}
+{"section": 24, "en": "Can't save. No trainer type was chosen."}
+{"section": 24, "en": "Can't save. The Pokémon list is empty."}
+{"section": 24, "en": "Can't stop time while it's already stopped!"}
+{"section": 24, "en": "Can't store the Pokémon..."}
+{"section": 24, "en": "Can't store the egg."}
+{"section": 24, "en": "Can't store the {1}."}
+{"section": 24, "en": "Can't use Rotomi here."}
+{"section": 24, "en": "Can't use that while on a bicycle."}
+{"section": 24, "en": "Can't withdraw from party..."}
+{"section": 24, "en": "Capable of taking hits."}
+{"section": 24, "en": "Carmo is outside the Pewter Museum of Science."}
+{"section": 24, "en": "Catch rate of this species (0-255)."}
+{"section": 24, "en": "Caught {1}!"}
+{"section": 24, "en": "Caught: None\nBalls: {1}"}
+{"section": 24, "en": "Caught: {1}\nLevel: {2}\nBalls: {3}"}
+{"section": 24, "en": "Cel Batch..."}
+{"section": 24, "en": "Cel Focus..."}
+{"section": 24, "en": "Certainly. You want {1}. That will be ${2}. OK?"}
+{"section": 24, "en": "Change Ability"}
+{"section": 24, "en": "Change form"}
+{"section": 24, "en": "Change item"}
+{"section": 24, "en": "Change level"}
+{"section": 24, "en": "Change method"}
+{"section": 24, "en": "Change move"}
+{"section": 24, "en": "Change parameter"}
+{"section": 24, "en": "Change quantity"}
+{"section": 24, "en": "Change species"}
+{"section": 24, "en": "Change this Pokémon?"}
+{"section": 24, "en": "Change this trainer?"}
+{"section": 24, "en": "Change tileset"}
+{"section": 24, "en": "Change which EV?\nTotal: {1}/{2} ({3}%)"}
+{"section": 24, "en": "Change which IV?\nHidden Power:\n{1}, power {2}\nTotal: {3}/{4} ({5}%)"}
+{"section": 24, "en": "Check My Offer"}
+{"section": 24, "en": "Check opponent's cards."}
+{"section": 24, "en": "Check {1}'s offer"}
+{"section": 24, "en": "Checks"}
+{"section": 24, "en": "Choose a battle."}
+{"section": 24, "en": "Choose a card, or check opponent with Z."}
+{"section": 24, "en": "Choose a card."}
+{"section": 24, "en": "Choose a map"}
+{"section": 24, "en": "Choose a new level."}
+{"section": 24, "en": "Choose a new map"}
+{"section": 24, "en": "Choose a parameter."}
+{"section": 24, "en": "Choose a phrase to be where the gift Pokémon was obtained from."}
+{"section": 24, "en": "Choose a pocket for this item."}
+{"section": 24, "en": "Choose a quantity of {1}."}
+{"section": 24, "en": "Choose a region map."}
+{"section": 24, "en": "Choose a unique ID for this gift."}
+{"section": 24, "en": "Choose a value for {1}."}
+{"section": 24, "en": "Choose a weather effect."}
+{"section": 24, "en": "Choose an ability."}
+{"section": 24, "en": "Choose an encounter type to copy to."}
+{"section": 24, "en": "Choose an evolution method."}
+{"section": 24, "en": "Choose an evolved form, method and parameter."}
+{"section": 24, "en": "Choose an item and a quantity of it to add to the Bag."}
+{"section": 24, "en": "Choose any desired raid criteria for this battle."}
+{"section": 24, "en": "Choose new quantity of {1} (max. #{Settings::BAG_MAX_PER_SLOT})."}
+{"section": 24, "en": "Choose one or all PBS files and create it."}
+{"section": 24, "en": "Choose the direction to face in."}
+{"section": 24, "en": "Choose the first Pokémon."}
+{"section": 24, "en": "Choose the gift you want to receive.\\wtnp[0]"}
+{"section": 24, "en": "Choose the new player character."}
+{"section": 24, "en": "Choose the number of battlers on the opponent's side (max. {1})."}
+{"section": 24, "en": "Choose the number of battlers on the player's side (max. {1})."}
+{"section": 24, "en": "Choose the number of items."}
+{"section": 24, "en": "Choose the second Pokémon."}
+{"section": 24, "en": "Choose the third Pokémon."}
+{"section": 24, "en": "Choose which version of wild encounters should be used."}
+{"section": 24, "en": "Choose {1} cards to use for this duel."}
+{"section": 24, "en": "Choosing the starting player..."}
+{"section": 24, "en": "Clear"}
+{"section": 24, "en": "Clear Frame"}
+{"section": 24, "en": "Clear Frames..."}
+{"section": 24, "en": "Clear Pokérus"}
+{"section": 24, "en": "Clear Storage Boxes"}
+{"section": 24, "en": "Clear all"}
+{"section": 24, "en": "Click a point on the map."}
+{"section": 24, "en": "Click to select a map\r\n"}
+{"section": 24, "en": "Click!\\wt[10]\n......\\wt[5] ......\\\u0001"}
+{"section": 24, "en": "Close RPG Maker XP to ensure the changes are applied properly."}
+{"section": 24, "en": "Club"}
+{"section": 24, "en": "Club Completion No."}
+{"section": 24, "en": "Club Completion No.#{hallNumber}#{diff}"}
+{"section": 24, "en": "Coins were scattered everywhere!"}
+{"section": 24, "en": "Coins:\n<ar>{1}</ar>"}
+{"section": 24, "en": "Coins: {1}"}
+{"section": 24, "en": "Collected the {1} egg."}
+{"section": 24, "en": "Color"}
+{"section": 24, "en": "Combining the fossils in 3 ...{1} 2 ...{2} 1 ... {3} and ...{4} !\\wtnp[10]"}
+{"section": 24, "en": "Come back if you'd like to combine any fossils."}
+{"section": 24, "en": "Come back when you have 2 fossils that can be combined."}
+{"section": 24, "en": "Come back when you have 8 or more badges."}
+{"section": 24, "en": "Come back when you have {1} or {2}."}
+{"section": 24, "en": "Come back when you're ready to get hyped for some Hyper Training!"}
+{"section": 24, "en": "Compat1"}
+{"section": 24, "en": "Compat2"}
+{"section": 24, "en": "Compatibility group (egg group) for breeding purposes."}
+{"section": 24, "en": "Compile Data"}
+{"section": 24, "en": "Compile Text"}
+{"section": 24, "en": "Compiling Pokémon data"}
+{"section": 24, "en": "Compiling Pokémon forms data"}
+{"section": 24, "en": "Compiling Regional Dexes"}
+{"section": 24, "en": "Compiling Trainer data"}
+{"section": 24, "en": "Compiling Trainer type data"}
+{"section": 24, "en": "Compiling ZUD compatibility data"}
+{"section": 24, "en": "Compiling ability data"}
+{"section": 24, "en": "Compiling animations"}
+{"section": 24, "en": "Compiling battle Trainer data"}
+{"section": 24, "en": "Compiling berry plant data"}
+{"section": 24, "en": "Compiling encounter data"}
+{"section": 24, "en": "Compiling item data"}
+{"section": 24, "en": "Compiling machine data"}
+{"section": 24, "en": "Compiling map connection data"}
+{"section": 24, "en": "Compiling metadata"}
+{"section": 24, "en": "Compiling move data"}
+{"section": 24, "en": "Compiling phone data"}
+{"section": 24, "en": "Compiling ribbon data"}
+{"section": 24, "en": "Compiling shadow moveset data"}
+{"section": 24, "en": "Compiling town map data"}
+{"section": 24, "en": "Compiling type data"}
+{"section": 24, "en": "Confirm the trade of {1} ({2}) for your {3} ({4}).\\^"}
+{"section": 24, "en": "Congrats! #{$game_variables[81]} Straight Wins!"}
+{"section": 24, "en": "Congrats! Club Records Logged!"}
+{"section": 24, "en": "Congrats! Duet Records Logged!"}
+{"section": 24, "en": "Congrats! Mayhem Records Logged!"}
+{"section": 24, "en": "Congrats! Practice Records Logged!"}
+{"section": 24, "en": "Congratulations from {1}!"}
+{"section": 24, "en": "Congratulations!\nTry Again!\\^"}
+{"section": 24, "en": "Congratulations, {1}!"}
+{"section": 24, "en": "Connect maps using a visual interface. Can also edit map encounters/metadata."}
+{"section": 24, "en": "Consuming the {1}..."}
+{"section": 24, "en": "Contest"}
+{"section": 24, "en": "Contest stats..."}
+{"section": 24, "en": "Converting Pokémon cries {1}/{2}..."}
+{"section": 24, "en": "Converting Pokémon icons {1}/{2}..."}
+{"section": 24, "en": "Converting Pokémon sprites {1}/{2}..."}
+{"section": 24, "en": "Converting events"}
+{"section": 24, "en": "Converting footprints {1}/{2}..."}
+{"section": 24, "en": "Converting item icons {1}/{2}..."}
+{"section": 24, "en": "Converting trainer sprites {1}/{2}..."}
+{"section": 24, "en": "Cool Trainer Nick"}
+{"section": 24, "en": "Copy"}
+{"section": 24, "en": "Copy Frame"}
+{"section": 24, "en": "Copy Frames..."}
+{"section": 24, "en": "Copy to which map?"}
+{"section": 24, "en": "Copy to:"}
+{"section": 24, "en": "Cosmetic info..."}
+{"section": 24, "en": "Could't re-store deleted item in Bag somehow"}
+{"section": 24, "en": "Couldn't edit the gift."}
+{"section": 24, "en": "Couldn't find an unclaimed Mystery Gift with ID {1}."}
+{"section": 24, "en": "Couldn't find class {1} in module GameData."}
+{"section": 24, "en": "Couldn't lower either side's size any further, battle isn't possible"}
+{"section": 24, "en": "Couldn't re-store deleted item in Bag somehow"}
+{"section": 24, "en": "Couldn't return unused item to Bag somehow."}
+{"section": 24, "en": "Couldn't save the animation to {1}."}
+{"section": 24, "en": "Couldn't save the gift to MysteryGiftMaster.txt."}
+{"section": 24, "en": "Couldn't save the gifts to MysteryGift.txt."}
+{"section": 24, "en": "Crafty Shield protected {1}!"}
+{"section": 24, "en": "Crag"}
+{"section": 24, "en": "Create PBS File(s)"}
+{"section": 24, "en": "Create new type"}
+{"section": 24, "en": "Create, rearrange and delete Regional Pokédex lists."}
+{"section": 24, "en": "Croagunk"}
+{"section": 24, "en": "Current status: {1}"}
+{"section": 24, "en": "Current status: {1} (turns: {2})"}
+{"section": 24, "en": "Currently can't have a passive."}
+{"section": 24, "en": "Cursor"}
+{"section": 24, "en": "Custom"}
+{"section": 24, "en": "Cut"}
+{"section": 24, "en": "Cycling character sprite."}
+{"section": 24, "en": "Cynthia is at Wyndon Stadium."}
+{"section": 24, "en": "D"}
+{"section": 24, "en": "D: Help"}
+{"section": 24, "en": "D: Help [{1:03d}: {2:s}]"}
+{"section": 24, "en": "DEBUG"}
+{"section": 24, "en": "DEL: Delete map from canvas\r\n"}
+{"section": 24, "en": "DESELECT"}
+{"section": 24, "en": "DYNAMAX ADVENTURE"}
+{"section": 24, "en": "Debug"}
+{"section": 24, "en": "Debug logs for battles will be made in the Data folder."}
+{"section": 24, "en": "Debug logs for battles will not be made."}
+{"section": 24, "en": "Dec."}
+{"section": 24, "en": "December"}
+{"section": 24, "en": "Default BGM for Trainer battles."}
+{"section": 24, "en": "Default BGM for trainer battles on this map."}
+{"section": 24, "en": "Default BGM for wild Pokémon battles on this map."}
+{"section": 24, "en": "Default BGM for wild Pokémon battles."}
+{"section": 24, "en": "Default ME played after catching a Pokémon."}
+{"section": 24, "en": "Default ME played after catching a wild Pokémon on this map."}
+{"section": 24, "en": "Default ME played after winning a Trainer battle on this map."}
+{"section": 24, "en": "Default ME played after winning a Trainer battle."}
+{"section": 24, "en": "Default ME played after winning a wild Pokémon battle on this map."}
+{"section": 24, "en": "Default ME played after winning a wild Pokémon battle."}

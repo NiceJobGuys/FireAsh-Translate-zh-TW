@@ -1,0 +1,2 @@
+rubymarshal==1.2.10
+fonttools==4.66.1

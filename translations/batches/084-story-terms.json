@@ -1,0 +1,6 @@
+{
+ "14":{"Avery":"賽寶利"},
+ "all":{"Avery":"賽寶利","Amphy":"光兒","Warrior's Blessing":"戰士祝福"},
+ "retained_terms":{"Clubsplosion":"原文賽事名稱，未核對台灣譯名；保留名稱並補上大賽。","Ava":"一般角色姓名，保留原拼字。"},
+ "preserved_sources":{"0":{"\\bAva":"trainer-name-original"}}
+}

@@ -1,0 +1,180 @@
+{"section": 24, "en": "All Near Others"}
+{"section": 24, "en": "All Pokémon that hear the song will faint in three turns!"}
+{"section": 24, "en": "All Pokémon were roused by the tune!"}
+{"section": 24, "en": "All Trainers on this map were reset."}
+{"section": 24, "en": "All abilities were nullified!"}
+{"section": 24, "en": "All animations were extracted and saved to the Animations folder."}
+{"section": 24, "en": "All animations were imported."}
+{"section": 24, "en": "All dynamax settings restored to default."}
+{"section": 24, "en": "All eggs in your party now require one step to hatch."}
+{"section": 24, "en": "All found sprites and icons were renamed and moved."}
+{"section": 24, "en": "All game data was compiled."}
+{"section": 24, "en": "All protections on {1} and its side ended!"}
+{"section": 24, "en": "All protections on {1}'s side ended!"}
+{"section": 24, "en": "All stat changes were eliminated!"}
+{"section": 24, "en": "All stat increases and Abilities of your Pokémon were nullified!"}
+{"section": 24, "en": "All text in the game was extracted and saved to intl.txt.\u0001"}
+{"section": 24, "en": "All trainers in the Phone are now ready to rebattle."}
+{"section": 24, "en": "All your Pokémon have +{1} {2} when entering a battle."}
+{"section": 24, "en": "Allister at Stow-on-Side's West Gym."}
+{"section": 24, "en": "Alpha:"}
+{"section": 24, "en": "Alter PP of which move?"}
+{"section": 24, "en": "Always Female"}
+{"section": 24, "en": "Always Male"}
+{"section": 24, "en": "Amorphous"}
+{"section": 24, "en": "Amped and Vibed"}
+{"section": 24, "en": "An egg can't be an active Pokémon."}
+{"section": 24, "en": "An electric current is running across the battlefield."}
+{"section": 24, "en": "An electric current runs across the battlefield!"}
+{"section": 24, "en": "An electrical pulse was suddenly released by iron deposits nearby!"}
+{"section": 24, "en": "An extremely strong electric current runs across the battlefield!"}
+{"section": 24, "en": "An impenetrable barrier of Dynamax energy blocks your path forward."}
+{"section": 24, "en": "An intimidating gauntlet of various challenges prevents you from moving forward."}
+{"section": 24, "en": "An item in the Bag can be registered to this key for instant use."}
+{"section": 24, "en": "An item used by the Trainer during battle."}
+{"section": 24, "en": "An overgrown mushroom nearby suddenly burst and released a cloud of spores!"}
+{"section": 24, "en": "An {1} is the kind of Trainer you want to be?"}
+{"section": 24, "en": "Angle:"}
+{"section": 24, "en": "Animation was saved to {1} in the game folder."}
+{"section": 24, "en": "Animations Organiser"}
+{"section": 24, "en": "Announcer: You're out of Safari Balls! Game over!"}
+{"section": 24, "en": "Another ability which the Pokémon can have."}
+{"section": 24, "en": "Appears In:"}
+{"section": 24, "en": "Apply filter or begin search?#{filterIndicator}"}
+{"section": 24, "en": "Apr."}
+{"section": 24, "en": "Apricorn"}
+{"section": 24, "en": "April"}
+{"section": 24, "en": "Aqua Ring restored {1}'s HP!"}
+{"section": 24, "en": "Arctic energy freezes the battlefield!"}
+{"section": 24, "en": "Are these three Pokémon OK?"}
+{"section": 24, "en": "Are you sure you want to copy this Pokémon?"}
+{"section": 24, "en": "Are you sure you want to delete this Pokémon?"}
+{"section": 24, "en": "Are you sure you want to delete this animation?"}
+{"section": 24, "en": "Are you sure you want to delete this gift?"}
+{"section": 24, "en": "Are you sure you want to give up?"}
+{"section": 24, "en": "Are you sure you want to quit the game?"}
+{"section": 24, "en": "Are you sure you want to reposition all sprites?"}
+{"section": 24, "en": "Are you sure you want to save now and overwrite the other save file?"}
+{"section": 24, "en": "Are you sure you want to take this path?"}
+{"section": 24, "en": "Are your Pokémon feeling a bit worn out from your adventure?"}
+{"section": 24, "en": "Argument {1} expected a variable after it but didn't have one."}
+{"section": 24, "en": "Ariel is outside Floaroma Town's Pokémon Center."}
+{"section": 24, "en": "Arrow keys/drag canvas: Move around canvas"}
+{"section": 24, "en": "At least 1 opposing Pokémon needs to have a type debuff applied on it first."}
+{"section": 24, "en": "Attack Booster MAX"}
+{"section": 24, "en": "Attack Buff"}
+{"section": 24, "en": "Aug."}
+{"section": 24, "en": "August"}
+{"section": 24, "en": "Auto-Position All Sprites"}
+{"section": 24, "en": "Auto-Position Sprites"}
+{"section": 24, "en": "Automatically reposition all Pokémon sprites in battle. Don't use lightly."}
+{"section": 24, "en": "Available Pokémon: {1}"}
+{"section": 24, "en": "B"}
+{"section": 24, "en": "B#{floor_num}F"}
+{"section": 24, "en": "B#{floor}F"}
+{"section": 24, "en": "BAIT"}
+{"section": 24, "en": "BALL"}
+{"section": 24, "en": "BANNED"}
+{"section": 24, "en": "BGM for this map. Overwrites the one set in RMXP."}
+{"section": 24, "en": "BGM played in battles against trainers of this type."}
+{"section": 24, "en": "BGM played while on a bicycle."}
+{"section": 24, "en": "BGM played while surfing."}
+{"section": 24, "en": "BONUS"}
+{"section": 24, "en": "BOUGHT #{buff.name}."}
+{"section": 24, "en": "BOUGHT {1}."}
+{"section": 24, "en": "BP: {1}"}
+{"section": 24, "en": "BackSpriteScale"}
+{"section": 24, "en": "Backyard"}
+{"section": 24, "en": "Bad Dynamax Level: {1} (must be 0-10).\r\n{2}"}
+{"section": 24, "en": "Bad EV: {1} (must be 0-{2}).\r\n{3}"}
+{"section": 24, "en": "Bad IV: {1} (must be 0-{2}).\r\n{3}"}
+{"section": 24, "en": "Bad NumPkmn: {1} (must be 0-6).\r\n{2}"}
+{"section": 24, "en": "Bad happiness: {1} (must be 0-255).\r\n{2}"}
+{"section": 24, "en": "Bad level: {1} (must be 1-{2}).\r\n{3}"}
+{"section": 24, "en": "Bad line syntax (expected syntax like XXX=YYY)\r\n{1}"}
+{"section": 24, "en": "Bad nickname: {1} (must be 1-{2} characters).\r\n{3}"}
+{"section": 24, "en": "Badges<r><c3={1}>{2}</c3><br>"}
+{"section": 24, "en": "Bait"}
+{"section": 24, "en": "Ball"}
+{"section": 24, "en": "Balls: {1}"}
+{"section": 24, "en": "Base Money"}
+{"section": 24, "en": "Base experience earned when this species is defeated."}
+{"section": 24, "en": "Base happiness of this species (0-255)."}
+{"section": 24, "en": "Base stats of the Pokémon."}
+{"section": 24, "en": "Base {1}"}
+{"section": 24, "en": "Base {1} stat of the Pokémon."}
+{"section": 24, "en": "BaseEXP"}
+{"section": 24, "en": "BaseStats"}
+{"section": 24, "en": "Based on \"mkxp\" by Ancurio et al."}
+{"section": 24, "en": "Battle Animation Editor"}
+{"section": 24, "en": "Battle Animation Organiser"}
+{"section": 24, "en": "Battle BGM"}
+{"section": 24, "en": "Battle End ME"}
+{"section": 24, "en": "Battle Intro ME"}
+{"section": 24, "en": "Battle Points:\n<ar>{1}</ar>"}
+{"section": 24, "en": "Battle ends in {1} turns, or after {2} knock outs."}
+{"section": 24, "en": "Battle options..."}
+{"section": 24, "en": "Battle rule \"{1}\" does not exist."}
+{"section": 24, "en": "Battle the Lugia in Vermillion City."}
+{"section": 24, "en": "Battler index {1} already exists"}
+{"section": 24, "en": "BattlerAltitude"}
+{"section": 24, "en": "BattlerEnemyX"}
+{"section": 24, "en": "BattlerEnemyY"}
+{"section": 24, "en": "BattlerPlayerX"}
+{"section": 24, "en": "BattlerPlayerY"}
+{"section": 24, "en": "BattlerShadowSize"}
+{"section": 24, "en": "BattlerShadowX"}
+{"section": 24, "en": "Bea is at Stow-on-Side's East Gym."}
+{"section": 24, "en": "Bea is in Cianwood City's Gym."}
+{"section": 24, "en": "Bea is in Saffron City's Fighting Dojo."}
+{"section": 24, "en": "Behind focus"}
+{"section": 24, "en": "Big Brother"}
+{"section": 24, "en": "Bipedal"}
+{"section": 24, "en": "Bipedal with tail"}
+{"section": 24, "en": "Bitmap's height ({1}) is not a multiple of frame height ({2}) [Bitmap={3}]"}
+{"section": 24, "en": "Bitmap's width ({1}) is not a multiple of frame count ({2}) [Bitmap={3}]"}
+{"section": 24, "en": "Bitmap's width ({1}) is not a multiple of frame width ({2}) [Bitmap={3}]"}
+{"section": 24, "en": "Blending:"}
+{"section": 24, "en": "Blue Offset:"}
+{"section": 24, "en": "Blue:"}
+{"section": 24, "en": "Body"}
+{"section": 24, "en": "Body shape of this species."}
+{"section": 24, "en": "Boost PP of which move?"}
+{"section": 24, "en": "Both Pokémon will faint in three turns because of {1}'s {2}!"}
+{"section": 24, "en": "Both Pokémon will faint in three turns!"}
+{"section": 24, "en": "Box \"{1}\" on someone's PC was full."}
+{"section": 24, "en": "Box \"{1}\" on someone's PC was full.\u0001"}
+{"section": 24, "en": "Box \"{1}\" on {2}'s PC was full."}
+{"section": 24, "en": "Box \"{1}\" on {2}'s PC was full.\u0001"}
+{"section": 24, "en": "Box #{match[0]+1}#{spacer}[#{match[1]}]"}
+{"section": 24, "en": "Box {1:d}"}
+{"section": 24, "en": "Box {1}"}
+{"section": 24, "en": "Bright light is about to burst out of {1}!"}
+{"section": 24, "en": "Bug Catcher Benny"}
+{"section": 24, "en": "Bug Catcher Ed"}
+{"section": 24, "en": "Bug Catcher Josh"}
+{"section": 24, "en": "But I think you can also pass for a different kind of Trainer.\\\u0001"}
+{"section": 24, "en": "But a repellent's effect still lingers from earlier."}
+{"section": 24, "en": "But it does not have enough HP left to make a substitute!"}
+{"section": 24, "en": "But it failed because of {1}'s {2}!"}
+{"section": 24, "en": "But it failed to affect {1} because of its {2}!"}
+{"section": 24, "en": "But it failed to affect {1}!"}
+{"section": 24, "en": "But it failed to spit up a thing!"}
+{"section": 24, "en": "But it failed to swallow a thing!"}
+{"section": 24, "en": "But it's not where this item can be used!"}
+{"section": 24, "en": "But the attack never existed!"}
+{"section": 24, "en": "But the uproar kept {1} awake!"}
+{"section": 24, "en": "But there was no PP left for the move!"}
+{"section": 24, "en": "But you don't have any Wishing Pieces..."}
+{"section": 24, "en": "But {1} can't use it the way it is now!"}
+{"section": 24, "en": "But {1} can't use the move!"}
+{"section": 24, "en": "But {1} couldn't sleep!"}
+{"section": 24, "en": "Bye-bye, {1}!"}
+{"section": 24, "en": "C"}
+{"section": 24, "en": "CHOOSE A TRAINER"}
+{"section": 24, "en": "Camper Barry"}
+{"section": 24, "en": "Can't add a new species."}
+{"section": 24, "en": "Can't catch any more..."}
+{"section": 24, "en": "Can't deposit from box..."}
+{"section": 24, "en": "Can't edit Dynamax values on that Pokémon."}
+{"section": 24, "en": "Can't find the map 'Map{1:03d}' in the Data folder. The game will resume at the player's position."}

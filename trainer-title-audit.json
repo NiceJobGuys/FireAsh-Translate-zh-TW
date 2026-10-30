@@ -1,0 +1,99 @@
+{
+  "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
+  "method": "讀取實際trainers.dat及trainer_types.dat並核對原Trainer.full_name的類型加姓名格式；不是遊戲畫面驗收。",
+  "trainers_sha256": "4c8363de9c85ca9f573165f9daece46b7c8b939fea5160025c8fbd6d7b3fb621",
+  "trainer_types_sha256": "70834baf5945adcda564d84d58d644b4a3b9f03d709cc2642bd199307e935621",
+  "checked_combinations": 11,
+  "problem_count": 0,
+  "passed": true,
+  "rows": [
+    {
+      "name_key": "Birch",
+      "trainer_type": ":SECRET_Birch",
+      "type_en": "Hoenn Professor",
+      "type_zh": "豐緣博士",
+      "name_zh": "小田卷",
+      "full_name": "豐緣博士 小田卷"
+    },
+    {
+      "name_key": "Elm",
+      "trainer_type": ":SECRET_Elm",
+      "type_en": "Johto Professor",
+      "type_zh": "城都博士",
+      "name_zh": "空木",
+      "full_name": "城都博士 空木"
+    },
+    {
+      "name_key": "Juniper",
+      "trainer_type": ":SECRET_Juniper",
+      "type_en": "Unova Professor",
+      "type_zh": "合眾博士",
+      "name_zh": "紅豆杉",
+      "full_name": "合眾博士 紅豆杉"
+    },
+    {
+      "name_key": "Kukui",
+      "trainer_type": ":PROFESSOR_Kukui",
+      "type_en": "Professor",
+      "type_zh": "博士",
+      "name_zh": "庫庫伊",
+      "full_name": "博士 庫庫伊"
+    },
+    {
+      "name_key": "Kukui",
+      "trainer_type": ":SECRET_Kukui",
+      "type_en": "Alola Professor",
+      "type_zh": "阿羅拉博士",
+      "name_zh": "庫庫伊",
+      "full_name": "阿羅拉博士 庫庫伊"
+    },
+    {
+      "name_key": "Laventon",
+      "trainer_type": ":SECRET_Laventon",
+      "type_en": "Hisui Professor",
+      "type_zh": "洗翠博士",
+      "name_zh": "拉苯",
+      "full_name": "洗翠博士 拉苯"
+    },
+    {
+      "name_key": "Magnolia",
+      "trainer_type": ":SECRET_Magnolia",
+      "type_en": "Galar Professor",
+      "type_zh": "伽勒爾博士",
+      "name_zh": "木蘭",
+      "full_name": "伽勒爾博士 木蘭"
+    },
+    {
+      "name_key": "Oak",
+      "trainer_type": ":SECRET_Oak",
+      "type_en": "Kanto Professor",
+      "type_zh": "關都博士",
+      "name_zh": "大木",
+      "full_name": "關都博士 大木"
+    },
+    {
+      "name_key": "Rowan",
+      "trainer_type": ":SECRET_Rowan",
+      "type_en": "Sinnoh Professor",
+      "type_zh": "神奧博士",
+      "name_zh": "山梨",
+      "full_name": "神奧博士 山梨"
+    },
+    {
+      "name_key": "Sonia",
+      "trainer_type": ":SECRET_Sonia",
+      "type_en": "Professor Assistant",
+      "type_zh": "博士的助手",
+      "name_zh": "索妮亞",
+      "full_name": "博士的助手 索妮亞"
+    },
+    {
+      "name_key": "Sycamore",
+      "trainer_type": ":SECRET_Sycamore",
+      "type_en": "Kalos Professor",
+      "type_zh": "卡洛斯博士",
+      "name_zh": "布拉塔諾",
+      "full_name": "卡洛斯博士 布拉塔諾"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+ "policy":"寶可夢、招式、道具、特性與屬性以固定版本PokeAPI的zh-Hant資料為準。以下為PokeAPI未涵蓋的動畫地名與角色補充查證；來源逐項標示，社群百科不是官方來源。",
+ "additional_references":[
+  {"en":"Mai","zh-TW":"阿米","url":"https://www.pokemon.co.jp/ex/legends_arceus/tc/character/210928_01/","checked":"2026-10-30","scope":"官方繁中角色頁，與Marley／米依區別"},
+  {"en":"Marley","zh-TW":"米依","url":"https://pokemonmasters-game.com/zh-TW/announcements/Other_6120_5W_1","checked":"2026-10-30","scope":"官方繁中寶可夢大師角色名稱，米依＆謝米"},
+  {"en":"Elio","zh-TW":"小陽","url":"https://pokemonmasters-game.com/zh-TW/announcements/Other_8090_5W_1","checked":"2026-10-30","scope":"官方繁中角色名稱，修正先前草稿的阿陽"},
+  {"en":"Tangelo Island","zh-TW":"澎柑島","url":"https://bulbapedia.bulbagarden.net/wiki/Tangelo_Island","checked":"2026-10-30","scope":"地圖名稱、渡航選單與劇情統一，取代未核對時暫留的Tangelo"},
+  {"en":"Kumquat Island","zh-TW":"榴柑島","url":"https://bulbapedia.bulbagarden.net/wiki/Kumquat_Island","checked":"2026-10-30","scope":"地名、道館、徽章說明、渡航選單"},
+  {"en":"Trovita Island","zh-TW":"柚子島","url":"https://bulbapedia.bulbagarden.net/wiki/Trovita_Island","checked":"2026-10-30","scope":"地名、道館、徽章說明、渡航選單"},
+  {"en":"Pummelo Island","zh-TW":"柑橘島","url":"https://bulbapedia.bulbagarden.net/wiki/Pummelo_Island","checked":"2026-10-30","scope":"保留已核對正確的地名，避免與前兩者混淆"}
+ ]
+}

@@ -1,0 +1,8 @@
+{
+ "policy":"記錄原版文字問題。翻譯保留原始鍵值與控制碼，不在翻譯中變更遊戲邏輯。",
+ "issues":[
+  {"section":0,"en":"\\rMallow: Are you ready, /PN?","issue":"原版將玩家姓名控制碼寫成/PN，並非可執行的\\PN。","status":"保留原版字面/PN。"},
+  {"section":0,"en":"\\rAh, but then I can't get Unflappable to deal with whatever <i>that<\\i> is... ugh. Maybe just Lv 2 on one of my blessings then?","issue":"原版斜體結束標籤寫成<\\i>而不是</i>。","status":"保留原版標籤與反斜線碼，未擅改事件格式。"},
+  {"section":0,"en":"\\bGladion: So, you made it, /PN? Good. I was afraid this was going to be too easy.","issue":"原版將玩家姓名控制碼寫成/PN，並非可執行的\\PN。","status":"保留原版字面/PN，未偷偷新增或改動控制碼。"}
+ ]
+}

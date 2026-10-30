@@ -1,0 +1,202 @@
+{"section": 24, "en": "{1}'s Sunbathe restored its HP."}
+{"section": 24, "en": "{1}'s Tailwind petered out!"}
+{"section": 24, "en": "{1}'s Taunt wore off!"}
+{"section": 24, "en": "{1}'s Trainer Move can be used again!"}
+{"section": 24, "en": "{1}'s Ula'ula Ocean Breeze boosts its allies!"}
+{"section": 24, "en": "{1}'s Umbral Restoration restored its HP."}
+{"section": 24, "en": "{1}'s Venomous activated!"}
+{"section": 24, "en": "{1}'s Venomous badly poisoned {2}!"}
+{"section": 24, "en": "{1}'s Water resistance can't be lowered any further!"}
+{"section": 24, "en": "{1}'s area"}
+{"section": 24, "en": "{1}'s attack missed!"}
+{"section": 24, "en": "{1}'s ball surges with {2} energy!"}
+{"section": 24, "en": "{1}'s base stats each increased by 1!"}
+{"section": 24, "en": "{1}'s burn was healed."}
+{"section": 24, "en": "{1}'s cheering was powered up by all the Dynamax Energy!"}
+{"section": 24, "en": "{1}'s continuous cheering grew in power!"}
+{"section": 24, "en": "{1}'s crit rate increased!"}
+{"section": 24, "en": "{1}'s crit rate maxed out!"}
+{"section": 24, "en": "{1}'s crit rate sharply increased!"}
+{"section": 24, "en": "{1}'s crit rate was lowered!"}
+{"section": 24, "en": "{1}'s crit rate was reset!"}
+{"section": 24, "en": "{1}'s crit rate won't go any higher!"}
+{"section": 24, "en": "{1}'s crit rate won't go any lower!"}
+{"section": 24, "en": "{1}'s damage reduction wore off!"}
+{"section": 24, "en": "{1}'s disguise served it as a decoy!"}
+{"section": 24, "en": "{1}'s disguise was busted!"}
+{"section": 24, "en": "{1}'s electromagnetism wore off!"}
+{"section": 24, "en": "{1}'s emotions rose to a fever pitch!\nIt entered Hyper Mode!"}
+{"section": 24, "en": "{1}'s encore ended!"}
+{"section": 24, "en": "{1}'s fervent wish has reached {2}!"}
+{"section": 24, "en": "{1}'s gas nullified all abilities!"}
+{"section": 24, "en": "{1}'s gender couldn't be changed."}
+{"section": 24, "en": "{1}'s health is sapped by Leech Seed!"}
+{"section": 24, "en": "{1}'s illusion wore off!"}
+{"section": 24, "en": "{1}'s item cannot be stolen!"}
+{"section": 24, "en": "{1}'s level remained unchanged."}
+{"section": 24, "en": "{1}'s lowered stats returned to normal!"}
+{"section": 24, "en": "{1}'s mail must be removed before giving it an item."}
+{"section": 24, "en": "{1}'s messages not defined.\nCouldn't call common event {2}."}
+{"section": 24, "en": "{1}'s move was postponed!"}
+{"section": 24, "en": "{1}'s moves have been electrified!"}
+{"section": 24, "en": "{1}'s moves were reset."}
+{"section": 24, "en": "{1}'s moves were set as its first-known moves."}
+{"section": 24, "en": "{1}'s mysterious aura blocked the stat theft!"}
+{"section": 24, "en": "{1}'s mysterious barrier took the hit!"}
+{"section": 24, "en": "{1}'s new level is less than its\r\ncurrent level, which shouldn't happen.\r\n[Debug: {2}]"}
+{"section": 24, "en": "{1}'s next physical attack will do a ton of damage!"}
+{"section": 24, "en": "{1}'s next physical attack will do more damage!"}
+{"section": 24, "en": "{1}'s next physical attack will do much more damage!"}
+{"section": 24, "en": "{1}'s next special attack will do a ton of damage!"}
+{"section": 24, "en": "{1}'s next special attack will do more damage!"}
+{"section": 24, "en": "{1}'s next special attack will do much more damage!"}
+{"section": 24, "en": "{1}'s next sync move will do a ton of damage!"}
+{"section": 24, "en": "{1}'s next sync move will do more damage!"}
+{"section": 24, "en": "{1}'s next sync move will do much more damage!"}
+{"section": 24, "en": "{1}'s nickname?"}
+{"section": 24, "en": "{1}'s passive ability changed from {2} to {3}!"}
+{"section": 24, "en": "{1}'s passive ability was unlocked and became {2}!"}
+{"section": 24, "en": "{1}'s passive ability was unlocked and is {2}!"}
+{"section": 24, "en": "{1}'s passives changed!"}
+{"section": 24, "en": "{1}'s perish count fell to {2}!"}
+{"section": 24, "en": "{1}'s primary type changed to {2}!"}
+{"section": 24, "en": "{1}'s protection ended!"}
+{"section": 24, "en": "{1}'s rage is building!"}
+{"section": 24, "en": "{1}'s reviving power spread out!"}
+{"section": 24, "en": "{1}'s shell trap didn't work!"}
+{"section": 24, "en": "{1}'s side because more resistant to Bug type attacks!"}
+{"section": 24, "en": "{1}'s side because more resistant to Dark type attacks!"}
+{"section": 24, "en": "{1}'s side because more resistant to Dragon type attacks!"}
+{"section": 24, "en": "{1}'s side because more resistant to Fire type attacks!"}
+{"section": 24, "en": "{1}'s side because more resistant to Flying type attacks!"}
+{"section": 24, "en": "{1}'s side because more resistant to Ground type attacks!"}
+{"section": 24, "en": "{1}'s side because more resistant to Rock type attacks!"}
+{"section": 24, "en": "{1}'s side because more resistant to Steel type attacks!"}
+{"section": 24, "en": "{1}'s side because more resistant to Water type attacks!"}
+{"section": 24, "en": "{1}'s stat changes were removed by {2}'s {3}!"}
+{"section": 24, "en": "{1}'s stat changes were removed!"}
+{"section": 24, "en": "{1}'s stats can't be changed further!"}
+{"section": 24, "en": "{1}'s stats can't be raised further!"}
+{"section": 24, "en": "{1}'s stats cannot be lowered during a Sandstorm!"}
+{"section": 24, "en": "{1}'s stats cannot be lowered when it's Sunny!"}
+{"section": 24, "en": "{1}'s stats cannot be lowered!"}
+{"section": 24, "en": "{1}'s stats changed due to the effects of the {2}!"}
+{"section": 24, "en": "{1}'s stats were reversed!"}
+{"section": 24, "en": "{1}'s stats won't go any higher!"}
+{"section": 24, "en": "{1}'s stats won't go any lower!"}
+{"section": 24, "en": "{1}'s status condition and stat drop immunities ended!"}
+{"section": 24, "en": "{1}'s status returned to normal!"}
+{"section": 24, "en": "{1}'s status was cured."}
+{"section": 24, "en": "{1}'s stockpiled effect wore off!"}
+{"section": 24, "en": "{1}'s substitute faded!"}
+{"section": 24, "en": "{1}'s substitute protected it from {2}'s {3}!"}
+{"section": 24, "en": "{1}'s taunt wore off!"}
+{"section": 24, "en": "{1}'s team is protected by Safeguard!"}
+{"section": 24, "en": "{1}'s team was disqualified!"}
+{"section": 24, "en": "{1}'s torment wore off!"}
+{"section": 24, "en": "{1}'s trainer move is already at maximum PP."}
+{"section": 24, "en": "{1}'s training increased its {2} by {3} point(s)!"}
+{"section": 24, "en": "{1}'s type changed to match {2}'s!"}
+{"section": 24, "en": "{1}'s type changed to {2} because of its {3}!"}
+{"section": 24, "en": "{1}'s type changed to {2}!"}
+{"section": 24, "en": "{1}'s type changed to {3}!"}
+{"section": 24, "en": "{1}'s will land a critical hit next turn!"}
+{"section": 24, "en": "{1}'s wish came true!"}
+{"section": 24, "en": "{1}'s {2} activated!"}
+{"section": 24, "en": "{1}'s {2} badly poisoned {3}!"}
+{"section": 24, "en": "{1}'s {2} blocks {3}!"}
+{"section": 24, "en": "{1}'s {2} burned {3}!"}
+{"section": 24, "en": "{1}'s {2} cannot be lowered!"}
+{"section": 24, "en": "{1}'s {2} cleared {3}'s {4}!"}
+{"section": 24, "en": "{1}'s {2} cured its infatuation status!"}
+{"section": 24, "en": "{1}'s {2} cured its paralysis!"}
+{"section": 24, "en": "{1}'s {2} cured its partner's paralysis!"}
+{"section": 24, "en": "{1}'s {2} cured its partner's poison!"}
+{"section": 24, "en": "{1}'s {2} cured its poison!"}
+{"section": 24, "en": "{1}'s {2} cured its poisoning!"}
+{"section": 24, "en": "{1}'s {2} cured its {3}'s poison!"}
+{"section": 24, "en": "{1}'s {2} decreased."}
+{"section": 24, "en": "{1}'s {2} defrosted it!"}
+{"section": 24, "en": "{1}'s {2} defrosted its partner!"}
+{"section": 24, "en": "{1}'s {2} drastically raised its {3}!"}
+{"section": 24, "en": "{1}'s {2} drastically raised {3}'s {4}!"}
+{"section": 24, "en": "{1}'s {2} energy left its body!"}
+{"section": 24, "en": "{1}'s {2} fell!"}
+{"section": 24, "en": "{1}'s {2} harshly fell!"}
+{"section": 24, "en": "{1}'s {2} harshly lowered its {3}!"}
+{"section": 24, "en": "{1}'s {2} harshly lowered {3}'s {4}!"}
+{"section": 24, "en": "{1}'s {2} healed its burn!"}
+{"section": 24, "en": "{1}'s {2} healed its partner's burn!"}
+{"section": 24, "en": "{1}'s {2} increased."}
+{"section": 24, "en": "{1}'s {2} is disabled!"}
+{"section": 24, "en": "{1}'s {2} is reacting to {3}'s {4}!"}
+{"section": 24, "en": "{1}'s {2} let it move first!"}
+{"section": 24, "en": "{1}'s {2} let it share its {3} with {4}!"}
+{"section": 24, "en": "{1}'s {2} lost all of its PP due to the grudge!"}
+{"section": 24, "en": "{1}'s {2} lowered its {3}!"}
+{"section": 24, "en": "{1}'s {2} lowered {3}'s {4}!"}
+{"section": 24, "en": "{1}'s {2} made it the {3} type!"}
+{"section": 24, "en": "{1}'s {2} made its taunt wear off!"}
+{"section": 24, "en": "{1}'s {2} made the {3} ineffective!"}
+{"section": 24, "en": "{1}'s {2} made {3} fall asleep!"}
+{"section": 24, "en": "{1}'s {2} made {3} fall in love!"}
+{"section": 24, "en": "{1}'s {2} made {3} ineffective!"}
+{"section": 24, "en": "{1}'s {2} makes Ground moves miss!"}
+{"section": 24, "en": "{1}'s {2} maxed its {3}!"}
+{"section": 24, "en": "{1}'s {2} paralyzed {3}! It may be unable to move!"}
+{"section": 24, "en": "{1}'s {2} poisoned {3}!"}
+{"section": 24, "en": "{1}'s {2} popped!"}
+{"section": 24, "en": "{1}'s {2} prevented {3}'s {4} from working!"}
+{"section": 24, "en": "{1}'s {2} prevents burns!"}
+{"section": 24, "en": "{1}'s {2} prevents confusion!"}
+{"section": 24, "en": "{1}'s {2} prevents freezing!"}
+{"section": 24, "en": "{1}'s {2} prevents paralysis!"}
+{"section": 24, "en": "{1}'s {2} prevents poisoning!"}
+{"section": 24, "en": "{1}'s {2} prevents romance!"}
+{"section": 24, "en": "{1}'s {2} prevents stat loss during a Sandstorm!"}
+{"section": 24, "en": "{1}'s {2} prevents stat loss when it's Sunny!"}
+{"section": 24, "en": "{1}'s {2} prevents stat loss!"}
+{"section": 24, "en": "{1}'s {2} prevents switching!"}
+{"section": 24, "en": "{1}'s {2} prevents {3} loss!"}
+{"section": 24, "en": "{1}'s {2} prevents {3}'s stat loss!"}
+{"section": 24, "en": "{1}'s {2} raised its {3}!"}
+{"section": 24, "en": "{1}'s {2} raised {3}'s {4}!"}
+{"section": 24, "en": "{1}'s {2} reset."}
+{"section": 24, "en": "{1}'s {2} restored its HP."}
+{"section": 24, "en": "{1}'s {2} restored its {3}'s PP!"}
+{"section": 24, "en": "{1}'s {2} rose drastically!"}
+{"section": 24, "en": "{1}'s {2} rose sharply!"}
+{"section": 24, "en": "{1}'s {2} rose!"}
+{"section": 24, "en": "{1}'s {2} severely fell!"}
+{"section": 24, "en": "{1}'s {2} severely lowered its {3}!"}
+{"section": 24, "en": "{1}'s {2} severely lowered {3}'s {4}!"}
+{"section": 24, "en": "{1}'s {2} sharply raised its {3}!"}
+{"section": 24, "en": "{1}'s {2} sharply raised {3}'s {4}!"}
+{"section": 24, "en": "{1}'s {2} snapped it out of its confusion!"}
+{"section": 24, "en": "{1}'s {2} was disabled by {3}'s {4}!"}
+{"section": 24, "en": "{1}'s {2} was disabled!"}
+{"section": 24, "en": "{1}'s {2} was given to {3}."}
+{"section": 24, "en": "{1}'s {2} was incinerated!"}
+{"section": 24, "en": "{1}'s {2} was taken over!"}
+{"section": 24, "en": "{1}'s {2} was transferred to {3}!"}
+{"section": 24, "en": "{1}'s {2} woke it up!"}
+{"section": 24, "en": "{1}'s {2} woke its partner up!"}
+{"section": 24, "en": "{1}'s {2} won't go any higher!"}
+{"section": 24, "en": "{1}'s {2} won't go any lower!"}
+{"section": 24, "en": "{1}'s {2} wore off!"}
+{"section": 24, "en": "{1}, and you want {2}. That will be ${3}. OK?"}
+{"section": 24, "en": "{1}, come back!"}
+{"section": 24, "en": "{1}, switch out! Come back!"}
+{"section": 24, "en": "{1}: As a reward, I will unleash my full power."}
+{"section": 24, "en": "{1}: PP {2}/{3} (PP Up {4}/3)"}
+{"section": 24, "en": "{1}: Stand proud {2}. You're strong."}
+{"section": 24, "en": "{1}: What... is this?"}
+{"section": 24, "en": "{1}? Certainly. How many would you like?"}
+{"section": 24, "en": "{1}? How many would you like to sell?"}
+{"section": 24, "en": "{1}? Oh, no. I can't buy that."}
+{"section": 24, "en": "{1}Club Completion No.{2}{3}"}
+{"section": 24, "en": "{1}Practice Completion No.{2}{3}"}
+{"section": 24, "en": "{1}h {2}m"}
+{"section": 24, "en": "{1}m"}
+{"section": 24, "en": "{1}{2}\r\n{3}HP: {4}"}
+{"section": 24, "en": "{2} made {1} move faster!"}

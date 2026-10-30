@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "tests_run": 3,
+  "failures": 0,
+  "errors": 0,
+  "source_game_unchanged": true,
+  "game_started": false,
+  "scope": "僅在Artifacts內的檔案測試副本套用及還原；未套用到安裝目錄，未啟動遊戲。",
+  "fixture_run": "run-20261030-081525-685138",
+  "installer_sha256": "023170a1c1e3c402b86c82d1b1026aa3f1c13b6b477d872a0f30c061df457665",
+  "test_sha256": "a532a8de4a6341ee1c88ec90ddb2aed597db7db0b1b8ceab435e0f19137c3ff8",
+  "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85"
+}

@@ -1,0 +1,8 @@
+{
+ "14":{"Laventon":"拉苯博士"},
+ "all":{"Laventon":"拉苯博士","Marco Cosmos":"馬洛科蒙集團","Macro Cosmos":"馬洛科蒙集團"},
+ "contextual_terms":[
+  {"en":"Battle Royal","zh-TW":"生存賽","section":0,"source":"\\bKukui: Welcome, everyone, to the Alola League's first round - the Battle Royal!","reason":"明示為瑪納羅大會首輪多人淘汰賽，不是四方皇家對戰。"},
+  {"en":"Battle Dome","zh-TW":"皇家巨蛋","section":0,"source":"\\bKukui: You're back. The Masked Royal wants to have a battle with you. He told me to tell you to meet him at the Royal Avenue Battle Dome.","reason":"皇家大道的Battle Royal Dome，不是希爾斯的對戰巨蛋。"}
+ ]
+}

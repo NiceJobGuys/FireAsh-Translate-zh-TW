@@ -1,0 +1,6 @@
+{"section": 0, "en": "\\rWelcome to the Viridian City Blimp Service.\\ch[1,-1, Valencia Island,Nuvema,Lumiose,Alola,Exit]"}
+{"section": 0, "en": "\\rWelcome. Where would you like to go?\\ch[1,-1, Vermillion,Cinnabar Gym,Metallica Island,Seafoam Islands,Exit]"}
+{"section": 0, "en": "\\rWhat trim would you like to give Furfrou?\\ch[3,- 1,Normal,Heart,Star,Diamond,Debutante, Matron,Dandy,La Reine,Kabuki,Pharoah]"}
+{"section": 0, "en": "\\rWhere would you like to go?\\ch[1,-1,Saffron, Goldenrod,Freezington,Wedgehurst,Exit]"}
+{"section": 0, "en": "\\rWhere would you like to go?\\ch[1,-1,Saffron, Goldenrod,Freezington,Wyndon,Exit]"}
+{"section": 0, "en": "\\rWhich Stadium Cup would you like to enter?\\ch[1,5, Pika Cup,Fancy Cup,Poké Cup,Little Cup,Cancel]"}

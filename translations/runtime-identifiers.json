@@ -1,0 +1,5 @@
+{
+  "reason":"BattleFieldEffect.backdrop將_INTL傳回值直接用作背景資源名稱，必須保留大小寫與拼字。",
+  "script":"BattleFieldEffect",
+  "24":["indoor1","elite3","water","rocky","snow","champion1","forest","elite8","elite4"]
+}

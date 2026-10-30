@@ -1,0 +1,6 @@
+{
+ "14":{"Thorton":"捩木","Tierno":"提耶魯","Trevor":"多羅巴"},
+ "all":{"Thorton":"捩木","Tierno":"提耶魯","Trevor":"多羅巴","Grandeur Lounge":"輝煌交誼廳"},
+ "retained_terms":{"Trace":"原文遊戲角色名稱，未核對台灣譯名，保留原拼字。","Timmy":"原文人物姓名，未核對台灣譯名，保留原拼字。","Tommy":"原文小剛的家人姓名，未核對台灣譯名，保留原拼字。"},
+ "contextual_terms":[{"section":0,"source":"\\bThis is where challengers may face Drake after obtaining the four badges.","en":"Drake","zh-TW":"勇次","reason":"messages.dat 地圖246，柑橘島，取得四枚橘子聯盟徽章後挑戰勇次。"},{"section":0,"source":"\\bThis is where the Battle Royale takes place.","en":"Battle Royale","zh-TW":"生存賽","reason":"messages.dat 地圖958，阿羅拉聯盟首輪，與同圖庫庫伊決賽及八強說明相鄰，並非皇家大道皇家對戰。"}]
+}

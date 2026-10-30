@@ -1,0 +1,6 @@
+{
+ "14":{"Looker":"帥哥","Marshal":"連武"},
+ "all":{"Looker":"帥哥","Marshal":"連武","Masked Royal":"皇家蒙面人"},
+ "retained_terms":{"Lian":"原文角色姓名，未核對台灣譯名，保留原拼字。","Mandi":"原文角色姓名，未核對台灣譯名，保留原拼字。","Melli":"原文角色姓名，未核對台灣譯名，保留原拼字。","Luc-ker":"原文製作者客串暱稱，原台詞強調連字號是名稱的一部分，保留完整拼字。"},
+ "preserved_sources":{"0":{"\\bLuc-ker...":"creator-alias-original"}}
+}

@@ -1,0 +1,200 @@
+{"section": 24, "en": "Here's your restored Pokémon. Take good care of it!"}
+{"section": 24, "en": "HiddenAbility 1"}
+{"section": 24, "en": "HiddenAbility 2"}
+{"section": 24, "en": "HiddenAbility 3"}
+{"section": 24, "en": "HiddenAbility 4"}
+{"section": 24, "en": "Highly curious."}
+{"section": 24, "en": "Highly persistent."}
+{"section": 24, "en": "Hit 1 time!"}
+{"section": 24, "en": "Hit {1} times!"}
+{"section": 24, "en": "Hmmm...!\\\u0001"}
+{"section": 24, "en": "How have the results of your adventure been so far?"}
+{"section": 24, "en": "How many credits would you like to exchange?"}
+{"section": 24, "en": "How many do you want to deposit?"}
+{"section": 24, "en": "How many do you want to withdraw?"}
+{"section": 24, "en": "How many {1} do you want to feed {2}? (Candies Fed: {3})"}
+{"section": 24, "en": "How many {1} do you want to use?"}
+{"section": 24, "en": "Hue:"}
+{"section": 24, "en": "Huh, you're giving up?\nPlease come back any time for a new adventure!"}
+{"section": 24, "en": "Huh?\u0001"}
+{"section": 24, "en": "Huh? The Channeler suddenly vanished!"}
+{"section": 24, "en": "Huh? The {1}'s responding!\u0001"}
+{"section": 24, "en": "Humanlike"}
+{"section": 24, "en": "I"}
+{"section": 24, "en": "I can pay ${1}. Would that be OK?"}
+{"section": 24, "en": "I can share my supplies with you if you're in need. What items would you like?"}
+{"section": 24, "en": "I go where the spirits say I'm needed! Nothing more!"}
+{"section": 24, "en": "I have a rental Pokémon here that I could swap with you, if you'd like."}
+{"section": 24, "en": "I hope we'll see you again soon!"}
+{"section": 24, "en": "I must go now, young one. There are many other souls that need saving!"}
+{"section": 24, "en": "I see! So a {1} is the kind of Trainer you like.\\\u0001"}
+{"section": 24, "en": "I see! So an {1} is the kind of Trainer you like.\\\u0001"}
+{"section": 24, "en": "I was once an adventurer like you who got lost in these caves.\nMany...\\wt[10]many years ago.\\wt[10]"}
+{"section": 24, "en": "I was summoned here by the wailing of souls crying out from this cave!"}
+{"section": 24, "en": "I was worried I'd run into trouble in here, so I stocked up on more than I can carry..."}
+{"section": 24, "en": "I'll add any treasure you acquired during your adventure to your bag."}
+{"section": 24, "en": "I'll be going now.\nGood luck with the rest of your adventure!"}
+{"section": 24, "en": "I'll head back to study the new data I've gathered."}
+{"section": 24, "en": "I'll throw in a Premier Ball, too."}
+{"section": 24, "en": "I'll throw in a {1}, too."}
+{"section": 24, "en": "I'll throw in some {1}, too."}
+{"section": 24, "en": "I'm sorry, the Cable Club has malfunctioned!"}
+{"section": 24, "en": "I'm sorry, the Cable Club server has malfunctioned!"}
+{"section": 24, "en": "I'm sorry, the Cable Club server is down at the moment."}
+{"section": 24, "en": "I'm sorry, the other trainer has disconnected."}
+{"section": 24, "en": "I'm sorry, you must have a Pokémon to enter the Cable Club."}
+{"section": 24, "en": "I'm sorry, you must have at least two Pokémon to engage in a double battle."}
+{"section": 24, "en": "I'm sorry, your partner must have at least two Pokémon to engage in a double battle."}
+{"section": 24, "en": "I'm sorry, your party contains Pokémon not allowed in the Cable Club."}
+{"section": 24, "en": "I'm sorry, {1} doesn't want to #{activity.to_s}."}
+{"section": 24, "en": "I'm sorry, {1} doesn't want to trade after all."}
+{"section": 24, "en": "I'm sorry, {1} is not a trainer ID."}
+{"section": 24, "en": "I've been studying the most effective tactics to use in Dynamax battles."}
+{"section": 24, "en": "I've been training deep in this cave so that I can grow strong like a Dynamax Pokémon!"}
+{"section": 24, "en": "ID No."}
+{"section": 24, "en": "IDNo.<r>{1}<br>"}
+{"section": 24, "en": "IDNo.{1}"}
+{"section": 24, "en": "INELIGIBLE"}
+{"section": 24, "en": "INFO"}
+{"section": 24, "en": "IVs"}
+{"section": 24, "en": "Identifies the point on the regional map for this map."}
+{"section": 24, "en": "If set to true, the Pokémon has G-Max Factor."}
+{"section": 24, "en": "If set to true, the Pokémon is a Shadow Pokémon."}
+{"section": 24, "en": "If set to true, the Pokémon is a different-colored Pokémon."}
+{"section": 24, "en": "If set to true, the trainer will save Dynamax for this Pokémon."}
+{"section": 24, "en": "If that's the case, others may come to see you in the same way.\\\u0001"}
+{"section": 24, "en": "If the mail is removed, its message will be lost. OK?"}
+{"section": 24, "en": "If true, the bicycle can be used on this map."}
+{"section": 24, "en": "If true, the bicycle will be mounted automatically on this map and cannot be dismounted."}
+{"section": 24, "en": "If true, the game will display the map's name upon entry."}
+{"section": 24, "en": "If true, this map has a randomly generated layout. See the wiki for more information."}
+{"section": 24, "en": "If true, this map is an outdoor map and will be tinted according to time of day."}
+{"section": 24, "en": "If true, this map is dark and a circle of light appears around the player. Flash can be used to expand the circle."}
+{"section": 24, "en": "If true, this map is part of the Safari Zone (both indoor and outdoor). Not to be used in the reception desk."}
+{"section": 24, "en": "If true, when the player goes near this map's edge, the game doesn't center the player as usual."}
+{"section": 24, "en": "If you must know, I...\\wt[10]just got lost."}
+{"section": 24, "en": "If you quit now, you will recieve {1} Coin(s). Will you quit?"}
+{"section": 24, "en": "If you save now, the other file's adventure, including items and Pokémon, will be entirely lost."}
+{"section": 24, "en": "If you'd like, I can teach one of your Pokémon a new move to help it excel in battle!"}
+{"section": 24, "en": "Impetuous and silly."}
+{"section": 24, "en": "Import All Battle Animations"}
+{"section": 24, "en": "Import Anim..."}
+{"section": 24, "en": "Import all battle animations from the \"Animations\" folder."}
+{"section": 24, "en": "Import text and converts it into a language file."}
+{"section": 24, "en": "In Bag:<r>{1}  "}
+{"section": 24, "en": "Incense"}
+{"section": 24, "en": "Incorrect value {1} in {2}\r\n{3}"}
+{"section": 24, "en": "Individual values for each of the Pokémon's stats."}
+{"section": 24, "en": "Individual values for the Pokémon's {1} stat (0-{2})."}
+{"section": 24, "en": "Information editors..."}
+{"section": 24, "en": "Insectoid"}
+{"section": 24, "en": "Insects infest the battlefield!"}
+{"section": 24, "en": "Insert Frame"}
+{"section": 24, "en": "Insert entry"}
+{"section": 24, "en": "Inspired by work by Flameguru"}
+{"section": 24, "en": "Instantly warp to another map of your choice."}
+{"section": 24, "en": "Interference Immunity"}
+{"section": 24, "en": "Internal Name"}
+{"section": 24, "en": "Internal name of the Pokémon."}
+{"section": 24, "en": "Internal name that is used as a symbol like :XXX."}
+{"section": 24, "en": "InternalName"}
+{"section": 24, "en": "Invalid pocket: {1}"}
+{"section": 24, "en": "Invalid quoted field (in: {1})"}
+{"section": 24, "en": "Invalid quoted field (in: {1})\r\n{2}"}
+{"section": 24, "en": "Invalid section name {1}"}
+{"section": 24, "en": "Iris is at Opelucid City's Gym."}
+{"section": 24, "en": "Is it OK to throw away {1} {2}?"}
+{"section": 24, "en": "Is normal (not shiny)."}
+{"section": 24, "en": "Is shiny."}
+{"section": 24, "en": "Is square shiny."}
+{"section": 24, "en": "Is the Trainer male, female or undefined?"}
+{"section": 24, "en": "Is there anything else I can help you with?"}
+{"section": 24, "en": "It appears to move occasionally. It may be close to hatching."}
+{"section": 24, "en": "It broke all barriers!"}
+{"section": 24, "en": "It can't be used when you have someone with you."}
+{"section": 24, "en": "It created a bizarre area in which Pokémon's held items lose their effects!"}
+{"section": 24, "en": "It created a bizarre area in which the Defense and Sp. Def stats are swapped!"}
+{"section": 24, "en": "It doesn't affect {1} because of its {2}."}
+{"section": 24, "en": "It had no effect."}
+{"section": 24, "en": "It hurt itself in its confusion!"}
+{"section": 24, "en": "It is raining heavily."}
+{"section": 24, "en": "It is raining."}
+{"section": 24, "en": "It looks like this Egg will take a long time to hatch."}
+{"section": 24, "en": "It might affect {1}'s stats.\nAre you sure you want to use it?"}
+{"section": 24, "en": "It reduced the PP of {1}'s {2} by {3}!"}
+{"section": 24, "en": "It started to hail!"}
+{"section": 24, "en": "It started to rain!"}
+{"section": 24, "en": "It was stored in box \"{1}\"."}
+{"section": 24, "en": "It was stored in box \"{1}.\""}
+{"section": 24, "en": "It's a Slot Machine."}
+{"section": 24, "en": "It's a big boulder, but a Pokémon may be able to push it aside."}
+{"section": 24, "en": "It's a big boulder, but a Pokémon may be able to push it aside.\u0001"}
+{"section": 24, "en": "It's a large waterfall. Would you like to use Waterfall?"}
+{"section": 24, "en": "It's a mystery who's on this tile.\nYou'll never know who you'll run into!"}
+{"section": 24, "en": "It's a one-hit KO!"}
+{"section": 24, "en": "It's a rugged rock, but a Pokémon may be able to smash it."}
+{"section": 24, "en": "It's a text file, so it can be transferred to others easily."}
+{"section": 24, "en": "It's impossible to aim without being focused!"}
+{"section": 24, "en": "It's no good! It's impossible to aim at a Pokémon that's not in sight!"}
+{"section": 24, "en": "It's no good! It's impossible to aim when there are more than one Pokémon!"}
+{"section": 24, "en": "It's no good! It's impossible to aim when there are two Pokémon!"}
+{"section": 24, "en": "It's not very effective on {1}..."}
+{"section": 24, "en": "It's soft, earthy soil."}
+{"section": 24, "en": "It's soft, loamy soil.\nPlant a berry?"}
+{"section": 24, "en": "It's super effective on {1}!"}
+{"section": 24, "en": "It's teatime! Everyone dug in to their Berries!"}
+{"section": 24, "en": "Item ID '{1}' is used twice.\r\n{2}"}
+{"section": 24, "en": "Item ID number '{1}' is used twice.\r\n{2}"}
+{"section": 24, "en": "Item Name"}
+{"section": 24, "en": "Item Name Plural"}
+{"section": 24, "en": "Item Storage"}
+{"section": 24, "en": "Item commonly held by wild Pokémon of this species."}
+{"section": 24, "en": "Item held by the Pokémon."}
+{"section": 24, "en": "Item is {1}."}
+{"section": 24, "en": "Item needed to be held by a parent to produce an egg of this species."}
+{"section": 24, "en": "Item options..."}
+{"section": 24, "en": "Item rarely held by wild Pokémon of this species."}
+{"section": 24, "en": "Item uncommonly held by wild Pokémon of this species."}
+{"section": 24, "en": "Item {1}"}
+{"section": 24, "en": "Item {1} is not defined (trying to rename item icon {2})."}
+{"section": 24, "en": "Items can't be used here."}
+{"section": 24, "en": "Its disguise served it as a decoy!"}
+{"section": 24, "en": "J"}
+{"section": 24, "en": "Jan."}
+{"section": 24, "en": "January"}
+{"section": 24, "en": "Johan is outside Iki Town's Pokémon Center."}
+{"section": 24, "en": "Judgment"}
+{"section": 24, "en": "Jukebox"}
+{"section": 24, "en": "Jul."}
+{"section": 24, "en": "July"}
+{"section": 24, "en": "Jump"}
+{"section": 24, "en": "Jump to which Box?"}
+{"section": 24, "en": "Jun."}
+{"section": 24, "en": "June"}
+{"section": 24, "en": "Just a little more! Hang in there, {1}!"}
+{"section": 24, "en": "K"}
+{"section": 24, "en": "Kate is outside Sootopolis City's Pokémon Center."}
+{"section": 24, "en": "Keep Grinding!\\^"}
+{"section": 24, "en": "Keep pushing yourself until you've reached your limits!"}
+{"section": 24, "en": "Kept all cards of your color."}
+{"section": 24, "en": "Key Item"}
+{"section": 24, "en": "Keyboard"}
+{"section": 24, "en": "Kimono Girl"}
+{"section": 24, "en": "Kind"}
+{"section": 24, "en": "Kind of Pokémon species."}
+{"section": 24, "en": "Kricketina Kylie is in Vermillion City's Pokémon Center."}
+{"section": 24, "en": "L"}
+{"section": 24, "en": "LEARNED"}
+{"section": 24, "en": "Landed a Pokémon!"}
+{"section": 24, "en": "Landing on a Switch Tile that is already in the ON position will revert all switches to the OFF position, and any revealed tiles will return to their inactive state."}
+{"section": 24, "en": "Lass Abby"}
+{"section": 24, "en": "Last Cel:"}
+{"section": 24, "en": "Last Frame:"}
+{"section": 24, "en": "Lawn Mower"}
+{"section": 24, "en": "Lawn mower"}
+{"section": 24, "en": "League champion!\nCongratulations!\\^"}
+{"section": 24, "en": "Leave Den"}
+{"section": 24, "en": "Leave blank"}
+{"section": 24, "en": "Leave without taking any captured Pokémon with you?"}
+{"section": 24, "en": "Left: {1}"}
+{"section": 24, "en": "Legend 1"}

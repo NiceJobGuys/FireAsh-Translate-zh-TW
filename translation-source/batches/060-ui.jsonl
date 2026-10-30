@@ -1,0 +1,220 @@
+{"section": 24, "en": "Zoom Y:"}
+{"section": 24, "en": "[ADD DEX]"}
+{"section": 24, "en": "[ADD EVOLUTION]"}
+{"section": 24, "en": "[ADD MOVE]"}
+{"section": 24, "en": "[Add Pokémon]"}
+{"section": 24, "en": "[Add new encounter set]"}
+{"section": 24, "en": "[Add new encounter type]"}
+{"section": 24, "en": "[Add new slot]"}
+{"section": 24, "en": "[Add trainer]"}
+{"section": 24, "en": "[All roam to new locations]"}
+{"section": 24, "en": "[Any]"}
+{"section": 24, "en": "[Clear all current roamer locations]"}
+{"section": 24, "en": "[Create all]"}
+{"section": 24, "en": "[Cure]"}
+{"section": 24, "en": "[Custom]"}
+{"section": 24, "en": "[Erase background graphic]"}
+{"section": 24, "en": "[GLOBAL]"}
+{"section": 24, "en": "[NEW ITEM]"}
+{"section": 24, "en": "[NEW SPECIES]"}
+{"section": 24, "en": "[NEW TRAINER BATTLE]"}
+{"section": 24, "en": "[NEW TRAINER TYPE]"}
+{"section": 24, "en": "[Play user's cry]"}
+{"section": 24, "en": "[Raid Lvl. {1}]"}
+{"section": 24, "en": "[Reset]"}
+{"section": 24, "en": "[Set opponent side size]"}
+{"section": 24, "en": "[Set player side size]"}
+{"section": 24, "en": "[Start {1}v{2} battle]"}
+{"section": 24, "en": "\\\rGreat, let's begin!"}
+{"section": 24, "en": "\\\rI can't revive a Pokémon using duplicate fossils."}
+{"section": 24, "en": "\\\rI can't revive a Pokémon using two body fossils."}
+{"section": 24, "en": "\\\rI can't revive a Pokémon using two head fossils."}
+{"section": 24, "en": "\\\rI'm sorry, but you need at least 5000 Poké Dollars to initiate a wonder trade."}
+{"section": 24, "en": "\\\rSorry, those fossils are outside of my expertise."}
+{"section": 24, "en": "\\CN\\bHow many {1} would you like?"}
+{"section": 24, "en": "\\CN\\bHow many {1} would you like? (max. {2})"}
+{"section": 24, "en": "\\CN\\bHow many {1} would you like? (max.{2})"}
+{"section": 24, "en": "\\CN\\bYou have no room in your Bag."}
+{"section": 24, "en": "\\GHere you go!"}
+{"section": 24, "en": "\\GYou don't have enough money."}
+{"section": 24, "en": "\\GYou have no room left in the Bag."}
+{"section": 24, "en": "\\bYou're not worth my time. Come back when you're The Monarch."}
+{"section": 24, "en": "\\b{1} GC Credits have been awarded to you."}
+{"section": 24, "en": "\\l[1]\\ts[]Set the terrain tag."}
+{"section": 24, "en": "\\me[Bug catching 3rd]You found a Lair Key!\\wtnp[30]"}
+{"section": 24, "en": "\\me[Evolution success]Congratulations! The restoration was successful!"}
+{"section": 24, "en": "\\me[Item get]You obtained \\c[1]{1} {2}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[Item get]You obtained a \\c[1]{1}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[Item get]You obtained an \\c[1]{1}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[Item get]You obtained some \\c[1]{1}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[Item get]You obtained {1} \\c[1]{2}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[Max Raid Intro]You ventured deeper into the lair...\\wt[34] ...\\wt[34] ...\\wt[60]!\\wtnp[8]"}
+{"section": 24, "en": "\\me[Max Raid Intro]You ventured into the den...\\wt[34] ...\\wt[34] ...\\wt[60]!\\wtnp[8]"}
+{"section": 24, "en": "\\me[Pkmn get]{1} received a Pokémon from {2}.\u0001"}
+{"section": 24, "en": "\\me[Pkmn get]{1} received a Pokémon.\u0001"}
+{"section": 24, "en": "\\me[Pkmn get]{1} received {2}!"}
+{"section": 24, "en": "\\me[Pkmn healing]Please, let me heal them back to full health.\\wtnp[30]"}
+{"section": 24, "en": "\\me[Register phone]Registered {1} in the Pokégear."}
+{"section": 24, "en": "\\me[Voltorb Flip game over]Oh no! You get 0 Coins!\\wtnp[50]"}
+{"section": 24, "en": "\\me[Voltorb Flip win]Game clear!\\wtnp[40]"}
+{"section": 24, "en": "\\me[{1}]You found \\c[1]{2} {3}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[{1}]You found a \\c[1]{2}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[{1}]You found an \\c[1]{2}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[{1}]You found some \\c[1]{2}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[{1}]You found {2} \\c[1]{3}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[{1}]You obtained \\c[1]{2} {3}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[{1}]You obtained a \\c[1]{2}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[{1}]You obtained an \\c[1]{2}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[{1}]You obtained some \\c[1]{2}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\me[{1}]You obtained {2} \\c[1]{3}\\c[0]!\\wtnp[30]"}
+{"section": 24, "en": "\\se[PC access]Accessed the Club."}
+{"section": 24, "en": "\\se[PC access]Accessed the Duet."}
+{"section": 24, "en": "\\se[PC access]Accessed the Gauntlet."}
+{"section": 24, "en": "\\se[PC access]Accessed the Hall of Fame."}
+{"section": 24, "en": "\\se[PC access]Accessed the Mayhem."}
+{"section": 24, "en": "\\se[PC access]Accessed the Practice."}
+{"section": 24, "en": "\\se[PC access]Accessed the Purify Chamber."}
+{"section": 24, "en": "\\se[PC access]Accessed {1}'s PC."}
+{"section": 24, "en": "\\se[PC access]The Pokémon Storage System was opened."}
+{"section": 24, "en": "\\se[PC access]You booted up {1}.\u0001"}
+{"section": 24, "en": "\\se[PC access]\\bOak: Hello \\PN! How would you like to manage your Pokémon?"}
+{"section": 24, "en": "\\se[PC open]{1} booted up the PC."}
+{"section": 24, "en": "\\se[Voltorb Flip gain coins]{1} received {2} Coins!"}
+{"section": 24, "en": "\\se[Voltorb Flip level down]Dropped to Game Lv. {1}!"}
+{"section": 24, "en": "\\se[Voltorb Flip level up]Advanced to Game Lv. {1}!"}
+{"section": 24, "en": "\\se[]Congratulations! Your {1} evolved into {2}!\\wt[80]"}
+{"section": 24, "en": "\\se[]Save failed.\\wtnp[30]"}
+{"section": 24, "en": "\\se[]The game was saved.\\me[GUI save game] The previous save file has been backed up.\\wtnp[30]"}
+{"section": 24, "en": "\\se[]What? {1} is evolving!\\^"}
+{"section": 24, "en": "\\se[]{1} hatched from the Egg!\\wt[80]"}
+{"section": 24, "en": "\\se[]{1} learned {2}!\\se[Pkmn move learnt]"}
+{"section": 24, "en": "\\se[]{1} learned {2}!\\se[Pkmn move learnt]\u0001"}
+{"section": 24, "en": "\\se[]{1} saved the game.\\me[GUI save game]\\wtnp[30]"}
+{"section": 24, "en": "\\se[]{1} was added to the party!\\se[Pkmn move learnt]"}
+{"section": 24, "en": "\\ts[]Do what with this Dex?"}
+{"section": 24, "en": "\\ts[]Do what with this entry?"}
+{"section": 24, "en": "\\ts[]Do what with this evolution?"}
+{"section": 24, "en": "\\ts[]Do what with this move?"}
+{"section": 24, "en": "\\ts[]Manage Mystery Gifts (X=online)."}
+{"section": 24, "en": "\\w[]\\wm\\c[8]\\l[3]After the unfortunate defeat, you scurry back home."}
+{"section": 24, "en": "\\w[]\\wm\\c[8]\\l[3]After the unfortunate defeat, you scurry back to a Pokémon Center."}
+{"section": 24, "en": "\\w[]\\wm\\c[8]\\l[3]You scurry back home, protecting your exhausted Pokémon from any further harm..."}
+{"section": 24, "en": "\\w[]\\wm\\c[8]\\l[3]You scurry back to a Pokémon Center, protecting your exhausted Pokémon from any further harm..."}
+{"section": 24, "en": "accents"}
+{"section": 24, "en": "and everyone else who helped out"}
+{"section": 24, "en": "champion1"}
+{"section": 24, "en": "eight"}
+{"section": 24, "en": "eighteen"}
+{"section": 24, "en": "eleven"}
+{"section": 24, "en": "elite3"}
+{"section": 24, "en": "elite4"}
+{"section": 24, "en": "elite8"}
+{"section": 24, "en": "fifteen"}
+{"section": 24, "en": "five"}
+{"section": 24, "en": "forest"}
+{"section": 24, "en": "four"}
+{"section": 24, "en": "fourteen"}
+{"section": 24, "en": "indoor1"}
+{"section": 24, "en": "intl.txt already exists. Overwrite it?"}
+{"section": 24, "en": "lower"}
+{"section": 24, "en": "nine"}
+{"section": 24, "en": "nineteen"}
+{"section": 24, "en": "one"}
+{"section": 24, "en": "other"}
+{"section": 24, "en": "rocky"}
+{"section": 24, "en": "seven"}
+{"section": 24, "en": "seventeen"}
+{"section": 24, "en": "six"}
+{"section": 24, "en": "sixteen"}
+{"section": 24, "en": "snow"}
+{"section": 24, "en": "something"}
+{"section": 24, "en": "ten"}
+{"section": 24, "en": "the ally {1}"}
+{"section": 24, "en": "the opposing {1}"}
+{"section": 24, "en": "the wild {1}"}
+{"section": 24, "en": "thirteen"}
+{"section": 24, "en": "three"}
+{"section": 24, "en": "twelve"}
+{"section": 24, "en": "twenty"}
+{"section": 24, "en": "two"}
+{"section": 24, "en": "version number"}
+{"section": 24, "en": "water"}
+{"section": 24, "en": "x{1: 2d}"}
+{"section": 24, "en": "x{1: 3d}"}
+{"section": 24, "en": "x{1:03d}"}
+{"section": 24, "en": "x{1}"}
+{"section": 24, "en": "x{1}<r>$ {2}"}
+{"section": 24, "en": "zero"}
+{"section": 24, "en": "{1:.1f} kg"}
+{"section": 24, "en": "{1:.1f} m"}
+{"section": 24, "en": "{1:4.1f} lbs."}
+{"section": 24, "en": "{1:s}\r\nID: {2:05d}   OT: {3:s}\u0001"}
+{"section": 24, "en": "{1:s}\r\nID: {2:05d}   OT: {3:s}\\wtnp[0]"}
+{"section": 24, "en": "{1:s} (Lv.{2:d})"}
+{"section": 24, "en": "{1:s} (♀, Lv.{2:d})"}
+{"section": 24, "en": "{1:s} (♂, Lv.{2:d})"}
+{"section": 24, "en": "{1}\nReplace this item?"}
+{"section": 24, "en": "{1}  Lv.{2}  {3}"}
+{"section": 24, "en": "{1}  Lv.{2}  {3}/{4}"}
+{"section": 24, "en": "{1}  x{2}"}
+{"section": 24, "en": "{1} (G-Max)"}
+{"section": 24, "en": "{1} (PP: ---)"}
+{"section": 24, "en": "{1} (PP: {2}/{3})"}
+{"section": 24, "en": "{1} (form {2})"}
+{"section": 24, "en": "{1} (x{2})"}
+{"section": 24, "en": "{1} - {2} Pokémon"}
+{"section": 24, "en": "{1} Badge {2}"}
+{"section": 24, "en": "{1} EVs"}
+{"section": 24, "en": "{1} Performance"}
+{"section": 24, "en": "{1} Pokémon"}
+{"section": 24, "en": "{1} Pokémon are needed."}
+{"section": 24, "en": "{1} absorbed nutrients with its roots!"}
+{"section": 24, "en": "{1} absorbed the poison spikes!"}
+{"section": 24, "en": "{1} acquired {2}!"}
+{"section": 24, "en": "{1} acquired {2}'s {3}!"}
+{"section": 24, "en": "{1} activated!"}
+{"section": 24, "en": "{1} adapted and became immune to {2} type attacks!"}
+{"section": 24, "en": "{1} adapted and became more resistant to {2} type attacks!"}
+{"section": 24, "en": "{1} adores you!\nThe door to its heart opened a little."}
+{"section": 24, "en": "{1} adores you! Its base Attack fell!"}
+{"section": 24, "en": "{1} adores you! Its base Defense fell!"}
+{"section": 24, "en": "{1} adores you! Its base HP fell!"}
+{"section": 24, "en": "{1} adores you! Its base Special Attack fell!"}
+{"section": 24, "en": "{1} adores you! Its base Special Defense fell!"}
+{"section": 24, "en": "{1} adores you! Its base Speed fell!"}
+{"section": 24, "en": "{1} allows the use of only {2} !"}
+{"section": 24, "en": "{1} allows the use of only {2}!"}
+{"section": 24, "en": "{1} already has a burn!"}
+{"section": 24, "en": "{1} already has a substitute!"}
+{"section": 24, "en": "{1} already has {2} training."}
+{"section": 24, "en": "{1} already knows {2}."}
+{"section": 24, "en": "{1} anchored itself with its roots!"}
+{"section": 24, "en": "{1} anchors itself with {2}!"}
+{"section": 24, "en": "{1} anchors itself!"}
+{"section": 24, "en": "{1} and {2} switched places!"}
+{"section": 24, "en": "{1} animations converted to new format."}
+{"section": 24, "en": "{1} appears incapable of using its power!"}
+{"section": 24, "en": "{1} ate its {2}!"}
+{"section": 24, "en": "{1} avoided damage with {2}!"}
+{"section": 24, "en": "{1} avoided the attack with {2}!"}
+{"section": 24, "en": "{1} avoided the attack!"}
+{"section": 24, "en": "{1} avoided the move in time with your shout!"}
+{"section": 24, "en": "{1} avoids attacks by its ally Pokémon with {2}!"}
+{"section": 24, "en": "{1} avoids attacks by its ally Pokémon!"}
+{"section": 24, "en": "{1} awoke from its slumber!"}
+{"section": 24, "en": "{1} became Ash-Greninja!"}
+{"section": 24, "en": "{1} became bulkier!"}
+{"section": 24, "en": "{1} became cloaked in a freezing light that reduces damage dealt to it!"}
+{"section": 24, "en": "{1} became cloaked in a freezing light!"}
+{"section": 24, "en": "{1} became cloaked in a harsh light!"}
+{"section": 24, "en": "{1} became cloaked in a mystical veil!"}
+{"section": 24, "en": "{1} became cloaked in freezing air!"}
+{"section": 24, "en": "{1} became cloaked in mystical moonlight!"}
+{"section": 24, "en": "{1} became confused due to fatigue!"}
+{"section": 24, "en": "{1} became confused!"}
+{"section": 24, "en": "{1} became fully charged due to its Power Herb!"}
+{"section": 24, "en": "{1} became fully charged due to its bond with its Trainer!"}
+{"section": 24, "en": "{1} became fully grown!"}
+{"section": 24, "en": "{1} became healthy."}
+{"section": 24, "en": "{1} became immune to Ground type attacks for 5 turns!"}
+{"section": 24, "en": "{1} became immune to status conditions and stat drops for 3 turns!"}

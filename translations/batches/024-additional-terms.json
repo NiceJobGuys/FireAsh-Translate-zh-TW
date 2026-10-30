@@ -1,0 +1,21 @@
+{
+  "all": {
+    "Silph Co.": "西爾佛公司",
+    "Devon Corporation": "得文公司",
+    "Doxy Island": "Doxy島"
+  },
+  "14": {
+    "Greta": "黃瓜香",
+    "Tucker": "希爾斯",
+    "Noland": "達拉",
+    "Spenser": "宇康",
+    "Lucy": "小薊",
+    "Brandon": "神代",
+    "Anabel": "莉拉"
+  },
+  "retained_terms": {
+    "Doxy": "遊戲自訂島名，未確認既有官方繁中名稱，地名主體保留原拼字。",
+    "Luc-ker": "遊戲作者網名，保留原拼字。",
+    "UUDDLRLRBAS": "按鍵代碼組成的自訂招式名，保留按鍵名稱與順序。"
+  }
+}

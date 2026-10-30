@@ -1,0 +1,6 @@
+{
+ "14":{"Celosia":"克蕾兒","Cheryl":"芽米","Charm":"阿梅","Clover":"阿竹","Cogita":"吾思","Coin":"阿松","Cyllene":"星月","Dahlia":"大麗"},
+ "all":{"Celosia":"克蕾兒","Cheryl":"芽米","Charm":"阿梅","Clover":"阿竹","Cogita":"吾思","Coin":"阿松","Cyllene":"星月","Dahlia":"大麗","Chloe":"小春"},
+ "retained_terms":{"Aidan":"原文消防隊長姓名，未核對台灣譯名，保留原拼字。","Charles":"原文人物姓名，未核對台灣譯名，保留原拼字。","Ferrara":"原文人物姓名，未核對台灣譯名，保留原拼字。","Cindy":"原文小剛的家人姓名，未核對台灣譯名，保留原拼字。","Claire":"此拼字與館主 Clair 不同，尚未核對人物身分，保留原名避免誤認。","Joi":"遊戲自訂接待員名稱，與 Joy 區別，保留原拼字。","Crystal":"原文客串人物姓名，未核對本遊戲人物的台灣譯名，保留原拼字。"},
+ "contextual_terms":[{"section":0,"source":"\\rDaisy: Hi, \\PN!","en":"Daisy","zh-TW":"奈奈美","reason":"地圖8梳毛服務事件，為小茂姐姐奈奈美，並非華藍三姐妹櫻花。"},{"section":0,"source":"\\rDaisy: Oh, okay then.","en":"Daisy","zh-TW":"奈奈美","reason":"地圖8同一梳毛服務事件。"},{"section":0,"source":"\\rDaisy: There!  \\v[2] looks a lot happier and prettier now!","en":"Daisy","zh-TW":"奈奈美","reason":"地圖8梳毛服務完成台詞。"},{"section":0,"source":"\\rDaisy: Which Pokémon do you want me to groom?","en":"Daisy","zh-TW":"奈奈美","reason":"地圖8梳毛服務選擇台詞。"},{"section":0,"source":"\\rDaisy: Would you like me to groom one of your Pokémon?","en":"Daisy","zh-TW":"奈奈美","reason":"地圖8梳毛服務邀請台詞。"}]
+}

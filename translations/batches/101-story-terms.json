@@ -1,0 +1,5 @@
+{
+ "all":{"STAB":"屬性一致加成","Spear Key":"槍之鑰"},
+ "retained_terms":{"Jennifer":"原文人物姓名，保留拼字；原版Map814的思念對白。","Jiggly":"原版Map851的NPC將寵物稱為Jiggly，保留暱稱識別。","Cassie":"一般角色姓名，保留原拼字。"},
+ "preserved_sources":{"0":{"\\bJennifer...":"trainer-name-original","\\bJiggly":"pokemon-nickname-original"}}
+}

@@ -1,0 +1,6 @@
+{
+ "14":{"Forrest":"次郎"},
+ "all":{"Forrest":"次郎","Ultra Guardians":"究極防衛隊","Status Recovery":"異常狀態回復"},
+ "retained_terms":{"Foul":"原文製作者客串暱稱，保留原拼字。","Foul Play at A Garbodor Price":"原文製作者完整暱稱，保留原拼字以便識別；暱稱中的Garbodor不是此句所指的寶可夢種類。","Gaeric":"原文角色姓名，未核對台灣譯名，保留原拼字。","Cara Liss":"原文化石復原者姓名，未核對台灣譯名，保留原拼字。"},
+ "contextual_terms":[{"en":"Foul Play at A Garbodor Price","zh-TW":"Foul Play at A Garbodor Price","section":0,"source":"\\bFoul: Hello! Glad to see that you are finally here. In case you don't recognise me, my name is Foul Play at A Garbodor Price, but my friends call me Foul.","reason":"製作者客串的完整網名保留原寫法；只對此句暱稱範圍排除寶可夢名稱檢查，其他文字照常檢查。"}]
+}

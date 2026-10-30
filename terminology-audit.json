@@ -1,0 +1,14 @@
+{
+  "canonical_names_checked": 3703,
+  "prohibited_term_or_character_count": 0,
+  "problem_count": 0,
+  "official_poke_ball_exception_count": 73,
+  "inline_species_mentions_checked": 2832,
+  "problems": [],
+  "inline_place_mentions_checked": 1036,
+  "named_speakers_checked": 2792,
+  "speaker_name_conflicts": 0,
+  "ambiguous_speaker_rows_preserved": 21,
+  "move_instructions_checked": 111,
+  "species_words_inside_literal_creator_aliases": 1
+}

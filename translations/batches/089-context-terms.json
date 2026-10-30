@@ -1,0 +1,10 @@
+{
+ "all":{"Dr. Footstep":"足跡博士"},
+ "retained_terms":{"Drake":"訓練家姓名語言表以同一英文鍵涵蓋勇次及源治，單一全域譯名會誤稱其中一人；此姓名鍵保留Drake，劇情則依事件分別翻譯。"},
+ "preserved_sources":{"14":{"Drake":"ambiguous-trainer-name"}},
+ "contextual_terms":[
+  {"en":"Drake","zh-TW":"勇次","section":0,"source":"\\bDrake: Are you ready, kid? It's about to get interesting.","maps":[247],"event":2,"sprite":"trchar080","reason":"柑橘競技場事件，橘子聯盟館主。"},
+  {"en":"Drake","zh-TW":"源治","section":0,"source":"\\bDrake: Don't think my age has slowed me down.","maps":[881],"event":79,"sprite":"trchar172","trainer_type":"ELITEFOUR_Drake","reason":"同地圖另一個Drake事件為LEADER_Drake；依實際訓練家類型區分。"},
+  {"en":"Drake","zh-TW":"勇次","section":0,"source":"\\bDrake: Close battle earlier. I know you'll beat the rest.","maps":[995],"event":28,"sprite":"trchar080","reason":"宮門競技場此事件沿用勇次的圖像，不是源治的trchar172。"}
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "14":{"Johanna":"彩子","Karen":"梨花","Klara":"克拉拉"},
+ "all":{"Johanna":"彩子","Karen":"梨花","Klara":"克拉拉","Snowy":"白滾滾","Ultra Guardians":"究極防衛隊"},
+ "retained_terms":{"Koume":"原文舞妓姓名，未核對台灣譯名，保留原拼字。"},
+ "contextual_terms":[
+ {"section":0,"source":"\\rLil","en":"Lil","zh-TW":"裙兒小姐","reason":"Map390 event106名Lilligant，角色圖LILLIGANT，為寶可夢叫聲，非一般人名Lil。"},
+ {"section":0,"source":"\\rLiza: Go away. No one is allowed in this sacred land.","en":"Liza","zh-TW":"紀珂","reason":"Map269噴火龍山谷，守護聖地的紀珂。"},
+ {"section":0,"source":"\\rLiza: Hello again \\PN. Nice to see you.","en":"Liza","zh-TW":"紀珂","reason":"Map342、473、500噴火龍領回事件的紀珂，並非小南。"},
+ {"section":0,"source":"\\rLiza: You have a strong Charizard. How would you like me to train one of your Pokémon?","en":"Liza","zh-TW":"紀珂","reason":"Map269噴火龍山谷訓練服務。"},
+ {"section":0,"source":"\\rLiza: You think you're good enough to enter this place? Just try it.","en":"Liza","zh-TW":"紀珂","reason":"Map269噴火龍山谷的入場對戰。"},
+ {"section":0,"source":"\\rLiza: TM03 contains Psyshock.","en":"Liza","zh-TW":"小南","reason":"Map442綠嶺道館，小楓與小南的雙打對戰。"},
+ {"section":0,"source":"\\rLiza: The place is a lot of fun.","en":"Liza","zh-TW":"小南","reason":"Map442綠嶺道館，小南。"},
+ {"section":0,"source":"\\rLiza: We battle in cooperation.","en":"Liza","zh-TW":"小南","reason":"Map442綠嶺道館，小南。"},
+ {"section":0,"source":"\\rLiza: You'll need at least two Pokémon if you want to battle us.","en":"Liza","zh-TW":"小南","reason":"Map442綠嶺道館雙打要求。"},
+ {"section":0,"source":"\\rLuana: You may just beat Drake. Good luck!","en":"Drake","zh-TW":"勇次","reason":"橘子聯盟館主琉麗談橘子聯盟首席勇次。"}
+ ]
+}

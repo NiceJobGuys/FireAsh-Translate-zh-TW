@@ -1,0 +1,10 @@
+{
+ "retained_terms":{"Aiden":"原文培育者姓名，保留原拼字。","Anthony":"原文培育者姓名，保留原拼字。","Keanan":"原文培育者姓名，保留原拼字。","McCann":"原文培育者姓名，保留原拼字。"},
+ "contextual_terms":[
+  {"en":"Liza","zh-TW":"紀珂","section":0,"source":"\\PN took \\v[3] back from Liza.","maps":[269,342,473,500],"reason":"從培育者取回寶可夢的事件；與綠嶺道館館主Liza（小南）分開。"},
+  {"en":"Royal","zh-TW":"皇家蒙面人","section":0,"source":"\\PN teamed up with Royal!\\me[Item get]\\wtnp[40]","maps":[928],"reason":"皇家蒙面人的住處組隊事件；與Royal Avenue（皇家大道）分開。"},
+  {"en":"Daisy","zh-TW":"櫻花","section":0,"source":"Daisy: We run the Gym here.","reason":"華藍道館三姊妹的發言；不套用到其他同名人物。"},
+  {"en":"Lily","zh-TW":"菖蒲","section":0,"source":"Lily: We run the Gym here.","reason":"華藍道館三姊妹的發言。"},
+  {"en":"Violet","zh-TW":"牡丹","section":0,"source":"Violet: We run the Gym here.","reason":"華藍道館三姊妹的發言；與Violet City（桔梗市）分開。"}
+ ]
+}

@@ -1,0 +1,22 @@
+{
+  "ruby_version": "3.0.2",
+  "native_slots_checked": 42534,
+  "scripts_syntax_checked": 404,
+  "font_hook_behavior": "pass",
+  "native_message_csv_cases_checked": 6,
+  "native_cjk_layout_cases_checked": 12,
+  "english_layout_unchanged_cases_checked": 4,
+  "original_cjk_overflow_reproduced": true,
+  "layout_metrics": "synthetic-8px-latin-23px-cjk",
+  "layout_test_sha256": "e2cb67745a165026a5d0289b616819a39fdff401af3b2d542ced14a6440d1261",
+  "runtime_ui_unique_checked": 115,
+  "runtime_display_behavior": "pass",
+  "runtime_support_sha256": "9736d85016f67420df53769f75a41e5586d3213c07739071afa3284be74afd98",
+  "runtime_test_sha256": "14211b1fef02c53bb93a4978822b727d969e2c96be07e1d9c4ce69c1cae8d9e7",
+  "game_started": false,
+  "installed": false,
+  "validated_at_utc": "2026-10-30T00:13:03.254647+00:00",
+  "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
+  "scripts_sha256": "674cb2e39a99b7bc93f5a389e858298045f362b1cbfd2e25669684f8111c3a84",
+  "font_support_sha256": "85e568a698e60dc34df8c99463ef4ad5c7a1287f5071a8c9634ff17a2c00da9f"
+}

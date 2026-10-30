@@ -1,0 +1,230 @@
+{"section": 24, "en": "Set PP of {1} (max. {2})."}
+{"section": 24, "en": "Set Party"}
+{"section": 24, "en": "Set Player Character"}
+{"section": 24, "en": "Set Player Name"}
+{"section": 24, "en": "Set Player Outfit"}
+{"section": 24, "en": "Set Poké Ball"}
+{"section": 24, "en": "Set Pokérus"}
+{"section": 24, "en": "Set Shadow Position"}
+{"section": 24, "en": "Set Shadow Size"}
+{"section": 24, "en": "Set Sheen"}
+{"section": 24, "en": "Set Smart"}
+{"section": 24, "en": "Set Tough"}
+{"section": 24, "en": "Set ability"}
+{"section": 24, "en": "Set any ability"}
+{"section": 24, "en": "Set critical hits"}
+{"section": 24, "en": "Set damage done"}
+{"section": 24, "en": "Set egg"}
+{"section": 24, "en": "Set encounters version to which value?"}
+{"section": 24, "en": "Set foreign ID"}
+{"section": 24, "en": "Set form"}
+{"section": 24, "en": "Set gender"}
+{"section": 24, "en": "Set happiness"}
+{"section": 24, "en": "Set heart gauge"}
+{"section": 24, "en": "Set item"}
+{"section": 24, "en": "Set level"}
+{"section": 24, "en": "Set money, badges, Pokédexes, player's appearance and name, etc."}
+{"section": 24, "en": "Set move PP"}
+{"section": 24, "en": "Set nature"}
+{"section": 24, "en": "Set new passive"}
+{"section": 24, "en": "Set nickname"}
+{"section": 24, "en": "Set passive"}
+{"section": 24, "en": "Set possible ability"}
+{"section": 24, "en": "Set ribbons"}
+{"section": 24, "en": "Set shininess"}
+{"section": 24, "en": "Set species"}
+{"section": 24, "en": "Set status"}
+{"section": 24, "en": "Set steps left to 1"}
+{"section": 24, "en": "Set the EV for {1} (max. {2})."}
+{"section": 24, "en": "Set the IV for {1} (max. 31)."}
+{"section": 24, "en": "Set the Pokémon's Beauty (max. 255)."}
+{"section": 24, "en": "Set the Pokémon's Cool (max. 255)."}
+{"section": 24, "en": "Set the Pokémon's Cute (max. 255)."}
+{"section": 24, "en": "Set the Pokémon's Exp (range {1}-{2})."}
+{"section": 24, "en": "Set the Pokémon's Sheen (max. 255)."}
+{"section": 24, "en": "Set the Pokémon's Smart (max. 255)."}
+{"section": 24, "en": "Set the Pokémon's Tough (max. 255)."}
+{"section": 24, "en": "Set the Pokémon's form."}
+{"section": 24, "en": "Set the Pokémon's happiness (max. 255)."}
+{"section": 24, "en": "Set the Pokémon's level (max. {1})."}
+{"section": 24, "en": "Set the Pokémon's level."}
+{"section": 24, "en": "Set the Pokémon's sleep count."}
+{"section": 24, "en": "Set the heart gauge (max. {1})."}
+{"section": 24, "en": "Set the level for {1} (max. #{params.maxNumber})."}
+{"section": 24, "en": "Set the level range to search above or below. (1-100)."}
+{"section": 24, "en": "Set the money per level won for defeating the Trainer."}
+{"section": 24, "en": "Set the name for this point."}
+{"section": 24, "en": "Set the new ID (max. 65535)."}
+{"section": 24, "en": "Set the player's BP amount."}
+{"section": 24, "en": "Set the player's Coin amount."}
+{"section": 24, "en": "Set the player's money."}
+{"section": 24, "en": "Set the player's outfit."}
+{"section": 24, "en": "Set the probability of the weather."}
+{"section": 24, "en": "Set the terrain tag."}
+{"section": 24, "en": "Set the value for {1} (0-#{@maxvalue})."}
+{"section": 24, "en": "Set the value for {1}."}
+{"section": 24, "en": "Set the wild {1}'s level."}
+{"section": 24, "en": "Set variable {1}."}
+{"section": 24, "en": "Set {1}"}
+{"section": 24, "en": "Set {1}'s Dynamax level (max. 10)."}
+{"section": 24, "en": "Set {1}'s HP (max. {2})."}
+{"section": 24, "en": "Set {1}'s critical hits (max. 999)."}
+{"section": 24, "en": "Set {1}'s damage done (max. {2})."}
+{"section": 24, "en": "Set {1}'s status."}
+{"section": 24, "en": "Shadow"}
+{"section": 24, "en": "Shadow Pkmn..."}
+{"section": 24, "en": "Shadow Pokémon can't be taught any moves."}
+{"section": 24, "en": "Shadow Pokémon can't use Z-Moves."}
+{"section": 24, "en": "Shadow Pokémon. Choose a Pokémon to show to the Relic Stone for purification."}
+{"section": 24, "en": "Shadow Pokémon. Open the Purify Chamber for purification."}
+{"section": 24, "en": "Shadow Sky"}
+{"section": 24, "en": "Shape"}
+{"section": 24, "en": "Sharp Entry 3"}
+{"section": 24, "en": "Sharp-pointed pieces of steel started floating around {1}!"}
+{"section": 24, "en": "Shimmering White Snow"}
+{"section": 24, "en": "Shining Silver Soul"}
+{"section": 24, "en": "Should {1} forget a move to learn {2}?"}
+{"section": 24, "en": "Show Pokémon"}
+{"section": 24, "en": "Simple"}
+{"section": 24, "en": "Simulating battles ({1} of {2})"}
+{"section": 24, "en": "Sinister Aura"}
+{"section": 24, "en": "Skill"}
+{"section": 24, "en": "Skill Code"}
+{"section": 24, "en": "Skill Level"}
+{"section": 24, "en": "Skill level of this Trainer type."}
+{"section": 24, "en": "Skip {1} without giving it an item?"}
+{"section": 24, "en": "Skip {1} without giving it any training?"}
+{"section": 24, "en": "Sky"}
+{"section": 24, "en": "Sky Drop won't let {1} go!"}
+{"section": 24, "en": "Sleep"}
+{"section": 24, "en": "Snag Ball"}
+{"section": 24, "en": "Snow"}
+{"section": 24, "en": "So, how about telling me what kind of Trainer that you like?\\\u0001"}
+{"section": 24, "en": "So, you'd like to take {1} with you?"}
+{"section": 24, "en": "Some grass grew to cover the battlefield!"}
+{"section": 24, "en": "Some map data was edited. Close and reopen RPG Maker XP to see the changes."}
+{"section": 24, "en": "Some metrics have been edited. Save changes?"}
+{"section": 24, "en": "Someone's PC"}
+{"section": 24, "en": "Something pinged in the wall!\n{1} confirmed!"}
+{"section": 24, "en": "Somewhat of a clown."}
+{"section": 24, "en": "Somewhat stubborn."}
+{"section": 24, "en": "Somewhat vain."}
+{"section": 24, "en": "Sophocles is at Mossdeep City's Space Center."}
+{"section": 24, "en": "Sorry, a new Badge is required."}
+{"section": 24, "en": "Soul"}
+{"section": 24, "en": "Sounds can be heard coming from inside! It will hatch soon!"}
+{"section": 24, "en": "South side of first map must connect with north side of second map\r\n{1}"}
+{"section": 24, "en": "Sp. Attack Buff"}
+{"section": 24, "en": "Sp. Defense Buff"}
+{"section": 24, "en": "Space"}
+{"section": 24, "en": "Spd"}
+{"section": 24, "en": "Special Items"}
+{"section": 24, "en": "Species"}
+{"section": 24, "en": "Species ID '{1}' is not defined in {2}.\r\n{3}"}
+{"section": 24, "en": "Species ID '{1}' is used twice.\r\n{2}"}
+{"section": 24, "en": "Species ID number '{1}' is used twice.\r\n{2}"}
+{"section": 24, "en": "Species does not exist ({1})."}
+{"section": 24, "en": "Species of the Pokémon."}
+{"section": 24, "en": "Species {1} does not exist."}
+{"section": 24, "en": "Species {1} is not defined (trying to rename Pokémon graphic {2})."}
+{"section": 24, "en": "Species {1} is not defined (trying to rename species cry {2})."}
+{"section": 24, "en": "Species {1} only has one form."}
+{"section": 24, "en": "Species {1}, form {2} (forced)."}
+{"section": 24, "en": "Species {1}, form {2}."}
+{"section": 24, "en": "Species/form..."}
+{"section": 24, "en": "Specifies how this item can be used outside of battle."}
+{"section": 24, "en": "Specifies how this item can be used within a battle."}
+{"section": 24, "en": "Specifies player A."}
+{"section": 24, "en": "Specifies player B."}
+{"section": 24, "en": "Specifies player C."}
+{"section": 24, "en": "Specifies player D."}
+{"section": 24, "en": "Specifies player E."}
+{"section": 24, "en": "Specifies player F."}
+{"section": 24, "en": "Specifies player G."}
+{"section": 24, "en": "Specifies player H."}
+{"section": 24, "en": "Specifies the underwater layer of this map. Use only if this map has deep water."}
+{"section": 24, "en": "Speech frame {1}."}
+{"section": 24, "en": "Speed Buff"}
+{"section": 24, "en": "Spikemuth Grit"}
+{"section": 24, "en": "Spikes were scattered all around {0}'s feet!"}
+{"section": 24, "en": "Spikes were scattered all around {1}'s feet!"}
+{"section": 24, "en": "Spiky Pika"}
+{"section": 24, "en": "Sport Balls: {1}"}
+{"section": 24, "en": "Sprite"}
+{"section": 24, "en": "SquareShiny"}
+{"section": 24, "en": "Stack search terms?"}
+{"section": 24, "en": "Standard Cup"}
+{"section": 24, "en": "Start Battle"}
+{"section": 24, "en": "Start a battle against 1 or more trainers with a battle size of your choice."}
+{"section": 24, "en": "Start a battle against 1 or more wild Pokémon. Battle size is your choice."}
+{"section": 24, "en": "Start a single battle against a trainer of your choice."}
+{"section": 24, "en": "Start a single battle against a wild Pokémon. You choose the species/level."}
+{"section": 24, "en": "Start battles, reset this map's trainers, ready rematches, edit roamers, etc."}
+{"section": 24, "en": "Started"}
+{"section": 24, "en": "Started new trainer while previous trainer has no Pokémon.\r\n{1}"}
+{"section": 24, "en": "Starting Frame:"}
+{"section": 24, "en": "Status Immunity"}
+{"section": 24, "en": "Step chance"}
+{"section": 24, "en": "Step chance={1}%"}
+{"section": 24, "en": "Steps: {1}/{2}\nBalls: {3}"}
+{"section": 24, "en": "StepsToHatch"}
+{"section": 24, "en": "Steven is at Wyndon Stadium."}
+{"section": 24, "en": "Still water"}
+{"section": 24, "en": "Stockpile needs to be used first."}
+{"section": 24, "en": "Stop Sound"}
+{"section": 24, "en": "Stop editing this gift?"}
+{"section": 24, "en": "Stop giving the Pokémon Mail?"}
+{"section": 24, "en": "Storage boxes were filled with one Pokémon of each species."}
+{"section": 24, "en": "Store Pokémon in your party in Boxes."}
+{"section": 24, "en": "Store items in the PC."}
+{"section": 24, "en": "Strength made it possible to move boulders around."}
+{"section": 24, "en": "Strong willed."}
+{"section": 24, "en": "Strong winds funneled through the caves and whipped up a storm of dust that is impossible to see through."}
+{"section": 24, "en": "Strongly defiant."}
+{"section": 24, "en": "Struggle"}
+{"section": 24, "en": "Sturdy body."}
+{"section": 24, "en": "Successfully compiled text and saved it to intl.dat.\u0001"}
+{"section": 24, "en": "Surfing character sprite."}
+{"section": 24, "en": "Swirling Storm"}
+{"section": 24, "en": "Switches"}
+{"section": 24, "en": "Sygna"}
+{"section": 24, "en": "T"}
+{"section": 24, "en": "TEMPO"}
+{"section": 24, "en": "TENTH"}
+{"section": 24, "en": "THIRD"}
+{"section": 24, "en": "TM"}
+{"section": 24, "en": "TR"}
+{"section": 24, "en": "TWELFTH"}
+{"section": 24, "en": "Take a screenshot. It is put in the same folder as the save file."}
+{"section": 24, "en": "Take good care of {1}."}
+{"section": 24, "en": "Take out items from the PC."}
+{"section": 24, "en": "Take this {1}?"}
+{"section": 24, "en": "Takes plenty of siestas."}
+{"section": 24, "en": "Talk to Cynthia in Oreburgh City."}
+{"section": 24, "en": "Tall grass"}
+{"section": 24, "en": "Teach {1} the move {2}?"}
+{"section": 24, "en": "Teach {1}?"}
+{"section": 24, "en": "Team Galactic 1"}
+{"section": 24, "en": "Team Galactic 2"}
+{"section": 24, "en": "Team Shout"}
+{"section": 24, "en": "Team Triage Tank"}
+{"section": 24, "en": "Team generation complete."}
+{"section": 24, "en": "Terrain Tag:"}
+{"section": 24, "en": "Terrain [{1}]"}
+{"section": 24, "en": "Terrain is set to {1}."}
+{"section": 24, "en": "Test Trainer Battle"}
+{"section": 24, "en": "Test Trainer Battle Advanced"}
+{"section": 24, "en": "Test Wild Battle"}
+{"section": 24, "en": "Test Wild Battle Advanced"}
+{"section": 24, "en": "Test battle this Max Raid species?"}
+{"section": 24, "en": "Tested by:"}
+{"section": 24, "en": "Text"}
+{"section": 24, "en": "Thank you for using the Cable Club. We hope to see you again soon."}
+{"section": 24, "en": "That ID is already used by a Mystery Gift."}
+{"section": 24, "en": "That Pokémon can't be placed there."}
+{"section": 24, "en": "That won't fertilize the soil!"}
+{"section": 24, "en": "That's too important to toss out!"}
+{"section": 24, "en": "The Bag is full. The Pokémon's item could not be removed."}
+{"section": 24, "en": "The Bag was cleared."}
+{"section": 24, "en": "The Bag was filled with {1} of each item."}
+{"section": 24, "en": "The Blizzard Field was turned off!"}

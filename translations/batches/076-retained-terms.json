@@ -1,0 +1,4 @@
+{
+ "retained_terms":{"George":"一般角色姓名，保留原拼字。","Haden":"原文角色姓名，保留原拼字，不與Hayden視為同一人。","Harry":"一般角色姓名，保留原拼字。","Howard":"一般角色姓名，保留原拼字。","Ike":"一般角色姓名，保留原拼字。","Game Freak":"原遊戲開發公司名稱，保留品牌寫法。","Izabe":"未確認官方繁中對照的地名，保留原文詞幹。"},
+ "preserved_sources":{"0":{"George":"trainer-name-original","Haden":"trainer-name-original","Harry":"trainer-name-original","Howard":"trainer-name-original","Ike":"trainer-name-original","Game Freak":"original-creator-name","Izabe":"place-name-original"}}
+}

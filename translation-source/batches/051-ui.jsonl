@@ -1,0 +1,200 @@
+{"section": 24, "en": "Field {1} is not a floating point number\r\n{2}"}
+{"section": 24, "en": "Field {1} is not a number\r\n{2}"}
+{"section": 24, "en": "Field {1} is not a positive integer"}
+{"section": 24, "en": "Field {1} is not a positive integer\r\n{2}"}
+{"section": 24, "en": "Field {1} is not an integer\r\n{2}"}
+{"section": 24, "en": "File written."}
+{"section": 24, "en": "File {1}, line {2}\r\n{3}\r\n\r\n"}
+{"section": 24, "en": "File {1}, section {2}\r\n{3}\r\n\r\n"}
+{"section": 24, "en": "File {1}, section {2}, key {3}\r\n{4}\r\n\r\n"}
+{"section": 24, "en": "File: \"{1}\""}
+{"section": 24, "en": "Fill Bag"}
+{"section": 24, "en": "Fill Storage Boxes"}
+{"section": 24, "en": "Fill in this new Dex?"}
+{"section": 24, "en": "Filled party with demo Pokémon."}
+{"section": 24, "en": "Filter: Habitat"}
+{"section": 24, "en": "Filter: Raid"}
+{"section": 24, "en": "Filter: Region"}
+{"section": 24, "en": "Filter: Type"}
+{"section": 24, "en": "Find {1}!"}
+{"section": 24, "en": "Finned"}
+{"section": 24, "en": "Fire's power was weakened!"}
+{"section": 24, "en": "First Cel:"}
+{"section": 24, "en": "First Frame:"}
+{"section": 24, "en": "First, define the new trainer's type."}
+{"section": 24, "en": "Fishing character sprite."}
+{"section": 24, "en": "Fix Invalid Tiles"}
+{"section": 24, "en": "Flip:"}
+{"section": 24, "en": "Floor Reached:"}
+{"section": 24, "en": "Fluctuating"}
+{"section": 24, "en": "Focus:"}
+{"section": 24, "en": "For special kinds of items."}
+{"section": 24, "en": "For {1}'s {2},\r\n{3} sends {4}.\u0001"}
+{"section": 24, "en": "For {1}, the {2} was too bitter!"}
+{"section": 24, "en": "For {1}, the {2} was too dry!"}
+{"section": 24, "en": "For {1}, the {2} was too sour!"}
+{"section": 24, "en": "For {1}, the {2} was too spicy!"}
+{"section": 24, "en": "For {1}, the {2} was too sweet!"}
+{"section": 24, "en": "Foreign Pokémon\n{1}\n{2}\n{3} ({4})"}
+{"section": 24, "en": "Forest grass"}
+{"section": 24, "en": "Forget a move to learn {1}?"}
+{"section": 24, "en": "Form of the Pokémon."}
+{"section": 24, "en": "Form {1} for species ID {2} is defined twice.\r\n{3}"}
+{"section": 24, "en": "FormName"}
+{"section": 24, "en": "Frame height is 0"}
+{"section": 24, "en": "Frame width is 0"}
+{"section": 24, "en": "Frame:"}
+{"section": 24, "en": "Frames:"}
+{"section": 24, "en": "Freeze Shock needs to be used first."}
+{"section": 24, "en": "FrontSpriteScale"}
+{"section": 24, "en": "Frontier"}
+{"section": 24, "en": "Fully compile all data."}
+{"section": 24, "en": "Fully heal"}
+{"section": 24, "en": "Fully heal the HP/status/PP of all Pokémon in the party."}
+{"section": 24, "en": "Fuse with which Pokémon?"}
+{"section": 24, "en": "G"}
+{"section": 24, "en": "Gave Pokégear."}
+{"section": 24, "en": "Gave Running Shoes."}
+{"section": 24, "en": "Gave {1}x {2}."}
+{"section": 24, "en": "Gender is female."}
+{"section": 24, "en": "Gender is male."}
+{"section": 24, "en": "Gender of the Pokémon."}
+{"section": 24, "en": "Gender of this Trainer type."}
+{"section": 24, "en": "GenderRate"}
+{"section": 24, "en": "Generate Pokémon teams for this challenge?"}
+{"section": 24, "en": "Generate a random new ID for the player."}
+{"section": 24, "en": "Generate egg"}
+{"section": 24, "en": "Generating teams ({1} of {2})"}
+{"section": 24, "en": "Generation"}
+{"section": 24, "en": "Gigantamax Factor applied."}
+{"section": 24, "en": "Gigantamax Factor removed."}
+{"section": 24, "en": "Gigantamax factor was given to {1}."}
+{"section": 24, "en": "Gigantamax factor was removed from {1}."}
+{"section": 24, "en": "Give Demo Party"}
+{"section": 24, "en": "Give Pokémon, heal party, fill/empty PC storage, etc."}
+{"section": 24, "en": "Give all"}
+{"section": 24, "en": "Give and take items."}
+{"section": 24, "en": "Give random strain"}
+{"section": 24, "en": "Give the {1} to {2}?"}
+{"section": 24, "en": "Give up on learning {1}?"}
+{"section": 24, "en": "Give up trying to teach a new move to {1}?"}
+{"section": 24, "en": "Give yourself 6 preset Pokémon. They overwrite the current party."}
+{"section": 24, "en": "Give yourself a Pokémon of a chosen species/level. Goes to PC if party is full."}
+{"section": 24, "en": "Give yourself a default name?"}
+{"section": 24, "en": "Give {1} some {2} training?"}
+{"section": 24, "en": "Global Metadata"}
+{"section": 24, "en": "Go back to the previous menu."}
+{"section": 24, "en": "Go for a better record! Try again!\\^"}
+{"section": 24, "en": "Go to Map"}
+{"section": 24, "en": "Go to bottom"}
+{"section": 24, "en": "Go to top"}
+{"section": 24, "en": "Go! {1} and {2}!\r\n"}
+{"section": 24, "en": "Go! {1}!\r\n"}
+{"section": 24, "en": "Go! {1}, {2} and {3}!\r\n"}
+{"section": 24, "en": "Go! {1}, {2}, {3} and {4}!\r\n"}
+{"section": 24, "en": "Go! {1}, {2}, {3}, {4} and {5}!\r\n"}
+{"section": 24, "en": "Goh is near the pier in Vermillion City."}
+{"section": 24, "en": "Good endurance."}
+{"section": 24, "en": "Good job, {1}! Come back!"}
+{"section": 24, "en": "Good luck on your search for {1}!"}
+{"section": 24, "en": "Good perseverance."}
+{"section": 24, "en": "Got all opponent's cards."}
+{"section": 24, "en": "Got opponent's {1} card."}
+{"section": 24, "en": "Graphics/Pictures/Slot Machine/ReelOverlay"}
+{"section": 24, "en": "Graphics/Pictures/Slot Machine/images"}
+{"section": 24, "en": "Graphics/Pictures/Slot Machine/numbers"}
+{"section": 24, "en": "Graphics/Pictures/Tile Puzzle/cursor"}
+{"section": 24, "en": "Grass grew to cover the battlefield!"}
+{"section": 24, "en": "Grass is covering the battlefield!"}
+{"section": 24, "en": "Grass is covering the battlefield."}
+{"section": 24, "en": "Grassy"}
+{"section": 24, "en": "Graveyard"}
+{"section": 24, "en": "Gray Tone:"}
+{"section": 24, "en": "Greater"}
+{"section": 24, "en": "Greater than or equal to? Less than or equal to? Exactly equal to?"}
+{"section": 24, "en": "Green Offset:"}
+{"section": 24, "en": "Green:"}
+{"section": 24, "en": "GrowthRate"}
+{"section": 24, "en": "H"}
+{"section": 24, "en": "HM"}
+{"section": 24, "en": "HP greater than total HP"}
+{"section": 24, "en": "HP less than 0"}
+{"section": 24, "en": "HP/Status..."}
+{"section": 24, "en": "Had a fateful encounter at Lv. {1}."}
+{"section": 24, "en": "Half of the other moves need to be used first before this move can be used."}
+{"section": 24, "en": "Hall of Fame No."}
+{"section": 24, "en": "Hall of Grandeur No."}
+{"section": 24, "en": "Happiness of the Pokémon (0-255)."}
+{"section": 24, "en": "Harry is outside Stow-on-Side's Pokémon Center."}
+{"section": 24, "en": "Has strain {1}, infectious for {2} more days."}
+{"section": 24, "en": "Has strain {1}, not infectious."}
+{"section": 24, "en": "Has various functions depending on context. While moving around, hold to move at a different speed. (Default: Z)"}
+{"section": 24, "en": "Hates to lose."}
+{"section": 24, "en": "Have Pokédex: {1}"}
+{"section": 24, "en": "Hayden is outside Vermillion City's Pokémon Center."}
+{"section": 24, "en": "Head"}
+{"section": 24, "en": "Head and arms"}
+{"section": 24, "en": "Head and base"}
+{"section": 24, "en": "Head and legs"}
+{"section": 24, "en": "Head inside Rose Tower."}
+{"section": 24, "en": "Head to Ballonlea through Glimwood Tangle, which is east of Stow-on-Side."}
+{"section": 24, "en": "Head to Ballonlea's Gym."}
+{"section": 24, "en": "Head to Ballonlea."}
+{"section": 24, "en": "Head to Canalave City's library."}
+{"section": 24, "en": "Head to Cerise's Lab."}
+{"section": 24, "en": "Head to Cero Island using the westmost boat in Vermillion City's pier."}
+{"section": 24, "en": "Head to Dragonite Island using the westmost boat in Vermillion City's pier."}
+{"section": 24, "en": "Head to Floaroma Meadow."}
+{"section": 24, "en": "Head to Galar's Wild Area by taking the train in Saffron City."}
+{"section": 24, "en": "Head to Galar's Wild Area."}
+{"section": 24, "en": "Head to Hammerlocke's Gym."}
+{"section": 24, "en": "Head to Hoenn Battle Frontier using the 2nd leftmost boat in Vermillion City's pier."}
+{"section": 24, "en": "Head to Kalos Route 8."}
+{"section": 24, "en": "Head to Kanto Route 10."}
+{"section": 24, "en": "Head to Kanto Route 19."}
+{"section": 24, "en": "Head to Kanto Route 26."}
+{"section": 24, "en": "Head to Lilycove City's Contest Hall."}
+{"section": 24, "en": "Head to Lumiose City's Gym."}
+{"section": 24, "en": "Head to Mount Coronet."}
+{"section": 24, "en": "Head to Oak's Corral."}
+{"section": 24, "en": "Head to Oreburgh City's Pokémon Center."}
+{"section": 24, "en": "Head to Pallet Town."}
+{"section": 24, "en": "Head to Route 216."}
+{"section": 24, "en": "Head to Route 32."}
+{"section": 24, "en": "Head to Rustboro City."}
+{"section": 24, "en": "Head to Sandgem Town."}
+{"section": 24, "en": "Head to Seafoam Islands by getting the boat from Cinnabar Island."}
+{"section": 24, "en": "Head to Shalour City."}
+{"section": 24, "en": "Head to Vermilion City."}
+{"section": 24, "en": "Head to Vermillion City and go north towards Route 25."}
+{"section": 24, "en": "Head to Vermillion City."}
+{"section": 24, "en": "Head to Wedgehurst by taking the train from Saffron City."}
+{"section": 24, "en": "Head to Wyndon Stadium for the WCS opening ceremony."}
+{"section": 24, "en": "Head to Wyndon and talk to Sonia and Raihan."}
+{"section": 24, "en": "Head to Wyndon."}
+{"section": 24, "en": "Head to the Battle Royal Dome on Royal Avenue."}
+{"section": 24, "en": "Head to the Castle of Chivalry by getting the blimp from Lumiose City."}
+{"section": 24, "en": "Head to the Colossus Ruins in the Desert Resort on Unova Route 4."}
+{"section": 24, "en": "Head to the Crown Tundra by getting the train from Wyndon's train station to Freezington then going east."}
+{"section": 24, "en": "Head to the Desert Resort on Unova Route 4."}
+{"section": 24, "en": "Head to the Kalos Pokémon League in Lumiose City."}
+{"section": 24, "en": "Head to the Pokémon School on Alola Route 1."}
+{"section": 24, "en": "Head to the Resort Area using the westmost boat in Vermillion City's pier."}
+{"section": 24, "en": "Head to the Seafoam Islands by getting the boat from Cinnabar Island."}
+{"section": 24, "en": "Head to the park behind Cerise's Lab."}
+{"section": 24, "en": "Head to the summit of Hammerlocke Tower to stop Eternatus."}
+{"section": 24, "en": "Heal Party"}
+{"section": 24, "en": "Heart"}
+{"section": 24, "en": "Heart Gauge"}
+{"section": 24, "en": "Heart gauge is {1} (stage {2})."}
+{"section": 24, "en": "Heatwave"}
+{"section": 24, "en": "Heavy Rain"}
+{"section": 24, "en": "Heavy mist swirled about the battlefield!"}
+{"section": 24, "en": "Height of the Pokémon in 0.1 metres (e.g. 42 = 4.2m)."}
+{"section": 24, "en": "Held item"}
+{"section": 24, "en": "Hello! You've been mistaken for a {1}, haven't you?\\\u0001"}
+{"section": 24, "en": "Hello! You've been mistaken for an {1}, haven't you?\\\u0001"}
+{"section": 24, "en": "Here I come!"}
+{"section": 24, "en": "Here you are! Thank you!"}
+{"section": 24, "en": "Here you are! Thank you!\\se[Mart buy item]"}
+{"section": 24, "en": "Here you go!"}

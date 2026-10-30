@@ -1,0 +1,4 @@
+{
+ "retained_terms":{"Izabe":"遊戲自訂島嶼名稱，依既有地圖保留原拼字。","Zipp":"原文骷髏隊成員姓名，未核對台灣譯名，保留原拼字。","Kumi":"原文訓練家姓名，未核對台灣譯名，保留原拼字。","introBoy":"實際圖片資源名稱，程式示範說明中保留，方便對照資源檔。","Graphics/Pictures":"實際圖片資源目錄，保留原路徑。"},
+ "contextual_terms":[{"section":0,"source":"\\bYou're gonna fight Drake!?\\nWow!!!","en":"Drake","zh-TW":"勇次","reason":"橘子聯盟挑戰者對話，指勇次。"}]
+}

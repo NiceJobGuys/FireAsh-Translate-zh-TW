@@ -1,0 +1,150 @@
+{"section": 24, "en": "\n<c3=404040,B0B0B0>View Passive - Press Use/Interact.\n"}
+{"section": 24, "en": "\nThe method is slated to be"}
+{"section": 24, "en": "\nUse \"{1}\" instead."}
+{"section": 24, "en": "\r\nOh! A bite!"}
+{"section": 24, "en": "\"Pokémon Essentials\" was created by:"}
+{"section": 24, "en": "\"RPG Maker XP\" by:"}
+{"section": 24, "en": "\"mkxp-z\" by:"}
+{"section": 24, "en": "\"{1}\" v.{2} by:"}
+{"section": 24, "en": "#{b.name} protected itself!"}
+{"section": 24, "en": "#{region}Club Completion No.#{hallNumber}#{diff}"}
+{"section": 24, "en": "#{region}Practice Completion No.#{hallNumber}#{diff}"}
+{"section": 24, "en": "#{searchTarget} Located! Jump to box?"}
+{"section": 24, "en": "#{user.name} protected itself!"}
+{"section": 24, "en": "'{1}' is not a defined type ({2}, section {3}, Immunities)."}
+{"section": 24, "en": "'{1}' is not a defined type ({2}, section {3}, Resistances)."}
+{"section": 24, "en": "'{1}' is not a defined type ({2}, section {3}, Weaknesses)."}
+{"section": 24, "en": "(Default)"}
+{"section": 24, "en": "*** Finished full compile ***"}
+{"section": 24, "en": "*** Starting full compile ***"}
+{"section": 24, "en": "... \\wt[10]... \\wt[10]... \\wt[10]...\\wt[10]Nope! There's no response."}
+{"section": 24, "en": "...\\wt[10] ...\\wt[10] ...\\wt[20]Begone!"}
+{"section": 24, "en": "..but now that I'm here, I think it was just the wind."}
+{"section": 24, "en": "1, 2, and... ... ... Ta-da!"}
+{"section": 24, "en": "1, 2, and...\\wt[16] ...\\wt[16] ... Ta-da!\\se[Battle ball drop]\u0001"}
+{"section": 24, "en": "1, 2, and...\\wt[16] ...\\wt[16] ...\\wt[16] Ta-da!\\se[Battle ball drop]\u0001"}
+{"section": 24, "en": "1,\\wt[16] 2, and\\wt[16]...\\wt[16] ...\\wt[16] ... Ta-da!\\se[Battle ball drop]\u0001"}
+{"section": 24, "en": "<c3=404040,B0B0B0>\"The Egg Watch\"\n"}
+{"section": 24, "en": "<c3=404040,B0B0B0>A mysterious Pokémon Egg received from <c3=F83820,E09890>{1}<c3=404040,B0B0B0>.\n"}
+{"section": 24, "en": "<c3=404040,B0B0B0>A mysterious Pokémon Egg.\n"}
+{"section": 24, "en": "<c3=404040,B0B0B0>Egg hatched.\n"}
+{"section": 24, "en": "<c3=F83820,E09890>{1}<c3=404040,B0B0B0> nature.\n"}
+{"section": 24, "en": "<c3=F8F8F8,C02028>SEEN<r>OBTAINED</c3>"}
+{"section": 24, "en": "<user's cry>"}
+{"section": 24, "en": "????.? kg"}
+{"section": 24, "en": "????.? lbs."}
+{"section": 24, "en": "????.? m"}
+{"section": 24, "en": "????? Pokémon"}
+{"section": 24, "en": "A"}
+{"section": 24, "en": "A Bug, Dark, or Ghost-type Pokémon may be able to see through the darkness and lead you through it."}
+{"section": 24, "en": "A Fighting Zone is active on the battlefield."}
+{"section": 24, "en": "A Fighting Zone was invoked!"}
+{"section": 24, "en": "A Fighting-type Pokémon may be able to punch through the wall and forge a path forward."}
+{"section": 24, "en": "A Figthing Zone is active on the battlefield."}
+{"section": 24, "en": "A Flying Zone is active on the battlefield."}
+{"section": 24, "en": "A Flying Zone was invoked!"}
+{"section": 24, "en": "A Flying-type Pokémon may be able to lift you safely across."}
+{"section": 24, "en": "A Normal Zone is active on the battlefield."}
+{"section": 24, "en": "A Normal Zone was invoked!"}
+{"section": 24, "en": "A Pokémon could be in this tree. Maybe a Pokémon could shake it."}
+{"section": 24, "en": "A Pokémon could be in this tree. Would you like to use Headbutt?"}
+{"section": 24, "en": "A Pokémon owned by the Trainer."}
+{"section": 24, "en": "A Pokémon species can't be numbered 0 ({1})."}
+{"section": 24, "en": "A Pokémon species/form."}
+{"section": 24, "en": "A Pokémon sufficienty trained in Attack may be physically capable of moving it."}
+{"section": 24, "en": "A Pokémon sufficienty trained in Defense may be tough enough to shield you from harm."}
+{"section": 24, "en": "A Pokémon sufficienty trained in Special Attack may be powerful enough to blast through it."}
+{"section": 24, "en": "A Pokémon sufficienty trained in Special Defense may have enough fortitude to carry you through it."}
+{"section": 24, "en": "A Pokémon sufficienty trained in Speed may be quick enough to carry you forward."}
+{"section": 24, "en": "A Pokémon with balanced training may be capable of overcoming the numerous obstacles."}
+{"section": 24, "en": "A Psychic-type Pokémon may be able to foresee the safest route forward and avoid any pitfalls."}
+{"section": 24, "en": "A Rock Zone needs to be active for this move to be used."}
+{"section": 24, "en": "A Rock, Ground, or Steel-type Pokémon may be able to safely guide you through the storm."}
+{"section": 24, "en": "A Water-type Pokémon may be able to get you safely across."}
+{"section": 24, "en": "A Weather, Terrain or Zone needs to be active for this move to be used."}
+{"section": 24, "en": "A bell chimed!"}
+{"section": 24, "en": "A deep chasm blocks your path forward."}
+{"section": 24, "en": "A deluge of ions showers the battlefield!"}
+{"section": 24, "en": "A different file named '{1}' already exists. Overwrite it?"}
+{"section": 24, "en": "A form cannot be defined with a form number of 0.\r\n{1}"}
+{"section": 24, "en": "A geyser of steam suddenly erupted beneath your feet!"}
+{"section": 24, "en": "A glint appears in {1}'s eyes!"}
+{"section": 24, "en": "A good strategy will help you overcome any obstacle!"}
+{"section": 24, "en": "A heat wave started!"}
+{"section": 24, "en": "A large pool of murky water blocks your path forward."}
+{"section": 24, "en": "A little quick tempered."}
+{"section": 24, "en": "A malicious wave of Dynamax energy rippled from {1}'s attack!"}
+{"section": 24, "en": "A massive boulder blocks your path forward."}
+{"section": 24, "en": "A massive locked door blocks your path."}
+{"section": 24, "en": "A move known by the Pokémon. Leave all moves blank (use Z key to delete) for a wild moveset."}
+{"section": 24, "en": "A mysterious barrier appeared in front of {1}!"}
+{"section": 24, "en": "A mysterious ooze leaked from the cieling and fell towards you!"}
+{"section": 24, "en": "A powerful wave of Dynamax energy prevents you from moving forward."}
+{"section": 24, "en": "A rainbow appeared in the sky on {1}'s side!"}
+{"section": 24, "en": "A sea of fire enveloped {1}!"}
+{"section": 24, "en": "A secret ability which the Pokémon can have."}
+{"section": 24, "en": "A series of 1s and 0s marking which squares are part of this map (1=part, 0=not part)."}
+{"section": 24, "en": "A set of encounters for map {1} version {2} already exists."}
+{"section": 24, "en": "A shadow sky appeared!"}
+{"section": 24, "en": "A soothing aroma wafted through the area!"}
+{"section": 24, "en": "A steep incline makes it too difficult to move forward."}
+{"section": 24, "en": "A sticky web has been laid out beneath {1}'s feet!"}
+{"section": 24, "en": "A swamp enveloped {1}!"}
+{"section": 24, "en": "A thunderstorm formed above the battlefield!"}
+{"section": 24, "en": "A wall of water is crashing down with a mighty roar."}
+{"section": 24, "en": "A weak electric current runs across the battlefield!"}
+{"section": 24, "en": "A {1} is the kind of Trainer you want to be?"}
+{"section": 24, "en": "A {1} was planted here."}
+{"section": 24, "en": "A: Add map to canvas\r\n"}
+{"section": 24, "en": "ABLE"}
+{"section": 24, "en": "AC: {1}"}
+{"section": 24, "en": "ADD ITEM"}
+{"section": 24, "en": "AFTER LOSING..."}
+{"section": 24, "en": "AFTER WINNING..."}
+{"section": 24, "en": "ANNOUNCER:  BEEEEEP!"}
+{"section": 24, "en": "ANNOUNCER:  The Bug-Catching Contest is over!"}
+{"section": 24, "en": "Ability ID '{1}' is used twice.\r\n{2}"}
+{"section": 24, "en": "Ability ID number '{1}' is used twice.\r\n{2}"}
+{"section": 24, "en": "Ability index"}
+{"section": 24, "en": "Ability index. 0=first ability, 1=second ability, 2+=hidden ability."}
+{"section": 24, "en": "Ability is {1} (index {2})."}
+{"section": 24, "en": "Ability of the Pokémon. Overrides the ability index."}
+{"section": 24, "en": "Ability: {1}"}
+{"section": 24, "en": "Abort connection?\\^"}
+{"section": 24, "en": "Abort search?\\^"}
+{"section": 24, "en": "Above focus"}
+{"section": 24, "en": "Accept this Pokémon?"}
+{"section": 24, "en": "Accept/Deny Trade"}
+{"section": 24, "en": "According to my notes, it seems you might know how to find certain special Pokémon."}
+{"section": 24, "en": "Accuracy Buff"}
+{"section": 24, "en": "Add Item"}
+{"section": 24, "en": "Add Map"}
+{"section": 24, "en": "Add Pokémon"}
+{"section": 24, "en": "Add a certain number of every item to the Bag."}
+{"section": 24, "en": "Add another Pokémon?"}
+{"section": 24, "en": "Add how many {1}?"}
+{"section": 24, "en": "Add new trainer ({1}, {2})?"}
+{"section": 24, "en": "Add new trainer ({1}, {2}, ID {3})?"}
+{"section": 24, "en": "Add new trainer type {1}?"}
+{"section": 24, "en": "Add new trainer variant {1} (of {2}) for {3} {4}?"}
+{"section": 24, "en": "Add one Pokémon of each species (at Level 50) to storage."}
+{"section": 24, "en": "Add {1} to your rental team?"}
+{"section": 24, "en": "Add: Edit Background Color/Location..."}
+{"section": 24, "en": "Add: Edit Foreground Color/Location..."}
+{"section": 24, "en": "Add: Play Sound..."}
+{"section": 24, "en": "Add: Set Background Graphic..."}
+{"section": 24, "en": "Add: Set Foreground Graphic..."}
+{"section": 24, "en": "Additional code by:"}
+{"section": 24, "en": "Additional help by:"}
+{"section": 24, "en": "Adventure Record"}
+{"section": 24, "en": "Affects positioning of the Pokémon in battle. This is edited elsewhere."}
+{"section": 24, "en": "Affiliated with Game Freak"}
+{"section": 24, "en": "After encountering a Channeler, they will leave the map and this tile will be cleared."}
+{"section": 24, "en": "After encountering a Nurse, they will leave the map and this tile will be cleared."}
+{"section": 24, "en": "After encountering a Scientist, they will leave the map and this tile will be cleared."}
+{"section": 24, "en": "After encountering this mystery person, they will leave the map and this tile will be cleared."}
+{"section": 24, "en": "After translating, choose \"Compile Text.\""}
+{"section": 24, "en": "Ahh! Your spirit beckons me to cleanse it of its weariness!"}
+{"section": 24, "en": "Akala Ocean Breeze"}
+{"section": 24, "en": "Alert to sounds."}
+{"section": 24, "en": "All Near Foes"}

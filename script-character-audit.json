@@ -1,0 +1,16 @@
+{
+ "checked":"2026-10-30",
+ "language_sha256":"e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
+ "method":"唯讀掃描全部譯文字元，以本機既有OpenCC STCharacters字典找出單字轉換候選，再人工排除台灣合法字形與官方用語；未自動轉換全文。",
+ "dictionary_sha256":"9207708da9f2e2a248f39c457b2fccad26ec42e7efaf47a860e6900464f4cac5",
+ "fixed":[{"from":"综","to":"綜","unique_keys":2,"reason":"霜奶仙三色綜合的型態及對話。"},{"from":"霉","to":"黴","unique_keys":1,"reason":"發黴一詞採台灣正體字形。"}],
+ "accepted_candidates":[
+  {"character":"秘","unique_keys":61,"reason":"神秘、秘傳等合法繁中及官方道具／招式名稱，不能全改成祕。"},
+  {"character":"群","unique_keys":102,"reason":"台灣正常字形，不改為羣。"},
+  {"character":"床","unique_keys":6,"reason":"台灣正常字形，不改為牀。"},
+  {"character":"雇","unique_keys":2,"reason":"雇主、雇用為台灣合法用字，不一律改成僱。"},
+  {"character":"峰","unique_keys":8,"reason":"山峰、巔峰為台灣正常字形，不改為峯。"}
+ ],
+ "unresolved_candidates":[],
+ "limitation":"字典候選掃描及人工判讀是文字檢查證據，不代表已對遊戲圖片文字進行OCR或實機畫面驗收。"
+}

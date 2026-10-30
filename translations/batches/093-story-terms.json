@@ -1,0 +1,5 @@
+{
+ "all":{"Hawes":"木立","Trick Master":"機關大王","Spirit Master Passive":"信念大師被動能力","Pride Master Passive":"鬥志大師被動能力","Triple Triad":"九宮幻卡","Decolore Islands":"傑可羅拉群島"},
+ "retained_terms":{"Henry":"原文角色／地圖識別姓名，保留拼字以與原版及不同作品身分交叉辨識。","Andrew":"一般角色姓名，保留原拼字。","Francois":"原文寶可夢暱稱，保留原拼字。"},
+ "contextual_terms":[{"en":"Credits","zh-TW":"製作團隊","section":24,"source":"Credits","reason":"標題選單的製作名單；與輝煌俱樂部貨幣Credits（點數）分開。"}]
+}

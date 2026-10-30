@@ -1,0 +1,23 @@
+{
+ "14":{
+  "Aaron":"阿柳",
+  "Agatha":"菊子",
+  "Birch":"小田卷",
+  "Elm":"空木",
+  "Ilima":"伊利馬",
+  "Juniper":"紅豆杉",
+  "Laventon":"拉苯",
+  "Lily":"菖蒲",
+  "Lorelei":"科拿",
+  "Magnolia":"木蘭",
+  "Oak":"大木",
+  "Palmer":"桄榔",
+  "Phoebe":"芙蓉",
+  "Rowan":"山梨",
+  "Samson":"成也大木",
+  "Scott":"亞希達",
+  "Sycamore":"布拉塔諾"
+ },
+ "review_note":"第一次驗收補齊13個劇情姓名對照。第二次指出博士頭銜重複，已讀取原版trainers.dat、trainer_types.dat及Trainer.full_name，確認8個實際博士姓名會與類型重複；section14移除博士後綴，劇情說話者保持完整頭銜。Drake與Flint維持同名例外。Scott為亞希達，黑連為Cheren。",
+ "professor_types":{"Birch":"Hoenn Professor","Elm":"Johto Professor","Juniper":"Unova Professor","Laventon":"Hisui Professor","Magnolia":"Galar Professor","Oak":"Kanto Professor","Rowan":"Sinnoh Professor","Sycamore":"Kalos Professor"}
+}

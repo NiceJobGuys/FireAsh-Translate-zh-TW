@@ -1,0 +1,4 @@
+{
+ "all":{"Knight's Blessing":"騎士祝福","Paladin's Blessing":"聖騎士祝福","Assassin's Blessing":"刺客祝福","Archer's Blessing":"弓手祝福","Ninja's Blessing":"忍者祝福"},
+ "contextual_terms":[{"en":"GC Credits","zh-TW":"點數","section":102,"source":"GC Credits","reason":"強化商店選項中的輝煌俱樂部點數簡稱，保留選項寬度；完整概念不變。"}]
+}

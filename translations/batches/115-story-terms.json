@@ -1,0 +1,6 @@
+{
+ "14":{"Wikstrom":"雁鎧","Will":"一樹","Xerosic":"庫瑟洛斯奇"},
+ "all":{"Wikstrom":"雁鎧","Will":"一樹","Xerosic":"庫瑟洛斯奇","Wulfirc":"得撫","Feather Carnival":"羽翼嘉年華","Daroxy Island":"Daroxy島"},
+ "contextual_terms":[{"section":0,"source":"\\bWhy not fight me? It may just inspire my friend to give it another go. By the way. I'm Flint, an Elite Four member.","en":"Flint","zh-TW":"大葉","reason":"原文明示四天王成員，指大葉。"},{"section":0,"source":"\\bYou are not registered to fight Drake.","en":"Drake","zh-TW":"勇次","reason":"橘子聯盟挑戰登記台詞，與取得四徽章挑戰勇次的說明一致。"}],
+ "retained_terms":{"Daroxy":"遊戲自訂島嶼名稱，與既有地圖一致保留原拼字。"}
+}

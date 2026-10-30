@@ -1,0 +1,412 @@
+{
+  "stage": "preview",
+  "translated_occurrences": 40775,
+  "total_occurrences": 42534,
+  "sections": [
+    {
+      "id": 0,
+      "category": "dialogue",
+      "unique": 15288,
+      "occurrences": 20954,
+      "translated_unique": 15218,
+      "translated_occurrences": 20842,
+      "preserved_unique": 70,
+      "pending_unique": 0
+    },
+    {
+      "id": 1,
+      "category": "species",
+      "unique": 905,
+      "occurrences": 1295,
+      "translated_unique": 905,
+      "translated_occurrences": 1295,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 2,
+      "category": "kinds",
+      "unique": 664,
+      "occurrences": 1295,
+      "translated_unique": 664,
+      "translated_occurrences": 1295,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 3,
+      "category": "dex",
+      "unique": 1084,
+      "occurrences": 1295,
+      "translated_unique": 1084,
+      "translated_occurrences": 1295,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 4,
+      "category": "forms",
+      "unique": 299,
+      "occurrences": 418,
+      "translated_unique": 271,
+      "translated_occurrences": 390,
+      "preserved_unique": 28,
+      "pending_unique": 0
+    },
+    {
+      "id": 5,
+      "category": "moves",
+      "unique": 1065,
+      "occurrences": 1069,
+      "translated_unique": 1064,
+      "translated_occurrences": 1068,
+      "preserved_unique": 1,
+      "pending_unique": 0
+    },
+    {
+      "id": 6,
+      "category": "move-descriptions",
+      "unique": 1025,
+      "occurrences": 1069,
+      "translated_unique": 1025,
+      "translated_occurrences": 1069,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 7,
+      "category": "items",
+      "unique": 966,
+      "occurrences": 979,
+      "translated_unique": 966,
+      "translated_occurrences": 979,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 8,
+      "category": "item-plurals",
+      "unique": 929,
+      "occurrences": 942,
+      "translated_unique": 929,
+      "translated_occurrences": 942,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 9,
+      "category": "item-descriptions",
+      "unique": 896,
+      "occurrences": 979,
+      "translated_unique": 896,
+      "translated_occurrences": 979,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 10,
+      "category": "abilities",
+      "unique": 421,
+      "occurrences": 436,
+      "translated_unique": 421,
+      "translated_occurrences": 436,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 11,
+      "category": "ability-descriptions",
+      "unique": 408,
+      "occurrences": 436,
+      "translated_unique": 408,
+      "translated_occurrences": 436,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 12,
+      "category": "types",
+      "unique": 19,
+      "occurrences": 19,
+      "translated_unique": 18,
+      "translated_occurrences": 18,
+      "preserved_unique": 1,
+      "pending_unique": 0
+    },
+    {
+      "id": 13,
+      "category": "trainer-types",
+      "unique": 297,
+      "occurrences": 556,
+      "translated_unique": 297,
+      "translated_occurrences": 556,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 14,
+      "category": "trainer-names",
+      "unique": 1744,
+      "occurrences": 1744,
+      "translated_unique": 271,
+      "translated_occurrences": 271,
+      "preserved_unique": 1473,
+      "pending_unique": 0
+    },
+    {
+      "id": 15,
+      "category": "trainer-intro",
+      "unique": 298,
+      "occurrences": 298,
+      "translated_unique": 298,
+      "translated_occurrences": 298,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 16,
+      "category": "trainer-win",
+      "unique": 297,
+      "occurrences": 297,
+      "translated_unique": 297,
+      "translated_occurrences": 297,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 17,
+      "category": "trainer-lose",
+      "unique": 298,
+      "occurrences": 298,
+      "translated_unique": 298,
+      "translated_occurrences": 298,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 18,
+      "category": "regions",
+      "unique": 10,
+      "occurrences": 10,
+      "translated_unique": 10,
+      "translated_occurrences": 10,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 19,
+      "category": "locations",
+      "unique": 251,
+      "occurrences": 251,
+      "translated_unique": 251,
+      "translated_occurrences": 251,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 20,
+      "category": "map-points",
+      "unique": 143,
+      "occurrences": 143,
+      "translated_unique": 143,
+      "translated_occurrences": 143,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 21,
+      "category": "map-names",
+      "unique": 877,
+      "occurrences": 996,
+      "translated_unique": 877,
+      "translated_occurrences": 996,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 22,
+      "category": "phone",
+      "unique": 19,
+      "occurrences": 19,
+      "translated_unique": 19,
+      "translated_occurrences": 19,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 23,
+      "category": "battle-quotes",
+      "unique": 1895,
+      "occurrences": 1895,
+      "translated_unique": 1891,
+      "translated_occurrences": 1891,
+      "preserved_unique": 4,
+      "pending_unique": 0
+    },
+    {
+      "id": 24,
+      "category": "ui",
+      "unique": 4284,
+      "occurrences": 4611,
+      "translated_unique": 4146,
+      "translated_occurrences": 4471,
+      "preserved_unique": 138,
+      "pending_unique": 0
+    },
+    {
+      "id": 25,
+      "category": "ribbons",
+      "unique": 77,
+      "occurrences": 80,
+      "translated_unique": 77,
+      "translated_occurrences": 80,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 26,
+      "category": "ribbon-descriptions",
+      "unique": 79,
+      "occurrences": 80,
+      "translated_unique": 79,
+      "translated_occurrences": 80,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 100,
+      "category": "gigantamax-names",
+      "unique": 34,
+      "occurrences": 35,
+      "translated_unique": 34,
+      "translated_occurrences": 35,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 101,
+      "category": "gigantamax-dex",
+      "unique": 34,
+      "occurrences": 35,
+      "translated_unique": 34,
+      "translated_occurrences": 35,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 102,
+      "category": "supplemental-runtime-ui",
+      "unique": 115,
+      "occurrences": 0,
+      "translated_unique": 115,
+      "translated_occurrences": 0,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    }
+  ],
+  "checks": [
+    "original-byte-identical-round-trip",
+    "translated-round-trip",
+    "slot-count-and-position",
+    "control-codes-and-placeholders"
+  ],
+  "game_tested": false,
+  "installed": false,
+  "preserved_categories": [
+    {
+      "category": "ambiguous-trainer-name",
+      "unique_keys": 2,
+      "text_positions": 2
+    },
+    {
+      "category": "button-sequence",
+      "unique_keys": 1,
+      "text_positions": 1
+    },
+    {
+      "category": "creator-alias-original",
+      "unique_keys": 1,
+      "text_positions": 1
+    },
+    {
+      "category": "formatting",
+      "unique_keys": 67,
+      "text_positions": 100
+    },
+    {
+      "category": "original-creator-name",
+      "unique_keys": 1,
+      "text_positions": 1
+    },
+    {
+      "category": "place-name-original",
+      "unique_keys": 2,
+      "text_positions": 7
+    },
+    {
+      "category": "pokemon-nickname-original",
+      "unique_keys": 8,
+      "text_positions": 10
+    },
+    {
+      "category": "resource-path",
+      "unique_keys": 52,
+      "text_positions": 52
+    },
+    {
+      "category": "runtime-resource-identifier",
+      "unique_keys": 9,
+      "text_positions": 9
+    },
+    {
+      "category": "standard-abbreviation",
+      "unique_keys": 33,
+      "text_positions": 34
+    },
+    {
+      "category": "trainer-name-original",
+      "unique_keys": 1511,
+      "text_positions": 1514
+    },
+    {
+      "category": "unconfirmed-name",
+      "unique_keys": 2,
+      "text_positions": 2
+    },
+    {
+      "category": "unown-symbol",
+      "unique_keys": 26,
+      "text_positions": 26
+    }
+  ],
+  "preservation_details": "translations/preserved.json",
+  "supplemental_sections": {
+    "102": {
+      "storage": "Scripts.rxdata/FireAsh_ZHTW_Runtime",
+      "note": "工具專用分類，補充直接寫在腳本中的顯示文字。未新增或修改messages.dat位置；occurrences=0代表該文字不存放在訊息檔內。"
+    }
+  },
+  "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
+  "scripts_sha256": "674cb2e39a99b7bc93f5a389e858298045f362b1cbfd2e25669684f8111c3a84",
+  "font": {
+    "family": "Microsoft JhengHei",
+    "checked_characters": 3195,
+    "missing_characters": 0,
+    "sha256": "7862c3337bb67c60f493b7246b4d4abbe558ac0a8004367696fed838b1e85430",
+    "publish": false
+  },
+  "terminology": {
+    "canonical_names_checked": 3703,
+    "prohibited_term_or_character_count": 0,
+    "problem_count": 0,
+    "official_poke_ball_exception_count": 73,
+    "inline_species_mentions_checked": 2832,
+    "problems": [],
+    "inline_place_mentions_checked": 1036,
+    "named_speakers_checked": 2792,
+    "speaker_name_conflicts": 0,
+    "ambiguous_speaker_rows_preserved": 21,
+    "move_instructions_checked": 111,
+    "species_words_inside_literal_creator_aliases": 1
+  }
+}

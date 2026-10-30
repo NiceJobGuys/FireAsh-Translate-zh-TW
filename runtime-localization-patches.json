@@ -1,0 +1,144 @@
+{
+  "policy": "僅修改文字顯示查詢；SygnaBuff.name、價格、等級、比較與存檔識別名稱維持原版。",
+  "patches": [
+    {
+      "script": "Trainer_LoadAndNew",
+      "kind": "interpolation-before-lookup",
+      "key": "Set the level for {1} (max. #{params.maxNumber}).",
+      "bindings": [
+        "params.maxNumber"
+      ]
+    },
+    {
+      "script": "UI_Bag",
+      "kind": "interpolation-before-lookup",
+      "key": "Choose new quantity of {1} (max. #{Settings::BAG_MAX_PER_SLOT}).",
+      "bindings": [
+        "Settings::BAG_MAX_PER_SLOT"
+      ]
+    },
+    {
+      "script": "UI_PokemonStorage",
+      "kind": "interpolation-before-lookup",
+      "key": "Apply filter or begin search?#{filterIndicator}",
+      "bindings": [
+        "filterIndicator"
+      ]
+    },
+    {
+      "script": "UI_PokemonStorage",
+      "kind": "interpolation-before-lookup",
+      "key": "Box #{match[0]+1}#{spacer}[#{match[1]}]",
+      "bindings": [
+        "match[0]+1",
+        "spacer",
+        "match[1]"
+      ]
+    },
+    {
+      "script": "UI_PokemonStorage",
+      "kind": "interpolation-before-lookup",
+      "key": "Located #{searchTarget}! Jump to box?",
+      "bindings": [
+        "searchTarget"
+      ]
+    },
+    {
+      "script": "UI_PracticeRecords",
+      "kind": "display-only",
+      "before": "_INTL(\"{1}Practice Completion No.{2}{3}\", region,",
+      "after": "_INTL(\"{1}Practice Completion No.{2}{3}\", FireAshZHTW.text(region),"
+    },
+    {
+      "script": "UI_ClubRecords",
+      "kind": "display-only",
+      "before": "_INTL(\"{1}Club Completion No.{2}{3}\", region,",
+      "after": "_INTL(\"{1}Club Completion No.{2}{3}\", FireAshZHTW.text(region),"
+    },
+    {
+      "script": "UI_GauntletRecords",
+      "kind": "interpolation-before-lookup",
+      "key": "Congrats! #{$game_variables[81]} Straight Wins!",
+      "bindings": [
+        "$game_variables[81]"
+      ]
+    },
+    {
+      "script": "Editor_DataTypes",
+      "kind": "interpolation-before-lookup",
+      "key": "Set the value for {1} (0-#{@maxvalue}).",
+      "bindings": [
+        "@maxvalue"
+      ]
+    },
+    {
+      "script": "Editor_DataTypes",
+      "kind": "interpolation-before-lookup",
+      "key": "Set the value for {1} (0-#{@maxvalue}).",
+      "bindings": [
+        "@maxvalue"
+      ]
+    },
+    {
+      "script": "Sygna Buffs",
+      "kind": "interpolation-before-lookup",
+      "key": "YOU HAVE \\v[80] CREDITS IN YOUR ACCOUNT. WHICH BUFF WOULD YOU LIKE TO BUY?\\ch[75,-1,#{choices[1...]}]",
+      "bindings": [
+        "choices[1...]"
+      ]
+    },
+    {
+      "script": "Sygna Buffs",
+      "kind": "interpolation-before-lookup",
+      "key": "SELECT A BUFF.\\ch[75,-1,#{buffs[1...]}]",
+      "bindings": [
+        "buffs[1...]"
+      ]
+    },
+    {
+      "script": "Sygna Buffs",
+      "kind": "interpolation-before-lookup",
+      "key": "NEED #{diff} MORE ENERGY TO EQUIP THIS BUFF.",
+      "bindings": [
+        "diff"
+      ]
+    },
+    {
+      "script": "Sygna Buffs",
+      "kind": "display-only",
+      "before": "_INTL(\"{1} - {2}\", name, description)",
+      "after": "_INTL(\"{1} - {2}\", display_name, display_description)"
+    },
+    {
+      "script": "Sygna Buffs",
+      "kind": "display-only",
+      "before": "choices = \"#{choices},#{b.name} - #{b.cost} GC Credits\"",
+      "after": "choices = \"#{choices},#{b.display_name} - #{b.cost} #{FireAshZHTW.text(\"GC Credits\")}\""
+    },
+    {
+      "script": "Sygna Buffs",
+      "kind": "display-only",
+      "before": "buffs = \"#{buffs},#{b.name}\"",
+      "after": "buffs = \"#{buffs},#{b.display_name}\""
+    },
+    {
+      "script": "Sygna Buffs",
+      "kind": "display-only",
+      "before": "_INTL(\"BOUGHT {1}.\", buff.name)",
+      "after": "_INTL(\"BOUGHT {1}.\", buff.display_name)"
+    },
+    {
+      "script": "Sygna Buffs",
+      "kind": "display-only",
+      "before": "_INTL(\"EQUIPPED {1}.\", buff.name)",
+      "after": "_INTL(\"EQUIPPED {1}.\", buff.display_name)"
+    },
+    {
+      "script": "Sygna Buffs",
+      "kind": "display-only",
+      "before": "_INTL(\"UNEQUIPPED {1}.\", buff.name)",
+      "after": "_INTL(\"UNEQUIPPED {1}.\", buff.display_name)"
+    }
+  ],
+  "supplemental_unique": 115
+}

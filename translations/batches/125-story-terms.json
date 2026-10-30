@@ -1,0 +1,6 @@
+{
+ "14":{"Palina":"瓜娜"},
+ "all":{"Palina":"瓜娜"},
+ "retained_terms":{"Salvador":"原文人物姓名，與另一拼字Salvadore分別保留。","Vera":"原文自訂衣櫃／決心評定角色的真名，保留原拼字。","Chrissy":"原文寶可夢或人物暱稱，未核對台灣譯名，保留原拼字。","Andi":"原文人物姓名，保留原拼字。","Braden":"原文人物姓名，保留原拼字。","Kendrick":"原文人物姓名，保留原拼字。","Kiana":"原文一般訓練家姓名，保留原拼字。"},
+ "contextual_terms":[{"section":0,"source":"\\rOk then... well, we've changed the format a little bit, being that the Battle Royale ends when there's 32 contestants left, instead of 16.","en":"Battle Royale","zh-TW":"生存賽","reason":"阿羅拉聯盟首輪多人生存賽，晉級人數由16改32，非四方皇家對戰。"},{"section":0,"source":"\\rPachi","en":"Pachi","zh-TW":"帕奇利茲","reason":"Map551 events52、53，角色圖PACHIRISU。"},{"section":0,"source":"\\rPalp","en":"Palp","zh-TW":"藍蟾蜍","reason":"Map707 event5，角色圖PALPITOAD。"},{"section":0,"source":"\\rPid","en":"Pid","zh-TW":"波波","reason":"Map211 event17，角色圖PIDGEY。"},{"section":0,"source":"\\rPid!","en":"Pid","zh-TW":"波波","reason":"Map109 event5，角色圖PIDGEY。"}]
+}

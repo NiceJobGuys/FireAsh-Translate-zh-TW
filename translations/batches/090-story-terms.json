@@ -1,0 +1,11 @@
+{
+ "14":{"Elm":"空木博士","Eusine":"米那君"},
+ "all":{"Elm":"空木博士","Professor Elm":"空木博士","Eusine":"米那君","E Shooter":"Ｅ射擊器","Ultra Wormholes":"究極之洞","PP Recovery":"PP回復"},
+ "retained_terms":{"Emerald":"原文角色／地圖識別姓名，保留拼字以與原版及不同作品身分交叉辨識。","Emily":"一般角色姓名，保留原拼字。","Flint":"英文同名可指大葉或武能；姓名語言表未包含角色身分，保留英文，已確認的劇情另作脈絡對照。"},
+ "preserved_sources":{"14":{"Flint":"ambiguous-trainer-name"}},
+ "contextual_terms":[
+  {"en":"Drake","zh-TW":"勇次","section":0,"source":"\\bDrake: Let's see what two champions can do.","maps":[881],"event":60,"sprite":"trchar080","trainer_type":"LEADER_Drake","reason":"原版Map881同時存在兩位Drake，此事件為橘子聯盟館主，不是四天王。"},
+  {"en":"Drake","zh-TW":"源治","section":0,"source":"\\bDrake: Perhaps you are a strong Trainer? Oh, seven badges from Hoenn. You might even be a challenge.","maps":[443],"event":36,"sprite":"trchar172","reason":"豐緣地區事件，圖像與ELITEFOUR_Drake相同。"},
+  {"en":"Flint","zh-TW":"大葉","section":0,"source":"\\bFlint: That was a great battle! What do you think, Volkner? Give the kid a try.","reason":"與電次相關的神奧四天王對話；不套用到英文同名的小剛父親武能。"}
+ ]
+}

@@ -1,0 +1,13 @@
+{
+  "version_basis": "3.7.1 (bundled changelog)",
+  "game_directory": "D:\\Games\\Pokemon Fire Ash\\Pokemon Fire Ash 3.7",
+  "files": {
+    "Data/messages.dat": "65d3ee79d275cac40f7f82268cf3dac49d333eb74f8dc0223bc78246505c499d",
+    "Data/english.dat": "95519d6029c3b5b73e82df86de4c8a2dc8162209adab8f76b37bb8df67a04b1f",
+    "Data/Scripts.rxdata": "cbd6eda3e5d715c68e98aeee00a7bfcccc8016b1203b3eeda7b2762b5e38f099",
+    "Game.ini": "ece1370c1a08022e8b6db9b616649c5de942b92c83460f96c72c97e4762801f0"
+  },
+  "occurrences": 42534,
+  "unique_per_section": 34606,
+  "pokeapi_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+}

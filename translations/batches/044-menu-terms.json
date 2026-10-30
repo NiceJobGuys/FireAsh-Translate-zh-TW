@@ -1,0 +1,25 @@
+{
+  "all": {
+    "Lapras Launch": "拉普拉斯渡航站",
+    "Passive Skill": "被動能力",
+    "Master Passive": "大師被動能力",
+    "Gradual Healing": "持續回復",
+    "Blessings": "祝福",
+    "Immunities": "免疫",
+    "Restoration": "回復",
+    "Boosters": "強化",
+    "Crushers": "削弱",
+    "Default Beats": "預設節拍",
+    "Spring Violin": "春之小提琴",
+    "Summer Flute": "夏之長笛",
+    "Autumn Guitar": "秋之吉他",
+    "Winter Harmonica": "冬之口琴",
+    "Night Piano": "夜之鋼琴"
+  },
+  "retained_terms": {
+    "Butter": "原文寶可夢暱稱，保留原拼字。",
+    "Jiggly": "原文寶可夢暱稱，保留原拼字。",
+    "Luck": "原文寶可夢暱稱，保留原拼字。",
+    "Air": "原文寶可夢暱稱，保留原拼字。"
+  }
+}

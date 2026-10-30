@@ -1,0 +1,6 @@
+{
+ "14":{"Mable":"茉蜜姬","Mai":"阿米","Malva":"帕琦拉","Marley":"米依","Matori":"真鳥","Mira":"小麥"},
+ "all":{"Mable":"茉蜜姬","Mai":"阿米","Malva":"帕琦拉","Marley":"米依","Matori":"真鳥","Mira":"小麥"},
+ "retained_terms":{"Ralph":"原文人物姓名，未核對台灣譯名，保留原拼字。","Moon":"原文跨作品客串人物姓名，未核對本遊戲身分的台灣譯名，保留原拼字。","Mimey":"原文魔牆人偶暱稱，未核對台灣譯名，保留原拼字。","/PN":"原版台詞拼成斜線PN，未視為有效控制碼，不擅自改成會執行的反斜線PN。"},
+ "contextual_terms":[{"section":0,"source":"\\rMara","en":"Mara","zh-TW":"沙鈴仙人掌","reason":"Map686 event60角色圖MARACTUS，為沙鈴仙人掌叫聲。"},{"section":0,"source":"\\rMin?","en":"Min","zh-TW":"泡沫栗鼠","reason":"Map677 event152角色圖MINCCINO shiny，為異色泡沫栗鼠叫聲。"}]
+}

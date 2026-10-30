@@ -1,0 +1,5 @@
+{
+ "all":{"Grandeur Pad":"輝煌平板","GC Pad":"輝煌俱樂部平板","Mr. Briney":"哈奇老人","Mr. Shellby":"Shellby先生"},
+ "retained_terms":{"Jean":"一般角色姓名，保留原拼字。","Jeannie":"一般角色姓名，保留原拼字。","Karena":"一般角色姓名，保留原拼字。","Kirk":"一般角色姓名，保留原拼字。","Laxus":"原文角色姓名，保留原拼字。","Libi":"原文角色姓名，保留原拼字。","Lin":"原文角色姓名，保留原拼字。","Lucina":"原文角色姓名，保留原拼字。","Marco":"一般角色姓名，保留原拼字。","Mike":"一般角色姓名，保留原拼字。","Shellby":"原文人物姓名，保留拼字並將Mr.譯為先生。","Ogi":"未確認官方繁中對照的地名，保留原文詞幹。"},
+ "preserved_sources":{"0":{"Jean":"trainer-name-original","Jeannie":"trainer-name-original","Karena":"trainer-name-original","Kirk":"trainer-name-original","Laxus":"trainer-name-original","Libi":"trainer-name-original","Lin":"trainer-name-original","Lucina":"trainer-name-original","Marco":"trainer-name-original","Mike":"trainer-name-original","Ogi":"place-name-original"}}
+}

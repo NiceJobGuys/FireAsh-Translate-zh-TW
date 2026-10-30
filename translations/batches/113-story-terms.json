@@ -1,0 +1,7 @@
+{
+ "14":{"Volo":"望羅","Wally":"滿充"},
+ "all":{"Volo":"望羅","Wally":"滿充","Ttar":"班基拉斯","Wartorle":"卡咪龜","Macha Cream":"奶香抹茶"},
+ "retained_terms":{"Tupp":"原文骷髏隊成員姓名，未核對台灣譯名，保留原拼字。","Visquez":"原文代理館主姓名，未核對台灣譯名，保留原拼字。","Veno":"原文寶可夢暱稱，與瞬間移動台詞一致，保留原拼字。"},
+ "preserved_sources":{"0":{"\\bVeno":"pokemon-nickname-original"}},
+ "contextual_terms":[{"section":0,"source":"\\bVolkner and Flint of the Elite Four are good friends.","en":"Flint","zh-TW":"大葉","reason":"明示四天王，且是電次好友，指大葉。"}]
+}

@@ -1,0 +1,9 @@
+{
+ "14":{"Kamado":"馬加木"},
+ "all":{"Kamado":"馬加木","Mohn":"莫恩","Galaxy Expedition Team":"銀河隊","Island Challenge":"諸島巡禮"},
+ "retained_terms":{"Rakua":"原文羅馬字專名，未核對台灣譯名，保留原拼字。"},
+ "contextual_terms":[
+  {"en":"cousin","zh-TW":"夥伴","section":0,"source":"\\bKukui: Looking good, cousin.","reason":"庫庫伊的阿羅拉口語招呼，不代表親屬；與大木博士的親戚Samson分開。"},
+  {"en":"Battle Royale","zh-TW":"生存賽","section":0,"source":"\\bKukui: Excited? I am! The first round is a Battle Royale. Be one of the last 16 standing to move on.","reason":"瑪納羅大會預賽的大型淘汰混戰；與皇家大道的四方Battle Royal（皇家對戰）區分。"}
+ ]
+}

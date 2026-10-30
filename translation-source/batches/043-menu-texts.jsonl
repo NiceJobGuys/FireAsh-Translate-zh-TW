@@ -1,0 +1,100 @@
+{"section": 0, "en": "Battle?\\ch[1,1,Main,Bug,Water,Kanto,Johto,Hoenn, Sinnoh,Unova,Kalos,Alola,Galar,Legend]"}
+{"section": 0, "en": "Check results for which challenge?\\ch[1,5, Pika Cup,Fancy Cup,Poké Cup,Little Cup,Cancel]"}
+{"section": 0, "en": "Choose a destination.\\ch[1,-1,Game Corner,Trainer area,Shadow Pokémon area,Bridges map,Water map, Harbour,Cycle Road,Cancel]"}
+{"section": 0, "en": "Choose a destination.\\ch[1,-1,Poké Center,Mart, Pokémon Gym,Day Care,Cave,Safari Zone, Bug Catching Contest,Battle Frontier,Cancel]"}
+{"section": 0, "en": "Please choose one.  This choice can't be canceled.\\ch[1,0,Choice 1,Choice 2]"}
+{"section": 0, "en": "Please choose one.\\ch[1,-1, Choice 1,Choice 2,Choice 3, Choice 4,Choice 5,Choice 6]"}
+{"section": 0, "en": "Teleport?\\ch[1,1,Red,Blue,Green,Yellow,Gold,Silver, Crystal,Ruby,Sapphire,Emerald,Diamond,Pearl,Platinum, Black,White,Blake,Whitley,X,Y,Sun,Moon,Henry,Casey,No]"}
+{"section": 0, "en": "WHAT RECORDS WOULD YOU LIKE TO CHECK? \\ch[98,-1,Practice,Club,Gauntlet,Duet,Mayhem]"}
+{"section": 0, "en": "WHAT RECORDS WOULD YOU LIKE TO CHECK? \\ch[98,-1,Practice,Club]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto, Johto,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto, Johto,Hoenn,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto, Johto,Hoenn,Sinnoh,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto, Johto,Hoenn,Sinnoh,Unova,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto, Johto,Hoenn,Sinnoh,Unova,Kalos,Alola,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto, Johto,Hoenn,Sinnoh,Unova,Kalos,Alola,Galar,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto, Johto,Hoenn,Sinnoh,Unova,Kalos,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Hoenn,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Hoenn,Sinnoh,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Hoenn,Sinnoh,Unova,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Hoenn,Sinnoh,Unova,Kalos,Alola,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Hoenn,Sinnoh,Unova,Kalos,Alola,Galar,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Hoenn,Sinnoh,Unova,Kalos,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Kalos,Alola,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Kalos,Alola,Galar,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Kalos,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Unova,Alola,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Unova,Alola,Galar,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Unova,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Unova,Kalos,Alola,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Unova,Kalos,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Sinnoh,Unova,Kalos,Galar,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Unova,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Unova,Kalos,Alola,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Unova,Kalos,Alola,Galar,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Hoenn,Unova,Kalos,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Sinnoh,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Sinnoh,Unova,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Sinnoh,Unova,Kalos,Alola,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Sinnoh,Unova,Kalos,Alola,Galar,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Kanto,Orange, Johto,Sinnoh,Unova,Kalos,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Orange, Johto,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Orange, Johto,Hoenn,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Orange, Johto,Hoenn,Sinnoh,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Orange, Johto,Hoenn,Sinnoh,Unova,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Orange, Johto,Hoenn,Sinnoh,Unova,Kalos,Alola,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Orange, Johto,Hoenn,Sinnoh,Unova,Kalos,Alola,Galar,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Orange, Johto,Hoenn,Sinnoh,Unova,Kalos,Cancel]"}
+{"section": 0, "en": "Where would you like to go?\\ch[1,-1,Orange,Cancel]"}
+{"section": 0, "en": "Which heading do you want to read?\\ch[1,-1, Basic Rules,Swap: Partner,Swap: Number, Swap: Notes,Exit]"}
+{"section": 0, "en": "Which heading do you want to read?\\ch[1,-1, Battle Basics,Pokémon Nature,Pokémon Moves, Underpowered,When in Danger,Exit]"}
+{"section": 0, "en": "Which heading would you like to read?\\ch[1,-1, Stadium Cups,Pika Cup,Fancy Cup, Poké Cup,Little Cup,Battle Rules,Exit]"}
+{"section": 0, "en": "Which outfit would you like?\\ch[1,1,Kanto/Johto, Hoenn, Cancel]"}
+{"section": 0, "en": "Which outfit would you like?\\ch[1,1,Kanto/Johto, Hoenn, Sinnoh, Cancel]"}
+{"section": 0, "en": "Which outfit would you like?\\ch[1,1,Kanto/Johto, Hoenn, Sinnoh, Unova, Cancel]"}
+{"section": 0, "en": "Which outfit would you like?\\ch[1,1,Kanto/Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Cancel]"}
+{"section": 0, "en": "Which outfit would you like?\\ch[1,1,Kanto/Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, Cancel]"}
+{"section": 0, "en": "Which outfit would you like?\\ch[1,1,Kanto/Johto, Hoenn, Sinnoh, Unova, Kalos, Cancel]"}
+{"section": 0, "en": "Which outfit would you like?\\ch[1,1,Rookie, Cancel]"}
+{"section": 0, "en": "Which tile puzzle do you want to play?\\ch[1,8, Alph,Alph Rotator,Mystic Square,Tile Swap, Tile Swap Rotator,Rubik's Square,Star Rotator,Cancel]"}
+{"section": 0, "en": "YOU HAVE \\v[80] CREDITS IN YOUR ACCOUNT. PLEASE SELECT AN OPTION. \\ch[98,-1,Buff shop,View active buffs,View unlocked buffs,Add buff, Remove active buff,Clear active buffs,Close menu]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Abra - 180 coins,Clefairy - 500 coins, Dratini - 2800 coins,Scyther - 5500 coins, Porygon - 9999 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Beldum - 180 coins,Ralts - 500 coins, Bagon - 2800 coins,Mawile - 5500 coins, Castform - 9999 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Blue Scarf - 800 coins,Red Scarf - 1000 coins, Pink Scarf - 1000 coins,Green Scarf - 1000 coins, Yellow Scarf - 1600 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Cell Battery - 800 coins,Air Balloon - 1000 coins, Ability Capsule - 1000 coins,Bottle Cap - 2000 coins, Gold Bottle Cap - 12000 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Chingling - 180 coins,Snover - 500 coins, Gible - 2800 coins,Carnivine - 5500 coins, Rotom - 9999 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Eject Button - 800 coins,Eviolite - 800 coins, Choice Band - 1600 coins,Choice Specs - 1600 coins, Choice Scarf - 1600 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Elgyem - 180 coins,Tynamo - 500 coins, Deino - 2800 coins,Zorua - 5500 coins, Larvesta - 9999 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Exp Candy M - 250 coins,Exp Candy L - 500 coins, Exp Candy XL - 1000 coins,PP Up - 1000 coins, PP Max - 3000 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Flame Orb - 800 coins,Toxic Orb - 1000 coins, Iron Ball - 1000 coins,Light Clay - 1000 coins, Focus Sash - 1600 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Grassy Seed - 100 coins,Misty Seed - 100 coins, Electric Seed - 100 coins,Psychic Seed - 100 coins, Master Ball - 9999 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Grimer - 180 coins,Rockruff - 500 coins, Jangmo-o - 2800 coins,Turtonator - 5500 coins, Komala - 9999 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Igglybuff - 180 coins,Cleffa - 500 coins, Larvitar - 2800 coins,Gligar - 5500 coins, Wobbuffet - 9999 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Inkay - 180 coins,Furfrou - 500 coins, Goomy - 2800 coins,Honedge - 5500 coins, Carbink - 9999 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Meowth - 180 coins,Milcery - 500 coins, Dreepy - 2800 coins,Falinks - 5500 coins, Kubfu - 9999 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Metronome - 1000 coins,Life Orb - 1000 coins, Leftovers - 1000 coins,Lucky Egg - 1600 coins, Ability Patch - 5000 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Power Anklet - 1000 coins,Power Band - 1000 coins, Power Belt - 1000 coins,Power Bracer - 1000 coins, Power Lens - 1000 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, Smoke Ball - 800 coins,Miracle Seed - 1000 coins, Charcoal - 1000 coins,Mystic Water - 1000 coins, Yellow Flute - 1600 coins,No thanks]"}
+{"section": 0, "en": "\\CN\\bWhich prize would you like?\\ch[1,6, TM13 - 4000 coins,TM23 - 3500 coins, TM24 - 4000 coins,TM30 - 4500 coins, TM35 - 4000 coins,No thanks]"}
+{"section": 0, "en": "\\bAnd which region will you be challenging? \\ch[98,-1,Kanto,Johto,Hoenn,Sinnoh,Unova,Kalos, Alola,Galar,Hisui,Frontier]"}
+{"section": 0, "en": "\\bAny other moves?\\ch[98,-1,Burning Jealousy,Coaching,Corrosive Gas, Dual Wingbeat,Expanding Force,Flip Turn,Grassy Glide,Lash Out,Meteor Beam, Misty Explosion,Poltergeist,Rising Voltage,Scale Shot,Scorching Sands,Skitter Smack,Steel Roller,Terrain Pulse,Triple Axel]"}
+{"section": 0, "en": "\\bBattle number \\v[1] is next.  Are you ready?\\ch[2,0, Go on,Rest,Retire,Record]"}
+{"section": 0, "en": "\\bBattle number \\v[1] is next.  Are you ready?\\ch[2,0, Go on,Rest,Retire]"}
+{"section": 0, "en": "\\bBattle number \\v[1] is next.  Are you ready?\\ch[2,0,Go on,Rest,Retire,Record]"}
+{"section": 0, "en": "\\bBattle number \\v[1] is next.  Are you ready?\\ch[2,0,Go on,Rest,Retire]"}
+{"section": 0, "en": "\\bCalem has quite a lot going on, so let's split his kit into smaller chunks.\\ch[2,-1,General, Water,Dark,B Move]"}
+{"section": 0, "en": "\\bChoose your entrance. \\ch[73,,A,B,C,D,E,F]"}
+{"section": 0, "en": "\\bHey, partner! Can I interest you in some moves? They don't have these anywhere else, you know.\\ch[98,-1,Burning Jealousy,Coaching,Corrosive Gas,Dual Wingbeat, Expanding Force,Flip Turn,Grassy Glide,Lash Out,Meteor Beam,Misty Explosion,Poltergeist,Rising Voltage, Scale Shot,Scorching Sands,Skitter Smack,Steel Roller,Terrain Pulse,Triple Axel]"}
+{"section": 0, "en": "\\bI can control the weather.  Which weather would you like to see?\\ch[1,-1,None,Rain,Storm, Snow,Sandstorm,Sunny,Heavy Rain,Blizzard]"}
+{"section": 0, "en": "\\bI can control the weather.  Which weather would you like to see?\\ch[1,-1,None,Rain,Storm, Snow,Sandstorm,Sunny,HeavyRain,Blizzard]"}
+{"section": 0, "en": "\\bPick a trainer.\\n\\ch[1,-1,Brock,Misty,Erika, Red,Red (Thunderbolt),Blue,Leaf]"}
+{"section": 0, "en": "\\bPick a trainer.\\n\\ch[1,-1,Cynthia,Cynthia (Renegade),Cynthia (Aura),Cyrus,Dawn]"}
+{"section": 0, "en": "\\bPick a trainer.\\n\\ch[1,-1,Elesa,Grimsley,Hilbert,Hilda,N, Roxie,Ingo,Emmet]"}
+{"section": 0, "en": "\\bPick a trainer.\\n\\ch[1,-1,Leon,Piers,Gloria (Dojo)]"}
+{"section": 0, "en": "\\bPick a trainer.\\n\\ch[1,-1,Lillie (2022),N (2022),Steven (2022), May (2023),Skyla (2023),Raihan (2023)]"}
+{"section": 0, "en": "\\bPick a trainer.\\n\\ch[1,-1,Lusamine,Hau,Lana, Acerola,Mina,Gladion]"}

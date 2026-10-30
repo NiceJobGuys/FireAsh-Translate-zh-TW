@@ -1,0 +1,200 @@
+{"section": 24, "en": "Default Movement"}
+{"section": 24, "en": "Defeat Rose."}
+{"section": 24, "en": "Defeat the Dynamaxed Centiskorch at the entrance of Sumbering Weald."}
+{"section": 24, "en": "Defeat the Dynamaxed Coalossal outside Wyndon's Rose Tower."}
+{"section": 24, "en": "Defeat the Dynamaxed Pangoro outside Wyndon's train station."}
+{"section": 24, "en": "Defense Buff"}
+{"section": 24, "en": "Define Freehand Path"}
+{"section": 24, "en": "Define Smooth Curve"}
+{"section": 24, "en": "Delete All File Save"}
+{"section": 24, "en": "Delete Frame"}
+{"section": 24, "en": "Delete Only One File Save"}
+{"section": 24, "en": "Delete Timing"}
+{"section": 24, "en": "Delete entry"}
+{"section": 24, "en": "Delete the encounter set for map {1} version {2}?"}
+{"section": 24, "en": "Delete the encounter type {1}?"}
+{"section": 24, "en": "Delete the saved data anyway?"}
+{"section": 24, "en": "Delete this Pokémon?"}
+{"section": 24, "en": "Delete this encounter slot?"}
+{"section": 24, "en": "Delete this trainer?"}
+{"section": 24, "en": "Deleting all data. Don't turn off the power.\\wtnp[0]"}
+{"section": 24, "en": "Deposited {1} {2}."}
+{"section": 24, "en": "Description of the Pokémon as displayed in the Pokédex."}
+{"section": 24, "en": "Description of the item"}
+{"section": 24, "en": "Deselect"}
+{"section": 24, "en": "Dex list number {1} has species {2} listed twice.\r\n{3}"}
+{"section": 24, "en": "Dex list number {1} is defined at least twice.\r\n{2}"}
+{"section": 24, "en": "Dex {1} (size {2})"}
+{"section": 24, "en": "Didn't create a gift."}
+{"section": 24, "en": "Didn't make it quite far this time, eh?\nThat's ok, better luck next time!"}
+{"section": 24, "en": "Difficulty [{1}]"}
+{"section": 24, "en": "Difficulty for Legendary raids cannot be changed."}
+{"section": 24, "en": "Disconnect?\\^"}
+{"section": 24, "en": "Distortion"}
+{"section": 24, "en": "Ditto"}
+{"section": 24, "en": "Diving character sprite."}
+{"section": 24, "en": "Do what with {1}?"}
+{"section": 24, "en": "Do you want to become strong, too? Let me share my secret training techniques with you!"}
+{"section": 24, "en": "Do you want to teach {1} to a Pokémon?"}
+{"section": 24, "en": "Do you want to teach {1} to {2}?"}
+{"section": 24, "en": "Double Cup"}
+{"section": 24, "en": "Double-click: Edit map's metadata\r\n"}
+{"section": 24, "en": "Dozer is on Route 10, north of Lavender Town."}
+{"section": 24, "en": "Drag map to move it\r\n"}
+{"section": 24, "en": "Duet Completion No."}
+{"section": 24, "en": "Duet Completion No.#{hallNumber}#{diff}"}
+{"section": 24, "en": "Duet Completion No.{1}{2}"}
+{"section": 24, "en": "Duplicate"}
+{"section": 24, "en": "Duration:"}
+{"section": 24, "en": "Dynamax Level: {1}\nG-Max Factor: {2}\nDynamaxed: {3}"}
+{"section": 24, "en": "Dynamax..."}
+{"section": 24, "en": "E"}
+{"section": 24, "en": "EDIT"}
+{"section": 24, "en": "EIGHTH"}
+{"section": 24, "en": "ELEVENTH"}
+{"section": 24, "en": "EQUIPPED #{buff.name}."}
+{"section": 24, "en": "EQUIPPED {1}."}
+{"section": 24, "en": "EV/IV/pID..."}
+{"section": 24, "en": "EVs"}
+{"section": 24, "en": "EXCHANGE"}
+{"section": 24, "en": "Each Pokémon's HP was halved!"}
+{"section": 24, "en": "Earned coins"}
+{"section": 24, "en": "Earthquakes"}
+{"section": 24, "en": "Earthquakes starting happening on the battlefield!"}
+{"section": 24, "en": "East side of first map must connect with west side of second map\r\n{1}"}
+{"section": 24, "en": "Edit"}
+{"section": 24, "en": "Edit Individual Trainers"}
+{"section": 24, "en": "Edit Items"}
+{"section": 24, "en": "Edit Map Connections"}
+{"section": 24, "en": "Edit Metadata"}
+{"section": 24, "en": "Edit Pokémon"}
+{"section": 24, "en": "Edit Pokémon Sprite Positions"}
+{"section": 24, "en": "Edit Pokémon species data."}
+{"section": 24, "en": "Edit Regional Dexes"}
+{"section": 24, "en": "Edit Terrain Tags"}
+{"section": 24, "en": "Edit Trainer Types"}
+{"section": 24, "en": "Edit Wild Encounters"}
+{"section": 24, "en": "Edit all Game Switches (except Script Switches)."}
+{"section": 24, "en": "Edit all Game Variables. Can set them to numbers or text."}
+{"section": 24, "en": "Edit and enable/disable Mystery Gifts."}
+{"section": 24, "en": "Edit encounter slots"}
+{"section": 24, "en": "Edit global and map metadata."}
+{"section": 24, "en": "Edit how many Battle Points you have."}
+{"section": 24, "en": "Edit how many Game Corner Coins you have."}
+{"section": 24, "en": "Edit how much money you have."}
+{"section": 24, "en": "Edit individual trainers, their Pokémon and items."}
+{"section": 24, "en": "Edit information in the PBS files, terrain tags, battle animations, etc."}
+{"section": 24, "en": "Edit item data."}
+{"section": 24, "en": "Edit map's encounters"}
+{"section": 24, "en": "Edit the battle animations."}
+{"section": 24, "en": "Edit the player's character, as defined in \"metadata.txt\"."}
+{"section": 24, "en": "Edit the player's outfit number."}
+{"section": 24, "en": "Edit the properties of trainer types."}
+{"section": 24, "en": "Edit the terrain tags of tiles in tilesets. Required for tags 8+."}
+{"section": 24, "en": "Edit the wild Pokémon that can be found on maps, and how they are encountered."}
+{"section": 24, "en": "Edit wild encounters"}
+{"section": 24, "en": "Effort Value points earned when this species is defeated."}
+{"section": 24, "en": "Effort values for each of the Pokémon's stats."}
+{"section": 24, "en": "Effort values for the Pokémon's {1} stat (0-{2})."}
+{"section": 24, "en": "EffortPoints"}
+{"section": 24, "en": "Egg (hatches in {1} steps)."}
+{"section": 24, "en": "EggMoves"}
+{"section": 24, "en": "Electon is outside Cerise's Lab."}
+{"section": 24, "en": "Electric Fan"}
+{"section": 24, "en": "Electric Terrain needs to be active for this move to be used."}
+{"section": 24, "en": "Electric fan"}
+{"section": 24, "en": "Electricity's power was weakened!"}
+{"section": 24, "en": "Embargo's effect prevents the item's use on {1}!"}
+{"section": 24, "en": "Empty Bag"}
+{"section": 24, "en": "Enable the setting {1}?"}
+{"section": 24, "en": "Encore prevents using this move!"}
+{"section": 24, "en": "Encounter densities are defined twice or\r\nnot immediately for map '{1}'.\r\n{2}"}
+{"section": 24, "en": "Encounter type {1} does not exist"}
+{"section": 24, "en": "Encounter type={1}"}
+{"section": 24, "en": "Encounters for map '{1}' are defined twice.\r\n{2}"}
+{"section": 24, "en": "End your Dynamax Adventure?\nAny captured Pokémon and acquired treasure will be lost."}
+{"section": 24, "en": "Ending Frame:"}
+{"section": 24, "en": "Endless Adventure"}
+{"section": 24, "en": "Enemy Buffs (#{chall})"}
+{"section": 24, "en": "Enemy Buffs ({1})"}
+{"section": 24, "en": "Enter Den"}
+{"section": 24, "en": "Enter a filename."}
+{"section": 24, "en": "Enter a name for the gift."}
+{"section": 24, "en": "Enter a phrase."}
+{"section": 24, "en": "Enter text using the keyboard.\nPress Enter to confirm."}
+{"section": 24, "en": "Enter text using the keyboard. Press\nEnter to confirm, or Esc to cancel."}
+{"section": 24, "en": "Enter the Contest Hall then leave."}
+{"section": 24, "en": "Enter the name of the Pokemon species. Leave blank to search using only filters."}
+{"section": 24, "en": "Enter the raid den with the displayed party?"}
+{"section": 24, "en": "Enter {1}'s name."}
+{"section": 24, "en": "Enter: Load/rename an animation\nEsc: Cancel"}
+{"section": 24, "en": "Enter: Load/rename an animation\nF: Open search bar\nEsc: Cancel"}
+{"section": 24, "en": "Entire Slide..."}
+{"section": 24, "en": "Entrancing Melody"}
+{"section": 24, "en": "Enumeration not defined\r\n{1}"}
+{"section": 24, "en": "Environment [{1}]"}
+{"section": 24, "en": "Environment is set to {1}."}
+{"section": 24, "en": "Erase name"}
+{"section": 24, "en": "Erratic"}
+{"section": 24, "en": "Error: def pbGetOwnerIndexFromBattlerIndex gives invalid owner index ({1} for battle type {2}v{3}, trainers {4}v{5})"}
+{"section": 24, "en": "Evasion Buff"}
+{"section": 24, "en": "Everyone is caught up in the happy atmosphere!"}
+{"section": 24, "en": "Everything was dug up!"}
+{"section": 24, "en": "Evolution paths of this species."}
+{"section": 24, "en": "Exact"}
+{"section": 24, "en": "Exchange {1} for the new Pokémon?"}
+{"section": 24, "en": "Exclude"}
+{"section": 24, "en": "Exit from the editor?"}
+{"section": 24, "en": "Exit from the map?"}
+{"section": 24, "en": "Exit the Max Lair?"}
+{"section": 24, "en": "Expected NPCTrainer or array of trainer data, got {1}."}
+{"section": 24, "en": "Expected Shadow moves or Shadow Rush to be defined, but they weren't."}
+{"section": 24, "en": "Expected a level after being given {1}, but one wasn't found."}
+{"section": 24, "en": "Expected a map number, got \"{1}\" instead.\r\n{2}"}
+{"section": 24, "en": "Expected a number in section {1}, got {2} instead"}
+{"section": 24, "en": "Expected a section at the beginning of the file\r\n{1}"}
+{"section": 24, "en": "Expected a section at the beginning of the file (line {1})"}
+{"section": 24, "en": "Expected a section at the beginning of the file (line {1}). Sections begin with '[name of section]'"}
+{"section": 24, "en": "Expected a section at the beginning of the file.\r\n{1}"}
+{"section": 24, "en": "Expected a section at the beginning of the file. This error may also occur if the file was not saved in UTF-8.\r\n{1}"}
+{"section": 24, "en": "Expected a species entry line for encounter type {1} for map '{2}', got \"{3}\" instead.\r\n{4}"}
+{"section": 24, "en": "Export All Battle Animations"}
+{"section": 24, "en": "Export Anim..."}
+{"section": 24, "en": "Export all battle animations individually to the \"Animations\" folder."}
+{"section": 24, "en": "Export selected to file"}
+{"section": 24, "en": "Extra images supplied by:"}
+{"section": 24, "en": "Extra sounds supplied by:"}
+{"section": 24, "en": "Extract Text"}
+{"section": 24, "en": "Extract all text in the game to a single file for translating."}
+{"section": 24, "en": "Extrapolate Path..."}
+{"section": 24, "en": "F"}
+{"section": 24, "en": "FIELD"}
+{"section": 24, "en": "FIERCE ATTACK"}
+{"section": 24, "en": "FIFTH"}
+{"section": 24, "en": "FIRST"}
+{"section": 24, "en": "FLOW"}
+{"section": 24, "en": "FOURTH"}
+{"section": 24, "en": "Failed to compile text: {1}"}
+{"section": 24, "en": "Failed to create the item. Choose a different name."}
+{"section": 24, "en": "Failed to create the trainer type. Choose a different name."}
+{"section": 24, "en": "Failed to delete stored items"}
+{"section": 24, "en": "Falling rocks makes it too dangerous to move forward."}
+{"section": 24, "en": "False"}
+{"section": 24, "en": "Farewell, child. Good luck on your journeys."}
+{"section": 24, "en": "Feb."}
+{"section": 24, "en": "February"}
+{"section": 24, "en": "Female 25 Percent"}
+{"section": 24, "en": "Female 50 Percent"}
+{"section": 24, "en": "Female 75 Percent"}
+{"section": 24, "en": "Female One Eighth"}
+{"section": 24, "en": "Female Seven Eighths"}
+{"section": 24, "en": "Female ♀"}
+{"section": 24, "en": "Fertilize"}
+{"section": 24, "en": "Field"}
+{"section": 24, "en": "Field '{1}' is not a hexadecimal number\r\n{2}"}
+{"section": 24, "en": "Field '{1}' must be 0 or greater\r\n{2}"}
+{"section": 24, "en": "Field '{1}' must be greater than 0\r\n{2}"}
+{"section": 24, "en": "Field '{1}' must contain only letters, digits, and\r\nunderscores and can't begin with a number.\r\n{2}"}
+{"section": 24, "en": "Field Move"}
+{"section": 24, "en": "Field options..."}
+{"section": 24, "en": "Field {1} is not a Boolean value (true, false, 1, 0)\r\n{2}"}

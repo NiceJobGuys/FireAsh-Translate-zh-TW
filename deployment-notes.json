@@ -1,0 +1,12 @@
+{
+ "observed":"2026-10-30T08:13:01+08:00",
+ "fixture_run":"run-20261030-081301-729778",
+ "test":"test_refuse_changed_file",
+ "operation":"os.replace：Scripts.rxdata.fire-ash-zhtw-part -> Scripts.rxdata，僅Artifacts測試副本。",
+ "error":"PermissionError / WinError 5",
+ "observations":["原檔、目標與暫存檔屬性均為Archive，IsReadOnly=false。","失敗的暫存檔已封存於備份failed-stage；原始Scripts.rxdata保留原雜湊。","查詢Defender相關事件沒有取得對應紀錄，不能判定是Defender造成。","之後不變更程式、權限或安全設定，單獨執行同一套三個測試，全部通過。"],
+ "cause":"未確認，單獨執行未重現；不宣稱已修復其根因。",
+ "actual_game_modified":false,
+ "latest_result":"deployment-validation.json 為後續三個測試通過的結果。",
+ "follow_up":"請Leader在實際套用前留意檔案替換是否受阻。若再次發生，保留備份與錯誤，不強制覆寫、不調整安全設定。"
+}
