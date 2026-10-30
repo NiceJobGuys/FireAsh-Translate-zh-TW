@@ -1,5 +1,5 @@
 # encoding: UTF-8
-# Runs the game's actual formatter with synthetic glyph metrics, without Game.exe.
+# Runs the game's actual formatter with FreeType glyph advances, without Game.exe.
 Color = Struct.new(:red, :green, :blue, :alpha)
 Rect = Struct.new(:x, :y, :width, :height)
 class Font
@@ -14,7 +14,7 @@ class Bitmap
   attr_writer :font
   def disposed?; false; end
   def fire_ash_zhtw_text_size(text)
-    Rect.new(0,0,text.each_char.sum { |char| char.ascii_only? ? 8 : 23 },32)
+    Rect.new(0,0,text.each_char.sum { |char| $fire_ash_glyph_widths.fetch(char) },32)
   end
 end
 

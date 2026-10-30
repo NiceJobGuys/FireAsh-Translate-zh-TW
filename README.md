@@ -20,7 +20,8 @@
 | --- | --- | --- |
 | 繁中語言檔 | `release\fire-ash-zh-tw-preview\Data\traditional_chinese.dat` | 已建置並由原遊戲 Ruby DLL 載入驗證 |
 | 修改後腳本 | `data\fire-ash-work\patched\Scripts.rxdata` | 新增繁中選項、字型與中文斷行支援；僅本機保留 |
-| 本機中文字型 | `data\fire-ash-work\fonts\fire-ash-zhtw.ttf` | 從本機微軟正黑體抽出；禁止上傳 GitHub 或發佈 |
+| 本機中文字型 | `data\fire-ash-work\fonts\fire-ash-zhtw.ttf` | Fusion Pixel Font 12px zh_hant，OFL 1.1；不 commit 字型 |
+| 字型授權 | `data\fire-ash-work\fonts\fire-ash-zhtw-OFL.txt` | 原始及上游授權文字，隨字型套用 |
 | 覆蓋報告 | `release\fire-ash-zh-tw-preview\coverage.json` | 各類別詳細統計 |
 
 本機已由 Claude 1 套用，原檔備份位於 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-install-20261030`。套用與實機驗收由 Claude 1 管理；repo 不包含遊戲檔、字型、存檔或還原備份。
@@ -30,6 +31,11 @@
 1. 備份並替換 `Data\Scripts.rxdata`。
 2. 新增 `Data\traditional_chinese.dat`。
 3. 新增 `Fonts\fire-ash-zhtw.ttf`。
+4. 新增 `Fonts\fire-ash-zhtw-OFL.txt`，保留字型與上游授權。
+
+實機回報舊版正黑體模糊後，已改用 [Fusion Pixel Font](https://github.com/TakWolf/fusion-pixel-font) 2026.10.25 的 `zh_hant` 等寬版（OFL 1.1）。Cubic 11 缺「戽」「桄」而未採用；新字型涵蓋全部 3,195 個用字。普通／小字實際為 24／12px，皆為原生 12px 格線的整數倍。本機引擎會將 API 字級乘 0.9 後取整數，因此 `Font.size` 設為 27／14。字型 SHA、下載來源與原始授權雜湊見 `font-source.json`。
+
+`solidFonts` 維持原設定，不修改 `mkxp.json`。完整字集在 12／24px 的未二值化 FreeType 灰階遮罩只有 0／255，無需全域改動英文渲染。中文繪製暫停人工粗體／斜體，結束後還原樣式；原有硬邊陰影仍保留。新版本仍須 Claude 1 還原舊版、重新套用後完成實機驗收。
 
 保留所有既有語言的索引，繁中加在語言清單最後。遊戲內由 Options → Language 選擇「繁體中文」。此路徑已由程式與資料結構核對，遊戲畫面結果待 Claude 1 完成驗收後更新。
 
@@ -86,7 +92,11 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 | `tools/fire_ash.py` | 匯出、參考資料對照、控制碼驗證與本機建置 |
 | `tools/font_support.rb` | 字型切換、中文選項字型、中文斷行及標點禁則 |
 | `tools/verify_ruby.py` | 用原遊戲 Ruby DLL 驗證 Marshal、腳本語法與字型切換邏輯 |
-| `tools/verify_layout.rb` | 重現原版中文超框，使用實際排版函式驗證修正；字寬為模擬值 |
+| `tools/verify_layout.rb` | 重現原版中文超框；原遊戲排版函式搭配新字型實際 FreeType 字寬 |
+| `font-source.json` | 固定字型來源、雜湊、OFL、原生字級與引擎換算證據 |
+| `tools/prepare_baseline.py` | 從既有備份與未改動原檔建立四檔原版建置副本，不寫入遊戲 |
+| `tools/font_preview.py` | 512x384 字型算繪與四倍最近鄰預覽，非遊戲截圖 |
+| `font-preview-validation.json` | 預覽字界、排版與產物雜湊，不代表實機通過 |
 | `tools/runtime_support.rb` | 動態句子查詢、舊編碼字串相容及只用於顯示的強化名稱 |
 | `tools/verify_runtime.rb` | 用原強化程式驗證翻譯後的選項、購買、升級、能量與原始識別名稱 |
 | `runtime-localization-patches.json` | 腳本顯示呼叫的修改清單 |
@@ -94,7 +104,7 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 | `source-manifest.json` | 基準檔案雜湊 |
 | `coverage.json` | 每類翻譯數量；由建置產生 |
 | `validation.json` | 原生 Ruby 驗證結果；不代表遊戲實測 |
-| `tools/install_preview.py` | 本機三檔套用計畫、事前備份、校驗與還原 |
+| `tools/install_preview.py` | 本機四檔套用計畫（含 OFL）、事前備份、校驗與還原 |
 | `tools/test_install_preview.py` | Artifacts 內的套用／還原、複製中斷與拒絕覆寫測試 |
 | `deployment-validation.json` | 本機套用工具測試結果與程式雜湊；不是實際安裝紀錄 |
 | `script-character-audit.json` | 簡繁候選字人工判讀、採用字形與語言檔雜湊 |
@@ -109,13 +119,14 @@ SQLite 工作資料位於 repo 以外的 `Artifacts\data\fire-ash-work\catalog.s
 ```powershell
 python -m pip install --no-compile --no-deps --target 'D:\Code\Lab Testing\Artifacts\downloads\fire-ash-python' rubymarshal==1.2.10
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_ash.py' self-test
-python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_ash.py' extract
-python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_ash.py' reference
-python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_ash.py' build
-python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\verify_ruby.py'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\prepare_baseline.py'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_ash.py' build --game 'D:\Code\Lab Testing\Artifacts\data\fire-ash-work\original-baseline'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\verify_ruby.py' --game 'D:\Code\Lab Testing\Artifacts\data\fire-ash-work\original-baseline'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\font_preview.py'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_install_preview.py' --source-game 'D:\Code\Lab Testing\Artifacts\data\fire-ash-work\original-baseline'
 ```
 
-需本機已有 Python、fontTools 及原遊戲的 `x64-msvcrt-ruby300.dll`。`extract`、`build` 另有 `--game` 參數；目前原生驗證工具固定使用這份原始安裝。
+需本機已有 Python、fontTools、Pillow 及原遊戲的 `x64-msvcrt-ruby300.dll`。先將 `font-source.json` 指定的官方壓縮檔解壓至 `Artifacts\downloads\fusion-pixel-font\`，保留原始 TTF、`OFL.txt` 與 `LICENSES\`。`extract`／`reference` 僅在建立或更新原文時使用，對符合原版雜湊的副本執行；現有翻譯重建不需重新匯出。
 
 建置及驗證須使用符合來源雜湊的原版副本。現有 `coverage.json`、`validation.json` 與 `deployment-validation.json` 是套用前的建置／測試證據，其中 `installed=false` 記錄當時狀態，不代表 Claude 1 目前的實機套用狀態。
 
@@ -131,9 +142,9 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\verify
 - 使用預設 `messages.dat` 作為基底，包含英文語言檔缺少的較新條目。
 - 原始基底可逐位元組往返序列化；產出的所有 42,534 個文字欄位，位置與內容均通過 Python／原生 Ruby 讀取比對。
 - 404 段腳本均通過原遊戲 Ruby 3.0.2 語法編譯，並驗證英文／繁中兩種設定下的字型初始化與 setter 行為。
-- 每次建置均檢查當批譯文的所有字元是否存在於本機微軟正黑體；結果見 `coverage.json` 的 `font`。這僅是字形覆蓋驗證，未驗證換行、選單寬度、截斷或實際渲染。
+- 每次建置核對像素字型來源 SHA、全部 3,195 個用字及 12／24px 未二值化灰階遮罩；無缺字且透明度僅有 0／255。512x384 設定與對話樣本已實際算繪並放大四倍檢查；測試畫布非遊戲實機截圖。
 - 英文模式中遇到中文選項時，文字量測與繪製也會暫時切換至中文字型，完成後還原；已通過邏輯測試，遊戲畫面仍待實測。
-- 已在原生 Ruby 重現原版中文無空白時超框。以原遊戲的純文字及格式排版函式驗證 12 個中文案例，涵蓋標點、名字中間點、混合英文、明確換行與停頓碼，並核對 4 個英文排版案例維持相同結果。字寬採模擬值，不能代替實際字型渲染或遊戲截圖驗收。
+- 已在原生 Ruby 重現原版中文無空白時超框。以原遊戲的純文字及格式排版函式搭配新字型實際 FreeType 字寬，驗證 12 個中文案例，涵蓋標點、名字中間點、混合英文、明確換行與停頓碼，並核對 4 個英文排版案例維持相同結果；仍不能代替遊戲截圖驗收。
 - 補充介面在覆蓋報告列為工具專用 section 102，不是新的遊戲訊息區段。它的 `occurrences=0` 代表不在原訊息檔中；115 種譯文嵌入腳本，不增加或改動原 42,534 個訊息位置。
 - 原生 Ruby 已逐筆核對全部補充字串，並用原強化程式驗證中文選項、說明、數值插入、選項順序、購買價格、升級、裝備及卸下能量。內部英文名稱與舊字串編碼未被顯示翻譯改寫；英文模式回到原顯示方式。
 - 術語檢查包含 3,703 筆參考名稱、2,832 處寶可夢名稱、1,036 處地名、2,792 筆具名發話者及 111 筆招式教學台詞。姓名表與劇情以雙向檢查確保同步，21 筆 Drake／Flint 發話維持明示同名例外；其他同名人物的特定劇情對照列於 `glossary.json` 的 `contextual_terms`。

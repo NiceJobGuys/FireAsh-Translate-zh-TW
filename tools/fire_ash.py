@@ -9,6 +9,7 @@ import io
 import json
 import re
 import sqlite3
+import shutil
 import sys
 import urllib.request
 import unicodedata
@@ -755,23 +756,43 @@ def build_scripts(game, runtime_targets):
 
 
 def build_font(translations):
-    from fontTools.ttLib import TTCollection
-    # Use this Windows installation's font locally; never publish the font file.
-    collection = TTCollection(r"C:\Windows\Fonts\msjh.ttc")
-    try:
-        font = collection.fonts[0]
-        characters = set("".join(target for target, _ in translations.values()))
+    from fontTools.ttLib import TTFont
+    from PIL import ImageFont
+    config = json.loads((ROOT / "font-source.json").read_text(encoding="utf-8"))
+    source = ARTIFACTS / "downloads/fusion-pixel-font" / config["filename"]
+    if digest(source.read_bytes()) != config["sha256"]:
+        raise ValueError("Pixel font source hash mismatch")
+    characters = set("".join(target for target, _ in translations.values()))
+    with TTFont(source) as font:
+        assert font["name"].getDebugName(1) == config["family"]
         missing = sorted(c for c in characters if ord(c) >= 32 and ord(c) not in font.getBestCmap())
-        if missing:
-            raise ValueError("Chinese font lacks characters: " + "".join(missing))
-        path = ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"
-        path.parent.mkdir(parents=True, exist_ok=True)
-        font.recalcTimestamp = False
-        font.save(path)
-        return {"family": "Microsoft JhengHei", "checked_characters": len(characters),
-                "missing_characters": 0, "sha256": digest(path.read_bytes()), "publish": False}
-    finally:
-        collection.close()
+    if missing:
+        raise ValueError("Chinese font lacks characters: " + "".join(missing))
+    alpha_counts = {}
+    for pixels in (12, 24):
+        raster_font = ImageFont.truetype(str(source), pixels)
+        # Check unthresholded FreeType grayscale output, not a forced binary mask.
+        alpha = set(bytes(raster_font.getmask("".join(sorted(characters - {'\n', '\r', '\t'})), mode="L")))
+        if not alpha <= {0, 255}:
+            raise ValueError(f"Pixel font has antialiased edges at {pixels}px: {sorted(alpha)}")
+        alpha_counts[str(pixels)] = sorted(alpha)
+    path = ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source, path)
+    license_parts = []
+    for relative, expected in config["licenses"].items():
+        license_path = source.parent / relative
+        if digest(license_path.read_bytes()) != expected:
+            raise ValueError(f"Font license hash mismatch: {relative}")
+        license_parts.append(f"===== {relative} =====\n" + license_path.read_text(encoding="utf-8"))
+    license_output = path.with_name("fire-ash-zhtw-OFL.txt")
+    license_output.write_text("\n\n".join(license_parts), encoding="utf-8", newline="\n")
+    return {"family": config["family"], "version": config["version"], "license": "OFL-1.1",
+            "checked_characters": len(characters), "missing_characters": 0, "missing": [],
+            "sha256": digest(path.read_bytes()), "license_sha256": digest(license_output.read_bytes()),
+            "native_grid_px": 12, "raster_sizes_px": [12, 24], "api_sizes": [14, 27],
+            "unthresholded_freetype_alpha_values": alpha_counts, "solid_fonts_changed": False,
+            "source": config["url"], "publish": False}
 
 
 def audit_speakers(db, contextual_names):
@@ -986,6 +1007,19 @@ def build(game):
 
 
 def self_test():
+    from PIL import ImageFont
+    config = json.loads((ROOT / "font-source.json").read_text(encoding="utf-8"))
+    pixel_font = ARTIFACTS / "downloads/fusion-pixel-font" / config["filename"]
+    assert digest(pixel_font.read_bytes()) == config["sha256"], "Wrong pixel font source"
+    for prefix in ("regular", "small"):
+        pixels = config[prefix + "_raster_px"]
+        assert int(config[prefix + "_font_size"] * config["engine_size_multiplier"]) == pixels
+        assert pixels % config["native_grid_px"] == 0
+        font = ImageFont.truetype(str(pixel_font), pixels)
+        assert set(bytes(font.getmask("繁體中文，戽斗尖梭與桄榔島！", mode="L"))) <= {0, 255}
+    off_grid = ImageFont.truetype(str(pixel_font), 23)
+    assert set(bytes(off_grid.getmask("繁體中文", mode="L"))) - {0, 255}, "Blur regression fixture not reproduced"
+    print("PASS: native pixel grids at 12/24px; mkxp 0.9 size compensation; off-grid blur reproduced")
     assert patch_text_layout("    if hadspace && !isspace\n" * 2).count("FireAshZHTW.cjk_boundary?") == 2
     try:
         patch_text_layout("Unexpected upstream formatter")

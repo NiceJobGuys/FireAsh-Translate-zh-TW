@@ -1,4 +1,5 @@
 """Use the bundled Ruby DLL for data/syntax validation without starting the game."""
+import argparse
 import ctypes
 import json
 import os
@@ -19,6 +20,13 @@ import fire_ash
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--game", type=Path, default=GAME, help="Hash-checked original build baseline")
+    args = parser.parse_args()
+    source_game = args.game.resolve()
+    baseline = json.loads((ROOT / "source-manifest.json").read_text(encoding="utf-8"))
+    for relative, expected in baseline["files"].items():
+        assert fire_ash.digest((source_game / relative).read_bytes()) == expected, f"Original baseline changed: {relative}"
     dll_directory = os.add_dll_directory(str(GAME))
     ruby = ctypes.CDLL(str(GAME / "x64-msvcrt-ruby300.dll"))
     stack = ctypes.c_void_p()
@@ -139,19 +147,20 @@ parts.join
     print("PASS: message CSV parsing matches the game for", len(csv_fixtures), "quoted/escaped/Unicode fixtures")
     font_stub = """
 class Font
-  attr_accessor :name, :size
+  attr_accessor :name, :size, :bold, :italic
   def initialize(name='Power Green', size=29)
     @name, @size = name, size
   end
 end
 class Bitmap
-  attr_reader :font, :drawn_font
+  attr_reader :font, :drawn_font, :drawn_style
   attr_accessor :fail_draw
   def initialize
     @font = Font.new
   end
   def draw_text(*args)
     @drawn_font = [font.name, font.size]
+    @drawn_style = [font.bold, font.italic]
     raise 'simulated draw failure' if @fail_draw
     :drawn
   end
@@ -170,10 +179,14 @@ $PokemonSystem = Struct.new(:language).new(0)
 raise 'English font changed' unless Font.new.name == 'Power Green' && Font.new.size == 29
 $PokemonSystem.language = 1
 f = Font.new
-raise 'Chinese font missing' unless f.name == 'Microsoft JhengHei' && f.size == 23
+raise 'Chinese font missing' unless f.name == FireAshZHTW::FONT && f.size == 27
 f.name = 'Power Green Narrow'
 f.size = 25
-raise 'Chinese setter failed' unless f.name == 'Microsoft JhengHei' && f.size == 20
+raise 'Chinese setter failed' unless f.name == FireAshZHTW::FONT && f.size == 27
+FireAshZHTW::PIXEL_SIZES.each_with_index do |api_size, i|
+  raise 'Non-native raster grid' unless (api_size * 0.9).to_i == 12 * (i+1)
+  raise 'Size changes when applied twice' unless FireAshZHTW.size(api_size) == api_size
+end
 $PokemonSystem.language = 0
 f.name = 'Power Green'
 f.size = 29
@@ -181,24 +194,32 @@ raise 'English setters changed' unless f.name == 'Power Green' && f.size == 29
 b = Bitmap.new
 raise 'English draw failed' unless b.draw_text(0,0,100,30,'English') == :drawn
 raise 'English text changed' unless b.drawn_font == ['Power Green',29]
-raise 'Chinese menu metrics failed' unless b.text_size('繁體中文') == ['Microsoft JhengHei',23]
+raise 'Chinese menu metrics failed' unless b.text_size('繁體中文') == [FireAshZHTW::FONT,27]
 raise 'Font not restored after metrics' unless [b.font.name,b.font.size] == ['Power Green',29]
 b.draw_text(0,0,100,30,'繁體中文'.dup.force_encoding('ASCII-8BIT'))
-raise 'Chinese menu label failed' unless b.drawn_font == ['Microsoft JhengHei',23]
+raise 'Chinese menu label failed' unless b.drawn_font == [FireAshZHTW::FONT,27]
 raise 'Font not restored after drawing' unless [b.font.name,b.font.size] == ['Power Green',29]
+b.font.bold = true
+b.font.italic = true
+b.draw_text(0,0,100,30,'粗體斜體測試')
+raise 'Synthetic style damaged pixel grid' unless b.drawn_style == [false,false]
+raise 'Font styles not restored' unless b.font.bold && b.font.italic
+b.draw_text(0,0,100,30,'English')
+raise 'English styles changed' unless b.drawn_style == [true,true]
 b.fail_draw = true
 begin
   b.draw_text(0,0,100,30,'繁體中文')
 rescue RuntimeError
 end
 raise 'Font not restored after failure' unless [b.font.name,b.font.size] == ['Power Green',29]
+raise 'Styles not restored after failure' unless b.font.bold && b.font.italic
 b.fail_draw = false
 $PokemonSystem.language = 1
 b.draw_text(0,0,100,30,'切換後的既有文字')
-raise 'Existing bitmap font not updated after language change' unless b.drawn_font == ['Microsoft JhengHei',23]
+raise 'Existing bitmap font not updated after language change' unless b.drawn_font == [FireAshZHTW::FONT,27]
 'PASS: language-specific fonts; Chinese menu label, metrics, UTF-8/legacy text, restoration after draw failure'
 """))
-    original_scripts = loads((fire_ash.GAME / "Data/Scripts.rxdata").read_bytes())
+    original_scripts = loads((source_game / "Data/Scripts.rxdata").read_bytes())
     original_draw = next(zlib.decompress(row[2]).decode("utf-8") for row in original_scripts
                          if fire_ash.text(row[1]) == "DrawText")
     patched_draw = next(zlib.decompress(row[2]).decode("utf-8") for row in scripts
@@ -207,8 +228,29 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
     for name, code in [(b"$fire_ash_original_draw", original_draw), (b"$fire_ash_patched_draw", patched_draw)]:
         encoded = ("# encoding: UTF-8\n" + code).encode("utf-8")
         ruby.rb_gv_set(name, ruby.rb_utf8_str_new(encoded, len(encoded)))
+    from PIL import ImageFont
+    font_path = ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"
+    font_sha256 = fire_ash.digest(font_path.read_bytes())
+    assert font_sha256 == json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))["font"]["sha256"], "Stale font build"
+    raster_font = ImageFont.truetype(str(font_path), 24)
+    visible_characters = set("".join(value for _, _, _, value in fire_ash.records(data)))
+    visible_characters.update((ROOT / "tools/verify_layout.rb").read_text(encoding="utf-8"))
+    metrics = {c: raster_font.getlength(c) for c in visible_characters}
+    assert all(width == int(width) for width in metrics.values()), "Fractional glyph advances"
+    evaluate("$fire_ash_glyph_widths = {" + ",".join(
+        fire_ash.ruby_string(c) + "=>" + str(int(width)) for c, width in metrics.items()) + "}; 'metrics ready'")
     print(evaluate((ROOT / "tools/verify_layout.rb").read_text(encoding="utf-8")))
     layout_cases_checked = int(evaluate("$fire_ash_layout_cases_checked.to_s"))
+    preview_text = "這是桄榔島的戽斗尖梭。小智與皮卡丘一起旅行，歡迎來到寶可夢的世界！"
+    preview_rows = evaluate("getFormattedText(Bitmap.new,32,272,448,-1," + fire_ash.ruby_string(preview_text) +
+                            ",32).reject { |c| c[0] == 10.chr }.map { |c| [c[0].ord,c[1],c[2],c[3],c[4]].join(',') }.join(10.chr)")
+    native_layout = [[int(field) for field in line.split(",")] for line in preview_rows.splitlines()]
+    assert "".join(chr(row[0]) for row in native_layout) == preview_text
+    assert all(x >= 32 and x + width - 2 <= 480 and y + height <= 368
+               for _, x, y, width, height in native_layout), "Preview dialogue overflow"
+    fire_ash.json_write(ARTIFACTS / "data/fire-ash-work/font-preview-layout.json", {
+        "text": preview_text, "rows": native_layout, "font_sha256": fire_ash.digest(font_path.read_bytes()),
+        "source": "Original game getFormattedText + CJK wrap patch + actual FreeType advances at 24px"})
     runtime_scripts = [zlib.decompress(row[2]) for row in scripts
                        if fire_ash.text(row[1]) == "FireAsh_ZHTW_Runtime"]
     runtime_targets = json.loads((ROOT / "translations/runtime-ui.json").read_text(encoding="utf-8"))["102"]
@@ -242,7 +284,7 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
               "scripts_syntax_checked": len(scripts), "font_hook_behavior": "pass",
               "native_message_csv_cases_checked": len(csv_fixtures),
               "native_cjk_layout_cases_checked": layout_cases_checked, "english_layout_unchanged_cases_checked": 4,
-              "original_cjk_overflow_reproduced": True, "layout_metrics": "synthetic-8px-latin-23px-cjk",
+              "original_cjk_overflow_reproduced": True, "layout_metrics": "FreeType-Fusion-Pixel-12px-zh-Hant-at-24px",
               "layout_test_sha256": fire_ash.digest((ROOT / "tools/verify_layout.rb").read_bytes()),
               "runtime_ui_unique_checked": len(runtime_targets), "runtime_display_behavior": "pass",
               "runtime_support_sha256": fire_ash.digest(runtime_scripts[0]),
@@ -251,7 +293,11 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
               "validated_at_utc": datetime.now(timezone.utc).isoformat(),
               "language_sha256": fire_ash.digest((package / "Data/traditional_chinese.dat").read_bytes()),
               "scripts_sha256": fire_ash.digest(scripts_path.read_bytes()),
-              "font_support_sha256": fire_ash.digest(font_scripts[0])}
+              "font_support_sha256": fire_ash.digest(font_scripts[0]),
+              "verifier_sha256": fire_ash.digest(Path(__file__).read_bytes()),
+              "font_source_sha256": fire_ash.digest((ROOT / "font-source.json").read_bytes()),
+              "font_sha256": font_sha256,
+              "original_baseline": str(source_game)}
     fire_ash.json_write(ROOT / "validation.json", report)
     # Keep the DLL search handle alive until all calls have completed.
     dll_directory.close()

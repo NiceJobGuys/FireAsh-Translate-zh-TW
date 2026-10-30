@@ -1,0 +1,1133 @@
+{
+  "passed": true,
+  "renderer": "Pillow/FreeType grayscale; no threshold; not game screenshots",
+  "canvas": [
+    512,
+    384
+  ],
+  "scale": 4,
+  "resampling": "NEAREST",
+  "font_sha256": "9790b782a81af2a9c32812e7e08247102575b90bdc9327afe8f2a7794a6e9cfa",
+  "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
+  "scripts_sha256": "491e7cc5c1c3a31ab97b852f2e6df0d55fb873d4c1864f3cd795d83ed192c51f",
+  "glyph_bounds_checked": 100,
+  "preview_tool_sha256": "870156680ef8951f12789cc2776db115b9d24b5a75a68ccf04c44fdf39aec358",
+  "bounds": [
+    {
+      "text": "設定",
+      "box": [
+        32,
+        22,
+        80,
+        44
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "音樂音量",
+      "box": [
+        32,
+        74,
+        128,
+        96
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "100",
+      "box": [
+        248,
+        76,
+        284,
+        92
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "音效音量",
+      "box": [
+        32,
+        110,
+        128,
+        132
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "80",
+      "box": [
+        248,
+        112,
+        272,
+        128
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "文字速度",
+      "box": [
+        32,
+        146,
+        128,
+        168
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "一般",
+      "box": [
+        248,
+        146,
+        296,
+        168
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "對戰動畫",
+      "box": [
+        32,
+        182,
+        128,
+        204
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "開啟",
+      "box": [
+        248,
+        182,
+        296,
+        204
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "對戰方式",
+      "box": [
+        32,
+        218,
+        128,
+        240
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "替換",
+      "box": [
+        248,
+        218,
+        296,
+        240
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "預設移動方式",
+      "box": [
+        32,
+        254,
+        176,
+        276
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "步行",
+      "box": [
+        248,
+        254,
+        296,
+        276
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "文字輸入",
+      "box": [
+        32,
+        290,
+        128,
+        312
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "鍵盤",
+      "box": [
+        248,
+        290,
+        296,
+        312
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "天氣效果",
+      "box": [
+        32,
+        326,
+        128,
+        348
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "開啟",
+      "box": [
+        248,
+        326,
+        296,
+        348
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "這",
+      "box": [
+        32,
+        274,
+        56,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "是",
+      "box": [
+        56,
+        274,
+        80,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "桄",
+      "box": [
+        80,
+        274,
+        104,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "榔",
+      "box": [
+        104,
+        274,
+        128,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "島",
+      "box": [
+        128,
+        274,
+        152,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "的",
+      "box": [
+        152,
+        274,
+        176,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "戽",
+      "box": [
+        176,
+        274,
+        200,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "斗",
+      "box": [
+        200,
+        274,
+        224,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "尖",
+      "box": [
+        224,
+        274,
+        248,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "梭",
+      "box": [
+        248,
+        274,
+        272,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "。",
+      "box": [
+        272,
+        282,
+        296,
+        292
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "小",
+      "box": [
+        296,
+        274,
+        320,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "智",
+      "box": [
+        320,
+        274,
+        344,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "與",
+      "box": [
+        344,
+        274,
+        368,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "皮",
+      "box": [
+        368,
+        274,
+        392,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "卡",
+      "box": [
+        392,
+        274,
+        416,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "丘",
+      "box": [
+        416,
+        274,
+        440,
+        296
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "一",
+      "box": [
+        440,
+        284,
+        464,
+        292
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "起",
+      "box": [
+        32,
+        306,
+        56,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "旅",
+      "box": [
+        56,
+        306,
+        80,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "行",
+      "box": [
+        80,
+        306,
+        104,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "，",
+      "box": [
+        104,
+        314,
+        128,
+        324
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "歡",
+      "box": [
+        128,
+        306,
+        152,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "迎",
+      "box": [
+        152,
+        306,
+        176,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "來",
+      "box": [
+        176,
+        306,
+        200,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "到",
+      "box": [
+        200,
+        306,
+        224,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "寶",
+      "box": [
+        224,
+        306,
+        248,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "可",
+      "box": [
+        248,
+        306,
+        272,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "夢",
+      "box": [
+        272,
+        306,
+        296,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "的",
+      "box": [
+        296,
+        306,
+        320,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "世",
+      "box": [
+        320,
+        306,
+        344,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "界",
+      "box": [
+        344,
+        306,
+        368,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "！",
+      "box": [
+        368,
+        308,
+        392,
+        326
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "設定",
+      "box": [
+        32,
+        25,
+        72,
+        44
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "音樂音量",
+      "box": [
+        32,
+        77,
+        112,
+        95
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "100",
+      "box": [
+        248,
+        79,
+        284,
+        94
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "音效音量",
+      "box": [
+        32,
+        113,
+        112,
+        131
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "80",
+      "box": [
+        248,
+        115,
+        272,
+        130
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "文字速度",
+      "box": [
+        32,
+        149,
+        112,
+        168
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "一般",
+      "box": [
+        248,
+        149,
+        288,
+        168
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "對戰動畫",
+      "box": [
+        32,
+        185,
+        112,
+        203
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "開啟",
+      "box": [
+        248,
+        186,
+        288,
+        203
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "對戰方式",
+      "box": [
+        32,
+        221,
+        112,
+        239
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "替換",
+      "box": [
+        248,
+        221,
+        288,
+        239
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "預設移動方式",
+      "box": [
+        32,
+        257,
+        152,
+        276
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "步行",
+      "box": [
+        248,
+        257,
+        288,
+        275
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "文字輸入",
+      "box": [
+        32,
+        293,
+        112,
+        311
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "鍵盤",
+      "box": [
+        248,
+        293,
+        288,
+        312
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "天氣效果",
+      "box": [
+        32,
+        329,
+        112,
+        347
+      ],
+      "right_limit": 232,
+      "bottom_limit": 376
+    },
+    {
+      "text": "開啟",
+      "box": [
+        248,
+        330,
+        288,
+        347
+      ],
+      "right_limit": 480,
+      "bottom_limit": 376
+    },
+    {
+      "text": "這",
+      "box": [
+        32,
+        278,
+        52,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "是",
+      "box": [
+        56,
+        278,
+        76,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "桄",
+      "box": [
+        80,
+        277,
+        100,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "榔",
+      "box": [
+        104,
+        277,
+        124,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "島",
+      "box": [
+        128,
+        276,
+        148,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "的",
+      "box": [
+        152,
+        278,
+        172,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "戽",
+      "box": [
+        176,
+        277,
+        196,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "斗",
+      "box": [
+        200,
+        277,
+        220,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "尖",
+      "box": [
+        224,
+        277,
+        244,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "梭",
+      "box": [
+        248,
+        277,
+        268,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "。",
+      "box": [
+        272,
+        284,
+        292,
+        294
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "小",
+      "box": [
+        296,
+        278,
+        316,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "智",
+      "box": [
+        320,
+        277,
+        340,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "與",
+      "box": [
+        344,
+        277,
+        364,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "皮",
+      "box": [
+        368,
+        278,
+        388,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "卡",
+      "box": [
+        392,
+        277,
+        412,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "丘",
+      "box": [
+        416,
+        277,
+        436,
+        295
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "一",
+      "box": [
+        440,
+        285,
+        460,
+        294
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "起",
+      "box": [
+        32,
+        309,
+        52,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "旅",
+      "box": [
+        56,
+        309,
+        76,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "行",
+      "box": [
+        80,
+        309,
+        100,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "，",
+      "box": [
+        104,
+        318,
+        124,
+        326
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "歡",
+      "box": [
+        128,
+        309,
+        148,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "迎",
+      "box": [
+        152,
+        310,
+        172,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "來",
+      "box": [
+        176,
+        309,
+        196,
+        328
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "到",
+      "box": [
+        200,
+        309,
+        220,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "寶",
+      "box": [
+        224,
+        309,
+        244,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "可",
+      "box": [
+        248,
+        310,
+        268,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "夢",
+      "box": [
+        272,
+        310,
+        292,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "的",
+      "box": [
+        296,
+        310,
+        316,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "世",
+      "box": [
+        320,
+        310,
+        340,
+        326
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "界",
+      "box": [
+        344,
+        310,
+        364,
+        327
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    },
+    {
+      "text": "！",
+      "box": [
+        368,
+        311,
+        388,
+        326
+      ],
+      "right_limit": 480,
+      "bottom_limit": 368
+    }
+  ],
+  "dialogue_layout": "Original game getFormattedText + CJK wrap patch + actual FreeType advances at 24px",
+  "previews": [
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-new-512.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-new-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-new-512.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-new-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-old-512.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-old-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-old-512.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-old-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-settings-comparison-4x.png",
+    "D:\\Code\\Lab Testing\\Artifacts\\images\\fire-ash\\font-preview-dialogue-comparison-4x.png"
+  ],
+  "game_started": false,
+  "installed": false,
+  "limitations": "預覽重現字型與排版尺寸，背景為測試用畫布；不是遊戲實機畫面，仍須Claude 1重新套用後驗收。"
+}

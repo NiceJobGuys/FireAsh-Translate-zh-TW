@@ -1,7 +1,9 @@
 # encoding: UTF-8
 # Installed before Main. Also renders the Chinese label in an English menu.
 module FireAshZHTW
-  FONT = "Microsoft JhengHei"
+  FONT = "Fusion Pixel 12px Mono zh-Hant"
+  # This game's mkxp truncates Font.size * 0.90 before opening the font.
+  PIXEL_SIZES = [14, 27, 40, 54, 67, 80, 94].freeze
   NO_LINE_START = "，。、！？：；％）］｝〉》」』】〕〗〙〛…・·‧—,.!?:;%)]}”’"
   NO_LINE_END = "（［｛〈《「『【〔〖〘〚([{“‘"
 
@@ -20,25 +22,31 @@ module FireAshZHTW
   end
 
   def self.size(value)
-    # Preview values; dialogue/menus still require in-game visual verification.
-    value >= 25 ? (value * 0.8).round : value
+    # Idempotent API sizes yield exactly 12, 24, ... 84 raster pixels.
+    return value if PIXEL_SIZES.include?(value)
+    scale = [[(value * 0.8 / 12.0).round, 1].max, PIXEL_SIZES.length].min
+    PIXEL_SIZES[scale - 1]
   end
 
   def self.with_text_font(bitmap, text)
     previous = nil
-    return yield if !text.is_a?(String) || text.ascii_only?
+    return yield unless text.is_a?(String)
     sample = text.dup.force_encoding('UTF-8')
-    return yield unless sample.valid_encoding? && sample.match?(/[\u3400-\u9fff]/)
     font = bitmap.font
-    return yield if font.name == FONT && font.size < 25
-    previous = [font.name, font.size]
+    return yield unless font.name == FONT || (sample.valid_encoding? && sample.match?(/[\u3400-\u9fff]/))
+    previous = [font.name, font.size, font.bold, font.italic]
     font.fire_ash_zhtw_name_set(FONT)
     font.fire_ash_zhtw_size_set(size(font.size))
+    # Synthetic bold/italic introduce strokes off the pixel font's native grid.
+    font.bold = false
+    font.italic = false
     yield
   ensure
     if previous
       font.fire_ash_zhtw_name_set(previous[0])
       font.fire_ash_zhtw_size_set(previous[1])
+      font.bold = previous[2]
+      font.italic = previous[3]
     end
   end
 end

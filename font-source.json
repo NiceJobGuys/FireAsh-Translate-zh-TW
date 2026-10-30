@@ -1,0 +1,28 @@
+{
+  "family": "Fusion Pixel 12px Mono zh-Hant",
+  "version": "2026.10.25",
+  "filename": "fusion-pixel-12px-monospaced-zh_hant.ttf",
+  "url": "https://github.com/TakWolf/fusion-pixel-font/releases/download/2026.10.25/fusion-pixel-font-12px-monospaced-ttf-v2026.10.25.zip",
+  "sha256": "9790b782a81af2a9c32812e7e08247102575b90bdc9327afe8f2a7794a6e9cfa",
+  "license": "OFL-1.1",
+  "licenses": {
+    "OFL.txt": "bc518cf64b8032c07690f33cc270c35c179255a6ac8efa7c165ebae7e8f76a63",
+    "LICENSES/ark-pixel/OFL.txt": "3ab41567e68e3988ba1ef16dd2644eca95ca5648ea12e7d46e6287fc0bbe5aee",
+    "LICENSES/cubic-11/OFL.txt": "2b6e5938e5cffa0b9e183bd05f8c363e174e7ebed1a0556e2855fd1707fa2188",
+    "LICENSES/galmuri/LICENSE.txt": "86a3ee9495f942f0243f18c103da9faca27adb88142613edb8bb852e56c892c1"
+  },
+  "native_grid_px": 12,
+  "engine_size_multiplier": 0.9,
+  "regular_raster_px": 24,
+  "regular_font_size": 27,
+  "small_raster_px": 12,
+  "small_font_size": 14,
+  "engine_binary_sha256": "b8994af47f7c911c0550197ccd8566df4638b3b3c147807c33f45b2a06c6d6e0",
+  "engine_evidence": "Game.exe 0x140032f70 cvtsi2ss; 0x140032f79 mulss [0x140be1818]=0.8999999761581421f; 0x140032f81 cvttss2si; 0x140032f86 call TTF_OpenFontRW (0x14089adcd). 唯讀檢查，未載入或執行Game.exe。",
+  "rejected_candidate": {
+    "family": "Cubic 11",
+    "release": "v1.500",
+    "missing_codepoints": ["U+623D", "U+6844"],
+    "reason": "缺少官方名稱用字戽、桄；採用完整覆蓋的繁中字形版本，不改寫譯文。"
+  }
+}

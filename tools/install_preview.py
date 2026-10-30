@@ -10,7 +10,8 @@ from pathlib import Path
 
 from fire_ash import ARTIFACTS, GAME, ROOT, digest, json_write
 
-FILES = ("Data/Scripts.rxdata", "Data/traditional_chinese.dat", "Fonts/fire-ash-zhtw.ttf")
+FILES = ("Data/Scripts.rxdata", "Data/traditional_chinese.dat", "Fonts/fire-ash-zhtw.ttf",
+         "Fonts/fire-ash-zhtw-OFL.txt")
 BACKUPS = ARTIFACTS / "backup"
 
 
@@ -54,6 +55,7 @@ def plan(game):
         (ARTIFACTS / "data/fire-ash-work/patched/Scripts.rxdata", coverage["scripts_sha256"]),
         (ARTIFACTS / "release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat", coverage["language_sha256"]),
         (ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf", coverage["font"]["sha256"]),
+        (ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw-OFL.txt", coverage["font"]["license_sha256"]),
     )
     entries = []
     for relative, (built, expected) in zip(FILES, staged):

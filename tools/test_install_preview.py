@@ -1,4 +1,5 @@
 """Filesystem-only fixtures. Never deploys to or starts the installed game."""
+import argparse
 import json
 import datetime
 import shutil
@@ -9,6 +10,7 @@ from unittest.mock import patch
 import install_preview as deploy
 
 RUN_ID = "run-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+SOURCE_GAME = deploy.GAME
 
 
 class DeploymentTests(unittest.TestCase):
@@ -19,7 +21,7 @@ class DeploymentTests(unittest.TestCase):
         for relative in manifest["files"]:
             target = deploy.within(self.root, relative)
             target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(deploy.GAME / relative, target)
+            shutil.copy2(SOURCE_GAME / relative, target)
         self.backup = deploy.BACKUPS / "fire-ash-zhtw-install-fixtures" / RUN_ID / self._testMethodName
         self.assertFalse(self.backup.exists(), "Fixture already exists; keep its evidence and use a fresh path.")
 
@@ -75,16 +77,25 @@ class DeploymentTests(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source-game", type=deploy.Path, default=deploy.GAME)
+    args = parser.parse_args()
+    SOURCE_GAME = args.source_game.resolve()
+    original = json.loads((deploy.ROOT / "source-manifest.json").read_text(encoding="utf-8"))
+    for relative, expected in original["files"].items():
+        assert deploy.sha(SOURCE_GAME / relative) == expected, f"Original baseline changed: {relative}"
     suite = unittest.defaultTestLoader.loadTestsFromTestCase(DeploymentTests)
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     baseline = json.loads((deploy.ROOT / "source-manifest.json").read_text(encoding="utf-8"))
-    unchanged = all(deploy.sha(deploy.GAME / relative) == expected for relative, expected in baseline["files"].items())
+    unchanged = all(deploy.sha(SOURCE_GAME / relative) == expected for relative, expected in baseline["files"].items())
     deploy.json_write(deploy.ROOT / "deployment-validation.json", {
         "passed": result.wasSuccessful() and unchanged, "tests_run": result.testsRun,
         "failures": len(result.failures), "errors": len(result.errors),
         "source_game_unchanged": unchanged, "game_started": False,
         "scope": "僅在Artifacts內的檔案測試副本套用及還原；未套用到安裝目錄，未啟動遊戲。",
         "fixture_run": RUN_ID, "installer_sha256": deploy.sha(deploy.ROOT / "tools/install_preview.py"),
+        "source_baseline": str(SOURCE_GAME), "font_sha256": deploy.sha(
+            deploy.ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"),
         "test_sha256": deploy.sha(__file__), "language_sha256": deploy.sha(
             deploy.ARTIFACTS / "release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat")})
     sys.exit(0 if result.wasSuccessful() and unchanged else 1)
