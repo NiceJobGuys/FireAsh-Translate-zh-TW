@@ -700,6 +700,8 @@ def patch_text_effects(code):
         "      bitmap.draw_text(textx,texty+2,width+2,height,text)",
         "      bitmap.draw_text(textx+2,texty+2,width+2,height,text)"])
     changes = [
+        ("pbDrawShadowText", "  y += 4",
+         "  y += FireAshZHTW.row_text_offset(bitmap, height)"),
         ("pbDrawShadowText", "if shadowColor && shadowColor.alpha>0",
          "if shadowColor && shadowColor.alpha>0 && !FireAshZHTW.active?"),
         ("drawSingleFormattedChar", "if ch[9] # shadow",
@@ -772,12 +774,22 @@ def patch_runtime_text(code, name, ui_keys):
         replacements.append((
             '    else' + newline + '      if @letterbyletter' + newline + '        @fmtchars = []',
             '    else' + newline +
-            '      dialog_y_offset = FireAshZHTW.active? ? [4, (32 - self.contents.text_size("Ag").height) / 2].min : 4' + newline +
+            '      dialog_y_offset = FireAshZHTW.row_text_offset(self.contents, 32)' + newline +
             '      if @letterbyletter' + newline + '        @fmtchars = []'))
         for following in ('          if !ch[5]', '          @textchars.push'):
             replacements.append((
                 '          ch[2] += 4' + newline + following,
                 '          ch[2] += ch[5] ? [dialog_y_offset, 0].max : dialog_y_offset' + newline + following))
+        replacements.extend([
+            ('    self.height=dims[1] - 6',
+             '    self.height=dims[1] - (FireAshZHTW.active? ? 0 : 6)'),
+            ('         self.contents,rect.x,rect.y+4,rect.width,rect.height,',
+             '         self.contents,rect.x,rect.y,rect.width,rect.height,'),
+            ('         @commands[index],rect.height,true,true)' + newline + '      drawFormattedChars(self.contents,chars)',
+             '         @commands[index],rect.height,true,true)' + newline +
+             '      offset = FireAshZHTW.row_text_offset(self.contents, rect.height)' + newline +
+             '      chars.each { |ch| ch[2] += ch[5] ? [offset, 0].max : offset }' + newline +
+             '      drawFormattedChars(self.contents,chars)')])
     direct = {
         "Minigame_VoltorbFlip": [("pbConfirmMessage", "You haven't found any Coins! Are you sure you want to quit?")],
         "EditorScreens": [("pbConfirmMessageSerious", f"Delete this {kind}?") for kind in

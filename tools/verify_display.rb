@@ -41,7 +41,10 @@ $fire_ash_display_cases = 0
     raise 'Original three-pass shadow not reproduced' unless before.length == 4
     bitmap.clear_display_calls
     patched[name].call(*args)
-    expected = language == 1 ? [before.last] : before
+    expected = language == 1 ? [before.last.dup] : before
+    if language == 1 && name == :pbDrawShadowText
+      expected[0][2] += FireAshZHTW.row_text_offset(bitmap,args[4]) - 4
+    end
     raise "Base glyph changed or shadow retained: #{name}" unless bitmap.display_calls == expected
     $fire_ash_display_cases += 1
   end

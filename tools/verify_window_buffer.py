@@ -25,7 +25,6 @@ def verify(evaluate, put, original_window, patched_window, font_path, profile, s
     original = re.search(pattern, original_window.replace('\r',''), re.S)[0]
     patched = re.search(pattern, patched_window.replace('\r',''), re.S)[0]
     evaluate('''class SpriteWindow_Base
-  TEXTPADDING = 16 unless const_defined?(:TEXTPADDING)
 end
 class FireAshBufferProbe
   attr_reader :contents, :fmtchars
@@ -48,6 +47,9 @@ class FireAshBufferProbe
 end
 "ready"
 ''')
+    padding=int(re.search(r'TEXTPADDING\s*=\s*(\d+)',sprite_window)[1])
+    evaluate('SpriteWindow_Base.send(:remove_const,:TEXTPADDING) if SpriteWindow_Base.const_defined?(:TEXTPADDING); '+
+             f'SpriteWindow_Base.const_set(:TEXTPADDING,{padding}); "ready"')
     evaluate('class FireAshBufferProbe\n'+original+'\nend\n$buffer_old=FireAshBufferProbe.instance_method(:setText); "ready"')
     evaluate('class FireAshBufferProbe\n'+patched+'\nend\n$buffer_new=FireAshBufferProbe.instance_method(:setText); "ready"')
     clip_block=re.search(r'    if @width>trimWidth && @height>trimHeight.*?\n    end',sprite_window.replace('\r',''),re.S)[0]

@@ -28,6 +28,11 @@ module FireAshZHTW
     PIXEL_SIZES[scale - 1]
   end
 
+  def self.row_text_offset(bitmap, height)
+    return 4 unless active?
+    [4, (height - bitmap.text_size("Ag").height) / 2].min
+  end
+
   def self.with_text_font(bitmap, text)
     previous = nil
     return yield unless text.is_a?(String)

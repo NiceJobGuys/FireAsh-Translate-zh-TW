@@ -11,7 +11,7 @@
       "script": "SpriteWindow_text",
       "kind": "display-only",
       "before": "    else\r\n      if @letterbyletter\r\n        @fmtchars = []",
-      "after": "    else\r\n      dialog_y_offset = FireAshZHTW.active? ? [4, (32 - self.contents.text_size(\"Ag\").height) / 2].min : 4\r\n      if @letterbyletter\r\n        @fmtchars = []"
+      "after": "    else\r\n      dialog_y_offset = FireAshZHTW.row_text_offset(self.contents, 32)\r\n      if @letterbyletter\r\n        @fmtchars = []"
     },
     {
       "script": "SpriteWindow_text",
@@ -24,6 +24,24 @@
       "kind": "display-only",
       "before": "          ch[2] += 4\r\n          @textchars.push",
       "after": "          ch[2] += ch[5] ? [dialog_y_offset, 0].max : dialog_y_offset\r\n          @textchars.push"
+    },
+    {
+      "script": "SpriteWindow_text",
+      "kind": "display-only",
+      "before": "    self.height=dims[1] - 6",
+      "after": "    self.height=dims[1] - (FireAshZHTW.active? ? 0 : 6)"
+    },
+    {
+      "script": "SpriteWindow_text",
+      "kind": "display-only",
+      "before": "         self.contents,rect.x,rect.y+4,rect.width,rect.height,",
+      "after": "         self.contents,rect.x,rect.y,rect.width,rect.height,"
+    },
+    {
+      "script": "SpriteWindow_text",
+      "kind": "display-only",
+      "before": "         @commands[index],rect.height,true,true)\r\n      drawFormattedChars(self.contents,chars)",
+      "after": "         @commands[index],rect.height,true,true)\r\n      offset = FireAshZHTW.row_text_offset(self.contents, rect.height)\r\n      chars.each { |ch| ch[2] += ch[5] ? [offset, 0].max : offset }\r\n      drawFormattedChars(self.contents,chars)"
     },
     {
       "script": "Trainer_LoadAndNew",

@@ -1,0 +1,283 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "language": 0,
+      "kind": "plain",
+      "scenario": "four",
+      "old_height": 128,
+      "new_height": 128,
+      "old_lost_pixels": 196,
+      "new_lost_pixels": 196
+    },
+    {
+      "language": 0,
+      "kind": "plain",
+      "scenario": "last",
+      "old_height": 128,
+      "new_height": 128,
+      "old_lost_pixels": 196,
+      "new_lost_pixels": 196
+    },
+    {
+      "language": 0,
+      "kind": "plain",
+      "scenario": "scrolled",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 196,
+      "new_lost_pixels": 196
+    },
+    {
+      "language": 0,
+      "kind": "plain",
+      "scenario": "columns",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 464,
+      "new_lost_pixels": 464
+    },
+    {
+      "language": 0,
+      "kind": "plain",
+      "scenario": "descenders",
+      "old_height": 160,
+      "new_height": 160,
+      "old_lost_pixels": 750,
+      "new_lost_pixels": 750
+    },
+    {
+      "language": 0,
+      "kind": "advanced",
+      "scenario": "four",
+      "old_height": 122,
+      "new_height": 122,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 0,
+      "kind": "advanced",
+      "scenario": "last",
+      "old_height": 122,
+      "new_height": 122,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 0,
+      "kind": "advanced",
+      "scenario": "scrolled",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 196,
+      "new_lost_pixels": 196
+    },
+    {
+      "language": 0,
+      "kind": "advanced",
+      "scenario": "columns",
+      "old_height": 58,
+      "new_height": 58,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 0,
+      "kind": "advanced",
+      "scenario": "descenders",
+      "old_height": 154,
+      "new_height": 154,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 0,
+      "kind": "formatted",
+      "scenario": "four",
+      "old_height": 122,
+      "new_height": 122,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 0,
+      "kind": "formatted",
+      "scenario": "last",
+      "old_height": 122,
+      "new_height": 122,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 0,
+      "kind": "formatted",
+      "scenario": "scrolled",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 196,
+      "new_lost_pixels": 196
+    },
+    {
+      "language": 0,
+      "kind": "formatted",
+      "scenario": "columns",
+      "old_height": 58,
+      "new_height": 58,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 0,
+      "kind": "formatted",
+      "scenario": "descenders",
+      "old_height": 154,
+      "new_height": 154,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "plain",
+      "scenario": "four",
+      "old_height": 128,
+      "new_height": 128,
+      "old_lost_pixels": 43,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "plain",
+      "scenario": "last",
+      "old_height": 128,
+      "new_height": 128,
+      "old_lost_pixels": 43,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "plain",
+      "scenario": "scrolled",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 43,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "plain",
+      "scenario": "columns",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 126,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "plain",
+      "scenario": "descenders",
+      "old_height": 160,
+      "new_height": 160,
+      "old_lost_pixels": 131,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "advanced",
+      "scenario": "four",
+      "old_height": 122,
+      "new_height": 128,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "advanced",
+      "scenario": "last",
+      "old_height": 122,
+      "new_height": 128,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "advanced",
+      "scenario": "scrolled",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 43,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "advanced",
+      "scenario": "columns",
+      "old_height": 58,
+      "new_height": 64,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "advanced",
+      "scenario": "descenders",
+      "old_height": 154,
+      "new_height": 160,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "formatted",
+      "scenario": "four",
+      "old_height": 122,
+      "new_height": 128,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "formatted",
+      "scenario": "last",
+      "old_height": 122,
+      "new_height": 128,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "formatted",
+      "scenario": "scrolled",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 43,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "formatted",
+      "scenario": "columns",
+      "old_height": 58,
+      "new_height": 64,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "kind": "formatted",
+      "scenario": "descenders",
+      "old_height": 154,
+      "new_height": 160,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    }
+  ],
+  "existing_visible_cursor_positions_unchanged": true,
+  "all_selected_rows_have_cursor": true,
+  "english_unchanged": true,
+  "profile": "noto",
+  "game_started": false,
+  "scripts_sha256": "4d1dd01da2cad21f3c4edc88990b2a8bf336d14b6f268854e367ffccf1b657c8",
+  "language_sha256": "259ee43ce16e5d24cc60a63eaea722e67657f8b8501ed8bf2476fc898696256d",
+  "scope": "Native command sizing/rows/cursor/drawItem/contents clip; FreeType replay, not Game.exe capture."
+}

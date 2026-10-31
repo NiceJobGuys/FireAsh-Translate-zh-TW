@@ -57,17 +57,17 @@
       "language": 0,
       "letter_by_letter": false,
       "fixture": "wrap",
-      "old_height": 96,
-      "new_height": 96,
-      "old_lost_pixels": 20,
-      "new_lost_pixels": 20,
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 243,
+      "new_lost_pixels": 243,
       "old_viewport_lost_pixels": [
-        241,
-        305
+        243,
+        546
       ],
       "new_viewport_lost_pixels": [
-        241,
-        305
+        243,
+        546
       ]
     },
     {
@@ -193,17 +193,17 @@
       "language": 0,
       "letter_by_letter": true,
       "fixture": "wrap",
-      "old_height": 96,
-      "new_height": 96,
-      "old_lost_pixels": 20,
-      "new_lost_pixels": 20,
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 243,
+      "new_lost_pixels": 243,
       "old_viewport_lost_pixels": [
-        241,
-        305
+        243,
+        546
       ],
       "new_viewport_lost_pixels": [
-        241,
-        305
+        243,
+        546
       ]
     },
     {
@@ -329,13 +329,13 @@
       "language": 1,
       "letter_by_letter": false,
       "fixture": "wrap",
-      "old_height": 96,
-      "new_height": 96,
-      "old_lost_pixels": 20,
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 243,
       "new_lost_pixels": 0,
       "old_viewport_lost_pixels": [
-        241,
-        305
+        243,
+        546
       ],
       "new_viewport_lost_pixels": [
         0,
@@ -465,13 +465,13 @@
       "language": 1,
       "letter_by_letter": true,
       "fixture": "wrap",
-      "old_height": 96,
-      "new_height": 96,
-      "old_lost_pixels": 20,
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 243,
       "new_lost_pixels": 0,
       "old_viewport_lost_pixels": [
-        241,
-        305
+        243,
+        546
       ],
       "new_viewport_lost_pixels": [
         0,
@@ -558,7 +558,7 @@
   "game_started": false,
   "visible_character_line_bounds_checked": 3207,
   "icon_position_cases_checked": 8,
-  "scripts_sha256": "902ca39867fd6fc7e542fc1b0b912f73e746f0b398ea5921b93d3485373f6d72",
+  "scripts_sha256": "4d1dd01da2cad21f3c4edc88990b2a8bf336d14b6f268854e367ffccf1b657c8",
   "language_sha256": "259ee43ce16e5d24cc60a63eaea722e67657f8b8501ed8bf2476fc898696256d",
   "font_sha256": "2905dd3de65d7b7de764596e2294978407986f4cc0a66c9584c5b95c5aa9572e",
   "raster_model": "FreeType replay, native setText dimensions AND actual SpriteWindow contents src_rect clipping",

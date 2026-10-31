@@ -263,6 +263,8 @@ $fire_ash_missing_font = false
     visible_characters.update((ROOT / "tools/verify_display.rb").read_text(encoding="utf-8"))
     from verify_window_buffer import FIXTURES, verify as verify_window_buffer
     visible_characters.update(''.join(text for _,text in FIXTURES))
+    from verify_command_window import MENU_TEXT, verify as verify_command_window
+    visible_characters.update(''.join(MENU_TEXT))
     if args.font_sample:
         from fontTools.ttLib import TTFont
         with TTFont(font_path, fontNumber=0) as face:
@@ -328,6 +330,9 @@ $fire_ash_missing_font = false
     buffer_cases=verify_window_buffer(evaluate,put_buffer_value,original_window,patched_window,
                                       font_path,profile,script_text['SpriteWindow'],bool(args.font_sample))
     print('PASS:',buffer_cases,'dialog bitmap + contents viewport cases; English and horizontal layout unchanged')
+    menu_cases=verify_command_window(evaluate,put_buffer_value,original_window,patched_window,
+                                    patched_draw,script_text['SpriteWindow'],font_path,profile,bool(args.font_sample))
+    print('PASS:',menu_cases,'command menu/cursor/viewport cases; English unchanged')
     recorded_scenes = {}
     for scene in ("settings-before", "settings-after", "dialogue-before", "dialogue-after",
                   "dark-dialogue-after", "smalltext-after", "blue-dialogue-after", "red-dialogue-after",
@@ -407,6 +412,7 @@ $fire_ash_missing_font = false
               "display_test_sha256": fire_ash.digest((ROOT / "tools/verify_display.rb").read_bytes()),
               "runtime_ui_unique_checked": len(runtime_targets), "runtime_display_behavior": "pass",
               "dialog_buffer_cases_checked": buffer_cases,
+              "command_window_cases_checked": menu_cases,
               "runtime_support_sha256": fire_ash.digest(runtime_scripts[0]),
               "runtime_test_sha256": fire_ash.digest((ROOT / "tools/verify_runtime.rb").read_bytes()),
               "game_started": False, "installed": False,
