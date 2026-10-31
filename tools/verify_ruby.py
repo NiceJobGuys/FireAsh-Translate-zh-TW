@@ -261,6 +261,8 @@ $fire_ash_missing_font = false
     visible_characters = set("".join(value for _, _, _, value in fire_ash.records(data)))
     visible_characters.update((ROOT / "tools/verify_layout.rb").read_text(encoding="utf-8"))
     visible_characters.update((ROOT / "tools/verify_display.rb").read_text(encoding="utf-8"))
+    from verify_window_buffer import FIXTURES, verify as verify_window_buffer
+    visible_characters.update(''.join(text for _,text in FIXTURES))
     if args.font_sample:
         from fontTools.ttLib import TTFont
         with TTFont(font_path, fontNumber=0) as face:
@@ -316,6 +318,16 @@ $fire_ash_missing_font = false
     evaluate("$fire_ash_preview_ui = {" + ",".join(fire_ash.ruby_string(k)+"=>"+fire_ash.ruby_string(ui[k])
                                                 for k in needed) + "}; 'preview UI ready'")
     print(evaluate((ROOT / "tools/verify_display.rb").read_text(encoding="utf-8")))
+    def put_buffer_value(name, value):
+        encoded=value.encode('utf-8')
+        ruby.rb_gv_set(name.encode(),ruby.rb_utf8_str_new(encoded,len(encoded)))
+    original_window=next(zlib.decompress(row[2]).decode('utf-8') for row in original_scripts
+                         if fire_ash.text(row[1])=='SpriteWindow_text')
+    patched_window=next(zlib.decompress(row[2]).decode('utf-8') for row in scripts
+                        if fire_ash.text(row[1])=='SpriteWindow_text')
+    buffer_cases=verify_window_buffer(evaluate,put_buffer_value,original_window,patched_window,
+                                      font_path,profile,bool(args.font_sample))
+    print('PASS:',buffer_cases,'dialog bitmap allocation/clipping cases; English and glyph positions unchanged')
     recorded_scenes = {}
     for scene in ("settings-before", "settings-after", "dialogue-before", "dialogue-after",
                   "dark-dialogue-after", "smalltext-after", "blue-dialogue-after", "red-dialogue-after",
@@ -394,6 +406,7 @@ $fire_ash_missing_font = false
               "native_scale_limit": 2.0, "default_screen_scale": 1.5,
               "display_test_sha256": fire_ash.digest((ROOT / "tools/verify_display.rb").read_bytes()),
               "runtime_ui_unique_checked": len(runtime_targets), "runtime_display_behavior": "pass",
+              "dialog_buffer_cases_checked": buffer_cases,
               "runtime_support_sha256": fire_ash.digest(runtime_scripts[0]),
               "runtime_test_sha256": fire_ash.digest((ROOT / "tools/verify_runtime.rb").read_bytes()),
               "game_started": False, "installed": False,

@@ -57,7 +57,7 @@ def main():
     LOGS.mkdir(parents=True, exist_ok=True)
     coverage = json.loads((f.ROOT / "coverage.json").read_text(encoding="utf-8"))
     characters = target_characters()
-    assert len(characters) == coverage["font"]["checked_characters"] == 3195
+    assert len(characters) == coverage["font"]["checked_characters"]
     colors = dialogue_colors()
     report = {"passed": False, "sample_only": True, "game_started": False, "installed": False,
               "canvas": [512,384], "scales": [1,3.75], "resampling": "NEAREST",
@@ -143,7 +143,7 @@ def main():
             report["comparisons"].append(str(path))
     report["passed"] = True
     f.json_write(DATA / "validation.json",report)
-    print("PASS: A/B/C native layout; 3,195 characters each, missing=0; four scenes; 1x/3.75x NEAREST; no build/install")
+    print(f"PASS: A/B/C native layout; {len(characters):,} characters each, missing=0; four scenes; 1x/3.75x NEAREST; no build/install")
 
 
 if __name__ == "__main__":

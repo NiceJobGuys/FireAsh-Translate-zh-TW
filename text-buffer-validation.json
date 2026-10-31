@@ -1,0 +1,267 @@
+{
+  "passed": true,
+  "profile": "noto",
+  "cases": [
+    {
+      "language": 0,
+      "letter_by_letter": false,
+      "fixture": "screenshot",
+      "old_height": 32,
+      "new_height": 32,
+      "old_lost_pixels": 263,
+      "new_lost_pixels": 263
+    },
+    {
+      "language": 0,
+      "letter_by_letter": false,
+      "fixture": "two-lines",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 218,
+      "new_lost_pixels": 218
+    },
+    {
+      "language": 0,
+      "letter_by_letter": false,
+      "fixture": "three-lines",
+      "old_height": 96,
+      "new_height": 96,
+      "old_lost_pixels": 100,
+      "new_lost_pixels": 100
+    },
+    {
+      "language": 0,
+      "letter_by_letter": false,
+      "fixture": "wrap",
+      "old_height": 96,
+      "new_height": 96,
+      "old_lost_pixels": 20,
+      "new_lost_pixels": 20
+    },
+    {
+      "language": 0,
+      "letter_by_letter": false,
+      "fixture": "mixed",
+      "old_height": 32,
+      "new_height": 32,
+      "old_lost_pixels": 111,
+      "new_lost_pixels": 111
+    },
+    {
+      "language": 0,
+      "letter_by_letter": false,
+      "fixture": "descenders",
+      "old_height": 32,
+      "new_height": 32,
+      "old_lost_pixels": 178,
+      "new_lost_pixels": 178
+    },
+    {
+      "language": 0,
+      "letter_by_letter": false,
+      "fixture": "empty",
+      "old_height": 1,
+      "new_height": 1,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 0,
+      "letter_by_letter": true,
+      "fixture": "screenshot",
+      "old_height": 32,
+      "new_height": 32,
+      "old_lost_pixels": 263,
+      "new_lost_pixels": 263
+    },
+    {
+      "language": 0,
+      "letter_by_letter": true,
+      "fixture": "two-lines",
+      "old_height": 64,
+      "new_height": 64,
+      "old_lost_pixels": 218,
+      "new_lost_pixels": 218
+    },
+    {
+      "language": 0,
+      "letter_by_letter": true,
+      "fixture": "three-lines",
+      "old_height": 96,
+      "new_height": 96,
+      "old_lost_pixels": 100,
+      "new_lost_pixels": 100
+    },
+    {
+      "language": 0,
+      "letter_by_letter": true,
+      "fixture": "wrap",
+      "old_height": 96,
+      "new_height": 96,
+      "old_lost_pixels": 20,
+      "new_lost_pixels": 20
+    },
+    {
+      "language": 0,
+      "letter_by_letter": true,
+      "fixture": "mixed",
+      "old_height": 32,
+      "new_height": 32,
+      "old_lost_pixels": 111,
+      "new_lost_pixels": 111
+    },
+    {
+      "language": 0,
+      "letter_by_letter": true,
+      "fixture": "descenders",
+      "old_height": 32,
+      "new_height": 32,
+      "old_lost_pixels": 178,
+      "new_lost_pixels": 178
+    },
+    {
+      "language": 0,
+      "letter_by_letter": true,
+      "fixture": "empty",
+      "old_height": 1,
+      "new_height": 1,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": false,
+      "fixture": "screenshot",
+      "old_height": 32,
+      "new_height": 39,
+      "old_lost_pixels": 263,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": false,
+      "fixture": "two-lines",
+      "old_height": 64,
+      "new_height": 71,
+      "old_lost_pixels": 218,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": false,
+      "fixture": "three-lines",
+      "old_height": 96,
+      "new_height": 103,
+      "old_lost_pixels": 100,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": false,
+      "fixture": "wrap",
+      "old_height": 96,
+      "new_height": 103,
+      "old_lost_pixels": 20,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": false,
+      "fixture": "mixed",
+      "old_height": 32,
+      "new_height": 39,
+      "old_lost_pixels": 111,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": false,
+      "fixture": "descenders",
+      "old_height": 32,
+      "new_height": 39,
+      "old_lost_pixels": 178,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": false,
+      "fixture": "empty",
+      "old_height": 1,
+      "new_height": 1,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": true,
+      "fixture": "screenshot",
+      "old_height": 32,
+      "new_height": 39,
+      "old_lost_pixels": 263,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": true,
+      "fixture": "two-lines",
+      "old_height": 64,
+      "new_height": 71,
+      "old_lost_pixels": 218,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": true,
+      "fixture": "three-lines",
+      "old_height": 96,
+      "new_height": 103,
+      "old_lost_pixels": 100,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": true,
+      "fixture": "wrap",
+      "old_height": 96,
+      "new_height": 103,
+      "old_lost_pixels": 20,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": true,
+      "fixture": "mixed",
+      "old_height": 32,
+      "new_height": 39,
+      "old_lost_pixels": 111,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": true,
+      "fixture": "descenders",
+      "old_height": 32,
+      "new_height": 39,
+      "old_lost_pixels": 178,
+      "new_lost_pixels": 0
+    },
+    {
+      "language": 1,
+      "letter_by_letter": true,
+      "fixture": "empty",
+      "old_height": 1,
+      "new_height": 1,
+      "old_lost_pixels": 0,
+      "new_lost_pixels": 0
+    }
+  ],
+  "glyph_positions_unchanged": true,
+  "english_unchanged": true,
+  "new_vertical_offset": 0,
+  "game_started": false,
+  "scripts_sha256": "b150e3f53e088cdd3a3ec2e18a8c7d8540eefcac82421715326167a46b2e4401",
+  "language_sha256": "259ee43ce16e5d24cc60a63eaea722e67657f8b8501ed8bf2476fc898696256d",
+  "font_sha256": "2905dd3de65d7b7de764596e2294978407986f4cc0a66c9584c5b95c5aa9572e",
+  "raster_model": "FreeType replay using mkxp vertical centering, clipped to native setText bitmap dimensions",
+  "limitation": "No actual Game.exe/SDL rendering; user screenshot remains the real-game baseline."
+}

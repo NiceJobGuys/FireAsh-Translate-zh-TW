@@ -18,7 +18,8 @@ SAMPLE = WORK / "smooth-font-sample"
 BASELINE = WORK / "original-baseline"
 FONT = Path(r"C:\Windows\Fonts\msjh.ttc")
 PROTECTED = [ROOT / name for name in (
-    "coverage.json", "validation.json", "deployment-validation.json", "font-preview-validation.json")]
+    "coverage.json", "validation.json", "deployment-validation.json", "font-preview-validation.json",
+    "runtime-coverage-validation.json", "text-buffer-validation.json")]
 PROTECTED += [WORK / name for name in (
     "font-preview-layout.json", "font-preview-draw-calls.json", "patched/Scripts.rxdata")]
 PROTECTED += [staged_font_path(json.loads(
@@ -93,8 +94,9 @@ class FontSampleTests(unittest.TestCase):
         self.assertTrue(report["passed"] and report["sample_only"])
         self.assertFalse(report["synthetic_bold"] or report["offset_overpaint"])
         self.assertEqual([row["weight"] for row in report["fonts"]],[500,700,400])
+        coverage = json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))
         for row in report["fonts"]:
-            self.assertEqual(row["checked_characters"],3195)
+            self.assertEqual(row["checked_characters"],coverage["font"]["checked_characters"])
             self.assertEqual(row["missing"],[])
             self.assertTrue(all(row["rare_characters"].values()))
         self.assertEqual(len(report["comparisons"]),8)

@@ -8,6 +8,12 @@
       "after": "choices = @list[@index].parameters[0]\n    choices = choices.map { |choice| _MAPINTL($game_map.map_id, choice) } if FireAshZHTW.active?\n    command = pbShowCommands(nil, choices, @list[@index].parameters[1])"
     },
     {
+      "script": "SpriteWindow_text",
+      "kind": "display-only",
+      "before": "      @bitmapheight = height\r\n      @numtextchars = @textchars.length",
+      "after": "      @bitmapheight = height + (FireAshZHTW.active? ? 4 + [self.contents.text_size(\"Ag\").height - 32, 0].max : 0)\r\n      @numtextchars = @textchars.length"
+    },
+    {
       "script": "Trainer_LoadAndNew",
       "kind": "interpolation-before-lookup",
       "key": "Set the level for {1} (max. #{params.maxNumber}).",

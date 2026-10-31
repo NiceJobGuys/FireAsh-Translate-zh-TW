@@ -765,6 +765,15 @@ def patch_runtime_text(code, name, ui_keys):
             'command = pbShowCommands(nil, @list[@index].parameters[0], @list[@index].parameters[1])',
             'choices = @list[@index].parameters[0]\n    choices = choices.map { |choice| _MAPINTL($game_map.map_id, choice) } if FireAshZHTW.active?\n'
             '    command = pbShowCommands(nil, choices, @list[@index].parameters[1])'))
+    if name == "SpriteWindow_text":
+        newline = "\r\n" if "\r\n" in code else "\n"
+        # setText shifts every glyph down by 4px after measuring its buffer.
+        # Also reserve any font-metric overhang (e.g. Noto Latin descenders).
+        # Only the transparent backing bitmap grows; layout and glyphs do not move.
+        replacements.append((
+            '      @bitmapheight = height' + newline + '      @numtextchars = @textchars.length',
+            '      @bitmapheight = height + (FireAshZHTW.active? ? 4 + [self.contents.text_size("Ag").height - 32, 0].max : 0)' + newline +
+            '      @numtextchars = @textchars.length'))
     direct = {
         "Minigame_VoltorbFlip": [("pbConfirmMessage", "You haven't found any Coins! Are you sure you want to quit?")],
         "EditorScreens": [("pbConfirmMessageSerious", f"Delete this {kind}?") for kind in
