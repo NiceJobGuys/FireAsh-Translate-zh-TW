@@ -1,6 +1,9 @@
 {
   "passed": true,
   "renderer": "Native Ruby call capture -> Pillow/FreeType grayscale; no threshold; not game screenshots",
+  "sample_only": false,
+  "family": "Fusion Pixel 12px Mono zh-TW",
+  "alpha_value_count": 2,
   "canvas": [
     512,
     384
@@ -15,7 +18,7 @@
   "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
   "scripts_sha256": "151bbb766b74273fec155ac4b6a895cd4472ffb850de7956d701384ccf8fb706",
   "draw_calls_sha256": "705a25356b21ee9a6893350ecd07afb1bacf818c313982251a6f6c159b209fdd",
-  "preview_tool_sha256": "ca7099220e2bc8cfd12b089e09ad444eae6b22ddda118993c62e8bde207570ca",
+  "preview_tool_sha256": "a5effa59d71efe26d4f9fb753018bde097932e7a51505b64bfe15ac989f88f13",
   "glyph_bounds_checked": 300,
   "horizontal_squeeze_cases": 0,
   "scene_call_counts": {

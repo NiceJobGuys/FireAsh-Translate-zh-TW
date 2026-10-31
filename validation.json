@@ -22,11 +22,11 @@
   "runtime_test_sha256": "14211b1fef02c53bb93a4978822b727d969e2c96be07e1d9c4ce69c1cae8d9e7",
   "game_started": false,
   "installed": false,
-  "validated_at_utc": "2026-10-30T23:24:47.855788+00:00",
+  "validated_at_utc": "2026-10-31T03:07:44.106281+00:00",
   "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
   "scripts_sha256": "151bbb766b74273fec155ac4b6a895cd4472ffb850de7956d701384ccf8fb706",
   "font_support_sha256": "079848c155ce9cde170ed7940b9cf1b69e032fa1c85352376f3316849911384c",
-  "verifier_sha256": "d4190435cda197c857c04f2e7c2c5ae4d0d02ad7638aa12473be54f1b6abb572",
+  "verifier_sha256": "9835ea014472ded54af623cf07394ba00ddb814aadfce591e722d6131aeba8f3",
   "font_source_sha256": "d2eaef7f88e590f99260db585db181339d3cc48fd29296e43b67f9f215c7bc6b",
   "font_sha256": "780a81e9ab70281f0f0563be0d90f1916edd4c68719072c7b65c7d0a9d295be8",
   "original_baseline": "D:\\Code\\Lab Testing\\Artifacts\\data\\fire-ash-work\\original-baseline"

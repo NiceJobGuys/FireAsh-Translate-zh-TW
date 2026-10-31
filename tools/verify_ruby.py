@@ -19,10 +19,9 @@ import zlib
 import fire_ash
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--game", type=Path, default=GAME, help="Hash-checked original build baseline")
-    args = parser.parse_args()
+def main(args, report_path):
+    preview_dir = (ARTIFACTS / "data/fire-ash-work/smooth-font-sample" if args.font_sample
+                   else ARTIFACTS / "data/fire-ash-work")
     source_game = args.game.resolve()
     baseline = json.loads((ROOT / "source-manifest.json").read_text(encoding="utf-8"))
     for relative, expected in baseline["files"].items():
@@ -229,13 +228,26 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
         encoded = ("# encoding: UTF-8\n" + code).encode("utf-8")
         ruby.rb_gv_set(name, ruby.rb_utf8_str_new(encoded, len(encoded)))
     from PIL import ImageFont
-    font_path = ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"
+    font_path = (args.font_sample.resolve() if args.font_sample
+                 else ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf")
     font_sha256 = fire_ash.digest(font_path.read_bytes())
-    assert font_sha256 == json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))["font"]["sha256"], "Stale font build"
-    raster_font = ImageFont.truetype(str(font_path), 24)
+    if not args.font_sample:
+        assert font_sha256 == json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))["font"]["sha256"], "Stale font build"
+    raster_font = ImageFont.truetype(str(font_path), 24, index=0,
+                                   layout_engine=ImageFont.Layout.BASIC if args.font_sample else None)
+    if args.font_sample:
+        family = raster_font.getname()[0]
+        # Override only this isolated Ruby test VM; never rebuild/install the font hook.
+        evaluate("FireAshZHTW.send(:remove_const,:FONT); FireAshZHTW.const_set(:FONT," +
+                 fire_ash.ruby_string(family) + "); 'sample face ready'")
     visible_characters = set("".join(value for _, _, _, value in fire_ash.records(data)))
     visible_characters.update((ROOT / "tools/verify_layout.rb").read_text(encoding="utf-8"))
     visible_characters.update((ROOT / "tools/verify_display.rb").read_text(encoding="utf-8"))
+    if args.font_sample:
+        from fontTools.ttLib import TTFont
+        with TTFont(font_path, fontNumber=0) as face:
+            missing = sorted(c for c in visible_characters if ord(c) >= 32 and ord(c) not in face.getBestCmap())
+        assert not missing, "Sample font lacks: " + "".join(missing)
     metrics = {c: raster_font.getlength(c) for c in visible_characters}
     assert all(width == int(width) for width in metrics.values()), "Fractional glyph advances"
     evaluate("$fire_ash_glyph_widths = {" + ",".join(
@@ -250,7 +262,7 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
     assert "".join(chr(row[0]) for row in native_layout) == preview_text
     assert all(x >= 32 and x + width - 2 <= 480 and y + height <= 368
                for _, x, y, width, height in native_layout), "Preview dialogue overflow"
-    fire_ash.json_write(ARTIFACTS / "data/fire-ash-work/font-preview-layout.json", {
+    fire_ash.json_write(preview_dir / "font-preview-layout.json", {
         "text": preview_text, "rows": native_layout, "font_sha256": fire_ash.digest(font_path.read_bytes()),
         "source": "Original game getFormattedText + CJK wrap patch + actual FreeType advances at 24px"})
     script_text = {fire_ash.text(row[1]): zlib.decompress(row[2]).decode("utf-8").replace("\r", "")
@@ -292,10 +304,25 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
                           "text": bytes.fromhex(fields[11]).decode("utf-8"),
                           "family": bytes.fromhex(fields[12]).decode("utf-8")})
         recorded_scenes[scene] = calls
-    fire_ash.json_write(ARTIFACTS / "data/fire-ash-work/font-preview-draw-calls.json", {
+    fire_ash.json_write(preview_dir / "font-preview-draw-calls.json", {
         "scenes": recorded_scenes, "font_sha256": font_sha256,
         "scripts_sha256": fire_ash.digest(scripts_path.read_bytes()),
         "source": "Native Ruby Window_PokemonOption.drawItem, pbDrawShadowText and drawSingleFormattedChar calls"})
+    if args.font_sample:
+        fire_ash.json_write(report_path, {
+            "passed": True, "sample_only": True, "font_path": str(font_path),
+            "family": family, "face_index": 0, "raster_px": 24, "layout_engine": "BASIC",
+            "checked_characters": len(visible_characters), "missing_characters": [],
+            "native_cjk_layout_cases_checked": layout_cases_checked,
+            "native_painter_cases_checked": int(evaluate("$fire_ash_display_cases.to_s")),
+            "font_sha256": font_sha256, "scripts_sha256": fire_ash.digest(scripts_path.read_bytes()),
+            "language_sha256": fire_ash.digest((package / "Data/traditional_chinese.dat").read_bytes()),
+            "verifier_sha256": fire_ash.digest(Path(__file__).read_bytes()),
+            "game_started": False, "installed": False,
+            "note": "Only the test VM font family and FreeType metrics are overridden; production artifacts/reports are not changed."})
+        dll_directory.close()
+        print("PASS: isolated smooth-font layout/painter sample:", family)
+        return
     runtime_scripts = [zlib.decompress(row[2]) for row in scripts
                        if fire_ash.text(row[1]) == "FireAsh_ZHTW_Runtime"]
     runtime_targets = json.loads((ROOT / "translations/runtime-ui.json").read_text(encoding="utf-8"))["102"]
@@ -347,17 +374,23 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
               "font_source_sha256": fire_ash.digest((ROOT / "font-source.json").read_bytes()),
               "font_sha256": font_sha256,
               "original_baseline": str(source_game)}
-    fire_ash.json_write(ROOT / "validation.json", report)
+    fire_ash.json_write(report_path, report)
     # Keep the DLL search handle alive until all calls have completed.
     dll_directory.close()
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--game", type=Path, default=GAME, help="Hash-checked original build baseline")
+    parser.add_argument("--font-sample", type=Path, help="Isolated 24px sample of a local font, face index 0; never installs")
+    args = parser.parse_args()
+    report_path = (ARTIFACTS / "data/fire-ash-work/smooth-font-sample/validation.json" if args.font_sample
+                   else ROOT / "validation.json")
     try:
-        main()
+        main(args, report_path)
     except Exception as error:
         # A failed rerun must not leave the previous PASS report looking current.
-        fire_ash.json_write(ROOT / "validation.json", {
+        fire_ash.json_write(report_path, {
             "passed": False, "error": str(error), "game_started": False, "installed": False,
             "validated_at_utc": datetime.now(timezone.utc).isoformat(),
             "verifier_sha256": fire_ash.digest(Path(__file__).read_bytes())})

@@ -102,7 +102,8 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 | `tools/verify_display.rb` | 執行原版／修改後繪字函式、選單 drawItem 與縮放流程；錄下真實繪製呼叫 |
 | `font-source.json` | 固定字型來源、雜湊、OFL、原生字級與引擎換算證據 |
 | `tools/prepare_baseline.py` | 從既有備份與未改動原檔建立四檔原版建置副本，不寫入遊戲 |
-| `tools/font_preview.py` | 以 FreeType 重播原生 Ruby 繪製呼叫，產生 1／3／4 倍最近鄰對照；非遊戲截圖 |
+| `tools/font_preview.py` | 以 FreeType 重播原生 Ruby 繪製呼叫，產生 1／2／4 倍最近鄰對照；非遊戲截圖 |
+| `tools/test_font_sample.py` | 驗證平滑字型樣本成功／失敗均不覆寫正式產物、報告及預覽 |
 | `font-preview-validation.json` | 預覽字界、排版與產物雜湊，不代表實機通過 |
 | `tools/runtime_support.rb` | 動態句子查詢、舊編碼字串相容及只用於顯示的強化名稱 |
 | `tools/verify_runtime.rb` | 用原強化程式驗證翻譯後的選項、購買、升級、能量與原始識別名稱 |
@@ -138,6 +139,22 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_i
 建置及驗證須使用符合來源雜湊的原版副本。現有 `coverage.json`、`validation.json` 與 `deployment-validation.json` 是套用前的建置／測試證據，其中 `installed=false` 記錄當時狀態，不代表 Claude 1 目前的實機套用狀態。
 
 ## 驗證與已知限制
+
+### 平滑字型樣本（未套用）
+
+使用者選擇先看保留原介面的平滑文字樣本。目前以本機 Microsoft JhengHei Regular、實際 24px、無陰影製作；先在 512×384 算繪，再最近鄰放大。這不是高解析度 UI，也不是劍盾的原字型。
+
+樣本只在獨立 Ruby 測試程序中暫時替換字型 family，以候選字型的 FreeType BASIC 字寬重新執行排版與 painter；不重建／套用遊戲字型。輸出在 repo 外的 `Artifacts\data\fire-ash-work\smooth-font-sample\`，圖片檔名含 `smooth-sample` 或 `pixel-vs-smooth`。正式字型仍為 Fusion Pixel，四個套用產物不變；正黑體直接從本機讀取，不複製或上傳字型檔。
+
+```powershell
+python tools\verify_ruby.py --game '..\fire-ash-work\original-baseline' --font-sample 'C:\Windows\Fonts\msjh.ttc'
+python tools\font_preview.py --font-sample 'C:\Windows\Fonts\msjh.ttc'
+python tools\test_font_sample.py
+```
+
+樣本報告與正式報告分開；樣本錯誤不會覆寫正式 PASS。測試涵蓋成功／找不到字型兩條路徑，核對正式報告、產物、draw calls 與預覽的 24 個檔案雜湊不變。平滑字型保留正常抗鋸齒，放大後字緣會較柔和；只供選擇字型風格，不代表已完成實機清晰度驗收。
+
+### 正式版本與實機驗收
 
 - 本輪先交付無陰影以供 Claude 1 套用及實機檢查；原生 draw calls 算繪的預覽不算實機證據。先前含 3 倍選項的預覽與回歸結果不作為本版驗收證據。
 - 尚未完成實機驗收。Claude 1 已套用本機並正在驗收，以下為先前的文字與原生函式測試結果，不能代替最終遊戲畫面驗收。
