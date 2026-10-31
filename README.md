@@ -1,6 +1,6 @@
 # Pokémon Fire Ash 繁體中文化
 
-**2026-11-01 文字裁切修正已套用：**對話窗緩衝區現在納入既有 4px 位移與字型高度餘量，中文字及 `g/y` 下伸筆畫不再因這層緩衝區而被裁掉；字型、字級、文字位置不變。28 個回歸案例、9 項安裝／還原及 5 項樣本隔離測試通過。實機畫面待確認，詳見 [text-buffer-fix.md](text-buffer-fix.md)。現行備份改為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-text-buffer-fix-20261101`；下方為前輪紀錄。
+**2026-11-01 第二行裁切修正已套用：**前版只加大 bitmap，仍被外層 64px 可見範圍裁切。現版讓文字完整落在各 32px 行框內，Noto 對話上移 6 個原生像素，字型／字級／行距／視窗大小不變。32 個雙層裁切與捲動案例、8 個圖示案例、9 項安裝／還原及 5 項樣本隔離測試通過。實機畫面待確認，詳見 [text-buffer-fix.md](text-buffer-fix.md)。現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-viewport-fix-20261101`；下方為前輪紀錄。
 
 **2026-11-01 套用更新：**使用者已授權每次翻譯驗證完成後直接備份套用。Codex 已將下述 1,207 筆修正與先前選定的 Noto Medium 安裝至本機遊戲，四檔 SHA 校驗通過；未啟動遊戲，畫面仍待實機驗收。現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-runtime-translation-20261101`。下文 2026-10-31 的未套用敘述為建置時紀錄，以本段更新為準。
 
@@ -34,7 +34,7 @@
 | 字型說明 | `data\fire-ash-work\fonts\fire-ash-zhtw-OFL.txt` | Noto 的原始 LICENSE；pixel 是 Fusion Pixel 授權，jhenghei 改用 LOCAL-ONLY，依報告 SHA 核對 |
 | 覆蓋報告 | `release\fire-ash-zh-tw-preview\coverage.json` | 各類別詳細統計 |
 
-本機遊戲目前已套用漏翻與對話下緣裁切修正（Scripts `b150e3f5…`），使用 Noto Medium；現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-text-buffer-fix-20261101`。四檔雜湊一致，Game.exe／Game.ini／mkxp.json 未變，未啟動遊戲；畫面待使用者實機確認。repo 不包含遊戲檔、字型、存檔或還原備份。
+本機遊戲目前已套用漏翻與第二行裁切修正（Scripts `902ca398…`），使用 Noto Medium；現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-viewport-fix-20261101`。四檔雜湊一致，Game.exe／Game.ini／mkxp.json 未變，未啟動遊戲；畫面待使用者實機確認。repo 不包含遊戲檔、字型、存檔或還原備份。
 
 本機套用範圍僅有：
 

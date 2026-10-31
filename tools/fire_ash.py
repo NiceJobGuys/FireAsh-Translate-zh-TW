@@ -767,13 +767,17 @@ def patch_runtime_text(code, name, ui_keys):
             '    command = pbShowCommands(nil, choices, @list[@index].parameters[1])'))
     if name == "SpriteWindow_text":
         newline = "\r\n" if "\r\n" in code else "\n"
-        # setText shifts every glyph down by 4px after measuring its buffer.
-        # Also reserve any font-metric overhang (e.g. Noto Latin descenders).
-        # Only the transparent backing bitmap grows; layout and glyphs do not move.
+        # A larger backing bitmap still gets clipped by the fixed contents src_rect.
+        # Fit text inside each 32px row instead; do not shift icons above their row.
         replacements.append((
-            '      @bitmapheight = height' + newline + '      @numtextchars = @textchars.length',
-            '      @bitmapheight = height + (FireAshZHTW.active? ? 4 + [self.contents.text_size("Ag").height - 32, 0].max : 0)' + newline +
-            '      @numtextchars = @textchars.length'))
+            '    else' + newline + '      if @letterbyletter' + newline + '        @fmtchars = []',
+            '    else' + newline +
+            '      dialog_y_offset = FireAshZHTW.active? ? [4, (32 - self.contents.text_size("Ag").height) / 2].min : 4' + newline +
+            '      if @letterbyletter' + newline + '        @fmtchars = []'))
+        for following in ('          if !ch[5]', '          @textchars.push'):
+            replacements.append((
+                '          ch[2] += 4' + newline + following,
+                '          ch[2] += ch[5] ? [dialog_y_offset, 0].max : dialog_y_offset' + newline + following))
     direct = {
         "Minigame_VoltorbFlip": [("pbConfirmMessage", "You haven't found any Coins! Are you sure you want to quit?")],
         "EditorScreens": [("pbConfirmMessageSerious", f"Delete this {kind}?") for kind in

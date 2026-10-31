@@ -326,8 +326,8 @@ $fire_ash_missing_font = false
     patched_window=next(zlib.decompress(row[2]).decode('utf-8') for row in scripts
                         if fire_ash.text(row[1])=='SpriteWindow_text')
     buffer_cases=verify_window_buffer(evaluate,put_buffer_value,original_window,patched_window,
-                                      font_path,profile,bool(args.font_sample))
-    print('PASS:',buffer_cases,'dialog bitmap allocation/clipping cases; English and glyph positions unchanged')
+                                      font_path,profile,script_text['SpriteWindow'],bool(args.font_sample))
+    print('PASS:',buffer_cases,'dialog bitmap + contents viewport cases; English and horizontal layout unchanged')
     recorded_scenes = {}
     for scene in ("settings-before", "settings-after", "dialogue-before", "dialogue-after",
                   "dark-dialogue-after", "smalltext-after", "blue-dialogue-after", "red-dialogue-after",

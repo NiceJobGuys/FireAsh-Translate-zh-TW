@@ -10,8 +10,20 @@
     {
       "script": "SpriteWindow_text",
       "kind": "display-only",
-      "before": "      @bitmapheight = height\r\n      @numtextchars = @textchars.length",
-      "after": "      @bitmapheight = height + (FireAshZHTW.active? ? 4 + [self.contents.text_size(\"Ag\").height - 32, 0].max : 0)\r\n      @numtextchars = @textchars.length"
+      "before": "    else\r\n      if @letterbyletter\r\n        @fmtchars = []",
+      "after": "    else\r\n      dialog_y_offset = FireAshZHTW.active? ? [4, (32 - self.contents.text_size(\"Ag\").height) / 2].min : 4\r\n      if @letterbyletter\r\n        @fmtchars = []"
+    },
+    {
+      "script": "SpriteWindow_text",
+      "kind": "display-only",
+      "before": "          ch[2] += 4\r\n          if !ch[5]",
+      "after": "          ch[2] += ch[5] ? [dialog_y_offset, 0].max : dialog_y_offset\r\n          if !ch[5]"
+    },
+    {
+      "script": "SpriteWindow_text",
+      "kind": "display-only",
+      "before": "          ch[2] += 4\r\n          @textchars.push",
+      "after": "          ch[2] += ch[5] ? [dialog_y_offset, 0].max : dialog_y_offset\r\n          @textchars.push"
     },
     {
       "script": "Trainer_LoadAndNew",
