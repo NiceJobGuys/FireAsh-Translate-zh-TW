@@ -149,6 +149,7 @@ parts.join
     font_stub = """
 class Font
   attr_accessor :name, :size, :bold, :italic
+  def self.exist?(_name); !$fire_ash_missing_font; end
   def initialize(name='Power Green', size=29)
     @name, @size = name, size
   end
@@ -220,6 +221,21 @@ b.draw_text(0,0,100,30,'切換後的既有文字')
 raise 'Existing bitmap font not updated after language change' unless b.drawn_font == [FireAshZHTW::FONT,27]
 'PASS: language-specific fonts; Chinese menu label, metrics, UTF-8/legacy text, restoration after draw failure'
 """))
+    if profile == "noto":
+        print(evaluate("""
+$fire_ash_missing_font = true
+$PokemonSystem.language = 0
+raise 'English fallback changed by Noto guard' unless Font.new.name == 'Power Green'
+$PokemonSystem.language = 1
+begin
+  Font.new
+  raise 'Missing Noto was silently accepted'
+rescue RuntimeError => error
+  raise unless error.message.include?('Noto font not loaded: Fonts/fire-ash-zhtw.otf')
+end
+$fire_ash_missing_font = false
+'PASS: missing Noto raises an explicit Chinese-mode error; English Power remains available'
+"""))
     original_scripts = loads((source_game / "Data/Scripts.rxdata").read_bytes())
     original_draw = next(zlib.decompress(row[2]).decode("utf-8") for row in original_scripts
                          if fire_ash.text(row[1]) == "DrawText")
@@ -231,7 +247,7 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
         ruby.rb_gv_set(name, ruby.rb_utf8_str_new(encoded, len(encoded)))
     from PIL import ImageFont
     font_path = (args.font_sample.resolve() if args.font_sample
-                 else ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf")
+                 else fire_ash.staged_font_path(profile))
     font_sha256 = fire_ash.digest(font_path.read_bytes())
     if not args.font_sample:
         assert font_sha256 == coverage["font"]["sha256"], "Stale font build"
@@ -273,6 +289,9 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
         "source": "Original game getFormattedText + CJK wrap patch + actual FreeType advances at 24px"})
     script_text = {fire_ash.text(row[1]): zlib.decompress(row[2]).decode("utf-8").replace("\r", "")
                    for row in scripts}
+    assert 'text.gsub!(/\\\\b/i,"<c3=3050C8,D0D0C8>")' in script_text["Messages"]
+    assert 'text.gsub!(/\\\\r/i,"<c3=E00808,D0D0C8>")' in script_text["Messages"]
+    assert '16,Graphics.height-96+2,Graphics.width-32,96,@viewport)' in script_text["Scene_Initialize"]
     for row in original_scripts:
         name = fire_ash.text(row[1])
         if name in ("UI_Options", "StartGame"):
@@ -299,7 +318,8 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
     print(evaluate((ROOT / "tools/verify_display.rb").read_text(encoding="utf-8")))
     recorded_scenes = {}
     for scene in ("settings-before", "settings-after", "dialogue-before", "dialogue-after",
-                  "dark-dialogue-after", "smalltext-after"):
+                  "dark-dialogue-after", "smalltext-after", "blue-dialogue-after", "red-dialogue-after",
+                  "battle-dialogue-after"):
         packed = evaluate("$fire_ash_preview_calls[" + fire_ash.ruby_string(scene) + "].map { |c| "
                           "[c[0],*c[1..4],c[6],c[8],*c[9..12],c[5].unpack1('H*'),c[7].unpack1('H*')].join('|') }.join(10.chr)")
         calls = []
@@ -366,6 +386,8 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
               "original_cjk_overflow_reproduced": True,
               "layout_metrics": coverage["font"]["family"] + " FreeType BASIC 24/12px",
               "font_profile": profile, "fullscreen_translation": ui["Full"],
+              "vertical_offset_px": 0, "battle_window": [16,290,480,96], "battle_contents": [32,306,448,64],
+              "noto_missing_font_guard_checked": profile == "noto",
               "layout_test_sha256": fire_ash.digest((ROOT / "tools/verify_layout.rb").read_bytes()),
               "native_painter_cases_checked": int(evaluate("$fire_ash_display_cases.to_s")),
               "native_scale_options_checked": 5, "legacy_2x_scale_survives_startup": True,
@@ -381,7 +403,7 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
               "font_support_sha256": fire_ash.digest(font_scripts[0]),
               "verifier_sha256": fire_ash.digest(Path(__file__).read_bytes()),
               "font_source_sha256": fire_ash.digest((ROOT / (
-                  "font-source.json" if profile == "pixel" else "font-source-jhenghei.json")).read_bytes()),
+                  "font-source.json" if profile == "pixel" else f"font-source-{profile}.json")).read_bytes()),
               "font_sha256": font_sha256,
               "original_baseline": str(source_game)}
     fire_ash.json_write(report_path, report)

@@ -1,0 +1,21 @@
+{
+  "family": "Noto Sans CJK TC",
+  "legacy_family": "Noto Sans CJK TC Medium",
+  "style": "Medium",
+  "weight": 500,
+  "version": "Sans2.004",
+  "filename": "NotoSansCJKtc-Medium.otf",
+  "asset_filename": "fire-ash-zhtw.otf",
+  "sha256": "2905dd3de65d7b7de764596e2294978407986f4cc0a66c9584c5b95c5aa9572e",
+  "license": "OFL-1.1",
+  "license_filename": "LICENSE",
+  "license_sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+  "regular_font_size": 27,
+  "regular_raster_px": 24,
+  "small_font_size": 14,
+  "small_raster_px": 12,
+  "engine_size_multiplier": 0.9,
+  "engine_binary_sha256": "b8994af47f7c911c0550197ccd8566df4638b3b3c147807c33f45b2a06c6d6e0",
+  "binary_modified": false,
+  "publish": false
+}

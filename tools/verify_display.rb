@@ -161,4 +161,21 @@ pbDrawShadowText(bitmap,32,272,448,24,'繁體中文：戽斗尖梭與桄榔島�
 pbDrawShadowText(bitmap,32,304,448,24,'小智與皮卡丘一起旅行！',Color.new(248,248,240,255),shadow)
 pbDrawShadowText(bitmap,32,336,448,24,ui['Full'],Color.new(248,248,240,255),shadow)
 $fire_ash_preview_calls['smalltext-after'] = bitmap.display_calls.dup
+bitmap.font.size = 27
+{'blue'=>Color.new(48,80,200,255),'red'=>Color.new(224,8,8,255)}.each do |name,color|
+  bitmap.clear_display_calls
+  getFormattedText(bitmap,32,268,448,-1,$fire_ash_preview_dialogue,32).each do |ch|
+    ch[8], ch[9] = color, shadow
+    patched[:drawSingleFormattedChar].call(bitmap,ch)
+  end
+  $fire_ash_preview_calls["#{name}-dialogue-after"] = bitmap.display_calls.dup
+end
+bitmap.clear_display_calls
+battle_text = "皮卡丘使出了十萬伏特！\n效果絕佳！"
+getFormattedText(bitmap,32,306,448,-1,battle_text,32).each do |ch|
+  next if ch[0] == "\n"
+  ch[8], ch[9] = base, shadow
+  patched[:drawSingleFormattedChar].call(bitmap,ch)
+end
+$fire_ash_preview_calls['battle-dialogue-after'] = bitmap.display_calls.dup
 'PASS: 12 native painter cases; Chinese shadows removed, English/explicit outlines preserved; five original scale choices, default 1.5x, 2x startup and native 2x cap'

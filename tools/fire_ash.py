@@ -734,17 +734,35 @@ def patch_runtime_text(code, name, ui_keys):
 
 
 def font_config(font_source="pixel"):
-    if font_source not in ("pixel", "jhenghei"):
+    if font_source not in ("pixel", "jhenghei", "noto"):
         raise ValueError(f"Unknown font source: {font_source}")
-    filename = "font-source.json" if font_source == "pixel" else "font-source-jhenghei.json"
+    filename = "font-source.json" if font_source == "pixel" else f"font-source-{font_source}.json"
     return json.loads((ROOT / filename).read_text(encoding="utf-8"))
+
+
+def staged_font_path(font_source):
+    assert font_source in ("pixel", "jhenghei", "noto")
+    return ARTIFACTS / "data/fire-ash-work/fonts" / (
+        "fire-ash-zhtw.otf" if font_source == "noto" else "fire-ash-zhtw.ttf")
 
 
 def font_support_code(font_source="pixel"):
     code = (ROOT / "tools/font_support.rb").read_text(encoding="utf-8")
     marker = '  FONT = "Fusion Pixel 12px Mono zh-TW"'
     assert code.count(marker) == 1, "Unexpected font hook template"
-    return code.replace(marker, "  FONT = " + ruby_string(font_config(font_source)["family"])).encode("utf-8")
+    config = font_config(font_source)
+    code = code.replace(marker, "  FONT = " + ruby_string(config["family"]))
+    if font_source == "noto":
+        family, legacy = ruby_string(config["family"]), ruby_string(config["legacy_family"])
+        code = code.replace("  FONT = " + family,
+                            f"  FONT = Font.exist?({family}) ? {family} : {legacy}")
+        guard = ('  def self.ensure_loaded!\n    return unless active?\n'
+                 '    raise RuntimeError, "Noto font not loaded: Fonts/fire-ash-zhtw.otf. '
+                 'Restore the trial backup before continuing." unless Font.exist?(FONT)\n  end\n\n')
+        code = code.replace("  def self.with_text_font",guard + "  def self.with_text_font")
+        code = code.replace("    font = bitmap.font\n","    ensure_loaded!\n    font = bitmap.font\n")
+        code = code.replace("    if FireAshZHTW.active?\n", "    if FireAshZHTW.active?\n      FireAshZHTW.ensure_loaded!\n")
+    return code.encode("utf-8")
 
 
 def audit_full_key(game):
@@ -811,13 +829,17 @@ def build_font(translations, font_source="pixel"):
     from fontTools.ttLib import TTFont
     from PIL import ImageFont
     config = font_config(font_source)
-    source = (ARTIFACTS / "downloads/fusion-pixel-font" / config["filename"]
-              if font_source == "pixel" else Path(config["filename"]))
+    source = (ARTIFACTS / "downloads/fusion-pixel-font" / config["filename"] if font_source == "pixel" else
+              ARTIFACTS / "downloads/noto-sans-cjk-tc" / config["filename"] if font_source == "noto" else
+              Path(config["filename"]))
     if digest(source.read_bytes()) != config["sha256"]:
         raise ValueError("Font source hash mismatch")
     characters = set("".join(target for target, _ in translations.values()))
     with TTFont(source, fontNumber=0, recalcTimestamp=False) as font:
-        assert font["name"].getDebugName(1) == config["family"]
+        expected_name = config["legacy_family"] if font_source == "noto" else config["family"]
+        assert font["name"].getDebugName(1) == expected_name
+        if font_source == "noto":
+            assert "CFF " in font and font["OS/2"].usWeightClass == 500
         missing = sorted(c for c in characters if ord(c) >= 32 and ord(c) not in font.getBestCmap())
     if missing:
         raise ValueError("Chinese font lacks characters: " + "".join(missing))
@@ -829,8 +851,32 @@ def build_font(translations, font_source="pixel"):
         if font_source == "pixel" and not alpha <= {0, 255}:
             raise ValueError(f"Pixel font has antialiased edges at {pixels}px: {sorted(alpha)}")
         alpha_counts[str(pixels)] = sorted(alpha)
-    path = ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"
+    path = staged_font_path(font_source)
     path.parent.mkdir(parents=True, exist_ok=True)
+    if font_source == "noto":
+        from font_loader_audit import audit_engine
+        engine_report = audit_engine(GAME / "Game.exe")
+        shutil.copy2(source,path)
+        assert digest(path.read_bytes()) == config["sha256"], "Noto was modified while staging"
+        with TTFont(path) as installed:
+            installed_missing = sorted(c for c in characters if ord(c) >= 32 and ord(c) not in installed.getBestCmap())
+            assert not installed_missing and installed["OS/2"].usWeightClass == 500
+        assert ImageFont.truetype(str(path),24).getname() == (config["family"],"Medium")
+        license_source = source.parent / config["license_filename"]
+        assert digest(license_source.read_bytes()) == config["license_sha256"]
+        license_output = path.with_name("fire-ash-zhtw-OFL.txt")
+        shutil.copy2(license_source,license_output)
+        return {"profile": font_source,"family": config["family"],"legacy_family": config["legacy_family"],
+                "style": "Medium","weight": 500,"version": config["version"],"license": "OFL-1.1",
+                "asset_filename": path.name,"license_notice_file": license_output.name,
+                "checked_characters": len(characters),"missing_characters": 0,"missing": installed_missing,
+                "required_rare_characters": {c: ord(c) in installed.getBestCmap() for c in "戽桄"},
+                "checked_actual_staged_file": True,"sha256": digest(path.read_bytes()),
+                "license_sha256": digest(license_output.read_bytes()),"binary_modified": False,
+                "engine_loader_audit": engine_report,"raster_sizes_px": [12,24],"api_sizes": [14,27],
+                "unthresholded_freetype_alpha_values": alpha_counts,"solid_fonts_changed": False,
+                "source": str(source),"publish": False,"local_trial_only": False,
+                "runtime_load_tested": False}
     if font_source == "pixel":
         shutil.copy2(source, path)
     else:
@@ -851,7 +897,7 @@ def build_font(translations, font_source="pixel"):
             "any derived subset, or a package containing either. No repo or Release.\n"
             "Fusion Pixel's fire-ash-zhtw-OFL.txt does not apply and is not installed.\n",
             encoding="utf-8", newline="\n")
-        return {"profile": font_source, "family": config["family"], "version": config["version"],
+        return {"profile": font_source, "asset_filename": path.name, "family": config["family"], "version": config["version"],
                 "license": config["license"], "license_notice_file": notice.name,
                 "checked_characters": len(characters), "missing_characters": 0, "missing": [],
                 "required_rare_characters": {c: ord(c) in extracted.getBestCmap() for c in "戽桄"},
@@ -868,7 +914,7 @@ def build_font(translations, font_source="pixel"):
         license_parts.append(f"===== {relative} =====\n" + license_path.read_text(encoding="utf-8"))
     license_output = path.with_name("fire-ash-zhtw-OFL.txt")
     license_output.write_text("\n\n".join(license_parts), encoding="utf-8", newline="\n")
-    return {"profile": font_source, "family": config["family"], "version": config["version"], "license": "OFL-1.1",
+    return {"profile": font_source, "asset_filename": path.name, "family": config["family"], "version": config["version"], "license": "OFL-1.1",
             "license_notice_file": license_output.name,
             "checked_characters": len(characters), "missing_characters": 0, "missing": [],
             "sha256": digest(path.read_bytes()), "license_sha256": digest(license_output.read_bytes()),
@@ -1120,6 +1166,22 @@ def self_test(font_source="pixel"):
         assert b'Microsoft JhengHei' in font_support_code(font_source)
         assert b'Fusion Pixel' in font_support_code()
         print("PASS: local JhengHei Regular face 0; 12/24px grayscale; pixel default preserved")
+    elif font_source == "noto":
+        from font_loader_audit import audit_engine
+        from fontTools.ttLib import TTFont
+        trial = font_config("noto")
+        source = ARTIFACTS / "downloads/noto-sans-cjk-tc" / trial["filename"]
+        assert digest(source.read_bytes()) == trial["sha256"]
+        assert digest((source.parent / trial["license_filename"]).read_bytes()) == trial["license_sha256"]
+        with TTFont(source) as font:
+            assert "CFF " in font and font["OS/2"].usWeightClass == 500
+            assert all(ord(c) in font.getBestCmap() for c in "戽桄")
+        for pixels in (12,24):
+            assert ImageFont.truetype(str(source),pixels).getname() == (trial["family"],"Medium")
+        assert audit_engine(GAME / "Game.exe")["passed"]
+        assert b'Noto font not loaded' in font_support_code("noto")
+        assert b'Fusion Pixel' in font_support_code()
+        print("PASS: original Noto Medium OTF; exact engine OTF scan/CFF driver; 12/24px direct load; pixel default")
     assert patch_text_layout("    if hadspace && !isspace\n" * 2).count("FireAshZHTW.cjk_boundary?") == 2
     try:
         patch_text_layout("Unexpected upstream formatter")
@@ -1246,8 +1308,8 @@ if __name__ == "__main__":
     parser.add_argument("--limit", type=int, default=75)
     parser.add_argument("--name")
     parser.add_argument("--menu-only", action="store_true")
-    parser.add_argument("--font-source", choices=("pixel", "jhenghei"), default="pixel",
-                        help="Default pixel; jhenghei is a local-only trial, never a distributable package")
+    parser.add_argument("--font-source", choices=("pixel", "jhenghei", "noto"), default="pixel",
+                        help="Default pixel; Noto is an unmodified OTF trial; jhenghei stays local only")
     args = parser.parse_args()
     if args.action == "extract":
         extract(args.game)

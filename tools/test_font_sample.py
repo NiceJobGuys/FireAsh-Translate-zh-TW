@@ -5,11 +5,13 @@ from pathlib import Path
 import subprocess
 import sys
 import unittest
+import mmap
+import uuid
 
 from PIL import Image, ImageChops
 
-from fire_ash import ARTIFACTS, ROOT, GAME
-from font_preview import paint_scene
+from fire_ash import ARTIFACTS, ROOT, GAME, staged_font_path
+from font_preview import paint_scene, save_preview
 
 WORK = ARTIFACTS / "data/fire-ash-work"
 SAMPLE = WORK / "smooth-font-sample"
@@ -18,8 +20,9 @@ FONT = Path(r"C:\Windows\Fonts\msjh.ttc")
 PROTECTED = [ROOT / name for name in (
     "coverage.json", "validation.json", "deployment-validation.json", "font-preview-validation.json")]
 PROTECTED += [WORK / name for name in (
-    "font-preview-layout.json", "font-preview-draw-calls.json", "patched/Scripts.rxdata",
-    "fonts/fire-ash-zhtw.ttf")]
+    "font-preview-layout.json", "font-preview-draw-calls.json", "patched/Scripts.rxdata")]
+PROTECTED += [staged_font_path(json.loads(
+    (ROOT / "coverage.json").read_text(encoding="utf-8"))["font"].get("profile","pixel"))]
 PROTECTED += [WORK / "fonts" / json.loads(
     (ROOT / "coverage.json").read_text(encoding="utf-8"))["font"].get("license_notice_file", "fire-ash-zhtw-OFL.txt")]
 PROTECTED += [ARTIFACTS / "release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat"]
@@ -32,6 +35,22 @@ def hashes():
 
 
 class FontSampleTests(unittest.TestCase):
+    @unittest.skipUnless(sys.platform == "win32","Windows mapped-image regression")
+    def test_mapped_preview_keeps_identical_image(self):
+        folder = ARTIFACTS / "images/fire-ash/preview-write-fixtures"
+        folder.mkdir(parents=True,exist_ok=True)
+        path = folder / f"lock-{uuid.uuid4().hex}.png"
+        sample = Image.new("RGB",(8,8),(48,80,200))
+        sample.save(path)
+        before = path.read_bytes()
+        with path.open("rb") as handle:
+            with mmap.mmap(handle.fileno(),0,access=mmap.ACCESS_READ):
+                with self.assertRaises(OSError) as raised:
+                    sample.save(path)
+                self.assertEqual(raised.exception.errno,22)
+                save_preview(sample,path)
+                self.assertEqual(path.read_bytes(),before)
+
     def run_sample(self, font):
         return subprocess.run([sys.executable, str(ROOT / "tools/verify_ruby.py"),
                                "--game", str(BASELINE), "--font-sample", str(font)],
@@ -49,21 +68,23 @@ class FontSampleTests(unittest.TestCase):
     def test_shared_painter_matches_recorded_previews(self):
         coverage = json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))
         recorded = json.loads((WORK / "font-preview-draw-calls.json").read_text(encoding="utf-8"))
-        font = WORK / "fonts/fire-ash-zhtw.ttf"
+        profile = coverage["font"].get("profile", "pixel")
+        font = staged_font_path(profile)
         for scene,calls in recorded["scenes"].items():
             with self.subTest(scene=scene):
                 profile = coverage["font"].get("profile", "pixel")
                 suffix = ("three-shadows-only" if scene.endswith("before") else
-                          "jhenghei-trial" if profile == "jhenghei" else "no-shadow-only")
+                          f"{profile}-trial" if profile in ("jhenghei","noto") else "no-shadow-only")
                 path = ARTIFACTS / "images/fire-ash" / f"font-preview-{scene.rsplit('-',1)[0]}-{suffix}-1x.png"
-                canvas,_,_ = paint_scene(scene,calls,font,coverage["font"]["family"],profile == "jhenghei")
+                canvas,_,_ = paint_scene(scene,calls,font,coverage["font"]["family"],profile in ("jhenghei","noto"))
                 expected = Image.open(path).convert("RGB")
                 self.assertIsNone(ImageChops.difference(canvas,expected).getbbox(), str(path))
 
     def test_weight_samples_keep_production_reports_and_assets(self):
         before = hashes()
         installed = [GAME / p for p in ("Data/Scripts.rxdata","Data/traditional_chinese.dat",
-            "Fonts/fire-ash-zhtw.ttf","Fonts/fire-ash-zhtw-LOCAL-ONLY.txt","Game.exe","Game.ini","mkxp.json")]
+            "Fonts/fire-ash-zhtw.ttf","Fonts/fire-ash-zhtw.otf","Fonts/fire-ash-zhtw-OFL.txt",
+            "Fonts/fire-ash-zhtw-LOCAL-ONLY.txt","Game.exe","Game.ini","mkxp.json") if (GAME / p).exists()]
         installed_before = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in installed}
         result = subprocess.run([sys.executable,"-B",str(ROOT / "tools/weight_sample.py")],
                                 capture_output=True,encoding="utf-8")

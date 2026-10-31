@@ -1,6 +1,6 @@
 # Pokémon Fire Ash 繁體中文化
 
-2026-10-31 使用者選擇實機試裝正黑體，並將畫面大小的 Full 改為「全螢幕」。repo 的建置預設仍為 Fusion Pixel；本次報告記錄本機正黑體試裝，尚未套用或完成實機驗收。正黑體及其衍生字型只留本機，不進 repo／Release，不可公開散布此試裝包。保留原五種顯示選項，3 倍未納入，原因見 [3x-engine-blocker.md](3x-engine-blocker.md)。
+2026-10-31 使用者選定字重樣本 A：Noto Sans CJK TC Medium 500。新增 Noto 原始 OTF 試裝來源，repo 的建置預設在實機通過前仍為 Fusion Pixel，正黑體流程保留；本次報告記錄 Noto 建置，尚未套用或完成實機驗收。語言檔保留「全螢幕」修正。字型皆不進 repo，正黑體與衍生檔也不進 Release；本輪不建立 Release／tag。原五種顯示選項不變，3 倍未納入，原因見 [3x-engine-blocker.md](3x-engine-blocker.md)。
 
 目前已完成訊息表與補充腳本介面的繁中預覽版，所有區段待翻數為 0；保留的姓名、暱稱、縮寫及程式識別碼另列明細。Claude 1 已套用到本機遊戲，實機驗收正在進行，尚未完成實機驗收。
 
@@ -22,18 +22,20 @@
 | --- | --- | --- |
 | 繁中語言檔 | `release\fire-ash-zh-tw-preview\Data\traditional_chinese.dat` | 已建置並由原遊戲 Ruby DLL 載入驗證 |
 | 修改後腳本 | `data\fire-ash-work\patched\Scripts.rxdata` | 新增繁中選項、字型與中文斷行支援；僅本機保留 |
-| 本機中文字型 | `data\fire-ash-work\fonts\fire-ash-zhtw.ttf` | 最後一次選定的來源；本次為正黑體 Regular，不 commit 字型 |
-| 字型說明 | `data\fire-ash-work\fonts\fire-ash-zhtw-LOCAL-ONLY.txt` | 正黑體本機使用限制；像素建置改用 `fire-ash-zhtw-OFL.txt` |
+| 本機中文字型 | `data\fire-ash-work\fonts\fire-ash-zhtw.otf` | Noto 原檔、未轉換；pixel／jhenghei 建置改用同目錄 `.ttf`，皆不 commit 字型 |
+| 字型說明 | `data\fire-ash-work\fonts\fire-ash-zhtw-OFL.txt` | Noto 的原始 LICENSE；pixel 是 Fusion Pixel 授權，jhenghei 改用 LOCAL-ONLY，依報告 SHA 核對 |
 | 覆蓋報告 | `release\fire-ash-zh-tw-preview\coverage.json` | 各類別詳細統計 |
 
-本機遊戲目前由 Claude 1 套用 14b674e 無陰影像素版，現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-no-shadow-20261031`。正黑體試裝仍待 Claude 1 套用及使用者實機確認；repo 不包含遊戲檔、字型、存檔或還原備份。
+本機遊戲目前由 Claude 1 套用 bc1c5fb 正黑體 Regular 試裝版，現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-jhenghei-trial-20261031`。Noto 待 Claude 1 驗收／套用及使用者實機確認；Codex 未動安裝目錄或啟動遊戲。repo 不包含遊戲檔、字型、存檔或還原備份。
 
 本機套用範圍僅有：
 
 1. 備份並替換 `Data\Scripts.rxdata`。
 2. 新增 `Data\traditional_chinese.dat`。
-3. 新增 `Fonts\fire-ash-zhtw.ttf`。
-4. 正黑體新增 `Fonts\fire-ash-zhtw-LOCAL-ONLY.txt`；像素版新增 `Fonts\fire-ash-zhtw-OFL.txt`。先完整還原舊版，不把 Fusion Pixel 的 OFL 留在正黑體安裝結果中。
+3. Noto 新增 `Fonts\fire-ash-zhtw.otf`；pixel／jhenghei 使用 `Fonts\fire-ash-zhtw.ttf`。
+4. Noto／pixel 新增各自的 `Fonts\fire-ash-zhtw-OFL.txt`，內容與 SHA 不同；jhenghei 新增 `Fonts\fire-ash-zhtw-LOCAL-ONLY.txt`。先完整還原舊版，再依該次 coverage／plan 的字型及授權 SHA 套用，不混用另一來源。
+
+Noto 沿用 `NotoSansCJKtc-Medium.otf`（Sans2.004）及同目錄 LICENSE 的完整原始位元組，沒有轉換、子集或改字型名稱。來源與 SHA 見 `font-source-noto.json`。本機 Game.exe 靜態檢查已確認 `.otf`／`.ttf` 都會掃描、非 Regular 字面會進 other 槽、FreeType 預設模組含 CFF。family 使用 FreeType 的 `Noto Sans CJK TC`，並容許同字檔的舊式 family `Noto Sans CJK TC Medium`；不是換成別的字型。僅繁中模式檢查 `Font.exist?`，若未註冊則顯示 `Noto font not loaded: Fonts/fire-ash-zhtw.otf` 並停止目前流程，避免靜默退回英文字型／方塊。真正遊戲載入仍待實機，不能以靜態檢查宣稱通過。
 
 正黑體試裝選用 Windows 本機 `C:\Windows\Fonts\msjh.ttc` 第 0 個 face，Microsoft JhengHei Regular 6.15。建置工具保留完整字面與原始著作權／fsType 中繼資料，輸出本機 TTF；不是 subset，不變造名稱或宣稱為 OFL。24／12px 對應 API 27／14，中文無陰影，英文 Power 字型、陰影與原先顯示行為不變。來源與 SHA 見 `font-source-jhenghei.json`；所有字型檔及衍生檔均被 `.gitignore` 排除。
 
@@ -55,7 +57,7 @@
 
 本機套用工具預設只顯示計畫，核對來源與產物雜湊。`install` 先備份原檔，再透過同目錄暫存檔校驗與替換；`restore` 從備份還原腳本，將新增語言與字型移回備份目錄。套用後另被修改的檔案會拒絕覆寫。工具不啟動或關閉遊戲。
 
-還原只接受三種完整白名單：舊版三檔、含 OFL 的像素四檔、含 LOCAL-ONLY 的正黑體四檔。仍拒絕不完整、重複、額外及越界路徑，還原前校驗全部原檔／套用檔雜湊；不修改既有備份 manifest。工具增加 `--font-source pixel`／`jhenghei` 可核對指定來源與最後建置是否一致。
+還原只接受四種完整白名單：舊版三檔、含 OFL 的像素四檔、含 LOCAL-ONLY 的正黑體四檔、含 `.otf` 與 Noto OFL 的 Noto 四檔。仍拒絕不完整、重複、額外及越界路徑，還原前校驗全部原檔／套用檔 SHA；不修改既有備份 manifest。`--font-source pixel|jhenghei|noto` 可核對指定來源與最後建置是否一致。正黑體現行備份的還原案例使用實際 manifest／原檔／已套用檔快照，只在 Artifacts fixture 還原，不觸碰真正遊戲。
 
 `plan`／`install` 的基準是尚未套用、符合 `source-manifest.json` 的原版檔案。已套用中的遊戲不應重跑安裝；驗收期間不要對該目錄重新匯出或建置。以下指令供未套用的基準副本及後續維護使用。
 
@@ -72,7 +74,7 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 目前這次套用的還原指令如下。重新套用後，還原時須改用該次實際備份目錄：
 
 ```powershell
-python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\install_preview.py' restore --backup 'D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-no-shadow-20261031'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\install_preview.py' restore --backup 'D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-jhenghei-trial-20261031'
 ```
 
 遊戲更新後重新比對來源雜湊、匯出新增文字並重建，不直接覆蓋新版腳本。發佈包不應包含修改後完整 `Scripts.rxdata`，應由套用工具對玩家本機原檔重建；目前的修改後腳本僅供本機驗證。
@@ -104,6 +106,8 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 | `tools/verify_display.rb` | 執行原版／修改後繪字函式、選單 drawItem 與縮放流程；錄下真實繪製呼叫 |
 | `font-source.json` | 固定字型來源、雜湊、OFL、原生字級與引擎換算證據 |
 | `font-source-jhenghei.json` | 本機正黑體 Regular face 0 的固定來源、SHA 與禁止散布限制 |
+| `font-source-noto.json` | 未修改的 Noto Medium OTF／LICENSE SHA、family 與尺寸 |
+| `tools/font_loader_audit.py` | 唯讀核對指定 Game.exe 的 OTF 掃描／family／CFF 模組位元組，不執行遊戲 |
 | `full-key-usage.json` | 原 Scripts 完整 Full 字串的使用情境查核 |
 | `tools/prepare_baseline.py` | 從既有備份與未改動原檔建立四檔原版建置副本，不寫入遊戲 |
 | `tools/font_preview.py` | 以 FreeType 重播原生 Ruby 繪製呼叫，產生 1／2／4 倍最近鄰對照；非遊戲截圖 |
@@ -117,7 +121,7 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 | `source-manifest.json` | 基準檔案雜湊 |
 | `coverage.json` | 每類翻譯數量；由建置產生 |
 | `validation.json` | 原生 Ruby 驗證結果；不代表遊戲實測 |
-| `tools/install_preview.py` | 兩種字型的本機四檔計畫、事前備份、校驗及三種歷史白名單還原 |
+| `tools/install_preview.py` | 三種字型的本機四檔計畫、事前備份、校驗及四種完整白名單還原 |
 | `tools/test_install_preview.py` | Artifacts 內的套用／還原、複製中斷與拒絕覆寫測試 |
 | `deployment-validation.json` | 本機套用工具測試結果與程式雜湊；不是實際安裝紀錄 |
 | `script-character-audit.json` | 簡繁候選字人工判讀、採用字形與語言檔雜湊 |
@@ -143,9 +147,12 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_i
 
 建置及驗證須使用符合來源雜湊的原版副本。現有 `coverage.json`、`validation.json` 與 `deployment-validation.json` 是套用前的建置／測試證據，其中 `installed=false` 記錄當時狀態，不代表 Claude 1 目前的實機套用狀態。
 
-預設 `build` 等同 `--font-source pixel`，保留 Fusion Pixel 的下載、OFL、格線與零灰邊檢查。明確指定 `jhenghei` 才重建本機試裝。兩種來源共用目前的 staging 與四份正式報告，最後一次建置會取代 staging；切換後須重新跑 Ruby、安裝 fixtures 與預覽，不可混用前一來源的報告。
+預設 `build` 等同 `--font-source pixel`，保留 Fusion Pixel 的下載、OFL、格線與零灰邊檢查；明確指定 `jhenghei` 或 `noto` 才建置該來源。三種來源共用 staging 與四份正式報告，最後一次建置會取代 staging；切換後須重跑 Ruby、安裝 fixtures、預覽與隔離測試，不可混用前一來源的報告。Noto 建置另外需要本機已有 pefile，唯讀核對固定引擎指紋。
 
 ```powershell
+# Noto Medium 原始 OTF 試裝
+python tools\fire_ash.py self-test --font-source noto
+python tools\fire_ash.py build --game '..\fire-ash-work\original-baseline' --font-source noto
 # 正黑體本機試裝
 python tools\fire_ash.py self-test --font-source jhenghei
 python tools\fire_ash.py build --game '..\fire-ash-work\original-baseline' --font-source jhenghei
@@ -189,6 +196,9 @@ python tools\test_font_sample.py
 
 ### 正式版本與實機驗收
 
+- Noto 保留原始 24／12px、API 27／14，不新增 y 偏移；對話、設定與原戰鬥訊息內容區 `(32,306,448,64)` 以實際字面邊界檢查。實機繪製仍待確認；12px 複雜字的擁擠及灰階限制沒有因為字重增加而消失。英文 Power 與三條陰影路徑維持原生回歸。
+- 預覽若被 Windows 記憶體映射的檢視器開著，原地覆寫會出現 Errno 22；已以 mmap fixture 重現並補測。相同像素不再覆寫，變更圖另存後替換；無法替換時保留原圖及暫存證據，不關閉使用者的預覽。
+
 - 本輪先交付無陰影以供 Claude 1 套用及實機檢查；原生 draw calls 算繪的預覽不算實機證據。先前含 3 倍選項的預覽與回歸結果不作為本版驗收證據。
 - 尚未完成實機驗收。Claude 1 已套用本機並正在驗收，以下為先前的文字與原生函式測試結果，不能代替最終遊戲畫面驗收。
 - 905 種不同英文寶可夢名稱全部對照完成，涵蓋 1,295 個型態共用名稱欄位；不代表 1,295 種不同寶可夢。
@@ -207,7 +217,7 @@ python tools\test_font_sample.py
 - 補充介面在覆蓋報告列為工具專用 section 102，不是新的遊戲訊息區段。它的 `occurrences=0` 代表不在原訊息檔中；115 種譯文嵌入腳本，不增加或改動原 42,534 個訊息位置。
 - 原生 Ruby 已逐筆核對全部補充字串，並用原強化程式驗證中文選項、說明、數值插入、選項順序、購買價格、升級、裝備及卸下能量。內部英文名稱與舊字串編碼未被顯示翻譯改寫；英文模式回到原顯示方式。
 - 術語檢查包含 3,703 筆參考名稱、2,832 處寶可夢名稱、1,036 處地名、2,792 筆具名發話者及 111 筆招式教學台詞。姓名表與劇情以雙向檢查確保同步，21 筆 Drake／Flint 發話維持明示同名例外；其他同名人物的特定劇情對照列於 `glossary.json` 的 `contextual_terms`。
-- 本機套用工具包含 7 個檔案測試：套用與還原、複製中途失敗後還原、拒絕覆寫使用者修改、舊三檔、固定舊四檔、拒絕未知／不完整清單、拒絕損壞備份及來源不符。歷史四檔 fixture 逐檔 SHA 還原、不修改 manifest；像素及正黑體兩條流程均執行過，測試只寫入 Artifacts。
+- 本機套用工具包含 9 個案例：既有 7 項加上實際正黑體現行備份 manifest 的 fixture 還原、Noto 安裝／還原及錯誤授權 SHA 拒絕。Noto 建置執行全部 9 項；其他來源跳過僅適用 Noto 的一項。歷史完整白名單與使用者修改／原檔 SHA 保護不放寬，測試只寫入 Artifacts。
 - 測試副本曾出現一次 WinError 5 替換錯誤；備份與原檔完整，單獨再執行三個測試通過，原因未確認，見 deployment-notes.json。實際套用若受阻，保留備份與錯誤，不強制覆寫。
 - 已確認原版用「訓練家類型＋姓名」顯示名稱，8 個博士姓名移除重複頭銜，劇情頭銜維持不變；11 個實際組合已核對。Claude 1 兩輪退回項目均已補正，但未發起第三輪驗收，尚無最終接受結論。
 - 原版 Masked／Royal 將類型與姓名拆開，可能顯示「蒙面者 Royal」，列為實機待核項。

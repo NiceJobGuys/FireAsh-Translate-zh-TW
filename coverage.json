@@ -387,13 +387,17 @@
     }
   },
   "language_sha256": "bb8d8f7f95a69088fff4f11e5e8a030ea61bb02b89af0d9af05790c00ef1dfe7",
-  "scripts_sha256": "19624fe42d948f3df414d1fe7ec9de0e319b3978d559de79b763ffc04663b10d",
+  "scripts_sha256": "f362b68d261b8b10564f3f1437f30e1df7e3a1a554e9e72fcb7baeeccbc06645",
   "font": {
-    "profile": "jhenghei",
-    "family": "Microsoft JhengHei",
-    "version": "6.15",
-    "license": "Microsoft proprietary; local trial only; no redistribution",
-    "license_notice_file": "fire-ash-zhtw-LOCAL-ONLY.txt",
+    "profile": "noto",
+    "family": "Noto Sans CJK TC",
+    "legacy_family": "Noto Sans CJK TC Medium",
+    "style": "Medium",
+    "weight": 500,
+    "version": "Sans2.004",
+    "license": "OFL-1.1",
+    "asset_filename": "fire-ash-zhtw.otf",
+    "license_notice_file": "fire-ash-zhtw-OFL.txt",
     "checked_characters": 3195,
     "missing_characters": 0,
     "missing": [],
@@ -401,10 +405,27 @@
       "戽": true,
       "桄": true
     },
-    "sha256": "ae5f6ffb388d4e9cbcca40f34864fdc5b4793640fc89b76e7a8db1c771121e6b",
-    "source_sha256": "1fd5fc7046e0eea753988ee06d1a5a731df68475614e2174fbba9b4800f392ac",
-    "face_index": 0,
-    "license_sha256": "6cb4d870d731eca73b56c7cbaa3fa6908699ed11744ca6c2c4196c32df860481",
+    "checked_actual_staged_file": true,
+    "sha256": "2905dd3de65d7b7de764596e2294978407986f4cc0a66c9584c5b95c5aa9572e",
+    "license_sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+    "binary_modified": false,
+    "engine_loader_audit": {
+      "passed": true,
+      "engine_sha256": "b8994af47f7c911c0550197ccd8566df4638b3b3c147807c33f45b2a06c6d6e0",
+      "inspection": "static PE bytes only",
+      "extensions": [
+        "ttf",
+        "otf"
+      ],
+      "scan_callback": "0x140032940",
+      "family_lookup": "TTF_FontFaceFamilyName",
+      "non_regular_style": "other font slot",
+      "cff_default_driver": true,
+      "font_file_modified": false,
+      "game_executed": false,
+      "runtime_load_tested": false,
+      "note": "Exact binary supports OTF scanning and registers the CFF driver; actual game launch remains separate QA."
+    },
     "raster_sizes_px": [
       12,
       24
@@ -413,7 +434,6 @@
       14,
       27
     ],
-    "layout_engine": "BASIC",
     "unthresholded_freetype_alpha_values": {
       "12": [
         0,
@@ -933,9 +953,10 @@
       ]
     },
     "solid_fonts_changed": false,
-    "source": "C:\\Windows\\Fonts\\msjh.ttc",
+    "source": "D:\\Code\\Lab Testing\\Artifacts\\downloads\\noto-sans-cjk-tc\\NotoSansCJKtc-Medium.otf",
     "publish": false,
-    "local_trial_only": true
+    "local_trial_only": false,
+    "runtime_load_tested": false
   },
   "terminology": {
     "canonical_names_checked": 3703,

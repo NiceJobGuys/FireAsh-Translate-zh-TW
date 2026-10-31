@@ -12,7 +12,7 @@ from fontTools.ttLib import TTFont
 from PIL import Image, ImageDraw, ImageFont, features
 
 import fire_ash as f
-from font_preview import paint_scene
+from font_preview import paint_scene, save_preview
 
 WORK = f.ARTIFACTS / "data/fire-ash-work"
 OUTPUT = f.ARTIFACTS / "images/fire-ash/weight-sample"
@@ -119,11 +119,11 @@ def main():
                 and max(left["box"][1],right["box"][1]) < min(left["box"][3],right["box"][3])]
             assert not collisions, (label,group,"Overlapping ink bounds",collisions)
             for scale in (1,3.75):
-                canvas.resize((int(512*scale),int(384*scale)),Image.Resampling.NEAREST).save(
-                    OUTPUT / f"{key}-{group}-{scale}x.png")
+                save_preview(canvas.resize((int(512*scale),int(384*scale)),Image.Resampling.NEAREST),
+                             OUTPUT / f"{key}-{group}-{scale}x.png")
             crop = canvas.crop((0,8 if group == "orange-settings" else 256,512,376))
-            crop.resize((1920,int(crop.height*3.75)),Image.Resampling.NEAREST).save(
-                OUTPUT / f"{key}-{group}-crop-3.75x.png")
+            save_preview(crop.resize((1920,int(crop.height*3.75)),Image.Resampling.NEAREST),
+                         OUTPUT / f"{key}-{group}-crop-3.75x.png")
             panel = Image.new("RGB",(512,crop.height+24),(248,248,248))
             panel.paste(crop,(0,24))
             ImageDraw.Draw(panel).text((16,5),label,fill=(24,24,24))
@@ -139,7 +139,7 @@ def main():
             comparison.paste(panel,(512*index,0))
         for scale in (1,3.75):
             path = OUTPUT / f"{group}-abc-{scale}x.png"
-            comparison.resize((int(1536*scale),int(comparison.height*scale)),Image.Resampling.NEAREST).save(path)
+            save_preview(comparison.resize((int(1536*scale),int(comparison.height*scale)),Image.Resampling.NEAREST),path)
             report["comparisons"].append(str(path))
     report["passed"] = True
     f.json_write(DATA / "validation.json",report)

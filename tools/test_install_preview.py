@@ -8,12 +8,17 @@ import unittest
 from unittest.mock import patch
 
 import install_preview as deploy
+from fire_ash import staged_font_path
 
 RUN_ID = "run-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
 SOURCE_GAME = deploy.GAME
 # Pin the historical schema independently of any future installer FILES changes.
 LEGACY_FOUR_FILES = ("Data/Scripts.rxdata", "Data/traditional_chinese.dat",
                      "Fonts/fire-ash-zhtw.ttf", "Fonts/fire-ash-zhtw-OFL.txt")
+JH_FOUR_FILES = ("Data/Scripts.rxdata", "Data/traditional_chinese.dat",
+                 "Fonts/fire-ash-zhtw.ttf", "Fonts/fire-ash-zhtw-LOCAL-ONLY.txt")
+NOTO_FOUR_FILES = ("Data/Scripts.rxdata", "Data/traditional_chinese.dat",
+                   "Fonts/fire-ash-zhtw.otf", "Fonts/fire-ash-zhtw-OFL.txt")
 
 
 class DeploymentTests(unittest.TestCase):
@@ -94,6 +99,64 @@ class DeploymentTests(unittest.TestCase):
     def test_restore_legacy_four_file_manifest(self):
         self.restore_legacy_manifest(LEGACY_FOUR_FILES)
 
+    def test_restore_current_jhenghei_backup(self):
+        # Snapshot the actual manifest/assets once; later tests can still run after switching fonts.
+        actual = deploy.BACKUPS / "fire-ash-zhtw-before-jhenghei-trial-20261031"
+        original_manifest = (actual / "manifest.json").read_bytes()
+        historical = json.loads(original_manifest)
+        self.assertEqual(tuple(r["relative"] for r in historical["files"]),JH_FOUR_FILES)
+        snapshot = deploy.ARTIFACTS / "data/fire-ash-work/historical-jhenghei-fixture"
+        snapshot.mkdir(parents=True,exist_ok=True)
+        for row in historical["files"]:
+            relative = row["relative"]
+            cached = snapshot / relative
+            if not cached.exists():
+                source = deploy.within(historical["game"],relative)
+                self.assertEqual(deploy.sha(source),row["installed_sha256"])
+                cached.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(source,cached)
+            self.assertEqual(deploy.sha(cached),row["installed_sha256"])
+            target = self.root / relative
+            target.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copy2(cached,target)
+            if row["original_sha256"]:
+                original = self.backup / "original" / relative
+                original.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(actual / "original" / relative,original)
+                self.assertEqual(deploy.sha(original),row["original_sha256"])
+        deploy.json_write(self.backup / "manifest.json",dict(historical,game=str(self.root)))
+        fixture_manifest = (self.backup / "manifest.json").read_bytes()
+        deploy.restore(self.backup)
+        self.assertEqual((actual / "manifest.json").read_bytes(),original_manifest)
+        self.assertEqual((self.backup / "manifest.json").read_bytes(),fixture_manifest)
+        for row in historical["files"]:
+            target = self.root / row["relative"]
+            if row["original_sha256"]:
+                self.assertEqual(deploy.sha(target),row["original_sha256"])
+            else:
+                self.assertFalse(target.exists())
+
+    def test_noto_install_restore_and_license_hash(self):
+        profile = deploy.json.loads((deploy.ROOT / "coverage.json").read_text(encoding="utf-8"))["font"].get("profile","pixel")
+        if profile != "noto":
+            self.skipTest("Executed during the explicit Noto build phase")
+        plan = deploy.plan(self.root,"noto")
+        self.assertEqual(tuple(row["relative"] for row in plan["files"]),NOTO_FOUR_FILES)
+        notice = deploy.Path(plan["files"][3]["source"])
+        data = notice.read_bytes()
+        try:
+            notice.write_bytes(b"wrong Fusion Pixel license fixture")
+            with self.assertRaisesRegex(ValueError,"建置產物雜湊不符"):
+                deploy.plan(self.root,"noto")
+        finally:
+            notice.write_bytes(data)
+        deploy.install(self.root,self.backup,"noto")
+        self.assertFalse((self.root / JH_FOUR_FILES[3]).exists())
+        self.assertFalse((self.root / JH_FOUR_FILES[2]).exists())
+        deploy.restore(self.backup)
+        for relative in NOTO_FOUR_FILES[1:]:
+            self.assertFalse((self.root / relative).exists())
+
     def test_refuse_unknown_or_incomplete_manifest(self):
         deploy.install(self.root, self.backup)
         manifest_path = self.backup / "manifest.json"
@@ -163,16 +226,18 @@ if __name__ == "__main__":
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     baseline = json.loads((deploy.ROOT / "source-manifest.json").read_text(encoding="utf-8"))
     unchanged = all(deploy.sha(SOURCE_GAME / relative) == expected for relative, expected in baseline["files"].items())
+    font_profile = json.loads((deploy.ROOT / "coverage.json").read_text(encoding="utf-8"))["font"].get("profile","pixel")
     deploy.json_write(deploy.ROOT / "deployment-validation.json", {
         "passed": result.wasSuccessful() and unchanged, "tests_run": result.testsRun,
         "failures": len(result.failures), "errors": len(result.errors),
         "source_game_unchanged": unchanged, "game_started": False,
         "scope": "僅在Artifacts內的檔案測試副本套用及還原；未套用到安裝目錄，未啟動遊戲。",
         "fixture_run": RUN_ID, "installer_sha256": deploy.sha(deploy.ROOT / "tools/install_preview.py"),
-        "source_baseline": str(SOURCE_GAME), "font_sha256": deploy.sha(
-            deploy.ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"),
-        "font_profile": json.loads((deploy.ROOT / "coverage.json").read_text(encoding="utf-8"))["font"].get("profile", "pixel"),
+        "source_baseline": str(SOURCE_GAME), "font_sha256": deploy.sha(staged_font_path(font_profile)),
+        "font_profile": font_profile,
         "historical_four_file_restore_executed": result.wasSuccessful(),
+        "current_jhenghei_manifest_restore_executed": result.wasSuccessful(),
+        "noto_install_restore_executed": result.wasSuccessful() and font_profile == "noto",
         "scripts_sha256": deploy.sha(deploy.ARTIFACTS / "data/fire-ash-work/patched/Scripts.rxdata"),
         "test_sha256": deploy.sha(__file__), "language_sha256": deploy.sha(
             deploy.ARTIFACTS / "release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat")})
