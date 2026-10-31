@@ -1,0 +1,80 @@
+{"section": 103, "en": "\\bCheren: We'll show you what we've learnt.", "script": "Grandeur Club", "line": 494}
+{"section": 103, "en": "\\bBianca: Time to take the next steps to glory!", "script": "Grandeur Club", "line": 495}
+{"section": 103, "en": "\\rMay: Let's ride this wave!", "script": "Grandeur Club", "line": 496}
+{"section": 103, "en": "\\bBrendan: Let's get heated up!", "script": "Grandeur Club", "line": 497}
+{"section": 103, "en": "\\rSerena: I'm going to be strong enough to beat my best rival.", "script": "Grandeur Club", "line": 498}
+{"section": 103, "en": "\\bCalem: Want to see what we can do at the beginning of our new journey?", "script": "Grandeur Club", "line": 499}
+{"section": 103, "en": "\\bNate: Let's have a battle that'll touch everyone's hearts.", "script": "Grandeur Club", "line": 500}
+{"section": 103, "en": "\\rRosa: Let's make a beautiful melody!", "script": "Grandeur Club", "line": 501}
+{"section": 103, "en": "\\rLeaf: My love for my Pokémon gives me strength!", "script": "Grandeur Club", "line": 503}
+{"section": 103, "en": "\\bBlue: Alright guys, follow me and try to keep up!", "script": "Grandeur Club", "line": 504}
+{"section": 103, "en": "\\rMarnie: Wanna battle? I bet'cha do.", "script": "Grandeur Club", "line": 505}
+{"section": 103, "en": "\\bHop: I'll show you what makes a Champion Professor strong!", "script": "Grandeur Club", "line": 506}
+{"section": 103, "en": "\\bBede: Hmph! You're no match for us.", "script": "Grandeur Club", "line": 507}
+{"section": 103, "en": "\\bElio: We're brighter than the sun!", "script": "Grandeur Club", "line": 508}
+{"section": 103, "en": "\\rSelene: We're shining brighter than the moon!", "script": "Grandeur Club", "line": 509}
+{"section": 103, "en": "\\bLuc-ker: You won't last in the presense of our aura!", "script": "Grandeur Club", "line": 510}
+{"section": 103, "en": "\\bLance: We accept your challenge.", "script": "Grandeur Club", "line": 624}
+{"section": 103, "en": "\\bSteven: We're truly the strongest there are now!", "script": "Grandeur Club", "line": 625}
+{"section": 103, "en": "\\bN: Time for you to face our fully realised ideals.", "script": "Grandeur Club", "line": 627}
+{"section": 103, "en": "\\bAlder: We'll prove we have no limits.", "script": "Grandeur Club", "line": 628}
+{"section": 103, "en": "\\bSilver: To prove that our hearts are stronger than before, we'll crush you.", "script": "Grandeur Club", "line": 629}
+{"section": 103, "en": "\\bEthan: We're soaring high!", "script": "Grandeur Club", "line": 630}
+{"section": 103, "en": "\\bBlue: Try to keep up with our mach 2 speed!", "script": "Grandeur Club", "line": 631}
+{"section": 103, "en": "\\bBrock: You won't break our rock-solid bonds!", "script": "Grandeur Club", "line": 632}
+{"section": 103, "en": "\\rMisty: Ready to face my policy for battle?", "script": "Grandeur Club", "line": 633}
+{"section": 103, "en": "Enemy Pokémon gain +(number) Attack when entering battle. Credit mult +0.1.", "script": "UI_EnemyBuffs", "line": 192}
+{"section": 103, "en": "Enemy Pokémon gain +(number) Defense when entering battle. Credit mult +0.1.", "script": "UI_EnemyBuffs", "line": 194}
+{"section": 103, "en": "Enemy Pokémon gain +(number) Sp. Attack when entering battle. Credit mult +0.1.", "script": "UI_EnemyBuffs", "line": 196}
+{"section": 103, "en": "Enemy Pokémon gain +(number) Sp. Def. when entering battle. Credit mult +0.1.", "script": "UI_EnemyBuffs", "line": 198}
+{"section": 103, "en": "Enemy Pokémon gain +(number) Speed when entering battle. Credit mult +0.2.", "script": "UI_EnemyBuffs", "line": 200}
+{"section": 103, "en": "Enemy Pokémon gain +(number) Accuracy when entering battle. Credit mult +0.05.", "script": "UI_EnemyBuffs", "line": 202}
+{"section": 103, "en": "Enemy Pokémon gain +(number) Evasion when entering battle. Credit mult +0.2.", "script": "UI_EnemyBuffs", "line": 204}
+{"section": 103, "en": "Enemy Pokémon are immune to status conditions. Credit mult +0.15.", "script": "UI_EnemyBuffs", "line": 206}
+{"section": 103, "en": "Enemy Pokémon are immune to flinch, trap and confusion. Credit mult +0.15.", "script": "UI_EnemyBuffs", "line": 208}
+{"section": 103, "en": "Enemy Pokémon can't recieve critical hits for 999 turns. Credit mult +0.15.", "script": "UI_EnemyBuffs", "line": 210}
+{"section": 103, "en": "\\rI'm sorry, but you need at least 5000 Poké Dollars to initiate a wonder trade.", "script": "Wonder Trade", "line": 260}
+{"section": 103, "en": "\\rGreat, let's begin!", "script": "Wonder Trade", "line": 264}
+{"section": 103, "en": "\\rSorry, those fossils are outside of my expertise.", "script": "QoL Functions", "line": 27}
+{"section": 103, "en": "\\rI can't revive a Pokémon using duplicate fossils.", "script": "QoL Functions", "line": 29}
+{"section": 103, "en": "\\rI can't revive a Pokémon using two head fossils.", "script": "QoL Functions", "line": 31}
+{"section": 103, "en": "\\rI can't revive a Pokémon using two body fossils.", "script": "QoL Functions", "line": 33}
+{"section": 103, "en": "Challenge Team", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Challenge Team - Practice", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Challenge Team - Veteran", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Challenge Team - Ace", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Challenge Team - Master", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Practice Challenge Team", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Practice Challenge Team - Practice", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Practice Challenge Team - Veteran", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Practice Challenge Team - Ace", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Practice Challenge Team - Master", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Club Challenge Team", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Club Challenge Team - Practice", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Club Challenge Team - Veteran", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Club Challenge Team - Ace", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Club Challenge Team - Master", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Gauntlet Challenge Team", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Gauntlet Challenge Team - Practice", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Gauntlet Challenge Team - Veteran", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Gauntlet Challenge Team - Ace", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Gauntlet Challenge Team - Master", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Mayhem Challenge Team", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Mayhem Challenge Team - Practice", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Mayhem Challenge Team - Veteran", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Mayhem Challenge Team - Ace", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Mayhem Challenge Team - Master", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Sync Challenge Team", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Sync Challenge Team - Practice", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Sync Challenge Team - Veteran", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Sync Challenge Team - Ace", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Sync Challenge Team - Master", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Titan Challenge Team", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Titan Challenge Team - Practice", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Titan Challenge Team - Veteran", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Titan Challenge Team - Ace", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Titan Challenge Team - Master", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Duet Challenge Team", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Duet Challenge Team - Practice", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Duet Challenge Team - Veteran", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "Duet Challenge Team - Ace", "script": "UI_ShowChallengeTeam", "line": 224}

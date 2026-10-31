@@ -2,6 +2,12 @@
   "policy": "僅修改文字顯示查詢；SygnaBuff.name、價格、等級、比較與存檔識別名稱維持原版。",
   "patches": [
     {
+      "script": "Interpreter_Commands",
+      "kind": "display-only",
+      "before": "command = pbShowCommands(nil, @list[@index].parameters[0], @list[@index].parameters[1])",
+      "after": "choices = @list[@index].parameters[0]\n    choices = choices.map { |choice| _MAPINTL($game_map.map_id, choice) } if FireAshZHTW.active?\n    command = pbShowCommands(nil, choices, @list[@index].parameters[1])"
+    },
+    {
       "script": "Trainer_LoadAndNew",
       "kind": "interpolation-before-lookup",
       "key": "Set the level for {1} (max. #{params.maxNumber}).",
@@ -64,6 +70,18 @@
       ]
     },
     {
+      "script": "UI_ShowChallengeTeam",
+      "kind": "display-only",
+      "before": "_INTL(header),Graphics.width/2-5*header.length,-6,0,BASECOLOR,SHADOWCOLOR",
+      "after": "_INTL(header),FireAshZHTW.active? ? Graphics.width/2 : Graphics.width/2-5*header.length,-6,FireAshZHTW.active? ? 2 : 0,BASECOLOR,SHADOWCOLOR"
+    },
+    {
+      "script": "Minigame_VoltorbFlip",
+      "kind": "display-only",
+      "before": "pbConfirmMessage(\"You haven't found any Coins! Are you sure you want to quit?\")",
+      "after": "pbConfirmMessage(_INTL(\"You haven't found any Coins! Are you sure you want to quit?\"))"
+    },
+    {
       "script": "Editor_DataTypes",
       "kind": "interpolation-before-lookup",
       "key": "Set the value for {1} (0-#{@maxvalue}).",
@@ -78,6 +96,48 @@
       "bindings": [
         "@maxvalue"
       ]
+    },
+    {
+      "script": "EditorScreens",
+      "kind": "display-only",
+      "before": "pbConfirmMessageSerious(\"Delete this trainer type?\")",
+      "after": "pbConfirmMessageSerious(_INTL(\"Delete this trainer type?\"))"
+    },
+    {
+      "script": "EditorScreens",
+      "kind": "display-only",
+      "before": "pbConfirmMessageSerious(\"Delete this trainer battle?\")",
+      "after": "pbConfirmMessageSerious(_INTL(\"Delete this trainer battle?\"))"
+    },
+    {
+      "script": "EditorScreens",
+      "kind": "display-only",
+      "before": "pbConfirmMessageSerious(\"Delete this item?\")",
+      "after": "pbConfirmMessageSerious(_INTL(\"Delete this item?\"))"
+    },
+    {
+      "script": "EditorScreens",
+      "kind": "display-only",
+      "before": "pbConfirmMessageSerious(\"Delete this species?\")",
+      "after": "pbConfirmMessageSerious(_INTL(\"Delete this species?\"))"
+    },
+    {
+      "script": "EditorScreens_SpritePositioning",
+      "kind": "display-only",
+      "before": "pbMessage(\"This species has its own shadow sprite in Graphics/Pokemon/Shadow/. The shadow size metric cannot be edited.\")",
+      "after": "pbMessage(_INTL(\"This species has its own shadow sprite in Graphics/Pokemon/Shadow/. The shadow size metric cannot be edited.\"))"
+    },
+    {
+      "script": "Debug_MenuSpriteRenamer",
+      "kind": "display-only",
+      "before": "pbConfirmMessage(\"Check for Pokémon/item/trainer files in their old folders that need renaming and moving?\")",
+      "after": "pbConfirmMessage(_INTL(\"Check for Pokémon/item/trainer files in their old folders that need renaming and moving?\"))"
+    },
+    {
+      "script": "Debug_MenuSpriteRenamer",
+      "kind": "display-only",
+      "before": "pbConfirmMessage(\"Rename all trainer charsets? This will also edit map data to change events' charsets accordingly.\")",
+      "after": "pbConfirmMessage(_INTL(\"Rename all trainer charsets? This will also edit map data to change events' charsets accordingly.\"))"
     },
     {
       "script": "Sygna Buffs",
@@ -138,6 +198,66 @@
       "kind": "display-only",
       "before": "_INTL(\"UNEQUIPPED {1}.\", buff.name)",
       "after": "_INTL(\"UNEQUIPPED {1}.\", buff.display_name)"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Attack Buff\"",
+      "after": "when _INTL(\"Attack Buff\")"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Defense Buff\"",
+      "after": "when _INTL(\"Defense Buff\")"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Sp. Attack Buff\"",
+      "after": "when _INTL(\"Sp. Attack Buff\")"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Sp. Defense Buff\"",
+      "after": "when _INTL(\"Sp. Defense Buff\")"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Speed Buff\"",
+      "after": "when _INTL(\"Speed Buff\")"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Accuracy Buff\"",
+      "after": "when _INTL(\"Accuracy Buff\")"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Evasion Buff\"",
+      "after": "when _INTL(\"Evasion Buff\")"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Status Immunity\"",
+      "after": "when _INTL(\"Status Immunity\")"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Interference Immunity\"",
+      "after": "when _INTL(\"Interference Immunity\")"
+    },
+    {
+      "script": "UI_EnemyBuffs",
+      "kind": "display-only",
+      "before": "when \"Vigilance\"",
+      "after": "when _INTL(\"Vigilance\")"
     }
   ],
   "supplemental_unique": 115

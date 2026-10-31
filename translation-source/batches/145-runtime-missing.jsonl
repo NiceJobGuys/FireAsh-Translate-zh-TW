@@ -1,0 +1,7 @@
+{"section": 103, "en": "Duet Challenge Team - Master", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "DESPAIR Challenge Team", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "DESPAIR Challenge Team - Practice", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "DESPAIR Challenge Team - Veteran", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "DESPAIR Challenge Team - Ace", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 103, "en": "DESPAIR Challenge Team - Master", "script": "UI_ShowChallengeTeam", "line": 224}
+{"section": 104, "en": "\\bHere's your team in case you need a screenshot for proof of your beating me.", "maps": [141, 151, 214], "reason": "Show Text missing from shipped map tables"}

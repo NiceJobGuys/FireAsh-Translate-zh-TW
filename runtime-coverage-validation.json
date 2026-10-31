@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "static_calls_checked": 5337,
+  "missing_static_calls": [],
+  "supplemental_keys_checked": 1207,
+  "standalone_menus_checked": 45,
+  "speaker_mentions_checked": 1114,
+  "enemy_buff_branches_checked": 10,
+  "pickup_receipt_methods_checked": 2,
+  "map_fallbacks_checked": 3,
+  "english_behavior_unchanged": true,
+  "game_started": false,
+  "installed": false,
+  "language_sha256": "259ee43ce16e5d24cc60a63eaea722e67657f8b8501ed8bf2476fc898696256d",
+  "scripts_sha256": "36d4bb0c44aa147f91b95b946ab13a783439fd900740d5cd0f1ac3fb18093171",
+  "validated_at_utc": "2026-10-31T15:35:38.529926+00:00",
+  "scope": "Native static calls and inspected dynamic datasets; not exhaustive gameplay/image coverage."
+}

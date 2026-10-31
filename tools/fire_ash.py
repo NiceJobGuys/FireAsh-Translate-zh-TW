@@ -55,6 +55,8 @@ LABELS = {0: "dialogue", 1: "species", 2: "kinds", 3: "dex", 4: "forms",
           24: "ui", 25: "ribbons", 26: "ribbon-descriptions",
           100: "gigantamax-names", 101: "gigantamax-dex"}
 LABELS[102] = "supplemental-runtime-ui"
+LABELS[103] = "runtime-script-lookups"
+LABELS[104] = "runtime-map-lookups"
 
 
 def text(value):
@@ -641,6 +643,39 @@ def prepare_runtime_catalog(db, game=GAME):
     return targets
 
 
+def prepare_missing_catalog(db, game):
+    from runtime_catalog import collect
+    rows = collect(game)
+    expected = {(row["section"], row["en"]) for row in rows}
+    committed = [json.loads(line) for path in sorted((ROOT / "translation-source/batches").glob("*-runtime-missing.jsonl"))
+                 for line in path.read_text(encoding="utf-8").splitlines()]
+    if rows != committed:
+        raise ValueError("Native runtime source inventory changed; review and translate new batches")
+    with db:
+        db.executemany("INSERT OR IGNORE INTO catalog(section,source,occurrences) VALUES(?,?,0)", sorted(expected))
+    return rows
+
+
+def append_runtime_translations(data, translations, rows):
+    """Append missing lookup keys; preserve every original key/value position."""
+    counts = {103: 0, 104: 0}
+    for section, table in ((103, data[24]), (104, data[0][0])):
+        keys, values = loads(table._dump())
+        for row in rows:
+            if row["section"] != section:
+                continue
+            en = row["en"]
+            if en in keys:
+                raise ValueError(f"Supplemental key already exists: {section}: {en!r}")
+            zh, _ = translations[(section, en)]
+            validate_pair(en, zh)
+            keys.append(RubyString(en, {"E": True}))
+            values.append(RubyString(zh, {"E": True}))
+            counts[section] += 1
+        table._load(writes([keys, values]))
+    return counts
+
+
 def patch_text_layout(code):
     marker = "    if hadspace && !isspace"
     if code.count(marker) != 2:
@@ -725,6 +760,31 @@ def patch_runtime_text(code, name, ui_keys):
         kind = "Club" if name == "UI_ClubRecords" else "Practice"
         replacements.append((f'_INTL("{{1}}{kind} Completion No.{{2}}{{3}}", region,',
                              f'_INTL("{{1}}{kind} Completion No.{{2}}{{3}}", FireAshZHTW.text(region),'))
+    if name == "Interpreter_Commands":
+        replacements.append((
+            'command = pbShowCommands(nil, @list[@index].parameters[0], @list[@index].parameters[1])',
+            'choices = @list[@index].parameters[0]\n    choices = choices.map { |choice| _MAPINTL($game_map.map_id, choice) } if FireAshZHTW.active?\n'
+            '    command = pbShowCommands(nil, choices, @list[@index].parameters[1])'))
+    direct = {
+        "Minigame_VoltorbFlip": [("pbConfirmMessage", "You haven't found any Coins! Are you sure you want to quit?")],
+        "EditorScreens": [("pbConfirmMessageSerious", f"Delete this {kind}?") for kind in
+                          ("trainer type", "trainer battle", "item", "species")],
+        "EditorScreens_SpritePositioning": [("pbMessage", "This species has its own shadow sprite in Graphics/Pokemon/Shadow/. The shadow size metric cannot be edited.")],
+        "Debug_MenuSpriteRenamer": [("pbConfirmMessage", value) for value in (
+            "Check for Pokémon/item/trainer files in their old folders that need renaming and moving?",
+            "Rename all trainer charsets? This will also edit map data to change events' charsets accordingly.")],
+    }
+    for function, value in direct.get(name, []):
+        literal_value = ruby_string(value)
+        replacements.append((f"{function}({literal_value})", f"{function}(_INTL({literal_value}))"))
+    if name == "UI_EnemyBuffs":
+        for label in ("Attack Buff", "Defense Buff", "Sp. Attack Buff", "Sp. Defense Buff", "Speed Buff",
+                      "Accuracy Buff", "Evasion Buff", "Status Immunity", "Interference Immunity", "Vigilance"):
+            replacements.append((f'when "{label}"', f'when _INTL("{label}")'))
+    if name == "UI_ShowChallengeTeam":
+        replacements.append(('_INTL(header),Graphics.width/2-5*header.length,-6,0,BASECOLOR,SHADOWCOLOR',
+                             '_INTL(header),FireAshZHTW.active? ? Graphics.width/2 : Graphics.width/2-5*header.length,'
+                             '-6,FireAshZHTW.active? ? 2 : 0,BASECOLOR,SHADOWCOLOR'))
     for previous, revised in replacements:
         if code.count(previous) != 1:
             raise ValueError(f"Unexpected display-only call site: {name}: {previous}")
@@ -1043,6 +1103,7 @@ def build(game, font_source="pixel"):
     audit_full_key(game)
     db = connect()
     runtime_targets = prepare_runtime_catalog(db, game)
+    missing_sources = prepare_missing_catalog(db, game)
     translations = import_translations(db, game)
     terminology_report = audit_translations(db, translations)
     preserved = [dict(zip(["section", "en", "category", "reason"], row)) for row in
@@ -1098,11 +1159,22 @@ def build(game, font_source="pixel"):
     # The serializer must preserve the complete original before touching any text.
     assert writes(data) == original, "Original Marshal round-trip differs"
     changed = translate_data(data, translations)
+    original_positions = [(s, m, i) for s, m, i, _ in records(data)]
+    supplemental_counts = append_runtime_translations(data, translations, missing_sources)
     output = writes(data)
     assert writes(loads(output)) == output, "Translated Marshal round-trip differs"
     assert list(records(data)) == list(records(loads(output))), "Translated values changed on serialization"
-    assert [(s, m, i) for s, m, i, _ in records(loads(original))] == [
-        (s, m, i) for s, m, i, _ in records(loads(output))], "Slot structure changed"
+    restored_records = {(s, m, i): v for s, m, i, v in records(loads(output))}
+    assert all(position in restored_records for position in original_positions), "Original slot disappeared"
+    original_data = loads(original)
+    for section, table in enumerate(original_data):
+        if table is None:
+            continue
+        for index, obj in enumerate(table if section == 0 else [table]):
+            if isinstance(obj, UserDef):
+                built = data[section][index] if section == 0 else data[section]
+                old_keys = loads(obj._dump())[0]
+                assert loads(built._dump())[0][:len(old_keys)] == old_keys, "Original lookup keys/order changed"
     package = ARTIFACTS / "release/fire-ash-zh-tw-preview"
     language_path = package / "Data/traditional_chinese.dat"
     language_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1122,12 +1194,17 @@ def build(game, font_source="pixel"):
               "checks": ["original-byte-identical-round-trip", "translated-round-trip",
                          "slot-count-and-position", "control-codes-and-placeholders"],
               "game_tested": False, "installed": False,
+              "supplemental_lookup_keys": supplemental_counts,
+              "total_language_slots": len(restored_records),
+              "coverage_scope": "Original catalog plus native Ruby script literals, inspected dynamic trainer datasets and confirmed map gaps; not all images or game paths.",
               "preserved_categories": [dict(zip(["category", "unique_keys", "text_positions"], row)) for row in db.execute(
                   "SELECT p.category,COUNT(*),SUM(c.occurrences) FROM preserved p JOIN catalog c "
                   "ON c.section=p.section AND c.source=p.source GROUP BY p.category ORDER BY p.category")],
               "preservation_details": "translations/preserved.json",
               "supplemental_sections": {"102": {"storage": "Scripts.rxdata/FireAsh_ZHTW_Runtime",
-                  "note": "工具專用分類，補充直接寫在腳本中的顯示文字。未新增或修改messages.dat位置；occurrences=0代表該文字不存放在訊息檔內。"}},
+                  "note": "工具專用分類，補充直接寫在腳本中的顯示文字。occurrences=0代表該文字不存放在原訊息檔內。"},
+                  "103": {"storage": "traditional_chinese.dat/ScriptTexts", "note": "追加實際Ruby查詢鍵，保留原鍵與順序。"},
+                  "104": {"storage": "traditional_chinese.dat/Map0", "note": "共用地圖缺漏文字；保留原鍵與順序。"}},
               "language_sha256": digest(output), "scripts_sha256": scripts_sha256,
               "font": font_report, "terminology": terminology_report}
     json_write(package / "coverage.json", report)
@@ -1249,6 +1326,7 @@ def self_test(font_source="pixel"):
     test_db.executemany("INSERT INTO catalog(section,source) VALUES(?,?)",
                         {(section, source) for section, _, _, source in records(source_data(GAME))})
     prepare_runtime_catalog(test_db)
+    prepare_missing_catalog(test_db, ARTIFACTS / "data/fire-ash-work/original-baseline")
     translations = import_translations(test_db)
     assert test_db.execute("SELECT COUNT(*) FROM catalog WHERE section=102 AND target IS NULL").fetchone()[0] == 0
     assert translations[(5, "Psychic")][0] == "精神強念"

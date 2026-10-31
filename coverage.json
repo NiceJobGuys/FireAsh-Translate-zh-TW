@@ -302,6 +302,26 @@
       "translated_occurrences": 0,
       "preserved_unique": 0,
       "pending_unique": 0
+    },
+    {
+      "id": 103,
+      "category": "runtime-script-lookups",
+      "unique": 1206,
+      "occurrences": 0,
+      "translated_unique": 1206,
+      "translated_occurrences": 0,
+      "preserved_unique": 0,
+      "pending_unique": 0
+    },
+    {
+      "id": 104,
+      "category": "runtime-map-lookups",
+      "unique": 1,
+      "occurrences": 0,
+      "translated_unique": 1,
+      "translated_occurrences": 0,
+      "preserved_unique": 0,
+      "pending_unique": 0
     }
   ],
   "checks": [
@@ -312,6 +332,12 @@
   ],
   "game_tested": false,
   "installed": false,
+  "supplemental_lookup_keys": {
+    "103": 1206,
+    "104": 1
+  },
+  "total_language_slots": 43741,
+  "coverage_scope": "Original catalog plus native Ruby script literals, inspected dynamic trainer datasets and confirmed map gaps; not all images or game paths.",
   "preserved_categories": [
     {
       "category": "ambiguous-trainer-name",
@@ -383,11 +409,19 @@
   "supplemental_sections": {
     "102": {
       "storage": "Scripts.rxdata/FireAsh_ZHTW_Runtime",
-      "note": "工具專用分類，補充直接寫在腳本中的顯示文字。未新增或修改messages.dat位置；occurrences=0代表該文字不存放在訊息檔內。"
+      "note": "工具專用分類，補充直接寫在腳本中的顯示文字。occurrences=0代表該文字不存放在原訊息檔內。"
+    },
+    "103": {
+      "storage": "traditional_chinese.dat/ScriptTexts",
+      "note": "追加實際Ruby查詢鍵，保留原鍵與順序。"
+    },
+    "104": {
+      "storage": "traditional_chinese.dat/Map0",
+      "note": "共用地圖缺漏文字；保留原鍵與順序。"
     }
   },
-  "language_sha256": "bb8d8f7f95a69088fff4f11e5e8a030ea61bb02b89af0d9af05790c00ef1dfe7",
-  "scripts_sha256": "f362b68d261b8b10564f3f1437f30e1df7e3a1a554e9e72fcb7baeeccbc06645",
+  "language_sha256": "259ee43ce16e5d24cc60a63eaea722e67657f8b8501ed8bf2476fc898696256d",
+  "scripts_sha256": "36d4bb0c44aa147f91b95b946ab13a783439fd900740d5cd0f1ac3fb18093171",
   "font": {
     "profile": "noto",
     "family": "Noto Sans CJK TC",
@@ -398,7 +432,7 @@
     "license": "OFL-1.1",
     "asset_filename": "fire-ash-zhtw.otf",
     "license_notice_file": "fire-ash-zhtw-OFL.txt",
-    "checked_characters": 3195,
+    "checked_characters": 3210,
     "missing_characters": 0,
     "missing": [],
     "required_rare_characters": {
@@ -962,7 +996,7 @@
     "canonical_names_checked": 3703,
     "prohibited_term_or_character_count": 0,
     "problem_count": 0,
-    "official_poke_ball_exception_count": 73,
+    "official_poke_ball_exception_count": 74,
     "inline_species_mentions_checked": 2832,
     "problems": [],
     "inline_place_mentions_checked": 1036,

@@ -1,0 +1,481 @@
+[
+  {
+    "map": 42,
+    "event": 54,
+    "page": 3,
+    "choices": [
+      "Capless",
+      "Original Cap",
+      "Hoenn Cap",
+      "Cancel"
+    ],
+    "previous_command": 111
+  },
+  {
+    "map": 57,
+    "event": 7,
+    "page": 1,
+    "choices": [
+      "Stadium Cup rules",
+      "Play recorded battle",
+      "Cancel"
+    ],
+    "previous_command": 111
+  },
+  {
+    "map": 58,
+    "event": 7,
+    "page": 1,
+    "choices": [
+      "Battle Palace rules",
+      "Play recorded battle",
+      "Cancel"
+    ],
+    "previous_command": 111
+  },
+  {
+    "map": 62,
+    "event": 8,
+    "page": 1,
+    "choices": [
+      "Battle Palace rules",
+      "Play recorded battle",
+      "Cancel"
+    ],
+    "previous_command": 111
+  },
+  {
+    "map": 94,
+    "event": 44,
+    "page": 2,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 44,
+    "page": 3,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 44,
+    "page": 4,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 6,
+    "page": 9,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 6,
+    "page": 13,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 6,
+    "page": 14,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 6,
+    "page": 19,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 6,
+    "page": 26,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 6,
+    "page": 28,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 6,
+    "page": 31,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 6,
+    "page": 32,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 94,
+    "event": 40,
+    "page": 8,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 135,
+    "event": 1,
+    "page": 3,
+    "choices": [
+      "Goldenrod",
+      "Wyndon",
+      "Exit"
+    ],
+    "previous_command": null
+  },
+  {
+    "map": 135,
+    "event": 1,
+    "page": 4,
+    "choices": [
+      "Goldenrod",
+      "Wyndon",
+      "Wedgehurst",
+      "Exit"
+    ],
+    "previous_command": null
+  },
+  {
+    "map": 135,
+    "event": 1,
+    "page": 5,
+    "choices": [
+      "Goldenrod",
+      "Wyndon",
+      "Exit"
+    ],
+    "previous_command": null
+  },
+  {
+    "map": 135,
+    "event": 1,
+    "page": 6,
+    "choices": [
+      "Goldenrod",
+      "Wyndon",
+      "Wedgehurst",
+      "Exit"
+    ],
+    "previous_command": null
+  },
+  {
+    "map": 135,
+    "event": 7,
+    "page": 3,
+    "choices": [
+      "Saffron",
+      "Wyndon",
+      "Exit"
+    ],
+    "previous_command": null
+  },
+  {
+    "map": 135,
+    "event": 7,
+    "page": 4,
+    "choices": [
+      "Saffron",
+      "Wyndon",
+      "Wedgehurst",
+      "Exit"
+    ],
+    "previous_command": null
+  },
+  {
+    "map": 151,
+    "event": 94,
+    "page": 1,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 655
+  },
+  {
+    "map": 151,
+    "event": 95,
+    "page": 1,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 655
+  },
+  {
+    "map": 151,
+    "event": 96,
+    "page": 1,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 655
+  },
+  {
+    "map": 177,
+    "event": 24,
+    "page": 2,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 412
+  },
+  {
+    "map": 443,
+    "event": 25,
+    "page": 1,
+    "choices": [
+      "Mossdeep",
+      "Izabe",
+      "Sootopolis",
+      "Cancel"
+    ],
+    "previous_command": 121
+  },
+  {
+    "map": 889,
+    "event": 48,
+    "page": 3,
+    "choices": [
+      "Akala Island",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 889,
+    "event": 48,
+    "page": 4,
+    "choices": [
+      "Paniola Ranch",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 889,
+    "event": 48,
+    "page": 6,
+    "choices": [
+      "Paniola Ranch",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 889,
+    "event": 48,
+    "page": 7,
+    "choices": [
+      "Paniola",
+      "Wela Volcano",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 889,
+    "event": 48,
+    "page": 8,
+    "choices": [
+      "Paniola",
+      "Wela Volcano",
+      "Ten Carat",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 889,
+    "event": 81,
+    "page": 2,
+    "choices": [
+      "Hau'oli City",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 889,
+    "event": 81,
+    "page": 3,
+    "choices": [
+      "Hau'oli City",
+      "Manalo Stadium",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 894,
+    "event": 19,
+    "page": 2,
+    "choices": [
+      "Hau'oli Outskirts",
+      "Kukui's House",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 897,
+    "event": 1,
+    "page": 2,
+    "choices": [
+      "Hau'oli City",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 907,
+    "event": 29,
+    "page": 2,
+    "choices": [
+      "Route 1",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 907,
+    "event": 29,
+    "page": 4,
+    "choices": [
+      "Route 1",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 907,
+    "event": 29,
+    "page": 5,
+    "choices": [
+      "Route 1",
+      "Wela Volcano",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 907,
+    "event": 29,
+    "page": 6,
+    "choices": [
+      "Route 1",
+      "Wela Volcano",
+      "Ten Carat",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 915,
+    "event": 4,
+    "page": 1,
+    "choices": [
+      "Route 1",
+      "Paniola",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 915,
+    "event": 4,
+    "page": 2,
+    "choices": [
+      "Route 1",
+      "Paniola",
+      "Ten Carat",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 920,
+    "event": 2,
+    "page": 2,
+    "choices": [
+      "Route 1",
+      "Paniola",
+      "Wela Volcano",
+      "Exit"
+    ],
+    "previous_command": 250
+  },
+  {
+    "map": 981,
+    "event": 1,
+    "page": 1,
+    "choices": [
+      "Wyndon",
+      "Exit"
+    ],
+    "previous_command": null
+  },
+  {
+    "map": 995,
+    "event": 14,
+    "page": 1,
+    "choices": [
+      "Yes",
+      "No"
+    ],
+    "previous_command": 412
+  }
+]

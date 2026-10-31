@@ -1,0 +1,64 @@
+{
+  "speaker_overrides": {
+    "Argenta": "青葙",
+    "Buck": "麥可",
+    "Gaeric": "濱廉",
+    "Iscan": "阿芒",
+    "Lian": "菊伊",
+    "Melli": "木春",
+    "Trace": "小進",
+    "Luc-ker": "Luc-ker",
+    "Drake": "源治",
+    "Flint": "大葉",
+    "Oak": "大木博士",
+    "Juniper": "紅豆杉博士",
+    "Kukui": "庫庫伊博士",
+    "Sycamore": "布拉塔諾博士",
+    "Magnolia": "木蘭博士"
+  },
+  "contextual_speakers": [
+    {
+      "script": "PWC Battle",
+      "source_line_min": 500,
+      "en": "Drake",
+      "zh": "勇次",
+      "evidence": "LEADER_Drake, not SECRET_Drake; original source lines 558-560."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.pokemon.co.jp/ex/legends_arceus/tc/character/",
+      "supports": [
+        "菊伊",
+        "阿芒",
+        "木春",
+        "濱廉"
+      ]
+    },
+    {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Argenta",
+      "supports": [
+        "青葙"
+      ]
+    },
+    {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Buck",
+      "supports": [
+        "麥可"
+      ]
+    },
+    {
+      "url": "https://wiki.pokemoncentral.it/Trace_%28gioco%29",
+      "supports": [
+        "小進"
+      ]
+    }
+  ],
+  "retained_terms": {
+    "Luc-ker": "本作自訂融合角色名稱，沒有經核對的正式繁中名稱；保留原名。",
+    "PN": "四句原腳本本來就缺少反斜線的字面文字，保留原控制碼語意，未擅自新增玩家名稱控制碼。",
+    "Essentials": "引擎專名。",
+    "Graphics/Pokemon/Shadow/": "資源路徑。"
+  },
+  "limitations": "人物名稱以既有 glossary 為主，新名稱按來源核對；未完成全遊戲人工實機驗收。"
+}

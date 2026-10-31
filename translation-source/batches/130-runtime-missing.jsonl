@@ -1,0 +1,80 @@
+{"section": 103, "en": "Translations by:", "script": "Settings", "line": 519}
+{"section": 103, "en": "WARN: usage of deprecated method \"{1}\" or its alias.", "script": "Deprecation", "line": 11}
+{"section": 103, "en": "The method is slated to be removed in Essentials {1}.", "script": "Deprecation", "line": 13}
+{"section": 103, "en": "No starting position was set in the map editor.", "script": "StartGame", "line": 19}
+{"section": 103, "en": "Map {1} was not found.", "script": "StartGame", "line": 100}
+{"section": 103, "en": "The map was not found. The game cannot continue.", "script": "StartGame", "line": 106}
+{"section": 103, "en": "The map is corrupt. The game cannot continue.", "script": "StartGame", "line": 114}
+{"section": 103, "en": "The battlefield became fiery!", "script": "PokeBattle_Battle", "line": 892}
+{"section": 103, "en": "The battlefield was flooded!", "script": "PokeBattle_Battle", "line": 896}
+{"section": 103, "en": "The battlefield became icy!", "script": "PokeBattle_Battle", "line": 900}
+{"section": 103, "en": "The battlefield became rocky!", "script": "PokeBattle_Battle", "line": 904}
+{"section": 103, "en": "{1} survived the poisoning.\\nThe poison faded away!\u0001", "script": "Overworld", "line": 103}
+{"section": 103, "en": "You put the {1} away\\nin the <icon=bagPocket{2}>\\c[1]{3} Pocket\\c[0].", "script": "Overworld", "line": 730}
+{"section": 103, "en": "{1} forgot how to use {2}.\\nAnd...\u0001", "script": "Item_Utilities", "line": 654}
+{"section": 103, "en": "......\\wt[5] ......\\1", "script": "Item_Phone", "line": 289}
+{"section": 103, "en": "Click!\\wt[10]\n......\\wt[5] ......\\1", "script": "Item_Phone", "line": 302}
+{"section": 103, "en": "Attempted to set {1} as Pokémon status", "script": "Pokemon", "line": 268}
+{"section": 103, "en": "Invalid value {1} given", "script": "Pokemon", "line": 670}
+{"section": 103, "en": "Passive: {1}\\nEffect: {2}", "script": "UI_Summary", "line": 1258}
+{"section": 103, "en": "The save file is corrupt. A backup will be loaded.", "script": "UI_Load", "line": 228}
+{"section": 103, "en": "The save file is corrupt, or is incompatible with this game.", "script": "UI_Load", "line": 241}
+{"section": 103, "en": "Do you want to delete the save file and start anew?", "script": "UI_Load", "line": 243}
+{"section": 103, "en": "The saved data was deleted.", "script": "UI_Load", "line": 271}
+{"section": 103, "en": "All saved data could not be deleted.", "script": "UI_Load", "line": 273}
+{"section": 103, "en": "Continue", "script": "UI_Load", "line": 288}
+{"section": 103, "en": "New Game", "script": "UI_Load", "line": 293}
+{"section": 103, "en": "Would you like to save the game?", "script": "UI_Save", "line": 91}
+{"section": 103, "en": "You haven't found any Coins! Are you sure you want to quit?", "script": "Minigame_VoltorbFlip", "line": 410}
+{"section": 103, "en": "Delete this trainer type?", "script": "EditorScreens", "line": 362}
+{"section": 103, "en": "Delete this trainer battle?", "script": "EditorScreens", "line": 510}
+{"section": 103, "en": "Delete this item?", "script": "EditorScreens", "line": 843}
+{"section": 103, "en": "Delete this species?", "script": "EditorScreens", "line": 1010}
+{"section": 103, "en": "This species has its own shadow sprite in Graphics/Pokemon/Shadow/. The shadow size metric cannot be edited.", "script": "EditorScreens_SpritePositioning", "line": 171}
+{"section": 103, "en": "Check for Pokémon/item/trainer files in their old folders that need renaming and moving?", "script": "Debug_MenuSpriteRenamer", "line": 259}
+{"section": 103, "en": "Rename all trainer charsets? This will also edit map data to change events' charsets accordingly.", "script": "Debug_MenuSpriteRenamer", "line": 280}
+{"section": 103, "en": "\\bBrock: Hey \\PN! Good to see you here. Let's have a good battle.", "script": "PWC Battle", "line": 38}
+{"section": 103, "en": "\\bBrock: Wow \\PN, strong as ever. Let me know if you'd like me to groom your Pokémon.", "script": "PWC Battle", "line": 39}
+{"section": 103, "en": "\\bBrock: I've really improved, haven't I?", "script": "PWC Battle", "line": 40}
+{"section": 103, "en": "\\rMisty: Oh, it's \\PN! I still remember how we met, with you stealing my bike. I'm gonna pay you back for that now!", "script": "PWC Battle", "line": 42}
+{"section": 103, "en": "\\rMisty: Grr, I'll get you next time!", "script": "PWC Battle", "line": 43}
+{"section": 103, "en": "\\rMisty: Yay, I win!", "script": "PWC Battle", "line": 44}
+{"section": 103, "en": "\\bLt. Surge: Hah, it's \\PN. Your Pikachu may have beaten my Raichu before, but not this time!", "script": "PWC Battle", "line": 46}
+{"section": 103, "en": "\\bLt. Surge: Nice one kid. I'll shock you next time!", "script": "PWC Battle", "line": 47}
+{"section": 103, "en": "\\bLt. Surge: Haha! I shocked you into surrender!", "script": "PWC Battle", "line": 48}
+{"section": 103, "en": "\\rErika: Yawn... Oh, it's \\PN. Try not to rely on a disobedient Pokémon this time!", "script": "PWC Battle", "line": 50}
+{"section": 103, "en": "\\rErika: Oh my, you've become so genuinely strong! I suppose I dozed off when I shouldn't have.", "script": "PWC Battle", "line": 51}
+{"section": 103, "en": "\\rErika: Oh dear, still so cocky?", "script": "PWC Battle", "line": 52}
+{"section": 103, "en": "\\rSabrina: I had a vision of this moment, \\PN. Let's battle and witness the future with our own eyes!", "script": "PWC Battle", "line": 54}
+{"section": 103, "en": "\\rSabrina: I already foresaw your victory.", "script": "PWC Battle", "line": 55}
+{"section": 103, "en": "\\rSabrina: I already foresaw your defeat.", "script": "PWC Battle", "line": 56}
+{"section": 103, "en": "\\rJanine: I suppose you don't know who I am, \\PN. I'm Janine, Koga's daughter. Let's see if you're as strong as my father says you are!", "script": "PWC Battle", "line": 58}
+{"section": 103, "en": "\\rJanine: You truly are a champion!", "script": "PWC Battle", "line": 59}
+{"section": 103, "en": "\\rJanine: Guess I can hold my own against the strongest out there!", "script": "PWC Battle", "line": 60}
+{"section": 103, "en": "\\bBlaine: We meet again, \\PN! We're not in a volcano this time, but this is still a great place to battle.", "script": "PWC Battle", "line": 62}
+{"section": 103, "en": "\\bBlaine: Yeah, that set my heart aflame!", "script": "PWC Battle", "line": 63}
+{"section": 103, "en": "\\bBlaine: What a blazing battle. Until we meet again, \\PN!", "script": "PWC Battle", "line": 64}
+{"section": 103, "en": "\\bBill: Hey, it's \\PN. I'm not much of a battler, but I'll still give you a good battle to thank you for getting me out of that Kabuto costume!", "script": "PWC Battle", "line": 66}
+{"section": 103, "en": "\\bBill: Haha, as expected.", "script": "PWC Battle", "line": 67}
+{"section": 103, "en": "\\bBill: Woah, didn't expect that!", "script": "PWC Battle", "line": 68}
+{"section": 103, "en": "\\rLorelei: Oh my, it's \\PN? Champion or not, I freeze all opponents solid!", "script": "PWC Battle", "line": 70}
+{"section": 103, "en": "\\rLorelei: Pardon. You are quite the strong trainer now, \\PN.", "script": "PWC Battle", "line": 71}
+{"section": 103, "en": "\\rLorelei: Stopped you frozen in your tracks, according to strategy.", "script": "PWC Battle", "line": 72}
+{"section": 103, "en": "\\rAgatha: \\PN, huh. Very well, I won't hold back this time.", "script": "PWC Battle", "line": 74}
+{"section": 103, "en": "\\rAgatha: My, my. These old bones didn't stand a chance!", "script": "PWC Battle", "line": 75}
+{"section": 103, "en": "\\rAgatha: Eheheh!", "script": "PWC Battle", "line": 76}
+{"section": 103, "en": "\\bGary: Hey, \\PN! I'm gonna beat you this time!", "script": "PWC Battle", "line": 78}
+{"section": 103, "en": "\\bGary: Hah, that was close. I'll beat you next time!", "script": "PWC Battle", "line": 79}
+{"section": 103, "en": "\\bGary: Smell ya later, \\PN!", "script": "PWC Battle", "line": 80}
+{"section": 103, "en": "\\bOak: Oh, it's \\PN! Surprised to see me here? I used to be quite the battler back in my day. Let's see if I can still give you a good battle!", "script": "PWC Battle", "line": 82}
+{"section": 103, "en": "\\bOak: As expected, I couldn't keep you with you. Keep going!", "script": "PWC Battle", "line": 83}
+{"section": 103, "en": "\\bOak: I've still got strength left in these old bones!", "script": "PWC Battle", "line": 84}
+{"section": 103, "en": "\\bFalkner: \\PN, you'll need more a jolt of electricity to take down my birds. Still think you stand a chance?", "script": "PWC Battle", "line": 86}
+{"section": 103, "en": "\\bFalkner: The winds blew for your victory this time. Remember to keep soaring high!", "script": "PWC Battle", "line": 87}
+{"section": 103, "en": "\\bFalkner: The winds blew for my victory this time. I'll keep soaring hihgher and higher!", "script": "PWC Battle", "line": 88}
+{"section": 103, "en": "\\bBugsy: Let me demonstrate what I've learned from my studies, \\PN!", "script": "PWC Battle", "line": 90}
+{"section": 103, "en": "\\bBugsy: Back to the books.", "script": "PWC Battle", "line": 91}
+{"section": 103, "en": "\\bBugsy: Up and at 'em!", "script": "PWC Battle", "line": 92}
+{"section": 103, "en": "\\rWhitney: Let's do this fair and square, \\PN. I'll show you the power of cuteness!", "script": "PWC Battle", "line": 94}
+{"section": 103, "en": "\\rWhitney: Hey! You're not allowed to do that!", "script": "PWC Battle", "line": 95}
+{"section": 103, "en": "\\rWhitney: Don't blame me, it's not my fault.", "script": "PWC Battle", "line": 96}

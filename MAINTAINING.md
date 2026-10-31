@@ -14,7 +14,11 @@
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_ash.py' batch --section 0 --limit 200 --name 130-dialogue
 ```
 
-現有資料已無待翻，勿為了建立新批次而重置譯文。更新遊戲時，先保存原基準並比對新檔，重新匯出後審閱新增鍵，不直接套用舊版完整腳本。
+現有已納入資料無待翻，但不能據此斷言遊戲所有顯示路徑都有譯文。勿為了建立新批次而重置譯文。更新遊戲時，先保存原基準並比對新檔，重新匯出後審閱新增鍵，不直接套用舊版完整腳本。
+
+2026-10-31 新增 `tools/runtime_catalog.py`：用本機遊戲 Ruby AST 讀取真正解碼後的單／雙引號字串，再核對原查詢表；另外追蹤 PWC／Grandeur 訓練家對話、敵方強化說明、戰場訊息與有限組合的隊伍標題。`130`–`145-runtime-missing` 為固定來源／譯文批次，1,207 筆，來源變更時建置拒絕繼續。工具專用 section 103／104 分別追加至語言檔 ScriptTexts／Map0，原鍵與順序保持不變；不把它們當成新的遊戲 section。
+
+新增鍵必須走人工翻譯與 `validate_pair`，不能把所有 Ruby 字串自動翻譯，避免修改圖檔路徑、內部名稱、價格或存檔識別碼。人物名稱的新對照、同名 Drake 與刻意保留項目見 `runtime-translation-notes.json`。新增條目的來源行數只對固定原版 SHA 有效。
 
 ## 術語與保留項目
 
@@ -33,11 +37,12 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_a
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\prepare_baseline.py'
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_ash.py' build --game 'D:\Code\Lab Testing\Artifacts\data\fire-ash-work\original-baseline'
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\verify_ruby.py' --game 'D:\Code\Lab Testing\Artifacts\data\fire-ash-work\original-baseline'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_runtime_missing.py'
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\font_preview.py'
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_install_preview.py' --source-game 'D:\Code\Lab Testing\Artifacts\data\fire-ash-work\original-baseline'
 ```
 
-依序等待上一個程序成功，再執行下一個。`coverage.json`、`validation.json` 及 `deployment-validation.json` 的語言檔雜湊必須一致，不能用舊報告證明新產物。
+依序等待上一個程序成功，再執行下一個。`coverage.json`、`validation.json`、`runtime-coverage-validation.json` 及 `deployment-validation.json` 的語言檔雜湊必須一致，不能用舊報告證明新產物。
 
 `build` 不寫入遊戲；只產生獨立語言檔、本機修改腳本、像素字型與完整 OFL 授權。原生 Ruby 使用遊戲 DLL 做資料與函式測試，不啟動 Game.exe。`verify_display.rb` 以原遊戲的 drawItem／文字函式錄下實際繪製呼叫，`font_preview.py` 再以 FreeType 重播、最近鄰輸出 1／2／4 倍圖；不可另手寫一層陰影代替原本三層。4 倍圖只是檢查放大，不是遊戲顯示模式；這仍不能代替 SDL 遊戲實機畫面。
 
