@@ -108,6 +108,7 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 | `tools/prepare_baseline.py` | 從既有備份與未改動原檔建立四檔原版建置副本，不寫入遊戲 |
 | `tools/font_preview.py` | 以 FreeType 重播原生 Ruby 繪製呼叫，產生 1／2／4 倍最近鄰對照；非遊戲截圖 |
 | `tools/test_font_sample.py` | 驗證平滑字型樣本成功／失敗均不覆寫正式產物、報告及預覽 |
+| `tools/weight_sample.py` | 固定 A／B／C 字重的隔離比較；不重建套用檔、不選定正式字型 |
 | `font-preview-validation.json` | 預覽字界、排版與產物雜湊，不代表實機通過 |
 | `tools/runtime_support.rb` | 動態句子查詢、舊編碼字串相容及只用於顯示的強化名稱 |
 | `tools/verify_runtime.rb` | 用原強化程式驗證翻譯後的選項、購買、升級、能量與原始識別名稱 |
@@ -170,6 +171,21 @@ python tools\test_font_sample.py
 ```
 
 樣本報告與正式報告分開；樣本錯誤不會覆寫正式 PASS。測試涵蓋成功／找不到字型兩條路徑，核對正式報告、產物、draw calls 與全部正式預覽的雜湊不變。平滑字型保留正常抗鋸齒，放大後字緣較柔和，不代表已完成實機清晰度驗收。
+
+### 隔離字重比較（未採用）
+
+使用者實機看過 Regular 後要求稍微加粗，固定比較 A：Noto Sans CJK TC Medium 500、B：Microsoft JhengHei Bold 700、C：現行 Regular 400。直接開啟字檔 face 0，實際 24／12px，沒有合成粗體或偏移重畫；各自重新執行原生排版／painter。正式來源預設與套用產物維持不變，是否採用由使用者決定。
+
+Noto 原始 `NotoSansCJKtc-Medium.otf`（Sans2.004）與 LICENSE 放在 `Artifacts\downloads\noto-sans-cjk-tc\`；本機 FreeType 2.14.3 能直接讀取 CFF／OTF，沒有轉 TTF。遊戲 SDL_ttf 靜態包含在 Game.exe，本輪未執行該載入路徑或進遊戲驗證，不以離線結果宣稱遊戲必然可用。Noto 可依 OFL 1.1 隨作品發布並保留授權／著作權；微軟字型及衍生檔僅供本機，不進 repo／Release。
+
+```powershell
+python tools\weight_sample.py
+python tools\test_font_sample.py
+```
+
+輸出是 repo 外的 `Artifacts\images\fire-ash\weight-sample\`：藍色對話、紅色對話、橘色設定、深色 12px 小字四組，每組固定 A／B／C 三欄，保留 1 倍及從 1 倍最近鄰放大的 3.75 倍原檔（寬 5,760px），另有各欄全圖與放大裁切。藍／紅取原 Messages 的 `\b`／`\r` 主色 `#3050C8`／`#E00808`；這是離線原生 draw calls 重播，不是實機截圖。
+
+`Artifacts\data\fire-ash-work\weight-sample\validation.json` 記錄本輪字寬、字界、碰撞、cmap 與工具 SHA，原生 Ruby log 放 `Artifacts\logs\fire-ash-weight-sample\`。既有正式報告保留前一輪建置記錄，沒有因產生樣本而重寫；測試也逐像素核對共用 painter 與既有六張 1 倍預覽相同，並確認正式產物／報告／安裝檔 SHA 不變。12px 複雜字仍密，字重與灰階的取捨需看原尺寸放大圖，不能以較粗直接宣稱實機更清楚。
 
 ### 正式版本與實機驗收
 

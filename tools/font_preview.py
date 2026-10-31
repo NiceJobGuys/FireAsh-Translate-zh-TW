@@ -8,6 +8,55 @@ from PIL import Image, ImageDraw, ImageFont
 from fire_ash import ARTIFACTS, ROOT, digest, json_write
 
 
+def paint_scene(name, calls, font_path, expected_family, smooth, background=None):
+    """Replay one native scene; return pixels and checks without writing reports."""
+    dialogue = "dialogue" in name or name.startswith("smalltext")
+    dark = name.startswith(("dark-", "smalltext"))
+    canvas = Image.new("RGB", (512, 384), (216, 232, 208) if dialogue else (248, 248, 248))
+    draw = ImageDraw.Draw(canvas, "RGBA")
+    if dialogue:
+        fill = background or ((40,48,64) if dark else (248,248,240))
+        draw.rectangle((16, 256, 495, 375), fill=fill, outline=(56,72,80), width=4)
+    else:
+        draw.rectangle((8, 8, 503, 375), outline=(56,72,80), width=4)
+        draw.line((16, 57, 495, 57), fill=(56,72,80), width=2)
+    bounds, alpha_values, fonts = [], set(), {}
+    for call in calls:
+        x, y, width, height = call["rect"]
+        if call["kind"] == "rect":
+            assert 0 <= x < x+width <= 512 and 0 <= y < y+height <= 384
+            draw.rectangle((x,y,x+width-1,y+height-1), fill=tuple(call["color"]))
+            continue
+        assert call["family"] == expected_family, call
+        pixels = int(call["api_size"] * 0.9)
+        if pixels not in fonts:
+            fonts[pixels] = ImageFont.truetype(str(font_path), pixels, index=0, layout_engine=ImageFont.Layout.BASIC)
+        font, value = fonts[pixels], call["text"]
+        text_width = font.getlength(value)
+        assert text_width <= width, ("Engine would squeeze text", name, value, text_width, width)
+        assert text_width == int(text_width) and pixels % 12 == 0
+        if call["align"] == 1:
+            x += max(0, int((width-text_width)/2))
+        elif call["align"] == 2:
+            x += max(0, int(width-text_width))
+        y += int((height-sum(font.getmetrics()))/2)
+        box = draw.textbbox((x,y), value, font=font)
+        assert 16 <= box[0] and box[2] <= 496 and 8 <= box[1] and box[3] <= 372, (name,value,box)
+        alpha = set(bytes(font.getmask(value, mode="L")))
+        alpha_values.update(alpha)
+        if not smooth:
+            assert alpha <= {0,255}
+        draw.text((x,y), value, font=font, fill=tuple(call["color"]))
+        bounds.append({"scene": name, "text": value, "box": box})
+    if name == "settings-after":
+        scale_row = [b for b in bounds if 280 <= b["box"][1] < 316]
+        assert len(scale_row) == 6, ("Expected the label and all five scale choices", scale_row)
+        assert [b["text"] for b in scale_row][1:] == ["S","M","L","XL","全螢幕"]
+        boxes = sorted(b["box"] for b in scale_row)
+        assert all(left[2] < right[0] for left,right in zip(boxes,boxes[1:])), ("Scale option collision", scale_row)
+    return canvas, bounds, alpha_values
+
+
 def main(args):
     output = ARTIFACTS / "images/fire-ash"
     output.mkdir(parents=True, exist_ok=True)
@@ -31,59 +80,15 @@ def main(args):
     assert recorded["scripts_sha256"] == coverage["scripts_sha256"]
     samples = {}
     bounds = []
-    fonts = {}
     alpha_values = set()
 
     for name, calls in recorded["scenes"].items():
         if args.font_sample and name.endswith("before"):
             continue
-        dialogue = "dialogue" in name or name.startswith("smalltext")
-        dark = name.startswith(("dark-", "smalltext"))
-        canvas = Image.new("RGB", (512, 384), (216, 232, 208) if dialogue else (248, 248, 248))
-        draw = ImageDraw.Draw(canvas, "RGBA")
-        if dialogue:
-            draw.rectangle((16, 256, 495, 375), fill=(40,48,64) if dark else (248, 248, 240), outline=(56, 72, 80), width=4)
-        else:
-            draw.rectangle((8, 8, 503, 375), outline=(56, 72, 80), width=4)
-            draw.line((16, 57, 495, 57), fill=(56, 72, 80), width=2)
-        for call in calls:
-            x, y, width, height = call["rect"]
-            if call["kind"] == "rect":
-                assert 0 <= x < x+width <= 512 and 0 <= y < y+height <= 384
-                draw.rectangle((x, y, x+width-1, y+height-1), fill=tuple(call["color"]))
-                continue
-            assert call["family"] == expected_family, call
-            pixels = int(call["api_size"] * 0.9)
-            if pixels not in fonts:
-                fonts[pixels] = ImageFont.truetype(str(font_path), pixels, index=0,
-                    layout_engine=ImageFont.Layout.BASIC)
-            font = fonts[pixels]
-            value = call["text"]
-            text_width = font.getlength(value)
-            # mkxp would squeeze an oversized draw_text into its rectangle.
-            assert text_width <= width, ("Engine would squeeze text", name, value, text_width, width)
-            assert text_width == int(text_width) and pixels % 12 == 0
-            if call["align"] == 1:
-                x += max(0, int((width-text_width)/2))
-            elif call["align"] == 2:
-                x += max(0, int(width-text_width))
-            # Bitmap::drawText centers the unoutlined font surface vertically.
-            y += int((height-sum(font.getmetrics()))/2)
-            box = draw.textbbox((x, y), value, font=font)
-            assert 16 <= box[0] and box[2] <= 496 and 8 <= box[1] and box[3] <= 372, (name,value,box)
-            alpha = set(bytes(font.getmask(value, mode="L")))
-            alpha_values.update(alpha)
-            if not smooth:
-                assert alpha <= {0,255}
-            draw.text((x, y), value, font=font, fill=tuple(call["color"]))
-            bounds.append({"scene": name, "text": value, "box": box})
+        canvas, scene_bounds, scene_alpha = paint_scene(name,calls,font_path,expected_family,smooth)
+        bounds.extend(scene_bounds)
+        alpha_values.update(scene_alpha)
         samples[name] = canvas
-        if name == "settings-after":
-            scale_row = [b for b in bounds if b["scene"] == name and 280 <= b["box"][1] < 316]
-            assert len(scale_row) == 6, ("Expected the label and all five scale choices", scale_row)
-            assert [b["text"] for b in scale_row][1:] == ["S","M","L","XL","全螢幕"]
-            boxes = sorted(b["box"] for b in scale_row)
-            assert all(left[2] < right[0] for left,right in zip(boxes, boxes[1:])), ("Scale option collision", scale_row)
 
     previews = []
     for name, canvas in samples.items():

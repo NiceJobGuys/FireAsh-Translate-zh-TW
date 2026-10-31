@@ -6,7 +6,10 @@ import subprocess
 import sys
 import unittest
 
-from fire_ash import ARTIFACTS, ROOT
+from PIL import Image, ImageChops
+
+from fire_ash import ARTIFACTS, ROOT, GAME
+from font_preview import paint_scene
 
 WORK = ARTIFACTS / "data/fire-ash-work"
 SAMPLE = WORK / "smooth-font-sample"
@@ -42,6 +45,52 @@ class FontSampleTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertFalse(json.loads((SAMPLE / "validation.json").read_text(encoding="utf-8"))["passed"])
         self.assertEqual(hashes(), before)
+
+    def test_shared_painter_matches_recorded_previews(self):
+        coverage = json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))
+        recorded = json.loads((WORK / "font-preview-draw-calls.json").read_text(encoding="utf-8"))
+        font = WORK / "fonts/fire-ash-zhtw.ttf"
+        for scene,calls in recorded["scenes"].items():
+            with self.subTest(scene=scene):
+                profile = coverage["font"].get("profile", "pixel")
+                suffix = ("three-shadows-only" if scene.endswith("before") else
+                          "jhenghei-trial" if profile == "jhenghei" else "no-shadow-only")
+                path = ARTIFACTS / "images/fire-ash" / f"font-preview-{scene.rsplit('-',1)[0]}-{suffix}-1x.png"
+                canvas,_,_ = paint_scene(scene,calls,font,coverage["font"]["family"],profile == "jhenghei")
+                expected = Image.open(path).convert("RGB")
+                self.assertIsNone(ImageChops.difference(canvas,expected).getbbox(), str(path))
+
+    def test_weight_samples_keep_production_reports_and_assets(self):
+        before = hashes()
+        installed = [GAME / p for p in ("Data/Scripts.rxdata","Data/traditional_chinese.dat",
+            "Fonts/fire-ash-zhtw.ttf","Fonts/fire-ash-zhtw-LOCAL-ONLY.txt","Game.exe","Game.ini","mkxp.json")]
+        installed_before = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in installed}
+        result = subprocess.run([sys.executable,"-B",str(ROOT / "tools/weight_sample.py")],
+                                capture_output=True,encoding="utf-8")
+        self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+        report = json.loads((WORK / "weight-sample/validation.json").read_text(encoding="utf-8"))
+        self.assertTrue(report["passed"] and report["sample_only"])
+        self.assertFalse(report["synthetic_bold"] or report["offset_overpaint"])
+        self.assertEqual([row["weight"] for row in report["fonts"]],[500,700,400])
+        for row in report["fonts"]:
+            self.assertEqual(row["checked_characters"],3195)
+            self.assertEqual(row["missing"],[])
+            self.assertTrue(all(row["rare_characters"].values()))
+        self.assertEqual(len(report["comparisons"]),8)
+        for group in ("blue-dialogue","red-dialogue","orange-settings","dark-smalltext"):
+            images = ARTIFACTS / "images/fire-ash/weight-sample"
+            first = Image.open(images / f"{group}-abc-1x.png").convert("RGB")
+            enlarged = Image.open(images / f"{group}-abc-3.75x.png").convert("RGB")
+            self.assertEqual(enlarged.width,5760)
+            expected = first.resize(enlarged.size,Image.Resampling.NEAREST)
+            self.assertIsNone(ImageChops.difference(enlarged,expected).getbbox())
+            a = Image.open(images / f"a-{group}-1x.png").convert("RGB")
+            b = Image.open(images / f"b-{group}-1x.png").convert("RGB")
+            c = Image.open(images / f"c-{group}-1x.png").convert("RGB")
+            self.assertIsNotNone(ImageChops.difference(a,c).getbbox())
+            self.assertIsNotNone(ImageChops.difference(b,c).getbbox())
+        self.assertEqual(hashes(),before)
+        self.assertEqual(installed_before,{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in installed})
 
     def test_success_keeps_production_reports_and_assets(self):
         before = hashes()
