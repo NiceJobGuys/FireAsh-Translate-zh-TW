@@ -1,0 +1,12 @@
+{
+  "original_scripts_sha256": "cbd6eda3e5d715c68e98aeee00a7bfcccc8016b1203b3eeda7b2762b5e38f099",
+  "exact_literal_uses": [
+    {
+      "script": "UI_Options",
+      "line": 374,
+      "code": "EnumOption.new(_INTL(\"Screen Size\"),[_INTL(\"S\"),_INTL(\"M\"),_INTL(\"L\"),_INTL(\"XL\"),_INTL(\"Full\")],"
+    }
+  ],
+  "translation": "全螢幕",
+  "decision": "原版完整 Full 字串僅用於畫面大小；其他容量訊息使用不同鍵。"
+}

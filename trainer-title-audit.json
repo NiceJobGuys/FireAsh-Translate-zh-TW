@@ -1,5 +1,12 @@
 {
-  "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
+  "language_sha256": "bb8d8f7f95a69088fff4f11e5e8a030ea61bb02b89af0d9af05790c00ef1dfe7",
+  "revalidation": {
+    "base_review_language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
+    "method": "逐一比較實際語言位置，唯一變更是Full；section13與14序列化位元組完全相同，並重新核對trainers.dat及trainer_types.dat的SHA，既有11組組合驗證維持有效。",
+    "unchanged_sections": [13, 14],
+    "source_hashes_rechecked": true,
+    "passed": true
+  },
   "method": "讀取實際trainers.dat及trainer_types.dat並核對原Trainer.full_name的類型加姓名格式；不是遊戲畫面驗收。",
   "trainers_sha256": "4c8363de9c85ca9f573165f9daece46b7c8b939fea5160025c8fbd6d7b3fb621",
   "trainer_types_sha256": "70834baf5945adcda564d84d58d644b4a3b9f03d709cc2642bd199307e935621",

@@ -1,0 +1,16 @@
+{
+  "family": "Microsoft JhengHei",
+  "style": "Regular",
+  "version": "6.15",
+  "filename": "C:\\Windows\\Fonts\\msjh.ttc",
+  "face_index": 0,
+  "sha256": "1fd5fc7046e0eea753988ee06d1a5a731df68475614e2174fbba9b4800f392ac",
+  "license": "Microsoft proprietary; local trial only; no redistribution",
+  "license_notice_file": "fire-ash-zhtw-LOCAL-ONLY.txt",
+  "regular_font_size": 27,
+  "regular_raster_px": 24,
+  "small_font_size": 14,
+  "small_raster_px": 12,
+  "engine_size_multiplier": 0.9,
+  "publish": false
+}

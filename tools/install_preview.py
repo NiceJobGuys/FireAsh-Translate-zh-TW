@@ -13,6 +13,7 @@ from fire_ash import ARTIFACTS, GAME, ROOT, digest, json_write
 FILES = ("Data/Scripts.rxdata", "Data/traditional_chinese.dat", "Fonts/fire-ash-zhtw.ttf",
          "Fonts/fire-ash-zhtw-OFL.txt")
 LEGACY_FILES = FILES[:3]
+JH_FILES = FILES[:3] + ("Fonts/fire-ash-zhtw-LOCAL-ONLY.txt",)
 BACKUPS = ARTIFACTS / "backup"
 
 
@@ -43,10 +44,14 @@ def require_closed(game):
             raise ValueError("請先正常退出遊戲，再套用或還原；工具不會關閉程序。")
 
 
-def plan(game):
+def plan(game, font_source=None):
     game = Path(game).resolve()
     source = json.loads((ROOT / "source-manifest.json").read_text(encoding="utf-8"))
     coverage = json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))
+    profile = coverage["font"].get("profile", "pixel")
+    if profile not in ("pixel", "jhenghei") or (font_source and font_source != profile):
+        raise ValueError("字型來源與建置報告不符；請先重建指定版本。")
+    files = JH_FILES if profile == "jhenghei" else FILES
     if any(row["pending_unique"] for row in coverage["sections"]):
         raise ValueError("仍有待翻項目，不允許安裝此預覽包。")
     for relative, expected in source["files"].items():
@@ -56,10 +61,13 @@ def plan(game):
         (ARTIFACTS / "data/fire-ash-work/patched/Scripts.rxdata", coverage["scripts_sha256"]),
         (ARTIFACTS / "release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat", coverage["language_sha256"]),
         (ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf", coverage["font"]["sha256"]),
-        (ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw-OFL.txt", coverage["font"]["license_sha256"]),
+        (ARTIFACTS / "data/fire-ash-work/fonts" / Path(files[3]).name, coverage["font"]["license_sha256"]),
     )
     entries = []
-    for relative, (built, expected) in zip(FILES, staged):
+    other_notice = (FILES[3] if profile == "jhenghei" else JH_FILES[3])
+    if within(game, other_notice).exists():
+        raise ValueError(f"另一字型的說明檔仍存在；先用該次備份完整還原：{other_notice}")
+    for relative, (built, expected) in zip(files, staged):
         target = within(game, relative)
         if within(game, relative + ".fire-ash-zhtw-part").exists():
             raise ValueError(f"上次套用的暫存檔仍存在，請先檢查：{relative}.fire-ash-zhtw-part")
@@ -69,7 +77,8 @@ def plan(game):
             raise ValueError(f"建置產物雜湊不符：{built}")
         entries.append({"relative": relative, "source": str(built), "installed_sha256": expected,
                         "original_sha256": sha(target) if target.exists() else None})
-    return {"game": str(game), "files": entries, "game_ini_changed": False,
+    return {"game": str(game), "files": entries, "font_source": profile,
+            "local_trial_only": profile == "jhenghei", "game_ini_changed": False,
             "game_started": False, "backup_root": str(BACKUPS)}
 
 
@@ -85,8 +94,8 @@ def restore(backup):
     manifest = json.loads((backup / "manifest.json").read_text(encoding="utf-8"))
     game = Path(manifest["game"]).resolve()
     entries = manifest["files"]
-    if tuple(row["relative"] for row in entries) not in (LEGACY_FILES, FILES):
-        raise ValueError("備份清單不是支援的舊版三檔或新版四檔清單。")
+    if tuple(row["relative"] for row in entries) not in (LEGACY_FILES, FILES, JH_FILES):
+        raise ValueError("備份清單不是支援的舊版三檔、像素四檔或本機試裝四檔清單。")
     require_closed(game)
     # Validate every file before restoring any of them. User edits are never overwritten.
     for row in entries:
@@ -111,8 +120,8 @@ def restore(backup):
     return {"restored": True, "game": str(game), "backup": str(backup), "game_started": False}
 
 
-def install(game, backup=None):
-    manifest = plan(game)
+def install(game, backup=None, font_source=None):
+    manifest = plan(game, font_source)
     require_closed(game)
     name = "fire-ash-zhtw-before-install-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
     backup = backup_path(backup or BACKUPS / name)
@@ -161,9 +170,11 @@ if __name__ == "__main__":
     parser.add_argument("action", nargs="?", choices=("plan", "install", "restore"), default="plan")
     parser.add_argument("--game", type=Path, default=GAME)
     parser.add_argument("--backup", type=Path)
+    parser.add_argument("--font-source", choices=("pixel", "jhenghei"),
+                        help="Require the staged build to match this profile")
     args = parser.parse_args()
     if args.action == "restore" and args.backup is None:
         parser.error("restore 必須提供 --backup 的完整備份目錄")
-    result = (plan(args.game) if args.action == "plan" else install(args.game, args.backup)
+    result = (plan(args.game, args.font_source) if args.action == "plan" else install(args.game, args.backup, args.font_source)
               if args.action == "install" else restore(args.backup))
     print(json.dumps(result, ensure_ascii=False, indent=2))

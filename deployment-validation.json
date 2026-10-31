@@ -1,16 +1,18 @@
 {
   "passed": true,
-  "tests_run": 6,
+  "tests_run": 7,
   "failures": 0,
   "errors": 0,
   "source_game_unchanged": true,
   "game_started": false,
   "scope": "僅在Artifacts內的檔案測試副本套用及還原；未套用到安裝目錄，未啟動遊戲。",
-  "fixture_run": "run-20261031-072458-168153",
-  "installer_sha256": "370713e33345b7f09d0d7a0aa28b2ae34f782eb9f12e7663b7678f810f5ae2e1",
+  "fixture_run": "run-20261031-131725-924108",
+  "installer_sha256": "8833cfbe28284a011198f4c21db8f839474c4929905f992d43d49e4320f78ed3",
   "source_baseline": "D:\\Code\\Lab Testing\\Artifacts\\data\\fire-ash-work\\original-baseline",
-  "font_sha256": "780a81e9ab70281f0f0563be0d90f1916edd4c68719072c7b65c7d0a9d295be8",
-  "scripts_sha256": "151bbb766b74273fec155ac4b6a895cd4472ffb850de7956d701384ccf8fb706",
-  "test_sha256": "48b4e1a2d51fe84967137a9154a8443ff8af31631b5b3d2064cc1f1b25b511d2",
-  "language_sha256": "e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85"
+  "font_sha256": "ae5f6ffb388d4e9cbcca40f34864fdc5b4793640fc89b76e7a8db1c771121e6b",
+  "font_profile": "jhenghei",
+  "historical_four_file_restore_executed": true,
+  "scripts_sha256": "19624fe42d948f3df414d1fe7ec9de0e319b3978d559de79b763ffc04663b10d",
+  "test_sha256": "a9780e6fe1ca1bbb9659742696cf6fd7be8b1b3891e42f29f835f4c5f7c6b895",
+  "language_sha256": "bb8d8f7f95a69088fff4f11e5e8a030ea61bb02b89af0d9af05790c00ef1dfe7"
 }

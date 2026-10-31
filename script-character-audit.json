@@ -1,6 +1,7 @@
 {
- "checked":"2026-10-30",
- "language_sha256":"e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85",
+ "checked":"2026-10-31",
+ "language_sha256":"bb8d8f7f95a69088fff4f11e5e8a030ea61bb02b89af0d9af05790c00ef1dfe7",
+ "revalidation":{"base_review_language_sha256":"e581615760f33b5740dca46127b1629246e2c84b7418c7c084d84e08b4734f85","method":"逐一比較42,534個實際語言位置，唯一差異為section24位置1684的已滿→全螢幕；此差異不含既有候選字，候選計數與人工判讀維持有效。未宣稱重新執行OpenCC全量掃描。","changed_slots":1,"passed":true},
  "method":"唯讀掃描全部譯文字元，以本機既有OpenCC STCharacters字典找出單字轉換候選，再人工排除台灣合法字形與官方用語；未自動轉換全文。",
  "dictionary_sha256":"9207708da9f2e2a248f39c457b2fccad26ec42e7efaf47a860e6900464f4cac5",
  "fixed":[{"from":"综","to":"綜","unique_keys":2,"reason":"霜奶仙三色綜合的型態及對話。"},{"from":"霉","to":"黴","unique_keys":1,"reason":"發黴一詞採台灣正體字形。"}],

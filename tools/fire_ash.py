@@ -733,7 +733,35 @@ def patch_runtime_text(code, name, ui_keys):
     return code, changes
 
 
-def build_scripts(game, runtime_targets):
+def font_config(font_source="pixel"):
+    if font_source not in ("pixel", "jhenghei"):
+        raise ValueError(f"Unknown font source: {font_source}")
+    filename = "font-source.json" if font_source == "pixel" else "font-source-jhenghei.json"
+    return json.loads((ROOT / filename).read_text(encoding="utf-8"))
+
+
+def font_support_code(font_source="pixel"):
+    code = (ROOT / "tools/font_support.rb").read_text(encoding="utf-8")
+    marker = '  FONT = "Fusion Pixel 12px Mono zh-TW"'
+    assert code.count(marker) == 1, "Unexpected font hook template"
+    return code.replace(marker, "  FONT = " + ruby_string(font_config(font_source)["family"])).encode("utf-8")
+
+
+def audit_full_key(game):
+    uses = []
+    for _, name, compressed in loads((game / "Data/Scripts.rxdata").read_bytes()):
+        code = zlib.decompress(compressed).decode("utf-8")
+        for line_number, line in enumerate(code.splitlines(), 1):
+            if re.search(r'''["']Full["']''', line):
+                uses.append({"script": text(name), "line": line_number, "code": line.strip()})
+    assert len(uses) == 1 and uses[0]["script"] == "UI_Options", "Full gained another context; review before translating"
+    assert '_INTL("Screen Size")' in uses[0]["code"] and '_INTL("Full")' in uses[0]["code"]
+    json_write(ROOT / "full-key-usage.json", {"original_scripts_sha256": digest(
+        (game / "Data/Scripts.rxdata").read_bytes()), "exact_literal_uses": uses,
+        "translation": "全螢幕", "decision": "原版完整 Full 字串僅用於畫面大小；其他容量訊息使用不同鍵。"})
+
+
+def build_scripts(game, runtime_targets, font_source="pixel"):
     scripts = loads((game / "Data/Scripts.rxdata").read_bytes())
     settings = [row for row in scripts if text(row[1]) == "Settings"]
     assert len(settings) == 1, "Cannot uniquely identify Settings"
@@ -759,7 +787,7 @@ def build_scripts(game, runtime_targets):
             row[2] = zlib.compress(code.encode("utf-8"))
             runtime_patches.extend(changes)
     assert sum(change["kind"] == "interpolation-before-lookup" for change in runtime_patches) == 11, "Unexpected interpolation call count"
-    font_code = (ROOT / "tools/font_support.rb").read_bytes()
+    font_code = font_support_code(font_source)
     main_index = next(i for i, row in enumerate(scripts) if text(row[1]) == "Main")
     scripts.insert(main_index, [max(row[0] for row in scripts) + 1,
                                b"FireAsh_ZHTW_Font", zlib.compress(font_code)])
@@ -779,30 +807,59 @@ def build_scripts(game, runtime_targets):
     return digest(output)
 
 
-def build_font(translations):
+def build_font(translations, font_source="pixel"):
     from fontTools.ttLib import TTFont
     from PIL import ImageFont
-    config = json.loads((ROOT / "font-source.json").read_text(encoding="utf-8"))
-    source = ARTIFACTS / "downloads/fusion-pixel-font" / config["filename"]
+    config = font_config(font_source)
+    source = (ARTIFACTS / "downloads/fusion-pixel-font" / config["filename"]
+              if font_source == "pixel" else Path(config["filename"]))
     if digest(source.read_bytes()) != config["sha256"]:
-        raise ValueError("Pixel font source hash mismatch")
+        raise ValueError("Font source hash mismatch")
     characters = set("".join(target for target, _ in translations.values()))
-    with TTFont(source) as font:
+    with TTFont(source, fontNumber=0, recalcTimestamp=False) as font:
         assert font["name"].getDebugName(1) == config["family"]
         missing = sorted(c for c in characters if ord(c) >= 32 and ord(c) not in font.getBestCmap())
     if missing:
         raise ValueError("Chinese font lacks characters: " + "".join(missing))
     alpha_counts = {}
     for pixels in (12, 24):
-        raster_font = ImageFont.truetype(str(source), pixels)
+        raster_font = ImageFont.truetype(str(source), pixels, index=0, layout_engine=ImageFont.Layout.BASIC)
         # Check unthresholded FreeType grayscale output, not a forced binary mask.
         alpha = set(bytes(raster_font.getmask("".join(sorted(characters - {'\n', '\r', '\t'})), mode="L")))
-        if not alpha <= {0, 255}:
+        if font_source == "pixel" and not alpha <= {0, 255}:
             raise ValueError(f"Pixel font has antialiased edges at {pixels}px: {sorted(alpha)}")
         alpha_counts[str(pixels)] = sorted(alpha)
     path = ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"
     path.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(source, path)
+    if font_source == "pixel":
+        shutil.copy2(source, path)
+    else:
+        # Keep the complete Regular face, metadata and copyright; never publish it.
+        with TTFont(source, fontNumber=0, recalcTimestamp=False) as font:
+            font.save(path)
+        with TTFont(path) as extracted, TTFont(source, fontNumber=0) as original:
+            assert extracted.getBestCmap() == original.getBestCmap()
+            assert extracted["name"].getDebugName(0) == original["name"].getDebugName(0)
+            assert extracted["OS/2"].fsType == original["OS/2"].fsType
+        notice = path.with_name(config["license_notice_file"])
+        notice.write_text(
+            "Microsoft JhengHei Regular — LOCAL TRIAL ONLY\n"
+            "© 2022 Microsoft Corporation. All rights reserved.\n"
+            "Source: this computer's C:\\Windows\\Fonts\\msjh.ttc, face 0.\n"
+            "This is a complete local face extraction, not an OFL font.\n"
+            "This notice grants no additional rights. Do not redistribute the font,\n"
+            "any derived subset, or a package containing either. No repo or Release.\n"
+            "Fusion Pixel's fire-ash-zhtw-OFL.txt does not apply and is not installed.\n",
+            encoding="utf-8", newline="\n")
+        return {"profile": font_source, "family": config["family"], "version": config["version"],
+                "license": config["license"], "license_notice_file": notice.name,
+                "checked_characters": len(characters), "missing_characters": 0, "missing": [],
+                "required_rare_characters": {c: ord(c) in extracted.getBestCmap() for c in "戽桄"},
+                "sha256": digest(path.read_bytes()), "source_sha256": config["sha256"],
+                "face_index": 0, "license_sha256": digest(notice.read_bytes()),
+                "raster_sizes_px": [12, 24], "api_sizes": [14, 27], "layout_engine": "BASIC",
+                "unthresholded_freetype_alpha_values": alpha_counts, "solid_fonts_changed": False,
+                "source": str(source), "publish": False, "local_trial_only": True}
     license_parts = []
     for relative, expected in config["licenses"].items():
         license_path = source.parent / relative
@@ -811,7 +868,8 @@ def build_font(translations):
         license_parts.append(f"===== {relative} =====\n" + license_path.read_text(encoding="utf-8"))
     license_output = path.with_name("fire-ash-zhtw-OFL.txt")
     license_output.write_text("\n\n".join(license_parts), encoding="utf-8", newline="\n")
-    return {"family": config["family"], "version": config["version"], "license": "OFL-1.1",
+    return {"profile": font_source, "family": config["family"], "version": config["version"], "license": "OFL-1.1",
+            "license_notice_file": license_output.name,
             "checked_characters": len(characters), "missing_characters": 0, "missing": [],
             "sha256": digest(path.read_bytes()), "license_sha256": digest(license_output.read_bytes()),
             "native_grid_px": 12, "raster_sizes_px": [12, 24], "api_sizes": [14, 27],
@@ -931,11 +989,12 @@ def audit_translations(db, translations):
     return report
 
 
-def build(game):
+def build(game, font_source="pixel"):
     manifest = json.loads((ROOT / "source-manifest.json").read_text(encoding="utf-8"))
     for name, expected in manifest["files"].items():
         if digest((game / name).read_bytes()) != expected:
             raise ValueError(f"Game changed since extraction: {name}")
+    audit_full_key(game)
     db = connect()
     runtime_targets = prepare_runtime_catalog(db, game)
     translations = import_translations(db, game)
@@ -1002,8 +1061,8 @@ def build(game):
     language_path = package / "Data/traditional_chinese.dat"
     language_path.parent.mkdir(parents=True, exist_ok=True)
     language_path.write_bytes(output)
-    scripts_sha256 = build_scripts(game, runtime_targets)
-    font_report = build_font(translations)
+    scripts_sha256 = build_scripts(game, runtime_targets, font_source)
+    font_report = build_font(translations, font_source)
     rows = list(db.execute("SELECT c.section,COUNT(*),SUM(c.occurrences),"
                           "SUM(c.target IS NOT NULL),SUM(CASE WHEN c.target IS NOT NULL THEN c.occurrences ELSE 0 END),"
                           "SUM(p.source IS NOT NULL) FROM catalog c LEFT JOIN preserved p "
@@ -1030,7 +1089,7 @@ def build(game):
     print(json.dumps(report, ensure_ascii=False))
 
 
-def self_test():
+def self_test(font_source="pixel"):
     from PIL import ImageFont
     config = json.loads((ROOT / "font-source.json").read_text(encoding="utf-8"))
     pixel_font = ARTIFACTS / "downloads/fusion-pixel-font" / config["filename"]
@@ -1044,6 +1103,23 @@ def self_test():
     off_grid = ImageFont.truetype(str(pixel_font), 23)
     assert set(bytes(off_grid.getmask("繁體中文", mode="L"))) - {0, 255}, "Blur regression fixture not reproduced"
     print("PASS: native pixel grids at 12/24px; mkxp 0.9 size compensation; off-grid blur reproduced")
+    if font_source == "jhenghei":
+        from fontTools.ttLib import TTFont
+        trial = font_config(font_source)
+        source = Path(trial["filename"])
+        assert digest(source.read_bytes()) == trial["sha256"]
+        with TTFont(source, fontNumber=0) as font:
+            assert font["name"].getDebugName(1) == trial["family"]
+            assert font["name"].getDebugName(2) == "Regular"
+            assert all(ord(c) in font.getBestCmap() for c in "戽桄")
+        for prefix in ("regular", "small"):
+            pixels = trial[prefix + "_raster_px"]
+            assert int(trial[prefix + "_font_size"] * 0.9) == pixels
+            font = ImageFont.truetype(str(source), pixels, index=0, layout_engine=ImageFont.Layout.BASIC)
+            assert set(bytes(font.getmask("繁體中文，戽桄", mode="L"))) - {0, 255}
+        assert b'Microsoft JhengHei' in font_support_code(font_source)
+        assert b'Fusion Pixel' in font_support_code()
+        print("PASS: local JhengHei Regular face 0; 12/24px grayscale; pixel default preserved")
     assert patch_text_layout("    if hadspace && !isspace\n" * 2).count("FireAshZHTW.cjk_boundary?") == 2
     try:
         patch_text_layout("Unexpected upstream formatter")
@@ -1115,6 +1191,7 @@ def self_test():
     assert test_db.execute("SELECT COUNT(*) FROM catalog WHERE section=102 AND target IS NULL").fetchone()[0] == 0
     assert translations[(5, "Psychic")][0] == "精神強念"
     assert translations[(12, "Psychic")][0] == "超能力"
+    assert translations[(24, "Full")][0] == "全螢幕", "Fullscreen label regression"
     assert translations[(14, "Red")][0] == "赤紅"
     assert translations[(14, "Blue")][0] == "青綠"
     assert translations[(14, "Agatha")][0] == "菊子"
@@ -1169,16 +1246,18 @@ if __name__ == "__main__":
     parser.add_argument("--limit", type=int, default=75)
     parser.add_argument("--name")
     parser.add_argument("--menu-only", action="store_true")
+    parser.add_argument("--font-source", choices=("pixel", "jhenghei"), default="pixel",
+                        help="Default pixel; jhenghei is a local-only trial, never a distributable package")
     args = parser.parse_args()
     if args.action == "extract":
         extract(args.game)
     elif args.action == "reference":
         reference(args.game)
     elif args.action == "build":
-        build(args.game)
+        build(args.game, args.font_source)
     elif args.action == "batch":
         make_batch(args.section, args.limit, args.name, args.menu_only)
     elif args.action == "runtime-source":
         export_runtime_sources(args.game)
     else:
-        self_test()
+        self_test(args.font_source)

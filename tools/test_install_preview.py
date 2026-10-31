@@ -62,9 +62,24 @@ class DeploymentTests(unittest.TestCase):
     def restore_legacy_manifest(self, relative_paths):
         before = {str(p.relative_to(self.root)): deploy.sha(p)
                   for p in self.root.rglob("*") if p.is_file()}
-        # Reproduce the original installer format, then use the current restore.
-        with patch.object(deploy, "FILES", relative_paths):
-            deploy.install(self.root, self.backup)
+        # Construct the pinned historical schema; do not derive it from current FILES.
+        entries = []
+        self.backup.mkdir(parents=True)
+        for relative, built in zip(relative_paths, deploy.plan(self.root)["files"]):
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            original_sha = deploy.sha(target) if target.exists() else None
+            if original_sha:
+                original = self.backup / "original" / relative
+                original.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(target, original)
+            source = deploy.Path(built["source"])
+            if relative == LEGACY_FOUR_FILES[3]:
+                source = deploy.ARTIFACTS / "downloads/fusion-pixel-font/OFL.txt"
+            shutil.copy2(source, target)
+            entries.append({"relative": relative, "original_sha256": original_sha,
+                            "installed_sha256": deploy.sha(target)})
+        deploy.json_write(self.backup / "manifest.json", {"game": str(self.root), "files": entries})
         manifest_bytes = (self.backup / "manifest.json").read_bytes()
         self.assertEqual(tuple(row["relative"] for row in json.loads(manifest_bytes)["files"]), relative_paths)
         deploy.restore(self.backup)
@@ -96,6 +111,24 @@ class DeploymentTests(unittest.TestCase):
                 self.assertEqual(before, {str(p.relative_to(self.root)): deploy.sha(p)
                                           for p in self.root.rglob("*") if p.is_file()})
         deploy.json_write(manifest_path, manifest)
+        deploy.restore(self.backup)
+
+    def test_refuse_corrupt_backup_and_wrong_profile(self):
+        plan = deploy.plan(self.root)
+        other = "pixel" if plan["font_source"] == "jhenghei" else "jhenghei"
+        with self.assertRaisesRegex(ValueError, "字型來源"):
+            deploy.plan(self.root, other)
+        deploy.install(self.root, self.backup)
+        before = {str(p.relative_to(self.root)): deploy.sha(p)
+                  for p in self.root.rglob("*") if p.is_file()}
+        original = self.backup / "original" / deploy.FILES[0]
+        original_bytes = original.read_bytes()
+        original.write_bytes(b"corrupt backup fixture")
+        with self.assertRaisesRegex(ValueError, "原檔備份雜湊不符"):
+            deploy.restore(self.backup)
+        self.assertEqual(before, {str(p.relative_to(self.root)): deploy.sha(p)
+                                  for p in self.root.rglob("*") if p.is_file()})
+        original.write_bytes(original_bytes)
         deploy.restore(self.backup)
 
     def test_failed_install_rolls_back(self):
@@ -138,6 +171,8 @@ if __name__ == "__main__":
         "fixture_run": RUN_ID, "installer_sha256": deploy.sha(deploy.ROOT / "tools/install_preview.py"),
         "source_baseline": str(SOURCE_GAME), "font_sha256": deploy.sha(
             deploy.ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf"),
+        "font_profile": json.loads((deploy.ROOT / "coverage.json").read_text(encoding="utf-8"))["font"].get("profile", "pixel"),
+        "historical_four_file_restore_executed": result.wasSuccessful(),
         "scripts_sha256": deploy.sha(deploy.ARTIFACTS / "data/fire-ash-work/patched/Scripts.rxdata"),
         "test_sha256": deploy.sha(__file__), "language_sha256": deploy.sha(
             deploy.ARTIFACTS / "release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat")})

@@ -12,6 +12,8 @@ __pycache__/
 *.dll
 *.ttf
 *.ttc
+*.otc
+*.eot
 *.otf
 *.woff
 *.woff2
@@ -24,6 +26,9 @@ backups/
 save/
 saves/
 Fonts/
+# Microsoft fonts and derived faces/subsets are local trial assets only.
+local-fonts/
+jhenghei-trial/
 Artifacts/
 dist/
 *.bak

@@ -1,6 +1,6 @@
 # Pokémon Fire Ash 繁體中文化
 
-2026-10-31 使用者選擇先交付無陰影版，保留原有五種顯示選項。3 倍選項未納入，原因與驗證修正見 [3x-engine-blocker.md](3x-engine-blocker.md)。
+2026-10-31 使用者選擇實機試裝正黑體，並將畫面大小的 Full 改為「全螢幕」。repo 的建置預設仍為 Fusion Pixel；本次報告記錄本機正黑體試裝，尚未套用或完成實機驗收。正黑體及其衍生字型只留本機，不進 repo／Release，不可公開散布此試裝包。保留原五種顯示選項，3 倍未納入，原因見 [3x-engine-blocker.md](3x-engine-blocker.md)。
 
 目前已完成訊息表與補充腳本介面的繁中預覽版，所有區段待翻數為 0；保留的姓名、暱稱、縮寫及程式識別碼另列明細。Claude 1 已套用到本機遊戲，實機驗收正在進行，尚未完成實機驗收。
 
@@ -22,24 +22,26 @@
 | --- | --- | --- |
 | 繁中語言檔 | `release\fire-ash-zh-tw-preview\Data\traditional_chinese.dat` | 已建置並由原遊戲 Ruby DLL 載入驗證 |
 | 修改後腳本 | `data\fire-ash-work\patched\Scripts.rxdata` | 新增繁中選項、字型與中文斷行支援；僅本機保留 |
-| 本機中文字型 | `data\fire-ash-work\fonts\fire-ash-zhtw.ttf` | Fusion Pixel Font 12px zh_tw，OFL 1.1；不 commit 字型 |
-| 字型授權 | `data\fire-ash-work\fonts\fire-ash-zhtw-OFL.txt` | 原始及上游授權文字，隨字型套用 |
+| 本機中文字型 | `data\fire-ash-work\fonts\fire-ash-zhtw.ttf` | 最後一次選定的來源；本次為正黑體 Regular，不 commit 字型 |
+| 字型說明 | `data\fire-ash-work\fonts\fire-ash-zhtw-LOCAL-ONLY.txt` | 正黑體本機使用限制；像素建置改用 `fire-ash-zhtw-OFL.txt` |
 | 覆蓋報告 | `release\fire-ash-zh-tw-preview\coverage.json` | 各類別詳細統計 |
 
-本機目前由 Claude 1 套用像素字型版，對應備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-pixel-font-20261030`。較早的 `fire-ash-zhtw-before-install-20261030` 已還原過。新的無陰影版本仍待重新套用與實機驗收；repo 不包含遊戲檔、字型、存檔或還原備份。
+本機遊戲目前由 Claude 1 套用 14b674e 無陰影像素版，現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-no-shadow-20261031`。正黑體試裝仍待 Claude 1 套用及使用者實機確認；repo 不包含遊戲檔、字型、存檔或還原備份。
 
 本機套用範圍僅有：
 
 1. 備份並替換 `Data\Scripts.rxdata`。
 2. 新增 `Data\traditional_chinese.dat`。
 3. 新增 `Fonts\fire-ash-zhtw.ttf`。
-4. 新增 `Fonts\fire-ash-zhtw-OFL.txt`，保留字型與上游授權。
+4. 正黑體新增 `Fonts\fire-ash-zhtw-LOCAL-ONLY.txt`；像素版新增 `Fonts\fire-ash-zhtw-OFL.txt`。先完整還原舊版，不把 Fusion Pixel 的 OFL 留在正黑體安裝結果中。
+
+正黑體試裝選用 Windows 本機 `C:\Windows\Fonts\msjh.ttc` 第 0 個 face，Microsoft JhengHei Regular 6.15。建置工具保留完整字面與原始著作權／fsType 中繼資料，輸出本機 TTF；不是 subset，不變造名稱或宣稱為 OFL。24／12px 對應 API 27／14，中文無陰影，英文 Power 字型、陰影與原先顯示行為不變。來源與 SHA 見 `font-source-jhenghei.json`；所有字型檔及衍生檔均被 `.gitignore` 排除。
 
 實機回報舊版正黑體模糊後，已改用 [Fusion Pixel Font](https://github.com/TakWolf/fusion-pixel-font) 2026.10.25 的 `zh_tw` 等寬版（OFL 1.1）。`zh_tw` 參考台灣標準字形，`zh_hant` 參考傳統印刷字形；兩者零缺字、字寬相同，本專案以台灣繁中為目標而選 `zh_tw`，不改譯文或 PokeAPI 的 zh-Hant 詞彙來源。Cubic 11 缺「戽」「桄」而未採用；新字型涵蓋全部 3,195 個用字。普通／小字實際為 24／12px，皆為原生 12px 格線的整數倍。本機引擎會將 API 字級乘 0.9 後取整數，因此 `Font.size` 設為 27／14。字型 SHA、下載來源與原始授權雜湊見 `font-source.json`。
 
 `solidFonts` 維持原設定，不修改 `mkxp.json`。完整字集在 12／24px 的未二值化 FreeType 灰階遮罩只有 0／255。繁中模式的選單、分行文字與格式對話不再疊畫三層陰影；英文模式及明確指定的外框效果保留。中文字型仍暫停人工粗體／斜體，結束後還原樣式。
 
-設定 → 畫面大小沿用 S／M／L／XL／Full，依序為 0.5／1／1.5／2 倍及全螢幕，索引與 getter 均維持原版。保留玩家既有設定；沒有既有設定時仍採原版 L／1.5 倍，不會自動改顯示方式。要切換時直接選原有選項，XL 為 2 倍，最後一項為原全螢幕控制。內部畫布維持 `512×384`。
+設定 → 畫面大小沿用 S／M／L／XL／全螢幕，依序為 0.5／1／1.5／2 倍及全螢幕，索引與 getter 維持原版。原 Scripts 中完整 `Full` 字串只有 UI_Options 第 374 行一處，用於畫面大小；未與容量已滿共用，證據見 `full-key-usage.json`。因此直接修正 section 24，不加情境攔截。保留既有設定，預設仍為 L／1.5 倍，畫布維持 `512×384`；五個值以原生 draw calls 核對不重疊、不碰邊。
 
 保留所有既有語言的索引，繁中加在語言清單最後。遊戲內由 Options → Language 選擇「繁體中文」。此路徑已由程式與資料結構核對，遊戲畫面結果待 Claude 1 完成驗收後更新。
 
@@ -53,7 +55,7 @@
 
 本機套用工具預設只顯示計畫，核對來源與產物雜湊。`install` 先備份原檔，再透過同目錄暫存檔校驗與替換；`restore` 從備份還原腳本，將新增語言與字型移回備份目錄。套用後另被修改的檔案會拒絕覆寫。工具不啟動或關閉遊戲。
 
-還原接受兩種完整清單：舊版三檔，或含 OFL 的新版四檔。仍拒絕不完整、重複、額外及越界路徑，且還原前校驗全部原檔／套用檔雜湊；不需要修改既有備份 manifest。
+還原只接受三種完整白名單：舊版三檔、含 OFL 的像素四檔、含 LOCAL-ONLY 的正黑體四檔。仍拒絕不完整、重複、額外及越界路徑，還原前校驗全部原檔／套用檔雜湊；不修改既有備份 manifest。工具增加 `--font-source pixel`／`jhenghei` 可核對指定來源與最後建置是否一致。
 
 `plan`／`install` 的基準是尚未套用、符合 `source-manifest.json` 的原版檔案。已套用中的遊戲不應重跑安裝；驗收期間不要對該目錄重新匯出或建置。以下指令供未套用的基準副本及後續維護使用。
 
@@ -70,7 +72,7 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 目前這次套用的還原指令如下。重新套用後，還原時須改用該次實際備份目錄：
 
 ```powershell
-python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\install_preview.py' restore --backup 'D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-pixel-font-20261030'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\install_preview.py' restore --backup 'D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-no-shadow-20261031'
 ```
 
 遊戲更新後重新比對來源雜湊、匯出新增文字並重建，不直接覆蓋新版腳本。發佈包不應包含修改後完整 `Scripts.rxdata`，應由套用工具對玩家本機原檔重建；目前的修改後腳本僅供本機驗證。
@@ -101,6 +103,8 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 | `tools/verify_layout.rb` | 重現原版中文超框；原遊戲排版函式搭配新字型實際 FreeType 字寬 |
 | `tools/verify_display.rb` | 執行原版／修改後繪字函式、選單 drawItem 與縮放流程；錄下真實繪製呼叫 |
 | `font-source.json` | 固定字型來源、雜湊、OFL、原生字級與引擎換算證據 |
+| `font-source-jhenghei.json` | 本機正黑體 Regular face 0 的固定來源、SHA 與禁止散布限制 |
+| `full-key-usage.json` | 原 Scripts 完整 Full 字串的使用情境查核 |
 | `tools/prepare_baseline.py` | 從既有備份與未改動原檔建立四檔原版建置副本，不寫入遊戲 |
 | `tools/font_preview.py` | 以 FreeType 重播原生 Ruby 繪製呼叫，產生 1／2／4 倍最近鄰對照；非遊戲截圖 |
 | `tools/test_font_sample.py` | 驗證平滑字型樣本成功／失敗均不覆寫正式產物、報告及預覽 |
@@ -112,7 +116,7 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\instal
 | `source-manifest.json` | 基準檔案雜湊 |
 | `coverage.json` | 每類翻譯數量；由建置產生 |
 | `validation.json` | 原生 Ruby 驗證結果；不代表遊戲實測 |
-| `tools/install_preview.py` | 本機四檔套用計畫（含 OFL）、事前備份、校驗與還原 |
+| `tools/install_preview.py` | 兩種字型的本機四檔計畫、事前備份、校驗及三種歷史白名單還原 |
 | `tools/test_install_preview.py` | Artifacts 內的套用／還原、複製中斷與拒絕覆寫測試 |
 | `deployment-validation.json` | 本機套用工具測試結果與程式雜湊；不是實際安裝紀錄 |
 | `script-character-audit.json` | 簡繁候選字人工判讀、採用字形與語言檔雜湊 |
@@ -138,13 +142,26 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_i
 
 建置及驗證須使用符合來源雜湊的原版副本。現有 `coverage.json`、`validation.json` 與 `deployment-validation.json` 是套用前的建置／測試證據，其中 `installed=false` 記錄當時狀態，不代表 Claude 1 目前的實機套用狀態。
 
+預設 `build` 等同 `--font-source pixel`，保留 Fusion Pixel 的下載、OFL、格線與零灰邊檢查。明確指定 `jhenghei` 才重建本機試裝。兩種來源共用目前的 staging 與四份正式報告，最後一次建置會取代 staging；切換後須重新跑 Ruby、安裝 fixtures 與預覽，不可混用前一來源的報告。
+
+```powershell
+# 正黑體本機試裝
+python tools\fire_ash.py self-test --font-source jhenghei
+python tools\fire_ash.py build --game '..\fire-ash-work\original-baseline' --font-source jhenghei
+# 切回預設像素來源（保留「全螢幕」修正）
+python tools\fire_ash.py self-test --font-source pixel
+python tools\fire_ash.py build --game '..\fire-ash-work\original-baseline' --font-source pixel
+```
+
+切回實際遊戲前，先以試裝時的新備份完整還原，再重建像素、重新驗證，以 `install_preview.py plan/install --font-source pixel` 套用；不能直接覆蓋試裝中的遊戲。新備份請用未使用過的目錄，舊備份保留。
+
 ## 驗證與已知限制
 
 ### 平滑字型樣本（未套用）
 
 使用者選擇先看保留原介面的平滑文字樣本。目前以本機 Microsoft JhengHei Regular、實際 24px、無陰影製作；先在 512×384 算繪，再最近鄰放大。這不是高解析度 UI，也不是劍盾的原字型。
 
-樣本只在獨立 Ruby 測試程序中暫時替換字型 family，以候選字型的 FreeType BASIC 字寬重新執行排版與 painter；不重建／套用遊戲字型。輸出在 repo 外的 `Artifacts\data\fire-ash-work\smooth-font-sample\`，圖片檔名含 `smooth-sample` 或 `pixel-vs-smooth`。正式字型仍為 Fusion Pixel，四個套用產物不變；正黑體直接從本機讀取，不複製或上傳字型檔。
+樣本只在獨立 Ruby 測試程序中暫時替換字型 family，以候選字型的 FreeType BASIC 字寬重新執行排版與 painter；不重建／套用遊戲字型。輸出在 repo 外的 `Artifacts\data\fire-ash-work\smooth-font-sample\`，圖片檔名含 `smooth-sample`、`pixel-vs-smooth` 或 `baseline-vs-smooth`。這條樣本路徑維持隔離，與上面的可套用正黑體建置是不同用途；樣本字型直接從本機讀取，不複製或上傳。
 
 ```powershell
 python tools\verify_ruby.py --game '..\fire-ash-work\original-baseline' --font-sample 'C:\Windows\Fonts\msjh.ttc'
@@ -152,7 +169,7 @@ python tools\font_preview.py --font-sample 'C:\Windows\Fonts\msjh.ttc'
 python tools\test_font_sample.py
 ```
 
-樣本報告與正式報告分開；樣本錯誤不會覆寫正式 PASS。測試涵蓋成功／找不到字型兩條路徑，核對正式報告、產物、draw calls 與預覽的 24 個檔案雜湊不變。平滑字型保留正常抗鋸齒，放大後字緣會較柔和；只供選擇字型風格，不代表已完成實機清晰度驗收。
+樣本報告與正式報告分開；樣本錯誤不會覆寫正式 PASS。測試涵蓋成功／找不到字型兩條路徑，核對正式報告、產物、draw calls 與全部正式預覽的雜湊不變。平滑字型保留正常抗鋸齒，放大後字緣較柔和，不代表已完成實機清晰度驗收。
 
 ### 正式版本與實機驗收
 
@@ -167,14 +184,14 @@ python tools\test_font_sample.py
 - 使用預設 `messages.dat` 作為基底，包含英文語言檔缺少的較新條目。
 - 原始基底可逐位元組往返序列化；產出的所有 42,534 個文字欄位，位置與內容均通過 Python／原生 Ruby 讀取比對。
 - 404 段腳本均通過原遊戲 Ruby 3.0.2 語法編譯，並驗證英文／繁中兩種設定下的字型初始化與 setter 行為。
-- 每次建置核對像素字型來源 SHA、全部 3,195 個用字及 12／24px 未二值化灰階遮罩；無缺字且透明度僅有 0／255。512x384 設定與對話樣本已實際算繪並放大四倍檢查；測試畫布非遊戲實機截圖。
+- 每次建置核對來源 SHA 與全部 3,195 字，正黑體 face 0 與像素版均零缺字（含戽、桄）。像素版的 12／24px 遮罩仍強制只有 0／255；正黑體保留正常灰階抗鋸齒，不假裝是點陣字型。512×384 原生 draw calls 包含設定、淺／深色對話與 12px 小字，從 1 倍原圖最近鄰輸出 3.75 倍全圖與裁切；不是遊戲實機截圖。小字複雜字筆畫仍密，橘色細筆畫仍偏淡，保留 12px 以避免未經驗證的版面擴張，實機可讀性由使用者確認。
 - 12 個原生繪製案例確認繁中一般文字由四次繪字降為一次，主字位置／色彩不變；英文模式三條陰影繪製路徑與原版呼叫序列完全相同，明確外框也不變。原五種顯示選項、預設 1.5 倍、2 倍啟動讀回及 stub 的 2.0 上限均有回歸檢查；UI_Options／StartGame 腳本內容與原版相同。
 - 英文模式中遇到中文選項時，文字量測與繪製也會暫時切換至中文字型，完成後還原；已通過邏輯測試，遊戲畫面仍待實測。
 - 已在原生 Ruby 重現原版中文無空白時超框。以原遊戲的純文字及格式排版函式搭配新字型實際 FreeType 字寬，驗證 12 個中文案例，涵蓋標點、名字中間點、混合英文、明確換行與停頓碼，並核對 4 個英文排版案例維持相同結果；仍不能代替遊戲截圖驗收。
 - 補充介面在覆蓋報告列為工具專用 section 102，不是新的遊戲訊息區段。它的 `occurrences=0` 代表不在原訊息檔中；115 種譯文嵌入腳本，不增加或改動原 42,534 個訊息位置。
 - 原生 Ruby 已逐筆核對全部補充字串，並用原強化程式驗證中文選項、說明、數值插入、選項順序、購買價格、升級、裝備及卸下能量。內部英文名稱與舊字串編碼未被顯示翻譯改寫；英文模式回到原顯示方式。
 - 術語檢查包含 3,703 筆參考名稱、2,832 處寶可夢名稱、1,036 處地名、2,792 筆具名發話者及 111 筆招式教學台詞。姓名表與劇情以雙向檢查確保同步，21 筆 Drake／Flint 發話維持明示同名例外；其他同名人物的特定劇情對照列於 `glossary.json` 的 `contextual_terms`。
-- 本機套用工具包含 6 個檔案測試：套用與還原、複製中途失敗後還原、拒絕覆寫使用者修改、舊三檔備份還原、舊四檔備份還原、拒絕未知／不完整清單。舊四檔案例實際建立並還原 fixture，逐檔 SHA 回到原樣，不修改原備份 manifest；測試只寫入 Artifacts。
+- 本機套用工具包含 7 個檔案測試：套用與還原、複製中途失敗後還原、拒絕覆寫使用者修改、舊三檔、固定舊四檔、拒絕未知／不完整清單、拒絕損壞備份及來源不符。歷史四檔 fixture 逐檔 SHA 還原、不修改 manifest；像素及正黑體兩條流程均執行過，測試只寫入 Artifacts。
 - 測試副本曾出現一次 WinError 5 替換錯誤；備份與原檔完整，單獨再執行三個測試通過，原因未確認，見 deployment-notes.json。實際套用若受阻，保留備份與錯誤，不強制覆寫。
 - 已確認原版用「訓練家類型＋姓名」顯示名稱，8 個博士姓名移除重複頭銜，劇情頭銜維持不變；11 個實際組合已核對。Claude 1 兩輪退回項目均已補正，但未發起第三輪驗收，尚無最終接受結論。
 - 原版 Masked／Royal 將類型與姓名拆開，可能顯示「蒙面者 Royal」，列為實機待核項。

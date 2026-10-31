@@ -16,7 +16,9 @@ PROTECTED = [ROOT / name for name in (
     "coverage.json", "validation.json", "deployment-validation.json", "font-preview-validation.json")]
 PROTECTED += [WORK / name for name in (
     "font-preview-layout.json", "font-preview-draw-calls.json", "patched/Scripts.rxdata",
-    "fonts/fire-ash-zhtw.ttf", "fonts/fire-ash-zhtw-OFL.txt")]
+    "fonts/fire-ash-zhtw.ttf")]
+PROTECTED += [WORK / "fonts" / json.loads(
+    (ROOT / "coverage.json").read_text(encoding="utf-8"))["font"].get("license_notice_file", "fire-ash-zhtw-OFL.txt")]
 PROTECTED += [ARTIFACTS / "release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat"]
 PROTECTED += [Path(path) for path in json.loads(
     (ROOT / "font-preview-validation.json").read_text(encoding="utf-8"))["previews"]]

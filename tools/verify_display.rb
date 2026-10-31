@@ -116,6 +116,7 @@ raise 'Internal resolution changed' unless Graphics.screen == [512,384]
 
 $PokemonSystem.language = 1
 ui = $fire_ash_preview_ui
+raise 'Fullscreen translation was not corrected' unless ui['Full'] == '全螢幕'
 options = [
   SliderOption.new(ui['Music Volume'],0,100,5,nil,nil),
   SliderOption.new(ui['SE Volume'],0,100,5,nil,nil),
@@ -146,4 +147,18 @@ $fire_ash_preview_calls = {}
   $fire_ash_preview_calls["dialogue-#{mode}"] = bitmap.display_calls.dup
 end
 Object.send(:define_method, :pbDrawShadowText, patched[:pbDrawShadowText])
+bitmap = Bitmap.new
+bitmap.clear_display_calls
+characters = getFormattedText(bitmap,32,268,448,-1,$fire_ash_preview_dialogue,32)
+characters.each do |ch|
+  ch[8], ch[9] = Color.new(248,248,240,255), shadow
+  patched[:drawSingleFormattedChar].call(bitmap,ch)
+end
+$fire_ash_preview_calls['dark-dialogue-after'] = bitmap.display_calls.dup
+bitmap.clear_display_calls
+bitmap.font.size = 14
+pbDrawShadowText(bitmap,32,272,448,24,'繁體中文：戽斗尖梭與桄榔島，',Color.new(248,248,240,255),shadow)
+pbDrawShadowText(bitmap,32,304,448,24,'小智與皮卡丘一起旅行！',Color.new(248,248,240,255),shadow)
+pbDrawShadowText(bitmap,32,336,448,24,ui['Full'],Color.new(248,248,240,255),shadow)
+$fire_ash_preview_calls['smalltext-after'] = bitmap.display_calls.dup
 'PASS: 12 native painter cases; Chinese shadows removed, English/explicit outlines preserved; five original scale choices, default 1.5x, 2x startup and native 2x cap'

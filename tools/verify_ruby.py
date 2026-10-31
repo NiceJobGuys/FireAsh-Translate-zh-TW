@@ -20,6 +20,8 @@ import fire_ash
 
 
 def main(args, report_path):
+    coverage = json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))
+    profile = coverage["font"].get("profile", "pixel")
     preview_dir = (ARTIFACTS / "data/fire-ash-work/smooth-font-sample" if args.font_sample
                    else ARTIFACTS / "data/fire-ash-work")
     source_game = args.game.resolve()
@@ -128,7 +130,7 @@ parts.join
     font_scripts = [zlib.decompress(row[2]) for row in scripts
                     if fire_ash.text(row[1]) == "FireAsh_ZHTW_Font"]
     assert len(font_scripts) == 1, "Missing or duplicate Chinese font support script"
-    assert font_scripts[0] == (ROOT / "tools/font_support.rb").read_bytes(), "Build is stale; rebuild font support first"
+    assert font_scripts[0] == fire_ash.font_support_code(profile), "Build is stale; rebuild font support first"
     font_code = font_scripts[0].decode("utf-8")
     message_code = next(zlib.decompress(row[2]).decode("utf-8").replace("\r", "")
                         for row in scripts if fire_ash.text(row[1]) == "Messages")
@@ -232,9 +234,9 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
                  else ARTIFACTS / "data/fire-ash-work/fonts/fire-ash-zhtw.ttf")
     font_sha256 = fire_ash.digest(font_path.read_bytes())
     if not args.font_sample:
-        assert font_sha256 == json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))["font"]["sha256"], "Stale font build"
+        assert font_sha256 == coverage["font"]["sha256"], "Stale font build"
     raster_font = ImageFont.truetype(str(font_path), 24, index=0,
-                                   layout_engine=ImageFont.Layout.BASIC if args.font_sample else None)
+                                   layout_engine=ImageFont.Layout.BASIC)
     if args.font_sample:
         family = raster_font.getname()[0]
         # Override only this isolated Ruby test VM; never rebuild/install the font hook.
@@ -253,6 +255,10 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
     evaluate("$fire_ash_glyph_widths = {" + ",".join(
         fire_ash.ruby_string(c) + "=>" + str(int(width)) for c, width in metrics.items()) + "}; 'metrics ready'")
     evaluate(f"$fire_ash_font_height = {sum(raster_font.getmetrics())}; 'height ready'")
+    small_font = ImageFont.truetype(str(font_path), 12, index=0, layout_engine=ImageFont.Layout.BASIC)
+    evaluate("$fire_ash_small_widths = {" + ",".join(
+        fire_ash.ruby_string(c) + "=>" + str(int(small_font.getlength(c))) for c in visible_characters) + "}; 'small metrics ready'")
+    evaluate(f"$fire_ash_small_height = {sum(small_font.getmetrics())}; 'small height ready'")
     print(evaluate((ROOT / "tools/verify_layout.rb").read_text(encoding="utf-8")))
     layout_cases_checked = int(evaluate("$fire_ash_layout_cases_checked.to_s"))
     preview_text = "這是桄榔島的戽斗尖梭。小智與皮卡丘一起旅行，歡迎來到寶可夢的世界！"
@@ -292,7 +298,8 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
                                                 for k in needed) + "}; 'preview UI ready'")
     print(evaluate((ROOT / "tools/verify_display.rb").read_text(encoding="utf-8")))
     recorded_scenes = {}
-    for scene in ("settings-before", "settings-after", "dialogue-before", "dialogue-after"):
+    for scene in ("settings-before", "settings-after", "dialogue-before", "dialogue-after",
+                  "dark-dialogue-after", "smalltext-after"):
         packed = evaluate("$fire_ash_preview_calls[" + fire_ash.ruby_string(scene) + "].map { |c| "
                           "[c[0],*c[1..4],c[6],c[8],*c[9..12],c[5].unpack1('H*'),c[7].unpack1('H*')].join('|') }.join(10.chr)")
         calls = []
@@ -356,7 +363,9 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
               "scripts_syntax_checked": len(scripts), "font_hook_behavior": "pass",
               "native_message_csv_cases_checked": len(csv_fixtures),
               "native_cjk_layout_cases_checked": layout_cases_checked, "english_layout_unchanged_cases_checked": 4,
-              "original_cjk_overflow_reproduced": True, "layout_metrics": "FreeType-Fusion-Pixel-12px-zh-TW-at-24px",
+              "original_cjk_overflow_reproduced": True,
+              "layout_metrics": coverage["font"]["family"] + " FreeType BASIC 24/12px",
+              "font_profile": profile, "fullscreen_translation": ui["Full"],
               "layout_test_sha256": fire_ash.digest((ROOT / "tools/verify_layout.rb").read_bytes()),
               "native_painter_cases_checked": int(evaluate("$fire_ash_display_cases.to_s")),
               "native_scale_options_checked": 5, "legacy_2x_scale_survives_startup": True,
@@ -371,7 +380,8 @@ raise 'Existing bitmap font not updated after language change' unless b.drawn_fo
               "scripts_sha256": fire_ash.digest(scripts_path.read_bytes()),
               "font_support_sha256": fire_ash.digest(font_scripts[0]),
               "verifier_sha256": fire_ash.digest(Path(__file__).read_bytes()),
-              "font_source_sha256": fire_ash.digest((ROOT / "font-source.json").read_bytes()),
+              "font_source_sha256": fire_ash.digest((ROOT / (
+                  "font-source.json" if profile == "pixel" else "font-source-jhenghei.json")).read_bytes()),
               "font_sha256": font_sha256,
               "original_baseline": str(source_game)}
     fire_ash.json_write(report_path, report)

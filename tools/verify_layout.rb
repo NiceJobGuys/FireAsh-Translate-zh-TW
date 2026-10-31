@@ -16,7 +16,10 @@ class Bitmap
   attr_writer :font
   def disposed?; false; end
   def fire_ash_zhtw_text_size(text)
-    Rect.new(0,0,text.each_char.sum { |char| $fire_ash_glyph_widths.fetch(char) },$fire_ash_font_height)
+    small = font.size == 14
+    widths = small ? $fire_ash_small_widths : $fire_ash_glyph_widths
+    height = small ? $fire_ash_small_height : $fire_ash_font_height
+    Rect.new(0,0,text.each_char.sum { |char| widths.fetch(char) },height)
   end
 end
 
