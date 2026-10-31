@@ -60,4 +60,4 @@ repo 僅收原文／譯文、術語、工具與文件；完整原版／修改後
 
 使用者已決定 repo 維持私人。來源修改前先 `git pull --ff-only`，修改後檢查 `git diff`、`git ls-files`，確認只有可 diff 的文字、工具與文件，再 commit、push。README、排除規則與 repo 設定參照私人 CoA-Translate-zh-TW；不把 CoA 用於二進位包的 `translations/` 排除規則直接套用，本專案的 `translations/` 是必須追蹤的 JSON／JSONL 來源。
 
-實機驗收尚未完成，本次只推送 main，不建立 Release、tag、workflow 或排程。後續發布與可見性變更需另行授權。遊戲套用、啟動與實機驗收由 Claude 1 處理，與來源維護分開。
+實機驗收尚未完成，本次只推送 main，不建立 Release、tag、workflow 或排程。後續發布與可見性變更需另行授權。使用者於 2026-11-01 已授權每次翻譯驗證完成後直接備份並套用至 `D:\Games\Pokemon Fire Ash\Pokemon Fire Ash 3.7`，不必再等 Claude 1 或逐次詢問；先確認遊戲正常退出，使用既有工具與 manifest 核對，不強停、不擅自啟動遊戲或改玩家存檔。套用後逐檔校驗，實機驗收結果另記，不改寫建置時的歷史報告。

@@ -1,5 +1,7 @@
 # Pokémon Fire Ash 繁體中文化
 
+**2026-11-01 套用更新：**使用者已授權每次翻譯驗證完成後直接備份套用。Codex 已將下述 1,207 筆修正與先前選定的 Noto Medium 安裝至本機遊戲，四檔 SHA 校驗通過；未啟動遊戲，畫面仍待實機驗收。現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-runtime-translation-20261101`。下文 2026-10-31 的未套用敘述為建置時紀錄，以本段更新為準。
+
 2026-10-31 實機漏翻修正：追加 **1,207 筆**實際執行時使用的繁中查詢（1,206 筆腳本、1 筆共用地圖文字），涵蓋收納道具、開新遊戲／存檔、化石復活、奇蹟交換、世界錦標賽與俱樂部對話、強化說明及挑戰隊伍標題。修正獨立地圖選單與直接提示繞過翻譯、中文強化名稱對不到說明的問題。原有 42,534 個語言欄位內容與順序不變，新版共 43,741 個欄位。**已建置，尚未套用至遊戲或完成實機驗收。** 詳見 [runtime-translation-fix.md](runtime-translation-fix.md)。
 
 原遊戲文字擷取器會漏掉單引號、動態資料對話，並錯誤處理部分反斜線。新工具使用遊戲原生 Ruby AST 取得實際字串，另涵蓋已追查的動態資料來源；不把既有表的 pending=0 當成全遊戲漢化完成。新增回歸：5,337 個含英文字母的固定查詢零缺鍵、1,207 筆補充值、45 組獨立選單、10 項強化分支、兩條實際道具取得函式與英文回退均通過。圖片與未涵蓋的動態路徑仍需驗收。
@@ -30,7 +32,7 @@
 | 字型說明 | `data\fire-ash-work\fonts\fire-ash-zhtw-OFL.txt` | Noto 的原始 LICENSE；pixel 是 Fusion Pixel 授權，jhenghei 改用 LOCAL-ONLY，依報告 SHA 核對 |
 | 覆蓋報告 | `release\fire-ash-zh-tw-preview\coverage.json` | 各類別詳細統計 |
 
-本機遊戲目前由 Claude 1 套用 bc1c5fb 正黑體 Regular 試裝版，現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-jhenghei-trial-20261031`。Noto 待 Claude 1 驗收／套用及使用者實機確認；Codex 未動安裝目錄或啟動遊戲。repo 不包含遊戲檔、字型、存檔或還原備份。
+本機遊戲目前由 Codex 套用 4a4a4ec 漏翻修正版與 Noto Medium，現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-runtime-translation-20261101`。四檔雜湊一致，Game.exe／Game.ini／mkxp.json 未變，未啟動遊戲；Noto 載入與畫面待使用者實機確認。repo 不包含遊戲檔、字型、存檔或還原備份。
 
 本機套用範圍僅有：
 
