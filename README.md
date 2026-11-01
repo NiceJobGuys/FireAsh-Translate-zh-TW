@@ -1,5 +1,7 @@
 # Pokémon Fire Ash 繁體中文化
 
+**2026-11-01 報名選單修正已套用：**`Entry`／`No Entry` 改為「報名參賽／取消報名」，本次只更新語言檔（`a1f89d69…`），保留現有 Scripts（`65816813…`）及全部 MOD。原生文字查詢、兩筆差異比對與 11 項安裝測試通過；未啟動遊戲驗收。備份及還原見 [報名選單修正](registration-fix.md)。以下為先前各輪的歷史紀錄。
+
 **2026-11-01 性別／PP 補正已套用：**前一版確實已安裝，但 PP 測試誤把邊框當成可用區域，性別字型重播也與實機不同。本版依真正白底邊界安排 PP，性別改為固定像素圖示並與 Lv. 留 8px。合併安裝 SHA `105ea77f…`，152 個畫面案例通過，仍待實機確認。現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-battle-spacing-20261101`，詳見 [battle-ui-spacing-fix.md](battle-ui-spacing-fix.md)。
 
 **2026-11-01 戰鬥 UI 修正已套用：**戰鬥指令、共用屬性及行動按鈕圖片改為中文，並修正姓名／性別／等級、招式與 PP 的欄位邊界。已保留現有寶可夢編輯器 v5 與 EV 結算修正，只更新三個 UI 腳本；實際安裝 SHA 為 `2469c484…`。純翻譯版與相容合併版分別通過 140 個畫面案例，實機待確認。現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-battle-ui-fix-20261101`，還原及後續更新務必依 [battle-ui-fix.md](battle-ui-fix.md)，下方為前輪紀錄。

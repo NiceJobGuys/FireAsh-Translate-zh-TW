@@ -64,6 +64,49 @@ class DeploymentTests(unittest.TestCase):
         shutil.copy2(built, target)
         deploy.restore(self.backup)
 
+    def test_language_only_update_preserves_mods_and_restores(self):
+        deploy.install(self.root, self.backup)
+        (self.root / deploy.FILES[0]).write_bytes(b"installed-editor-and-field-hints")
+        language = self.root / deploy.FILES[1]
+        language.write_bytes(b"previous-language")
+        before = {str(p.relative_to(self.root)): deploy.sha(p)
+                  for p in self.root.rglob("*") if p.is_file()}
+        expected = deploy.sha(language)
+        update_backup = self.backup.with_name(self.backup.name + "-update")
+        plan = deploy.plan(self.root, expected_language=expected)
+        self.assertEqual([r["relative"] for r in plan["files"]], [deploy.FILES[1]])
+        with self.assertRaisesRegex(ValueError, "現有語言檔雜湊不符"):
+            deploy.install(self.root, update_backup, expected_language="0" * 64)
+        self.assertFalse(update_backup.exists())
+        deploy.install(self.root, update_backup, expected_language=expected)
+        self.assertEqual(deploy.sha(language), plan["files"][0]["installed_sha256"])
+        for relative, digest in before.items():
+            if deploy.Path(relative) != deploy.Path(deploy.FILES[1]):
+                self.assertEqual(deploy.sha(self.root / relative), digest)
+        deploy.restore(update_backup)
+        self.assertEqual(before, {str(p.relative_to(self.root)): deploy.sha(p)
+                                  for p in self.root.rglob("*") if p.is_file()})
+
+    def test_language_only_failed_copy_rolls_back(self):
+        deploy.install(self.root, self.backup)
+        language = self.root / deploy.FILES[1]
+        language.write_bytes(b"previous-language")
+        expected = deploy.sha(language)
+        update_backup = self.backup.with_name(self.backup.name + "-update")
+        copy = deploy.shutil.copy2
+
+        def fail_stage(source, destination, *args, **kwargs):
+            if str(destination).endswith(".fire-ash-zhtw-part"):
+                deploy.Path(destination).write_bytes(b"partial")
+                raise OSError("fixture copy failure")
+            return copy(source, destination, *args, **kwargs)
+
+        with patch.object(deploy.shutil, "copy2", side_effect=fail_stage):
+            with self.assertRaisesRegex(OSError, "fixture copy failure"):
+                deploy.install(self.root, update_backup, expected_language=expected)
+        self.assertEqual(deploy.sha(language), expected)
+        self.assertFalse(deploy.Path(str(language) + ".fire-ash-zhtw-part").exists())
+
     def restore_legacy_manifest(self, relative_paths):
         before = {str(p.relative_to(self.root)): deploy.sha(p)
                   for p in self.root.rglob("*") if p.is_file()}

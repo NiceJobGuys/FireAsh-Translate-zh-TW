@@ -15,6 +15,7 @@ FILES = ("Data/Scripts.rxdata", "Data/traditional_chinese.dat", "Fonts/fire-ash-
 LEGACY_FILES = FILES[:3]
 JH_FILES = FILES[:3] + ("Fonts/fire-ash-zhtw-LOCAL-ONLY.txt",)
 NOTO_FILES = (FILES[0], FILES[1], "Fonts/fire-ash-zhtw.otf", FILES[3])
+LANGUAGE_FILES = (FILES[1],)
 BACKUPS = ARTIFACTS / "backup"
 
 
@@ -45,7 +46,7 @@ def require_closed(game):
             raise ValueError("請先正常退出遊戲，再套用或還原；工具不會關閉程序。")
 
 
-def plan(game, font_source=None):
+def plan(game, font_source=None, expected_language=None):
     game = Path(game).resolve()
     source = json.loads((ROOT / "source-manifest.json").read_text(encoding="utf-8"))
     coverage = json.loads((ROOT / "coverage.json").read_text(encoding="utf-8"))
@@ -56,6 +57,8 @@ def plan(game, font_source=None):
     if any(row["pending_unique"] for row in coverage["sections"]):
         raise ValueError("仍有待翻項目，不允許安裝此預覽包。")
     for relative, expected in source["files"].items():
+        if expected_language is not None and relative == FILES[0]:
+            continue  # A text-only update preserves installed script mods.
         if sha(within(game, relative)) != expected:
             raise ValueError(f"遊戲基準雜湊不符：{relative}")
     staged = (
@@ -64,15 +67,23 @@ def plan(game, font_source=None):
         (ARTIFACTS / "data/fire-ash-work/fonts" / Path(files[2]).name, coverage["font"]["sha256"]),
         (ARTIFACTS / "data/fire-ash-work/fonts" / Path(files[3]).name, coverage["font"]["license_sha256"]),
     )
+    if expected_language is not None:
+        if sha(within(game, FILES[1])) != expected_language:
+            raise ValueError("現有語言檔雜湊不符，拒絕更新。")
+        for relative, (_, expected) in zip(files[2:], staged[2:]):
+            if sha(within(game, relative)) != expected:
+                raise ValueError(f"現有字型與建置不符：{relative}")
+        files, staged = LANGUAGE_FILES, staged[1:2]
     entries = []
-    for leftover in sorted(set(FILES + JH_FILES + NOTO_FILES) - set(files)):
+    leftovers = sorted(set(FILES + JH_FILES + NOTO_FILES) - set(files)) if expected_language is None else ()
+    for leftover in leftovers:
         if within(game, leftover).exists():
             raise ValueError(f"另一字型的檔案仍存在；先用該次備份完整還原：{leftover}")
     for relative, (built, expected) in zip(files, staged):
         target = within(game, relative)
         if within(game, relative + ".fire-ash-zhtw-part").exists():
             raise ValueError(f"上次套用的暫存檔仍存在，請先檢查：{relative}.fire-ash-zhtw-part")
-        if relative != FILES[0] and target.exists():
+        if expected_language is None and relative != FILES[0] and target.exists():
             raise ValueError(f"新檔案的路徑已存在，拒絕覆寫：{target}")
         if sha(built) != expected:
             raise ValueError(f"建置產物雜湊不符：{built}")
@@ -95,8 +106,8 @@ def restore(backup):
     manifest = json.loads((backup / "manifest.json").read_text(encoding="utf-8"))
     game = Path(manifest["game"]).resolve()
     entries = manifest["files"]
-    if tuple(row["relative"] for row in entries) not in (LEGACY_FILES, FILES, JH_FILES, NOTO_FILES):
-        raise ValueError("備份清單不是支援的舊版三檔、像素四檔、正黑體四檔或 Noto 四檔清單。")
+    if tuple(row["relative"] for row in entries) not in (LEGACY_FILES, FILES, JH_FILES, NOTO_FILES, LANGUAGE_FILES):
+        raise ValueError("備份清單不是支援的三檔、四檔或單一語言檔清單。")
     require_closed(game)
     # Validate every file before restoring any of them. User edits are never overwritten.
     for row in entries:
@@ -121,8 +132,8 @@ def restore(backup):
     return {"restored": True, "game": str(game), "backup": str(backup), "game_started": False}
 
 
-def install(game, backup=None, font_source=None):
-    manifest = plan(game, font_source)
+def install(game, backup=None, font_source=None, expected_language=None):
+    manifest = plan(game, font_source, expected_language)
     require_closed(game)
     name = "fire-ash-zhtw-before-install-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
     backup = backup_path(backup or BACKUPS / name)
@@ -173,9 +184,11 @@ if __name__ == "__main__":
     parser.add_argument("--backup", type=Path)
     parser.add_argument("--font-source", choices=("pixel", "jhenghei", "noto"),
                         help="Require the staged build to match this profile")
+    parser.add_argument("--expect-language-sha256",
+                        help="Update only the language file, requiring this installed SHA-256; preserve script mods")
     args = parser.parse_args()
     if args.action == "restore" and args.backup is None:
         parser.error("restore 必須提供 --backup 的完整備份目錄")
-    result = (plan(args.game, args.font_source) if args.action == "plan" else install(args.game, args.backup, args.font_source)
+    result = (plan(args.game, args.font_source, args.expect_language_sha256) if args.action == "plan" else install(args.game, args.backup, args.font_source, args.expect_language_sha256)
               if args.action == "install" else restore(args.backup))
     print(json.dumps(result, ensure_ascii=False, indent=2))

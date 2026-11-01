@@ -55,6 +55,8 @@ end
     vm.evaluate('$new_data=Marshal.load(File.binread('+f.ruby_string(language.as_posix())+')); '+
                 '$old_data=Marshal.load(File.binread('+f.ruby_string((baseline/'Data/messages.dat').as_posix())+')); '+
                 '$new_messages=Messages.new($new_data); $old_messages=Messages.new($old_data); $audit_chinese=true; "ready"')
+    assert vm.evaluate('_INTL("Entry")') == '報名參賽'
+    assert vm.evaluate('_INTL("No Entry")') == '取消報名'
     missing=[]
     checked=0
     for name,code in scripts.items():
