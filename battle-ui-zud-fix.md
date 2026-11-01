@@ -38,6 +38,11 @@
 python -B -X utf8 'D:\Code\Lab Testing\Artifacts\scripts\fire-ash-pokemon-editor\editor.py' restore --backup 'D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-zud-databox-20261101'
 ```
 
-## 未處理
+## 後續：招式名（同日，使用者同意）
 
-ZUD 的 `FightMenuDisplay#refreshButtonNames` 同樣覆寫了 Scripts 版，所以招式名的 `fit_ui_text` 排版補丁在遊戲中也沒有生效（招式名仍以原本方式繪製）。PP 所在的 `refreshMoveData` 沒被覆寫，PP 修正有效。
+ZUD 的 `FightMenuDisplay#refreshButtonNames` 同樣覆寫了 Scripts 版，招式名的 `fit_ui_text` 補丁在遊戲中沒有生效；PP 所在的 `refreshMoveData` 未被覆寫，PP 修正一直有效。
+
+- `tools/battle_ui.rb` 以 prepend 攔截 `FightMenuDisplay` 畫到 `@overlay` 的文字，依座標對回按鈕後用 `fit_ui_text` 畫進按鈕內框。顏色沿用 ZUD 依屬性取的顏色（舊 Scripts 補丁固定用 `TEXT_BASE_COLOR`）。
+- 測試同時載入 ZUD 的 `refreshButtonNames`；招式案例改含 7 字的「超極巨萬雷轟頂」。上一版 `battle_ui.rb` 會在 `fight-1-0-0` 的按鈕邊界斷言失敗，新版通過（152 畫面、48 英文畫面逐像素一致）。
+- 純翻譯建置 `58203dfeef9daeaf612a5a0ede3f4d7ebc1301c7bb8ebf6ec7c834beaa0e31fc`；安裝版 `348ad26bb2ee7181d9ad92622bae3e2073c1344ff58a5533f02e98aba6fdbb50`，只改 `FireAsh_ZHTW_Runtime`，其餘 403 段不變。字型段這次沒改，合併工具直接保留編輯器追加段。
+- 套件 `D:\Code\Lab Testing\Artifacts\release\fire-ash-zud-fight-menu\`；現行備份 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-zud-fight-menu-20261101`（還原回 `1606fde7…`，用法同上）。

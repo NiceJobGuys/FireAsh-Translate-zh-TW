@@ -135,6 +135,25 @@ module FireAshZHTW
 end
 PokemonDataBox.prepend(FireAshZHTW::DataBoxText) if defined?(PokemonDataBox)
 
+# ZUD also redefines FightMenuDisplay#refreshButtonNames; fit each move name inside its button.
+module FireAshZHTW
+  module FightMenuText
+    def pbDrawTextPositions(bitmap,textpos)
+      if FireAshZHTW.active? && @overlay && bitmap.equal?(@overlay.bitmap)
+        textpos.reject! do |t|
+          button=@buttons.find { |b| t[1]==b.x-self.x+b.src_rect.width/2 && t[2]==b.y-self.y+2 }
+          next false unless button
+          FireAshZHTW.fit_ui_text(bitmap,t[0],button.x-self.x+14,button.y-self.y+8,
+            button.src_rect.width-28,FightMenuDisplay::BUTTON_HEIGHT-16,t[4],1)
+          true
+        end
+      end
+      super(bitmap,textpos)
+    end
+  end
+end
+FightMenuDisplay.prepend(FireAshZHTW::FightMenuText) if defined?(FightMenuDisplay)
+
 # Cache localized copies under separate keys so English and live original sprites
 # never see a modified shared texture. The game's normal refcount/clear owns them.
 if defined?(RPG::Cache)

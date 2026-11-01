@@ -146,7 +146,9 @@ end
 BattleType=Struct.new(:id,:id_number,:english,:chinese) do
   def name; $PokemonSystem.language==1 ? chinese : english; end
 end
-BattleMove=Struct.new(:name,:type,:pp,:total_pp)
+BattleMove=Struct.new(:name,:type,:pp,:total_pp) do
+  def short_name; name; end
+end
 class BattleBattler
   attr_accessor :index,:name,:displayGender,:level,:moves
   def initialize(index,name,gender,level)

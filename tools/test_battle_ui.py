@@ -22,12 +22,17 @@ def literal(value):
     return str(value)
 
 
-def zud_databox_refresh():
-    # The game loads plugins after Scripts; ZUD's PokemonDataBox#refresh is the one that runs.
+def zud_override(section,cls,method):
+    # The game loads plugins after Scripts; these ZUD methods are the ones that actually run.
     plugins=f.loads((f.GAME/'Data/PluginScripts.rxdata').read_bytes())
     code=next(zlib.decompress(s[1]).decode('utf-8') for p in plugins if f.text(p[0])=='ZUD Plugin'
-              for s in p[2] if f.text(s[0])=='[004] Battle Core/UI Databox.rb').replace('\r','')
-    return 'class PokemonDataBox\n'+re.search(r'^  def refresh\n.*?^  end$',code,re.S|re.M)[0]+'\nend\n"ready"'
+              for s in p[2] if f.text(s[0])==f'[004] Battle Core/{section}.rb').replace('\r','')
+    return f'class {cls}\n'+re.search(rf'^  def {method}\n.*?^  end *$',code,re.S|re.M)[0]+'\nend\n"ready"'
+
+
+def zud_overrides():
+    return [zud_override('UI Databox','PokemonDataBox','refresh'),
+            zud_override('Fight Menu Display','FightMenuDisplay','refreshButtonNames')]
 
 
 def main(archive=None):
@@ -64,14 +69,14 @@ def main(archive=None):
     vm.evaluate('$battle_types=['+','.join(constructors)+']; "ready"')
     vm.evaluate(scripts['FireAsh_ZHTW_Font']+'\n"ready"')
     vm.evaluate((f.ROOT/'tools/runtime_support.rb').read_text(encoding='utf-8')+'\n"ready"')
-    # Game order: SceneElements, then FireAsh_ZHTW_Runtime, then plugins.
+    # Game order: DrawText/SceneMenus/SceneElements, then FireAsh_ZHTW_Runtime, then plugins.
+    vm.evaluate(scripts['DrawText']+'\n"ready"')
+    vm.evaluate(scripts['PokeBattle_SceneMenus']+'\n"ready"')
     box=re.search(r'^class PokemonDataBox < .*?^end$',scripts['PokeBattle_SceneElements'],re.S|re.M)[0]
     vm.evaluate(box+'\n"ready"')
     # Only the new UI support is evaluated here; runtime dialogue tests cover its other siblings.
     vm.evaluate((f.ROOT/'tools/battle_ui.rb').read_text(encoding='utf-8')+'\n"ready"')
-    vm.evaluate(zud_databox_refresh())
-    vm.evaluate(scripts['DrawText']+'\n"ready"')
-    vm.evaluate(scripts['PokeBattle_SceneMenus']+'\n"ready"')
+    for code in zud_overrides():vm.evaluate(code)
     frames=[]; english_specs=[]
     def snap(name,code):
         if name.split('-')[1]=='0':english_specs.append((name,code))
@@ -89,7 +94,7 @@ def main(archive=None):
         for selected in range(4):
             for pp,total in ((0,15),(14,15),(30,30),(99,99)):
                 moves=[f'BattleMove.new({f.ruby_string(n)},:{t},{pp},{total})' for n,t in
-                       zip(['電擊','十萬伏特','高速移動','電光一閃'],['ELECTRIC','ELECTRIC','PSYCHIC','NORMAL'])]
+                       zip(['電擊','十萬伏特','超極巨萬雷轟頂','電光一閃'],['ELECTRIC','ELECTRIC','PSYCHIC','NORMAL'])]
                 snap(f'fight-{lang}-{selected}-{pp}',f'$PokemonSystem.language={lang}; $scene=FightMenuDisplay.new(nil,100); '+
                      '$b=BattleBattler.new(0,"PIKA",0,5); $b.moves=['+','.join(moves)+']; '+
                      f'$scene.battler=$b; $scene.index={selected}; $scene.visible=true; '+
@@ -153,7 +158,7 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
     vm.evaluate('[:CommandMenuDisplay,:FightMenuDisplay,:TargetMenuDisplay,:BattleMenuBase,:PokemonDataBox].each { |n| Object.send(:remove_const,n) }; "ready"')
     vm.evaluate(originals_code['PokeBattle_SceneMenus']+'\n"ready"')
     vm.evaluate(re.search(r'^class PokemonDataBox < .*?^end$',originals_code['PokeBattle_SceneElements'],re.S|re.M)[0]+'\n"ready"')
-    vm.evaluate(zud_databox_refresh())
+    for code in zud_overrides():vm.evaluate(code)
     for name,code in list(english_specs):snap('original-'+name,code)
     pane=originals['Graphics/Pictures/Battle/overlay_fight']
     white=[x for x in range(384,512) if pane.getpixel((x,60))==(248,248,248,255)]
@@ -210,13 +215,13 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
                 gender_checks+=1
         if name.startswith('fight-1'):
             # The complete name overlay must remain above every button texture.
-            overlay_ids={i for n,i,t,b in text_boxes if n==name and t in ['電擊','十萬伏特','高速移動','電光一閃']}
+            overlay_ids={i for n,i,t,b in text_boxes if n==name and t in ['電擊','十萬伏特','超極巨萬雷轟頂','電光一閃']}
             assert overlay_ids
             assert all(next(s[3] for s in sprites if s[0]==i)>max(s[3] for s in sprites if s[4][2]==192) for i in overlay_ids)
             for n,i,t,b in text_boxes:
                 if n!=name:continue
-                if t in ['電擊','十萬伏特','高速移動','電光一閃']:
-                    slot=['電擊','十萬伏特','高速移動','電光一閃'].index(t)
+                if t in ['電擊','十萬伏特','超極巨萬雷轟頂','電光一閃']:
+                    slot=['電擊','十萬伏特','超極巨萬雷轟頂','電光一閃'].index(t)
                     x=4+(slot%2)*188+14;y=6+(slot//2)*42+8
                     assert x<=b[0] and b[2]<=x+164 and y<=b[1] and b[3]<=y+30,(name,t,b)
                 elif t=='PP' or re.fullmatch(r'\d+/\d+',t):

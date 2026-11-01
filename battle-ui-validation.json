@@ -14,7 +14,7 @@
   "shared_original_textures_unchanged": true,
   "source_images_unchanged": true,
   "game_started": false,
-  "scripts_sha256": "d7db84b9a3b67945ae1afc67a7ad845e41f6588836cf00be8783d66d6eca91ac",
+  "scripts_sha256": "58203dfeef9daeaf612a5a0ede3f4d7ebc1301c7bb8ebf6ec7c834beaa0e31fc",
   "language_sha256": "259ee43ce16e5d24cc60a63eaea722e67657f8b8501ed8bf2476fc898696256d",
   "scope": "Actual battle classes with bitmap operations and z-order composed on CPU; not an in-game screenshot."
 }
