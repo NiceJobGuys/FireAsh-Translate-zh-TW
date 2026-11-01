@@ -726,7 +726,8 @@ def runtime_support_code(targets):
     dictionary = ",\n".join("    " + ruby_string(en) + " => " + ruby_string(zh)
                             for en, zh in sorted(targets.items()))
     return ("# encoding: UTF-8\nmodule FireAshZHTW\n  RUNTIME_TEXT = {\n" + dictionary
-            + "\n  }.freeze\nend\n" + (ROOT / "tools/runtime_support.rb").read_text(encoding="utf-8")).encode("utf-8")
+            + "\n  }.freeze\nend\n" + (ROOT / "tools/runtime_support.rb").read_text(encoding="utf-8")
+            + "\n" + (ROOT / "tools/battle_ui.rb").read_text(encoding="utf-8")).encode("utf-8")
 
 
 def patch_runtime_text(code, name, ui_keys):
@@ -749,6 +750,39 @@ def patch_runtime_text(code, name, ui_keys):
 
     code = re.sub(r'_INTL\(\s*(' + literal + r')', replace, code)
     replacements = []
+    if name == "PokeBattle_SceneElements":
+        start = code.index("    # Draw Pokémon's name")
+        end = code.index("    # Draw Pokémon's level",start)
+        old = code[start:end]
+        new = '''    if FireAshZHTW.active?
+      FireAshZHTW.fit_ui_text(self.bitmap,@battler.name,@spriteBaseX+8,10,112,28,NAME_BASE_COLOR)
+      if @battler.displayGender == 0 || @battler.displayGender == 1
+        symbol = @battler.displayGender == 0 ? "♂" : "♀"
+        color = @battler.displayGender == 0 ? MALE_BASE_COLOR : FEMALE_BASE_COLOR
+        FireAshZHTW.fit_ui_text(self.bitmap,symbol,@spriteBaseX+126,12,14,20,color,0,14)
+      end
+    else
+''' + old + "    end\n"
+        replacements.append((old,new))
+    if name == "PokeBattle_SceneMenus":
+        old = '    pbDrawTextPositions(@overlay.bitmap,textPos)'
+        new = '''    if FireAshZHTW.active?
+      @buttons.each_with_index do |button,i|
+        next if !@visibility["button_#{i}"] || !moves[i]
+        FireAshZHTW.fit_ui_text(@overlay.bitmap,moves[i].name,
+          button.x-self.x+14,button.y-self.y+8,button.src_rect.width-28,BUTTON_HEIGHT-16,TEXT_BASE_COLOR,1)
+      end
+    else
+      pbDrawTextPositions(@overlay.bitmap,textPos)
+    end'''
+        replacements.append((old,new))
+        replacements.append(('      pbDrawTextPositions(@infoOverlay.bitmap,textPos)', '''      if FireAshZHTW.active?
+        FireAshZHTW.fit_ui_text(@infoOverlay.bitmap,"PP",404,46,26,32,PP_COLORS[ppFraction*2],1,14)
+        FireAshZHTW.fit_ui_text(@infoOverlay.bitmap,"#{move.pp}/#{move.total_pp}",
+          432,46,70,32,PP_COLORS[ppFraction*2],1)
+      else
+        pbDrawTextPositions(@infoOverlay.bitmap,textPos)
+      end'''))
     if name == "Sygna Buffs":
         replacements = [
             ('_INTL("{1} - {2}", name, description)', '_INTL("{1} - {2}", display_name, display_description)'),

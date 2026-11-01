@@ -32,12 +32,15 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_a
 
 ## 檢查與建置
 
+安裝目錄可能另含寶可夢編輯器／EV 修正等已授權 MOD。不可為套用翻譯而直接還原或覆蓋它們；比對已安裝來源，必要時使用 `tools/merge_script_update.py` 將純翻譯變更合併進現況。衝突會拒絕合併，不能改寫舊 manifest 放行。現行相容版本、純翻譯基準與專用還原命令見 `battle-ui-fix.md`。
+
 ```powershell
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_ash.py' self-test
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\prepare_baseline.py'
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_ash.py' build --game 'D:\Code\Lab Testing\Artifacts\data\fire-ash-work\original-baseline'
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\verify_ruby.py' --game 'D:\Code\Lab Testing\Artifacts\data\fire-ash-work\original-baseline'
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_runtime_missing.py'
+python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_battle_ui.py'
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\font_preview.py'
 python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_install_preview.py' --source-game 'D:\Code\Lab Testing\Artifacts\data\fire-ash-work\original-baseline'
 ```

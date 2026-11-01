@@ -1,5 +1,7 @@
 # Pokémon Fire Ash 繁體中文化
 
+**2026-11-01 戰鬥 UI 修正已套用：**戰鬥指令、共用屬性及行動按鈕圖片改為中文，並修正姓名／性別／等級、招式與 PP 的欄位邊界。已保留現有寶可夢編輯器 v5 與 EV 結算修正，只更新三個 UI 腳本；實際安裝 SHA 為 `2469c484…`。純翻譯版與相容合併版分別通過 140 個畫面案例，實機待確認。現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-battle-ui-fix-20261101`，還原及後續更新務必依 [battle-ui-fix.md](battle-ui-fix.md)，下方為前輪紀錄。
+
 **2026-11-01 選項裁切與對齊修正已套用：**修正共用選項 painter 的固定下移與格式化選單少算 6px 高度，PC 選單最後一列完整顯示、文字與箭頭對齊。30 個選單案例、既有對話回歸、9 項安裝／還原及 5 項樣本隔離測試通過，實機待確認。詳見 [command-window-fix.md](command-window-fix.md)。目前備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-command-window-fix-20261101`，下方為前輪紀錄。
 
 **2026-11-01 第二行裁切修正已套用：**前版只加大 bitmap，仍被外層 64px 可見範圍裁切。現版讓文字完整落在各 32px 行框內，Noto 對話上移 6 個原生像素，字型／字級／行距／視窗大小不變。32 個雙層裁切與捲動案例、8 個圖示案例、9 項安裝／還原及 5 項樣本隔離測試通過。實機畫面待確認，詳見 [text-buffer-fix.md](text-buffer-fix.md)。現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-viewport-fix-20261101`；下方為前輪紀錄。
@@ -36,7 +38,7 @@
 | 字型說明 | `data\fire-ash-work\fonts\fire-ash-zhtw-OFL.txt` | Noto 的原始 LICENSE；pixel 是 Fusion Pixel 授權，jhenghei 改用 LOCAL-ONLY，依報告 SHA 核對 |
 | 覆蓋報告 | `release\fire-ash-zh-tw-preview\coverage.json` | 各類別詳細統計 |
 
-本機遊戲目前已套用漏翻、對話與選項裁切修正（Scripts `4d1dd01d…`），使用 Noto Medium；現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-command-window-fix-20261101`。四檔雜湊一致，Game.exe／Game.ini／mkxp.json 未變，未啟動遊戲；畫面待使用者實機確認。repo 不包含遊戲檔、字型、存檔或還原備份。
+本機遊戲目前已套用戰鬥 UI 相容合併版（Scripts `2469c484…`），使用 Noto Medium，保留編輯器 v5；現行備份為 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-zhtw-before-battle-ui-fix-20261101`。語言、字型、Game.exe／Game.ini／mkxp.json 與存檔未變，未啟動遊戲；畫面待使用者實機確認。repo 不包含遊戲檔、字型、存檔或還原備份。
 
 本機套用範圍僅有：
 

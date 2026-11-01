@@ -19,7 +19,8 @@ BASELINE = WORK / "original-baseline"
 FONT = Path(r"C:\Windows\Fonts\msjh.ttc")
 PROTECTED = [ROOT / name for name in (
     "coverage.json", "validation.json", "deployment-validation.json", "font-preview-validation.json",
-    "runtime-coverage-validation.json", "text-buffer-validation.json", "command-window-validation.json")]
+    "runtime-coverage-validation.json", "text-buffer-validation.json", "command-window-validation.json",
+    "battle-ui-validation.json")]
 PROTECTED += [WORK / name for name in (
     "font-preview-layout.json", "font-preview-draw-calls.json", "patched/Scripts.rxdata")]
 PROTECTED += [staged_font_path(json.loads(
