@@ -22,6 +22,14 @@ def literal(value):
     return str(value)
 
 
+def zud_databox_refresh():
+    # The game loads plugins after Scripts; ZUD's PokemonDataBox#refresh is the one that runs.
+    plugins=f.loads((f.GAME/'Data/PluginScripts.rxdata').read_bytes())
+    code=next(zlib.decompress(s[1]).decode('utf-8') for p in plugins if f.text(p[0])=='ZUD Plugin'
+              for s in p[2] if f.text(s[0])=='[004] Battle Core/UI Databox.rb').replace('\r','')
+    return 'class PokemonDataBox\n'+re.search(r'^  def refresh\n.*?^  end$',code,re.S|re.M)[0]+'\nend\n"ready"'
+
+
 def main(archive=None):
     archive=archive or f.ARTIFACTS/'data/fire-ash-work/patched/Scripts.rxdata'
     scripts={f.text(r[1]):zlib.decompress(r[2]).decode('utf-8').replace('\r','') for r in f.loads(archive.read_bytes())}
@@ -41,7 +49,7 @@ def main(archive=None):
     family=coverage['font']['family']
     for fam,path in [(family,f.staged_font_path(coverage['font']['profile'])),('Power Green',f.GAME/'Fonts/power green.ttf'),
                      ('Power Green Narrow',f.GAME/'Fonts/power green narrow.ttf'),('Power Green Small',f.GAME/'Fonts/power green small.ttf')]:
-        for size in (14,27,29):
+        for size in range(10,30):  # name shrink loops step below the pixel sizes
             font=ImageFont.truetype(str(path),int(size*0.9),layout_engine=ImageFont.Layout.BASIC)
             fonts[(fam,size)]=font
             metrics[(fam,size)]=[{c:int(font.getlength(c)) for c in chars},sum(font.getmetrics())]
@@ -56,12 +64,14 @@ def main(archive=None):
     vm.evaluate('$battle_types=['+','.join(constructors)+']; "ready"')
     vm.evaluate(scripts['FireAsh_ZHTW_Font']+'\n"ready"')
     vm.evaluate((f.ROOT/'tools/runtime_support.rb').read_text(encoding='utf-8')+'\n"ready"')
-    # Only the new UI support is evaluated here; runtime dialogue tests cover its other siblings.
-    vm.evaluate((f.ROOT/'tools/battle_ui.rb').read_text(encoding='utf-8')+'\n"ready"')
-    vm.evaluate(scripts['DrawText']+'\n"ready"')
-    vm.evaluate(scripts['PokeBattle_SceneMenus']+'\n"ready"')
+    # Game order: SceneElements, then FireAsh_ZHTW_Runtime, then plugins.
     box=re.search(r'^class PokemonDataBox < .*?^end$',scripts['PokeBattle_SceneElements'],re.S|re.M)[0]
     vm.evaluate(box+'\n"ready"')
+    # Only the new UI support is evaluated here; runtime dialogue tests cover its other siblings.
+    vm.evaluate((f.ROOT/'tools/battle_ui.rb').read_text(encoding='utf-8')+'\n"ready"')
+    vm.evaluate(zud_databox_refresh())
+    vm.evaluate(scripts['DrawText']+'\n"ready"')
+    vm.evaluate(scripts['PokeBattle_SceneMenus']+'\n"ready"')
     frames=[]; english_specs=[]
     def snap(name,code):
         if name.split('-')[1]=='0':english_specs.append((name,code))
@@ -143,6 +153,7 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
     vm.evaluate('[:CommandMenuDisplay,:FightMenuDisplay,:TargetMenuDisplay,:BattleMenuBase,:PokemonDataBox].each { |n| Object.send(:remove_const,n) }; "ready"')
     vm.evaluate(originals_code['PokeBattle_SceneMenus']+'\n"ready"')
     vm.evaluate(re.search(r'^class PokemonDataBox < .*?^end$',originals_code['PokeBattle_SceneElements'],re.S|re.M)[0]+'\n"ready"')
+    vm.evaluate(zud_databox_refresh())
     for name,code in list(english_specs):snap('original-'+name,code)
     pane=originals['Graphics/Pictures/Battle/overlay_fight']
     white=[x for x in range(384,512) if pane.getpixel((x,60))==(248,248,248,255)]

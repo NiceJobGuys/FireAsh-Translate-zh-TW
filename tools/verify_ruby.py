@@ -185,6 +185,15 @@ raise 'Chinese font missing' unless f.name == FireAshZHTW::FONT && f.size == 27
 f.name = 'Power Green Narrow'
 f.size = 25
 raise 'Chinese setter failed' unless f.name == FireAshZHTW::FONT && f.size == 27
+# Party/Summary/Storage/ZUD databox shrink long names with `font.size -= 1` until they fit.
+s = Bitmap.new
+seen = []
+while s.text_size('Charmander')[1] > 12
+  s.font.size -= 1
+  seen << s.font.size
+  raise 'Shrink-to-fit loop stalled' if seen.length > 40
+end
+raise "Unexpected shrink steps #{seen}" unless seen == [27, 14, 13, 12]
 FireAshZHTW::PIXEL_SIZES.each_with_index do |api_size, i|
   raise 'Non-native raster grid' unless (api_size * 0.9).to_i == 12 * (i+1)
   raise 'Size changes when applied twice' unless FireAshZHTW.size(api_size) == api_size

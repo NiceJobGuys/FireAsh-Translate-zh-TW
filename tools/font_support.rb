@@ -24,6 +24,8 @@ module FireAshZHTW
   def self.size(value)
     # Idempotent API sizes yield exactly 12, 24, ... 84 raster pixels.
     return value if PIXEL_SIZES.include?(value)
+    # No script requests sizes below the grid; only shrink-to-fit loops reach them.
+    return value if value < PIXEL_SIZES[0]
     scale = [[(value * 0.8 / 12.0).round, 1].max, PIXEL_SIZES.length].min
     PIXEL_SIZES[scale - 1]
   end
@@ -88,6 +90,16 @@ class Font
   end
 
   def size=(value)
-    self.fire_ash_zhtw_size_set(FireAshZHTW.active? ? FireAshZHTW.size(value) : value)
+    return self.fire_ash_zhtw_size_set(value) unless FireAshZHTW.active?
+    snapped = FireAshZHTW.size(value)
+    # Name shrink loops repeat `font.size -= 1` until the text fits; snapping would undo every
+    # step and freeze the game. A repeated request snapping cannot honour steps down instead.
+    if value < size && snapped >= size
+      snapped = FireAshZHTW::PIXEL_SIZES.reverse.find { |s| s < size } || value if @fire_ash_zhtw_stalled == value
+      @fire_ash_zhtw_stalled = value
+    else
+      @fire_ash_zhtw_stalled = nil
+    end
+    self.fire_ash_zhtw_size_set(snapped)
   end
 end

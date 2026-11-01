@@ -112,6 +112,29 @@ module FireAshZHTW
   end
 end
 
+# ZUD Plugin redefines PokemonDataBox#refresh after all Scripts load and still draws a font
+# ♂/♀ over Lv.; a prepended hook outranks that later definition.
+module FireAshZHTW
+  module DataBoxText
+    def pbDrawTextPositions(bitmap,textpos)
+      if FireAshZHTW.active? && bitmap.equal?(self.bitmap)
+        # In place: ZUD passes the same array again after pushing the gender symbol.
+        textpos.reject! do |t|
+          if t[0]=='♂' || t[0]=='♀'
+            FireAshZHTW.draw_gender_icon(bitmap,t[0],@spriteBaseX+118,16,t[4])
+            true
+          elsif t[0]==@battler.name && t[4].equal?(PokemonDataBox::NAME_BASE_COLOR)
+            FireAshZHTW.fit_ui_text(bitmap,t[0],@spriteBaseX+8,10,104,28,t[4])
+            true
+          end
+        end
+      end
+      super(bitmap,textpos)
+    end
+  end
+end
+PokemonDataBox.prepend(FireAshZHTW::DataBoxText) if defined?(PokemonDataBox)
+
 # Cache localized copies under separate keys so English and live original sprites
 # never see a modified shared texture. The game's normal refcount/clear owns them.
 if defined?(RPG::Cache)

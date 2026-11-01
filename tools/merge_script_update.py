@@ -37,7 +37,7 @@ def main(args):
     assert f.digest(blobs[2])==args.expect_current,'Installed scripts changed'
     base,candidate,current=map(f.loads,blobs)
     output,changed=merge(base,candidate,current)
-    assert set(changed)=={'PokeBattle_SceneElements','PokeBattle_SceneMenus','FireAsh_ZHTW_Runtime'},changed
+    assert changed and set(changed)<={'PokeBattle_SceneElements','PokeBattle_SceneMenus','FireAsh_ZHTW_Runtime','FireAsh_ZHTW_Font'},changed
     result=f.writes(output)
     restored=f.loads(result)
     assert restored==output

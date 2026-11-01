@@ -122,7 +122,10 @@ class Pokemon
 end
 module Settings
   LANGUAGES=[['English','english.dat'],['繁體中文','traditional_chinese.dat']]
+  MAXRAID_SWITCH=0
 end
+class PokeBattle_FakeBattler; end
+$game_switches=[]
 $PokemonSystem=Struct.new(:language).new(1)
 def pbSetSystemFont(b); b.font.name='Power Green'; b.font.size=29; end
 def pbSetNarrowFont(b); b.font.name='Power Green Narrow'; b.font.size=29; end
@@ -156,6 +159,8 @@ class BattleBattler
   def shiny?; index==0; end
   def mega?; false; end
   def primal?; false; end
+  def ultra?; false; end
+  def dynamax?; false; end
   def owned?; false; end
   def opposes?(*); index.odd?; end
   def status; :NONE; end
