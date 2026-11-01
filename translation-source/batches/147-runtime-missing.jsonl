@@ -1,0 +1,10 @@
+{"section": 103, "en": "Dynamax Pokémon have their own shadow sprite. The shadow size metric cannot be edited.", "script": "ZUD Plugin/[000] General/Debug Editors.rb", "line": 325}
+{"section": 103, "en": "View Map", "script": "ZUD Plugin/[008] Dynamax Adventures/Max Lair Controls.rb", "line": 936}
+{"section": 103, "en": "View Party", "script": "ZUD Plugin/[008] Dynamax Adventures/Max Lair Controls.rb", "line": 936}
+{"section": 103, "en": "Leave Lair", "script": "ZUD Plugin/[008] Dynamax Adventures/Max Lair Controls.rb", "line": 938}
+{"section": 103, "en": "What would you like to do?", "script": "ZUD Plugin/[008] Dynamax Adventures/Max Lair Controls.rb", "line": 940}
+{"section": 103, "en": "{1} unlearned its previous training.\\nAnd...\u0001", "script": "ZUD Plugin/[008] Dynamax Adventures/Max Lair Menus.rb", "line": 658}
+{"section": 103, "en": "Load Game", "script": "Multiple save (v.19)/Multiple_save_file.rb", "line": 339}
+{"section": 103, "en": "You don't have any save files. Restart game now.", "script": "Multiple save (v.19)/Multiple_save_file.rb", "line": 579}
+{"section": 103, "en": "Cant load this save file", "script": "Multiple save (v.19)/Multiple_save_file.rb", "line": 852}
+{"section": 103, "en": "Do you want to delete this save file?", "script": "Multiple save (v.19)/Multiple_save_file.rb", "line": 854}

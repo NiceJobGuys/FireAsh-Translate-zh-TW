@@ -727,7 +727,8 @@ def runtime_support_code(targets):
                             for en, zh in sorted(targets.items()))
     return ("# encoding: UTF-8\nmodule FireAshZHTW\n  RUNTIME_TEXT = {\n" + dictionary
             + "\n  }.freeze\nend\n" + (ROOT / "tools/runtime_support.rb").read_text(encoding="utf-8")
-            + "\n" + (ROOT / "tools/battle_ui.rb").read_text(encoding="utf-8")).encode("utf-8")
+            + "\n" + (ROOT / "tools/battle_ui.rb").read_text(encoding="utf-8")
+            + "\n" + (ROOT / "tools/context_ui.rb").read_text(encoding="utf-8")).encode("utf-8")
 
 
 def patch_runtime_text(code, name, ui_keys):

@@ -393,7 +393,11 @@ $fire_ash_missing_font = false
         method = re.search(r"^def " + re.escape(name) + r"(?=[(\s]).*?^end$", sygna_code, re.S | re.M)
         assert method, f"Missing buff method: {name}"
         methods.append(method[0])
-    for name, code in [(b"$fire_ash_runtime", runtime_scripts[0].decode("utf-8")),
+    # The isolated buff fixture lacks calendar/storage classes. Their actual methods are
+    # exercised with the plugin callers by test_context_ui.py; all 404 scripts compile above.
+    context_code = (ROOT / "tools/context_ui.rb").read_text(encoding="utf-8")
+    assert runtime_scripts[0].decode("utf-8").endswith(context_code)
+    for name, code in [(b"$fire_ash_runtime", runtime_scripts[0].decode("utf-8").removesuffix(context_code)),
                        (b"$fire_ash_intl_method", intl_method[0]),
                        (b"$fire_ash_sygna_class", sygna_class[0]),
                        (b"$fire_ash_sygna_methods", "\n".join(methods))]:

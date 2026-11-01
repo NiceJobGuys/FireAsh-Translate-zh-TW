@@ -15,7 +15,8 @@ module FireAshZHTW
   LOCALIZED_BITMAPS = ['graphics/pictures/types','graphics/pictures/battle/cursor_command',
     'graphics/pictures/battle/cursor_mega','graphics/pictures/battle/cursor_dynamax',
     'graphics/pictures/battle/cursor_zmove','graphics/pictures/battle/cursor_ultra',
-    'graphics/pictures/battle/cursor_shift'].freeze
+    'graphics/pictures/battle/cursor_shift','graphics/pictures/pokedex/icon_types',
+    'graphics/pictures/naming/overlay_controls','graphics/pictures/naming/icon_mode'].freeze
 
   def self.draw_gender_icon(bitmap, symbol, x, y, color)
     @gender_icons ||= {}
@@ -83,16 +84,39 @@ module FireAshZHTW
           fit_ui_text(bitmap,label,x+8,y+7,114,32,Color.new(248,248,248),1,27,Color.new(48,48,48))
         end
       end
-    elsif path == 'graphics/pictures/types'
-      raise 'Unexpected type atlas dimensions' unless bitmap.width == 64 && bitmap.height == 532
+    elsif ['graphics/pictures/types','graphics/pictures/pokedex/icon_types'].include?(path)
+      dex = path.end_with?('/icon_types')
+      width, step = dex ? [96,32] : [64,28]
+      raise 'Unexpected type atlas dimensions' unless [bitmap.width,bitmap.height] == [width,step*19]
       GameData::Type.each do |type|
         row=type.id_number
-        next unless row.is_a?(Integer) && row >= 0 && row < bitmap.height/28
-        color=bitmap.get_pixel(63,row*28+14)
-        bitmap.fill_rect(0,row*28+1,64,26,color)
+        next unless row.is_a?(Integer) && row >= 0 && row < 19
+        color=bitmap.get_pixel(dex ? 91 : 63,row*step+step/2)
+        bitmap.fill_rect(dex ? 3 : 0,row*step+(dex ? 3 : 1),dex ? 90 : 64,26,color)
         dark=(color.red*299+color.green*587+color.blue*114)>150000
         ink=dark ? Color.new(32,32,32) : Color.new(248,248,248)
-        fit_ui_text(bitmap,type.name,2,row*28+2,60,24,ink,1,14)
+        fit_ui_text(bitmap,type.name,dex ? 4 : 2,row*step+2,width-(dex ? 8 : 4),step-4,ink,1,dex ? 27 : 14)
+      end
+    elsif path.include?('/naming/')
+      selected=path.end_with?('/icon_mode')
+      raise 'Unexpected naming atlas dimensions' unless [bitmap.width,bitmap.height] == (selected ? [240,44] : [480,206])
+      labels=['大寫','小寫','重音','其他']
+      labels.each_with_index do |label,i|
+        x,y=selected ? [i*60+4,8] : [30+i*62,30]
+        color=bitmap.get_pixel(x,selected ? 6 : 30)
+        width=selected ? 52 : 56
+        bitmap.fill_rect(x,y,width,30,color)
+        fit_ui_text(bitmap,label,x,y,width,30,Color.new(48,48,48),1,14)
+      end
+      unless selected
+        # Keep the original button borders and explain what the shortcuts actually do.
+        [['切換字集',114,2,80,17,110,5],['刪除鍵',304,2,64,17,300,5],
+         ['跳至確定',380,2,70,17,378,5],['刪除',304,30,64,32,304,30],
+         ['確定',384,30,64,32,384,30]].each do |label,x,y,w,h,sx,sy|
+          color=bitmap.get_pixel(sx,sy)
+          bitmap.fill_rect(x,y<20 ? 4 : y,w,y<20 ? 13 : h,color)
+          fit_ui_text(bitmap,label,x,y,w,h,Color.new(48,48,48),1,14)
+        end
       end
     else
       shift=path.end_with?('/cursor_shift')

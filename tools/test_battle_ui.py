@@ -42,9 +42,15 @@ def main(archive=None):
     ui=dict(zip(*f.loads(data[24]._dump())))
     assets={}; originals={}
     paths=list((f.GAME/'Graphics/Pictures/Battle').glob('*.png'))+[f.GAME/'Graphics/Pictures/types.png',f.GAME/'Graphics/Pictures/shiny.png']
+    context_assets=['Pokedex/icon_types','Naming/overlay_controls','Naming/icon_mode']
+    paths += [f.GAME/('Graphics/Pictures/'+name+'.png') for name in context_assets]
     for p in paths:
         key=p.relative_to(f.GAME).with_suffix('').as_posix();im=Image.open(p).convert('RGBA');originals[key]=im
         points={(10,y) for y in range(im.height)}|{(63,y) for y in range(im.height) if im.width>63}
+        points |= {(91,y) for y in range(16,608,32) if im.width==96 and im.height==608}
+        if 'Naming/' in key:
+            points |= {(4+i*60,6) for i in range(4)} | {(30+i*62,30) for i in range(4)}
+            points |= {(110,5),(300,5),(378,5),(304,30),(384,30)}
         assets[key]={'size':list(im.size),'pixels':{f'{x},{y}':list(im.getpixel((x,y))) for x,y in points if x<im.width}}
     source_hashes={str(p):f.digest(p.read_bytes()) for p in paths}
     names=['蚊香蝌蚪','PIKA','超級無敵長名字測試寶可夢','電擊','十萬伏特','高速移動','電光一閃','超極巨萬雷轟頂','特殊切換','行動']
@@ -75,7 +81,9 @@ def main(archive=None):
     box=re.search(r'^class PokemonDataBox < .*?^end$',scripts['PokeBattle_SceneElements'],re.S|re.M)[0]
     vm.evaluate(box+'\n"ready"')
     # Only the new UI support is evaluated here; runtime dialogue tests cover its other siblings.
-    vm.evaluate((f.ROOT/'tools/battle_ui.rb').read_text(encoding='utf-8')+'\n"ready"')
+    battle_code=(f.ROOT/'tools/battle_ui.rb').read_text(encoding='utf-8')
+    assert battle_code in scripts['FireAsh_ZHTW_Runtime'], 'Rendered helper differs from packaged script'
+    vm.evaluate(battle_code+'\n"ready"')
     for code in zud_overrides():vm.evaluate(code)
     frames=[]; english_specs=[]
     def snap(name,code):
@@ -85,6 +93,23 @@ def main(archive=None):
         ops=f.loads(raw);vm.evaluate('$battle_ops=[]; "ready"')
         sprites=f.loads(bytes.fromhex(vm.evaluate('Marshal.dump($battle_snapshot).unpack1("H*")')))
         frames.append((name,ops,sprites))
+    naming_method=re.search(r'  def pbDoUpdateOverlay2\n.*?\n  end',scripts['UI_TextEntry'],re.S)[0]
+    vm.evaluate('class NamingProbe\n'+naming_method+'''
+      def initialize(mode)
+        @mode=mode
+        @sprites={"overlay"=>BitmapSprite.new(512,384,nil)}
+        @sprites["overlay"].z=1
+        @controls=IconSprite.new(16,96,nil)
+        @controls.setBitmap('Graphics/Pictures/Naming/overlay_controls')
+        pbDoUpdateOverlay2
+        $battle_snapshot=battle_snapshot([@controls,@sprites["overlay"]])
+      end
+    end
+    "ready"
+    ''')
+    for lang in (0,1):
+        for mode in range(4):
+            snap(f'naming-{lang}-{mode}',f'$PokemonSystem.language={lang}; NamingProbe.new({mode})')
     for lang in (0,1):
         for mode in range(5):
             for selected in range(4):
@@ -146,8 +171,11 @@ end
 raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.font.italic,b.font.color]
 'PASS: failed paints release copies and fitted text restores font state'
 '''))
-    for asset in ['types','Battle/cursor_mega','Battle/cursor_dynamax','Battle/cursor_zmove','Battle/cursor_ultra','Battle/cursor_shift']:
+    for asset in ['types','Battle/cursor_mega','Battle/cursor_dynamax','Battle/cursor_zmove','Battle/cursor_ultra','Battle/cursor_shift']+context_assets:
         snap('atlas-1-'+asset.replace('/','-'), '$PokemonSystem.language=1; $s=SpriteWrapper.new; '+
+             '$s.bitmap=RPG::Cache.load_bitmap("Graphics/Pictures/",'+f.ruby_string(asset)+'); $battle_snapshot=battle_snapshot([$s])')
+    for asset in context_assets:
+        snap('atlas-0-'+asset.replace('/','-'), '$PokemonSystem.language=0; $s=SpriteWrapper.new; '+
              '$s.bitmap=RPG::Cache.load_bitmap("Graphics/Pictures/",'+f.ruby_string(asset)+'); $battle_snapshot=battle_snapshot([$s])')
     for index in (0,1):
         snap(f'longname-1-{index}',f'$PokemonSystem.language=1; $box=PokemonDataBox.new(BattleBattler.new({index},'+
@@ -199,7 +227,7 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
                 ImageDraw.Draw(images[ident]).text((px,py),text,font=font,fill=tuple(color))
                 text_boxes.append((name,ident,text,box));all_text.append(text)
             else:raise AssertionError(kind)
-        canvas=Image.new('RGBA',(512,384),(216,232,208,255))
+        canvas=Image.new('RGBA',(512,608 if 'Pokedex-icon_types' in name else 384),(216,232,208,255))
         for ident,x,y,z,rect,order in sorted(sprites,key=lambda s:(s[3],s[5])):
             sx,sy,w,h=map(int,rect)
             if w and h:canvas.alpha_composite(images[ident].crop((sx,sy,sx+w,sy+h)),(int(x),int(y)))
@@ -228,6 +256,8 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
                     assert 402<=b[0] and b[2]<=494 and 46<=b[1] and b[3]<=78,(name,t,b)
     assert all(label in all_text for label in ['戰鬥','背包','寶可夢','逃跑'])
     assert len([t for t in all_text if t=='電'])>0
+    for label in ['大寫','小寫','重音','其他','切換字集','刪除鍵','跳至確定','刪除','確定']:
+        assert label in all_text,label
     for name,ident,text,box in text_boxes:
         if not (name.startswith('box-1') or name.startswith('longname-1')):continue
         base=16 if name.split('-')[2]=='1' else 34
@@ -237,7 +267,9 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
     assert all(snapshots[name].tobytes()==snapshots['original-'+name].tobytes() for name,_ in english_specs), 'English scene regression'
     OUT.mkdir(parents=True,exist_ok=True)
     for name,rect in [('command-1-0-0',(248,288,512,384)),('fight-1-1-14',(0,288,512,384)),('fight-1-1-30',(0,288,512,384)),
-                      ('box-1-1-1-2',(0,0,260,62)),('box-1-1-0-2',(0,0,260,62)),('box-1-0-0-100',(0,0,260,84))]:
+                      ('box-1-1-1-2',(0,0,260,62)),('box-1-1-0-2',(0,0,260,62)),('box-1-0-0-100',(0,0,260,84)),
+                      ('atlas-1-Pokedex-icon_types',(0,0,96,608)),('atlas-1-Naming-overlay_controls',(0,0,480,206)),
+                      ('atlas-1-Naming-icon_mode',(0,0,240,44)),('naming-1-0',(16,96,496,302))]:
         im=snapshots[name].crop(rect).convert('RGB');save_preview(im,OUT/f'{name}-1x.png')
         save_preview(im.resize((im.width*3,im.height*3),Image.Resampling.NEAREST),OUT/f'{name}-3x.png')
     assert all(f.digest(Path(p).read_bytes())==h for p,h in source_hashes.items())

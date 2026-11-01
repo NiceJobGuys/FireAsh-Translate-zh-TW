@@ -277,7 +277,7 @@
   "english_unchanged": true,
   "profile": "noto",
   "game_started": false,
-  "scripts_sha256": "58203dfeef9daeaf612a5a0ede3f4d7ebc1301c7bb8ebf6ec7c834beaa0e31fc",
-  "language_sha256": "259ee43ce16e5d24cc60a63eaea722e67657f8b8501ed8bf2476fc898696256d",
+  "scripts_sha256": "f5066d3c06bf9c433cdacf7965b8eafa08d20f14a8fe020845c243eefdb607db",
+  "language_sha256": "d4cc61cdd16be413cca6838f2f9d8401945bce6339e2586b5d918076af414edf",
   "scope": "Native command sizing/rows/cursor/drawItem/contents clip; FreeType replay, not Game.exe capture."
 }

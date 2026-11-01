@@ -55,6 +55,8 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\test_i
 
 ## 發布邊界
 
+2026-11-01 起，原生文字回歸需一併執行 `python -B -X utf8 tools/test_context_ui.py`。該測試覆蓋月份／人物同字歧義、桌布／場地與插件選單索引；`test_runtime_missing.py` 現在也掃 PluginScripts。插件來源雜湊不符時停止並重新檢查來源，不沿用舊來源表。最新合併套件與雙檔還原方式見 `context-ui-fix.md`；切勿直接用純翻譯 Scripts 覆蓋帶 MOD 的遊戲。
+
 repo 僅收原文／譯文、術語、工具與文件；完整原版／修改後 Scripts.rxdata、語言二進位、字型、存檔與備份不 commit。改用 Fusion Pixel Font 12px zh_tw（OFL 1.1），台灣標準字形較符合本專案目標；兩版字寬與覆蓋相同，翻譯與 PokeAPI zh-Hant 術語不變。下載及授權核對見 `font-source.json`；來源副本仍置於 repo 外。
 
 本機 mkxp 將 API 字級乘 0.9 後取整數；一般文字 `Font.size=27` 對應實際 24px，小字 `14` 對應 12px。不得直接把 API 改成 24，否則實際成為 21px 而偏離原生格線。中文繪製暫停人工粗體／斜體，完成後還原；英文模式不動字型或樣式。完整字集 12／24px 已驗證無灰邊，`solidFonts` 不啟用、`mkxp.json` 不列入套用。這個決定只針對本次固定雜湊的引擎與字型，升級後需重驗。

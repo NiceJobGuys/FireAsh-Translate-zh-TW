@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "plugin_menu_branches_checked": 10,
+  "new_plugin_keys_checked": 10,
+  "direct_plugin_messages_checked": 4,
+  "months_and_names_checked": true,
+  "wallpaper_and_terrain_context_checked": true,
+  "english_behavior_unchanged": true,
+  "control_codes_and_parameters_preserved": true,
+  "scripts_sha256": "8797f8974ba4907a0f0507387c6d032cafa45bd75031da497222bf17ddb4674b",
+  "game_started": false
+}

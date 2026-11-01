@@ -75,6 +75,22 @@ def collect(game):
     rows = list(sources.values())
     rows.append({'section': 104, 'en': "\\bHere's your team in case you need a screenshot for proof of your beating me.",
                  'maps': [141, 151, 214], 'reason': 'Show Text missing from shipped map tables'})
+    # The extracted baseline contains only the core archive; pin the installed plugin source.
+    packed = (f.GAME / 'Data/PluginScripts.rxdata').read_bytes()
+    assert f.digest(packed) == '1b955ab8f42392f5b5b3a9a199285e208907a2faedd460dfd2519e5e8523eb6c', 'Plugin source changed'
+    known = original_ui | set(sources)
+    for plugin, metadata, files in f.loads(packed):
+        for filename, compressed in files:
+            name = f.text(plugin) + '/' + f.text(filename)
+            code = zlib.decompress(compressed).decode('utf-8')
+            for line, kind, value in entries(vm, code):
+                lair_option = name.endswith('/Max Lair Controls.rb') and value in ('View Map','View Party','View Record','Leave Lair')
+                if kind == 'literal' and not lair_option:
+                    continue
+                if value in known or not re.search('[A-Za-z]', value):
+                    continue
+                rows.append({'section': 103, 'en': value, 'script': name, 'line': line})
+                known.add(value)
     return rows
 
 

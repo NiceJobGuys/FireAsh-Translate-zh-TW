@@ -59,7 +59,10 @@ end
     assert vm.evaluate('_INTL("No Entry")') == '取消報名'
     missing=[]
     checked=0
-    for name,code in scripts.items():
+    lookup_sources = list(scripts.items())
+    for plugin, metadata, files in f.loads((f.GAME/'Data/PluginScripts.rxdata').read_bytes()):
+        lookup_sources.extend((f.text(plugin)+'/'+f.text(name),zlib.decompress(code).decode('utf-8')) for name,code in files)
+    for name,code in lookup_sources:
         for line,kind,key in entries(vm,code):
             if kind not in ('_INTL','_ISPRINTF') or not re.search('[A-Za-z]',key):
                 continue

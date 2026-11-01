@@ -306,9 +306,9 @@
     {
       "id": 103,
       "category": "runtime-script-lookups",
-      "unique": 1206,
+      "unique": 1216,
       "occurrences": 0,
-      "translated_unique": 1206,
+      "translated_unique": 1216,
       "translated_occurrences": 0,
       "preserved_unique": 0,
       "pending_unique": 0
@@ -333,10 +333,10 @@
   "game_tested": false,
   "installed": false,
   "supplemental_lookup_keys": {
-    "103": 1206,
+    "103": 1216,
     "104": 1
   },
-  "total_language_slots": 43741,
+  "total_language_slots": 43751,
   "coverage_scope": "Original catalog plus native Ruby script literals, inspected dynamic trainer datasets and confirmed map gaps; not all images or game paths.",
   "preserved_categories": [
     {
@@ -420,8 +420,8 @@
       "note": "共用地圖缺漏文字；保留原鍵與順序。"
     }
   },
-  "language_sha256": "a1f89d694d5cbe2361aac24748501e031d3951dd23828404260a9302bc9ec1a8",
-  "scripts_sha256": "58203dfeef9daeaf612a5a0ede3f4d7ebc1301c7bb8ebf6ec7c834beaa0e31fc",
+  "language_sha256": "d4cc61cdd16be413cca6838f2f9d8401945bce6339e2586b5d918076af414edf",
+  "scripts_sha256": "f5066d3c06bf9c433cdacf7965b8eafa08d20f14a8fe020845c243eefdb607db",
   "font": {
     "profile": "noto",
     "family": "Noto Sans CJK TC",
