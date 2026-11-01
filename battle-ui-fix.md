@@ -1,5 +1,7 @@
 # 2026-11-01 戰鬥 UI 圖片翻譯與欄位修正
 
+後續實機發現性別／PP 仍遮擋，已由 [battle-ui-spacing-fix.md](battle-ui-spacing-fix.md) 補正並套用；本頁為前版紀錄，最新版本與備份以補正文為準。
+
 已套用至 `D:\Games\Pokemon Fire Ash\Pokemon Fire Ash 3.7`。安裝版保留目前的寶可夢編輯器 v5、特性介面與超上限 EV 結算修正；未啟動遊戲，修正版實機畫面待使用者確認。
 
 ## 本次範圍

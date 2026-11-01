@@ -1,15 +1,20 @@
 {
   "passed": true,
-  "scenes_checked": 140,
-  "text_calls_checked": 1010,
+  "scenes_checked": 152,
+  "text_calls_checked": 1214,
   "cache_isolation": true,
   "failed_copy_cleanup_checked": true,
   "font_restoration_after_error_checked": true,
-  "english_scenes_byte_identical": 44,
+  "gender_icons_unoccluded": 10,
+  "pp_actual_inner_bounds": [
+    402,
+    494
+  ],
+  "english_scenes_byte_identical": 48,
   "shared_original_textures_unchanged": true,
   "source_images_unchanged": true,
   "game_started": false,
-  "scripts_sha256": "aedc301c215339e398a69e500a577f48290616fff0907d1b070268c9d3726613",
+  "scripts_sha256": "64be03f8c9fc782228e9d940768972cd5ed46ad31d43b2e90fcc1111ac6de779",
   "language_sha256": "259ee43ce16e5d24cc60a63eaea722e67657f8b8501ed8bf2476fc898696256d",
   "scope": "Actual battle classes with bitmap operations and z-order composed on CPU; not an in-game screenshot."
 }

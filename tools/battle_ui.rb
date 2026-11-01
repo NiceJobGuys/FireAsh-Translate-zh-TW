@@ -1,11 +1,38 @@
 # encoding: UTF-8
 # Display-only rendering. Original textures, battler values and move data stay intact.
 module FireAshZHTW
+  GENDER_PIXELS = {
+    '♂' => ['        ######','           ###','          ## #','         ##  #',
+            '   #### ##    ','  ##  ###     ',' ##    ##     ',' #      #     ',
+            ' #      #     ',' ##    ##     ','  ##  ##      ','   ####       ',
+            '              ','              '],
+    '♀' => ['    ####      ','   ##  ##     ','  ##    ##    ','  #      #    ',
+            '  #      #    ','  ##    ##    ','   ##  ##     ','    ####      ',
+            '     ##       ','     ##       ','   ######     ','   ######     ',
+            '     ##       ','     ##       ']
+  }.freeze
   COMMAND_LABELS = ['戰鬥','寶可夢','背包','逃跑','呼喚','投球','扔石頭','誘餌','投球','取消','加油','場地'].freeze
   LOCALIZED_BITMAPS = ['graphics/pictures/types','graphics/pictures/battle/cursor_command',
     'graphics/pictures/battle/cursor_mega','graphics/pictures/battle/cursor_dynamax',
     'graphics/pictures/battle/cursor_zmove','graphics/pictures/battle/cursor_ultra',
     'graphics/pictures/battle/cursor_shift'].freeze
+
+  def self.draw_gender_icon(bitmap, symbol, x, y, color)
+    @gender_icons ||= {}
+    key=[symbol,color.red,color.green,color.blue,color.alpha]
+    icon=@gender_icons[key]
+    if !icon || icon.disposed?
+      icon=BitmapWrapper.new(14,14)
+      GENDER_PIXELS.fetch(symbol).each_with_index do |row,dy|
+        row.to_enum(:scan, /#+/).each do
+          run=Regexp.last_match
+          icon.fill_rect(run.begin(0),dy,run[0].length,1,color)
+        end
+      end
+      @gender_icons[key]=icon
+    end
+    bitmap.blt(x,y,icon,Rect.new(0,0,14,14))
+  end
 
   def self.fit_ui_text(bitmap, text, x, y, width, height, color, align=0, max_size=27, outline=nil)
     font = bitmap.font

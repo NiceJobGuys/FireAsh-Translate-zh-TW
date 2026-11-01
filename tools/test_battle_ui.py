@@ -34,7 +34,7 @@ def main(archive=None):
         points={(10,y) for y in range(im.height)}|{(63,y) for y in range(im.height) if im.width>63}
         assets[key]={'size':list(im.size),'pixels':{f'{x},{y}':list(im.getpixel((x,y))) for x,y in points if x<im.width}}
     source_hashes={str(p):f.digest(p.read_bytes()) for p in paths}
-    names=['小拉達','PIKA','超級無敵長名字測試寶可夢','電擊','十萬伏特','高速移動','電光一閃','超極巨萬雷轟頂','特殊切換','行動']
+    names=['蚊香蝌蚪','PIKA','超級無敵長名字測試寶可夢','電擊','十萬伏特','高速移動','電光一閃','超極巨萬雷轟頂','特殊切換','行動']
     chars=set(''.join(v for _,_,_,v in f.records(data))+''.join(names)+(f.ROOT/'tools/battle_ui.rb').read_text(encoding='utf-8'))
     fonts={}; metrics={}
     coverage=json.loads((f.ROOT/'coverage.json').read_text(encoding='utf-8'))
@@ -77,7 +77,7 @@ def main(archive=None):
                      f'$scene.setIndexAndMode({selected},{mode}); $scene.visible=true; '+
                      '$battle_snapshot=battle_snapshot($scene.instance_variable_get(:@sprites).values)')
         for selected in range(4):
-            for pp,total in ((0,15),(14,15),(99,99)):
+            for pp,total in ((0,15),(14,15),(30,30),(99,99)):
                 moves=[f'BattleMove.new({f.ruby_string(n)},:{t},{pp},{total})' for n,t in
                        zip(['電擊','十萬伏特','高速移動','電光一閃'],['ELECTRIC','ELECTRIC','PSYCHIC','NORMAL'])]
                 snap(f'fight-{lang}-{selected}-{pp}',f'$PokemonSystem.language={lang}; $scene=FightMenuDisplay.new(nil,100); '+
@@ -87,7 +87,7 @@ def main(archive=None):
         for index in (0,1):
             for gender in (0,1,2):
                 for level in (2,100):
-                    name='小拉達' if index else 'PIKA'
+                    name=names[0] if index else 'PIKA'
                     snap(f'box-{lang}-{index}-{gender}-{level}',f'$PokemonSystem.language={lang}; '+
                          f'$box=PokemonDataBox.new(BattleBattler.new({index},{f.ruby_string(name)},{gender},{level}),1,nil); '+
                          '$box.x=0; $box.y=0; $box.visible=true; '+
@@ -144,8 +144,12 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
     vm.evaluate(originals_code['PokeBattle_SceneMenus']+'\n"ready"')
     vm.evaluate(re.search(r'^class PokemonDataBox < .*?^end$',originals_code['PokeBattle_SceneElements'],re.S|re.M)[0]+'\n"ready"')
     for name,code in list(english_specs):snap('original-'+name,code)
-    images={}; text_boxes=[]; snapshots={}; all_text=[]; loaded={}
+    pane=originals['Graphics/Pictures/Battle/overlay_fight']
+    white=[x for x in range(384,512) if pane.getpixel((x,60))==(248,248,248,255)]
+    assert (min(white),max(white)+1)==(402,494), 'PP pane interior changed'
+    images={}; text_boxes=[]; snapshots={}; all_text=[]; loaded={}; gender_checks=0
     for name,ops,sprites in frames:
+        gender_icons=[]
         for op in ops:
             kind,*a=op
             if kind=='load':images[a[0]]=originals[a[1]].copy();loaded[a[0]]=a[1]
@@ -160,6 +164,11 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
                 sx,sy,sw,sh=rect
                 if w<=0 or h<=0:continue
                 crop=images[source].crop((sx,sy,sx+sw,sy+sh)).resize((int(w),int(h)),Image.Resampling.NEAREST)
+                if kind=='blt' and (name.startswith('box-1') or name.startswith('longname-1')) and images[source].size==(14,14):
+                    base=16 if name.split('-')[2]=='1' else 34
+                    assert (x,y,w,h)==(base+118,16,14,14)
+                    assert x+w<=base+140-8, 'Gender icon overlaps level icon'
+                    gender_icons.append((x,y,crop.copy()))
                 if opacity!=255:crop.putalpha(crop.getchannel('A').point(lambda v:v*opacity//255))
                 images[ident].alpha_composite(crop,(int(x),int(y)))
             elif kind=='text':
@@ -179,6 +188,15 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
             sx,sy,w,h=map(int,rect)
             if w and h:canvas.alpha_composite(images[ident].crop((sx,sy,sx+w,sy+h)),(int(x),int(y)))
         snapshots[name]=canvas
+        if name.startswith('box-1') or name.startswith('longname-1'):
+            gender=int(name.split('-')[3]) if name.startswith('box-1') else 1
+            assert len(gender_icons)==(0 if gender==2 else 1)
+            for x,y,icon in gender_icons:
+                for gy in range(14):
+                    for gx in range(14):
+                        if icon.getpixel((gx,gy))[3]:
+                            assert canvas.getpixel((x+gx,y+gy))==icon.getpixel((gx,gy)), 'Gender pixels covered by later layer'
+                gender_checks+=1
         if name.startswith('fight-1'):
             # The complete name overlay must remain above every button texture.
             overlay_ids={i for n,i,t,b in text_boxes if n==name and t in ['電擊','十萬伏特','高速移動','電光一閃']}
@@ -191,24 +209,25 @@ raise 'Font state leaked' unless before==[b.font.name,b.font.size,b.font.bold,b.
                     x=4+(slot%2)*188+14;y=6+(slot//2)*42+8
                     assert x<=b[0] and b[2]<=x+164 and y<=b[1] and b[3]<=y+30,(name,t,b)
                 elif t=='PP' or re.fullmatch(r'\d+/\d+',t):
-                    assert 402<=b[0] and b[2]<=504 and 46<=b[1] and b[3]<=78,(name,t,b)
+                    assert 402<=b[0] and b[2]<=494 and 46<=b[1] and b[3]<=78,(name,t,b)
     assert all(label in all_text for label in ['戰鬥','背包','寶可夢','逃跑'])
     assert len([t for t in all_text if t=='電'])>0
     for name,ident,text,box in text_boxes:
         if not (name.startswith('box-1') or name.startswith('longname-1')):continue
         base=16 if name.split('-')[2]=='1' else 34
-        if text in ('♂','♀'):assert box[0]>=base+126 and box[2]<=base+140 and box[3]<=36,(name,text,box)
-        if text not in ('♂','♀'):assert box[0]>=base+8 and box[2]<=base+120 and box[3]<=34,(name,text,box)
+        assert text not in ('♂','♀'), 'Chinese gender still depends on font metrics'
+        assert box[0]>=base+8 and box[2]<=base+112 and box[3]<=34,(name,text,box)
     assert all(images[i].tobytes()==originals[path].tobytes() for i,path in loaded.items()), 'Shared original texture mutated'
     assert all(snapshots[name].tobytes()==snapshots['original-'+name].tobytes() for name,_ in english_specs), 'English scene regression'
     OUT.mkdir(parents=True,exist_ok=True)
-    for name,rect in [('command-1-0-0',(248,288,512,384)),('fight-1-1-14',(0,288,512,384)),
-                      ('box-1-1-1-2',(0,0,260,62)),('box-1-0-0-100',(0,0,260,84))]:
+    for name,rect in [('command-1-0-0',(248,288,512,384)),('fight-1-1-14',(0,288,512,384)),('fight-1-1-30',(0,288,512,384)),
+                      ('box-1-1-1-2',(0,0,260,62)),('box-1-1-0-2',(0,0,260,62)),('box-1-0-0-100',(0,0,260,84))]:
         im=snapshots[name].crop(rect).convert('RGB');save_preview(im,OUT/f'{name}-1x.png')
         save_preview(im.resize((im.width*3,im.height*3),Image.Resampling.NEAREST),OUT/f'{name}-3x.png')
     assert all(f.digest(Path(p).read_bytes())==h for p,h in source_hashes.items())
     report={'passed':True,'scenes_checked':len(frames),'text_calls_checked':len(text_boxes),'cache_isolation':True,
             'failed_copy_cleanup_checked':True,'font_restoration_after_error_checked':True,
+            'gender_icons_unoccluded':gender_checks,'pp_actual_inner_bounds':[402,494],
             'english_scenes_byte_identical':len(english_specs),'shared_original_textures_unchanged':True,
             'source_images_unchanged':True,'game_started':False,'scripts_sha256':f.digest(archive.read_bytes()),
             'language_sha256':f.digest((f.ARTIFACTS/'release/fire-ash-zh-tw-preview/Data/traditional_chinese.dat').read_bytes()),

@@ -6,7 +6,7 @@
   "source_game_unchanged": true,
   "game_started": false,
   "scope": "僅在Artifacts內的檔案測試副本套用及還原；未套用到安裝目錄，未啟動遊戲。",
-  "fixture_run": "run-20261101-114743-025745",
+  "fixture_run": "run-20261101-121450-010634",
   "installer_sha256": "ca926d7be2414b72c8e91c5651e29cc0ec764590984ec57ef71163d46ba0c07e",
   "source_baseline": "D:\\Code\\Lab Testing\\Artifacts\\data\\fire-ash-work\\original-baseline",
   "font_sha256": "2905dd3de65d7b7de764596e2294978407986f4cc0a66c9584c5b95c5aa9572e",
@@ -14,7 +14,7 @@
   "historical_four_file_restore_executed": true,
   "current_jhenghei_manifest_restore_executed": true,
   "noto_install_restore_executed": true,
-  "scripts_sha256": "aedc301c215339e398a69e500a577f48290616fff0907d1b070268c9d3726613",
+  "scripts_sha256": "64be03f8c9fc782228e9d940768972cd5ed46ad31d43b2e90fcc1111ac6de779",
   "test_sha256": "1150824b2298842e862724540e11d834d490350dafe91a247a01ef110f04ddce",
   "language_sha256": "259ee43ce16e5d24cc60a63eaea722e67657f8b8501ed8bf2476fc898696256d"
 }

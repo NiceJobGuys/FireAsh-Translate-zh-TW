@@ -755,11 +755,11 @@ def patch_runtime_text(code, name, ui_keys):
         end = code.index("    # Draw Pokémon's level",start)
         old = code[start:end]
         new = '''    if FireAshZHTW.active?
-      FireAshZHTW.fit_ui_text(self.bitmap,@battler.name,@spriteBaseX+8,10,112,28,NAME_BASE_COLOR)
+      FireAshZHTW.fit_ui_text(self.bitmap,@battler.name,@spriteBaseX+8,10,104,28,NAME_BASE_COLOR)
       if @battler.displayGender == 0 || @battler.displayGender == 1
         symbol = @battler.displayGender == 0 ? "♂" : "♀"
         color = @battler.displayGender == 0 ? MALE_BASE_COLOR : FEMALE_BASE_COLOR
-        FireAshZHTW.fit_ui_text(self.bitmap,symbol,@spriteBaseX+126,12,14,20,color,0,14)
+        FireAshZHTW.draw_gender_icon(self.bitmap,symbol,@spriteBaseX+118,16,color)
       end
     else
 ''' + old + "    end\n"
@@ -777,9 +777,9 @@ def patch_runtime_text(code, name, ui_keys):
     end'''
         replacements.append((old,new))
         replacements.append(('      pbDrawTextPositions(@infoOverlay.bitmap,textPos)', '''      if FireAshZHTW.active?
-        FireAshZHTW.fit_ui_text(@infoOverlay.bitmap,"PP",404,46,26,32,PP_COLORS[ppFraction*2],1,14)
+        FireAshZHTW.fit_ui_text(@infoOverlay.bitmap,"PP",404,46,20,32,PP_COLORS[ppFraction*2],1,14)
         FireAshZHTW.fit_ui_text(@infoOverlay.bitmap,"#{move.pp}/#{move.total_pp}",
-          432,46,70,32,PP_COLORS[ppFraction*2],1)
+          424,46,68,32,PP_COLORS[ppFraction*2],1)
       else
         pbDrawTextPositions(@infoOverlay.bitmap,textPos)
       end'''))
