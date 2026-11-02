@@ -65,9 +65,32 @@ def _INTL(*arg)
   fire_ash_extra_intl(*FireAshZHTW.extra_args(arg))
 end
 
+# An event that transfers the player keeps running, but command_101/102 look its text up in
+# $game_map.map_id, the destination's table. Fall back to the event's own map when that misses.
+module FireAshZHTW
+  class << self; attr_accessor :event_map; end
+
+  module EventMapText
+    def execute_command
+      previous = FireAshZHTW.event_map
+      FireAshZHTW.event_map = @map_id
+      super
+    ensure
+      FireAshZHTW.event_map = previous
+    end
+  end
+end
+Interpreter.prepend(FireAshZHTW::EventMapText)
+
 alias fire_ash_extra_mapintl _MAPINTL
 def _MAPINTL(mapid, *arg)
-  fire_ash_extra_mapintl(mapid, *FireAshZHTW.extra_args(arg))
+  arg = FireAshZHTW.extra_args(arg)
+  origin = FireAshZHTW.event_map
+  if FireAshZHTW.active? && origin && origin != mapid && arg[0].is_a?(String) &&
+     MessageTypes.getFromMapHash(mapid, arg[0]).equal?(arg[0])   # returns the key itself on a miss
+    mapid = origin
+  end
+  fire_ash_extra_mapintl(mapid, *arg)
 end
 
 alias fire_ash_extra_draw_text_positions pbDrawTextPositions

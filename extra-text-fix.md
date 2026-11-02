@@ -20,6 +20,14 @@
   - `Window_CommandPokemon` 的建構與 `commands=`、`Window_UnformattedTextPokemon` 的建構與 `text=`、`Window_AdvancedTextPokemon#setText`：用 prepend。選項陣列有變才回傳新陣列，呼叫端的原陣列不改。
 - 掃描工具（唯讀）：`D:\Code\Lab Testing\Artifacts\scripts\fire-ash-untranslated\`，`scan.py` 用遊戲 Ruby 的 AST 列出 Scripts／PluginScripts 裡不在查表函式內的英文字串，`filter.py` 去掉程式識別字與語言檔已有的鍵，`scan_maps.py` 掃地圖事件腳本，`lookup.py` 查現有譯文。
 
+## 事件傳送後的對話（2026-11-02 第二輪）
+
+使用者實機看到「You managed to survive the crash.」、世界錦標賽「Congratulations on winning your first match.」等整句英文，語言檔其實都有譯文。原因是引擎本身：事件用「場所移動」把玩家傳到別張地圖後會繼續執行，但 `command_101`／`command_102` 用 `$game_map.map_id`（目的地）的對話表查，原地圖的句子查不到就顯示英文。英文版看不出來，翻譯後才會出現。靜態統計 117 張地圖、253 句對話／選項受影響（`Artifacts\scripts\fire-ash-untranslated\transfer_text.py`）。
+
+修正在 `tools/extra_text.rb`：prepend `Interpreter#execute_command` 記下事件所在地圖（`@map_id`），`_MAPINTL` 在目的地表與共用表都查不到時，改用事件所在地圖的表。目的地表有這句時仍以目的地為準；英文模式不變。`repro_mapintl2.py` 用遊戲原本的 `Intl_Messages`、已安裝語言檔、Ruby 載入的地圖字串重現：不修正是英文，修正後是中文。
+
+安裝 c2c9774c…（MOD 第十二版）→ `ae73b14474557a3d35c5a3b80de40389d77d5add32448c9b2b9647cbd79a42e0`，純翻譯 Scripts `e95072a6…`（下次三方合併的 base），備份 `D:\Code\Lab Testing\Artifacts\backup\fire-ash-before-transfer-text-20261102`，相容套件 `D:\Code\Lab Testing\Artifacts\release\fire-ash-transfer-text-compatible`。
+
 ## 刻意不處理
 
 - 除錯、編輯器、Log、例外訊息、存檔轉換標題（玩家正常遊玩看不到）。

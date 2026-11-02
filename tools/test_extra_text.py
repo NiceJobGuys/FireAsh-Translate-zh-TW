@@ -21,7 +21,22 @@ def _INTL(*arg)
   (1...arg.length).each { |i| s.gsub!("{#{i}}", arg[i].to_s) }
   s
 end
-def _MAPINTL(mapid, *arg); _INTL(*arg); end
+MAP_TABLES = { 208 => { "You managed to survive the crash." => "你成功在墜落中倖存。" },
+               209 => { "Hello." => "你好。" } }
+module MessageTypes
+  def self.getFromMapHash(mapid, key); (MAP_TABLES[mapid] || {}).fetch(key, key); end
+end
+def _MAPINTL(mapid, *arg)
+  return _INTL(*arg) unless MAP_TABLES.key?(mapid)
+  s = MessageTypes.getFromMapHash(mapid, arg[0]).dup
+  (1...arg.length).each { |i| s.gsub!("{#{i}}", arg[i].to_s) }
+  s
+end
+class Interpreter
+  attr_accessor :map_id, :seen
+  def execute_command; @seen = _MAPINTL($current_map, @text); end
+  def show(text); @text = text; execute_command; @seen; end
+end
 def pbDrawTextPositions(bitmap, textpos); $drawn = textpos.map { |t| t[0] }; end
 def pbDrawShadowText(bitmap, x, y, w, h, string, *rest); $shadow = string; end
 def drawTextEx(bitmap, x, y, w, n, text, *rest); $ex = text; end
@@ -90,11 +105,24 @@ pbDrawShadowText(nil, 0, 0, 1, 1, "Level 4")
 eq $shadow, "等級4", "Voltorb Flip level"
 drawTextEx(nil, 0, 0, 1, 1, "Balanced Training", 0, 0)
 eq $ex, "均衡訓練", "drawTextEx"
-"PASS: extra text (missing keys, map keys, _INTL arguments, override, patterns, fragments, windows, draws); English mode untouched"
+# Event on map 208 transfers the player to 209, then shows text that lives in 208's table.
+ev = Interpreter.new; ev.map_id = 208; $current_map = 209
+eq ev.show("You managed to survive the crash."), "你成功在墜落中倖存。", "text after transfer"
+eq ev.show("Hello."), "你好。", "destination table still wins when it has the key"
+eq ev.show("Unknown line."), "Unknown line.", "miss in both stays English"
+eq Z.event_map, nil, "event map restored after the command"
+$current_map = 208
+eq ev.show("You managed to survive the crash."), "你成功在墜落中倖存。", "no transfer"
+Z.on = false
+$current_map = 209
+eq ev.show("You managed to survive the crash."), "You managed to survive the crash.", "English mode keeps the game's lookup"
+Z.on = true
+"PASS: extra text (missing keys, map keys, _INTL arguments, override, patterns, fragments, windows, draws, text after an event transfer); English mode untouched"
 '''
 
 HOOKED = ["_INTL", "_MAPINTL", "pbDrawTextPositions", "pbDrawShadowText", "drawTextEx"]
-PREPENDED = {"Window_CommandPokemon": ["initialize", "commands="], "Window_UnformattedTextPokemon": ["initialize", "text="],
+PREPENDED = {"Interpreter": ["execute_command"],
+             "Window_CommandPokemon": ["initialize", "commands="], "Window_UnformattedTextPokemon": ["initialize", "text="],
              "Window_AdvancedTextPokemon": ["setText"]}
 
 
