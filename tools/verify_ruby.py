@@ -403,6 +403,9 @@ $fire_ash_missing_font = false
                        (b"$fire_ash_sygna_methods", "\n".join(methods))]:
         encoded = ("# encoding: UTF-8\n" + code).encode("utf-8")
         ruby.rb_gv_set(name, ruby.rb_utf8_str_new(encoded, len(encoded)))
+    # The isolated shop fixture needs the NPC hook's class; its real factories are
+    # exercised in game/plugin load order by test_npc_nicknames.py.
+    evaluate('module GameData; class Trainer; end; end; "ready"')
     print(evaluate((ROOT / "tools/verify_runtime.rb").read_text(encoding="utf-8")))
     native_runtime = evaluate("FireAshZHTW::RUNTIME_TEXT.sort.map { |en,zh| en.bytesize.to_s+':'+en+zh.bytesize.to_s+':'+zh+10.chr }.join")
     expected_runtime = "".join(f"{len(en.encode('utf-8'))}:{en}{len(zh.encode('utf-8'))}:{zh}\n"

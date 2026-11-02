@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "unique_nicknames": 216,
+  "translated": 214,
+  "preserved": {
+    "J A & M": "角色組合的字母縮寫，保留識別。",
+    "D4C": "作品中的替身縮寫，保留識別。"
+  },
+  "factory_named_members": {
+    "core": 250,
+    "ZUD Plugin": 250,
+    "Randomized Trainer Teams": 250
+  },
+  "trainer_records": 3470,
+  "plugin_order_verified": true,
+  "player_nickname_unchanged": true,
+  "english_unchanged": true,
+  "non_name_properties_unchanged": true,
+  "font_missing_characters": [],
+  "scripts_sha256": "7d75d0c1e6e2858548fff4624cd60b8188b23a39fa40c6cf523f9177c9e65b04",
+  "source_sha256": "4c8363de9c85ca9f573165f9daece46b7c8b939fea5160025c8fbd6d7b3fb621",
+  "game_started": false
+}

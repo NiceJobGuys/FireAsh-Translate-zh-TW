@@ -725,9 +725,16 @@ def ruby_string(value):
 def runtime_support_code(targets):
     dictionary = ",\n".join("    " + ruby_string(en) + " => " + ruby_string(zh)
                             for en, zh in sorted(targets.items()))
+    nicknames = json.loads((ROOT / "translations/npc-nicknames.json").read_text(encoding="utf-8"))
+    if digest((GAME / "Data/trainers.dat").read_bytes()) != nicknames["source_sha256"]:
+        raise ValueError("NPC nickname source changed; review trainers.dat before rebuilding")
+    nickname_dictionary = ",\n".join("    " + ruby_string(en) + " => " + ruby_string(zh)
+                                     for en, zh in sorted(nicknames["translations"].items()))
     return ("# encoding: UTF-8\nmodule FireAshZHTW\n  RUNTIME_TEXT = {\n" + dictionary
             + "\n  }.freeze\nend\n" + (ROOT / "tools/runtime_support.rb").read_text(encoding="utf-8")
             + "\n" + (ROOT / "tools/battle_ui.rb").read_text(encoding="utf-8")
+            + "\nmodule FireAshZHTW\n  NPC_NICKNAMES = {\n" + nickname_dictionary + "\n  }.freeze\nend\n"
+            + (ROOT / "tools/npc_nicknames.rb").read_text(encoding="utf-8")
             + "\n" + (ROOT / "tools/context_ui.rb").read_text(encoding="utf-8")).encode("utf-8")
 
 

@@ -558,7 +558,7 @@
   "game_started": false,
   "visible_character_line_bounds_checked": 3207,
   "icon_position_cases_checked": 8,
-  "scripts_sha256": "f5066d3c06bf9c433cdacf7965b8eafa08d20f14a8fe020845c243eefdb607db",
+  "scripts_sha256": "82e3874508437d8c77f5a4292934cd7b7cb09469f86f6460ebdfed01959764a7",
   "language_sha256": "d4cc61cdd16be413cca6838f2f9d8401945bce6339e2586b5d918076af414edf",
   "font_sha256": "2905dd3de65d7b7de764596e2294978407986f4cc0a66c9584c5b95c5aa9572e",
   "raster_model": "FreeType replay, native setText dimensions AND actual SpriteWindow contents src_rect clipping",
