@@ -395,7 +395,9 @@ $fire_ash_missing_font = false
         methods.append(method[0])
     # The isolated buff fixture lacks calendar/storage classes. Their actual methods are
     # exercised with the plugin callers by test_context_ui.py; all 404 scripts compile above.
-    context_code = (ROOT / "tools/context_ui.rb").read_text(encoding="utf-8")
+    # Context and extra-text hooks need classes this fixture lacks; test_context_ui.py and
+    # test_extra_text.py exercise them.
+    context_code = (ROOT / "tools/context_ui.rb").read_text(encoding="utf-8") + "\n" + fire_ash.extra_text_code()
     assert runtime_scripts[0].decode("utf-8").endswith(context_code)
     for name, code in [(b"$fire_ash_runtime", runtime_scripts[0].decode("utf-8").removesuffix(context_code)),
                        (b"$fire_ash_intl_method", intl_method[0]),

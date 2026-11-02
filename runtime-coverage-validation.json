@@ -12,7 +12,7 @@
   "game_started": false,
   "installed": false,
   "language_sha256": "d4cc61cdd16be413cca6838f2f9d8401945bce6339e2586b5d918076af414edf",
-  "scripts_sha256": "82e3874508437d8c77f5a4292934cd7b7cb09469f86f6460ebdfed01959764a7",
-  "validated_at_utc": "2026-11-02T06:38:48.128214+00:00",
+  "scripts_sha256": "55e4e8b7eeb2461f602a7a5c5285b97135bff150bb996fe50e45c5399299efe0",
+  "validated_at_utc": "2026-11-02T09:57:52.230557+00:00",
   "scope": "Native static calls and inspected dynamic datasets; not exhaustive gameplay/image coverage."
 }

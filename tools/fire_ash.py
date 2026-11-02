@@ -735,7 +735,24 @@ def runtime_support_code(targets):
             + "\n" + (ROOT / "tools/battle_ui.rb").read_text(encoding="utf-8")
             + "\nmodule FireAshZHTW\n  NPC_NICKNAMES = {\n" + nickname_dictionary + "\n  }.freeze\nend\n"
             + (ROOT / "tools/npc_nicknames.rb").read_text(encoding="utf-8")
-            + "\n" + (ROOT / "tools/context_ui.rb").read_text(encoding="utf-8")).encode("utf-8")
+            + "\n" + (ROOT / "tools/context_ui.rb").read_text(encoding="utf-8")
+            + "\n" + extra_text_code()).encode("utf-8")
+
+
+def extra_text_code():
+    extra = json.loads((ROOT / "translations/extra-text.json").read_text(encoding="utf-8"))
+    pairs = {**extra["text"], **extra["override"]}
+    assert not set(extra["text"]) & set(extra["override"]), "Key listed as both text and override"
+    for en, zh in [*pairs.items(), *extra["fragments"].items()]:
+        validate_pair(en, zh)
+    for pattern, template in extra["patterns"]:
+        assert re.compile(pattern).groups == len(set(re.findall(r"\\(\d)", template))), pattern
+    entries = lambda table: ",\n".join(f"    {ruby_string(en)} => {ruby_string(zh)}" for en, zh in table.items())
+    patterns = ",\n".join(f"    [Regexp.new({ruby_string(p)}), {ruby_string(t)}]" for p, t in extra["patterns"])
+    return ("module FireAshZHTW\n  EXTRA_TEXT = {\n" + entries(pairs) + "\n  }.freeze\n"
+            "  EXTRA_PATTERNS = [\n" + patterns + "\n  ].freeze\n"
+            "  EXTRA_FRAGMENTS = {\n" + entries(extra["fragments"]) + "\n  }.freeze\nend\n"
+            + (ROOT / "tools/extra_text.rb").read_text(encoding="utf-8"))
 
 
 def patch_runtime_text(code, name, ui_keys):

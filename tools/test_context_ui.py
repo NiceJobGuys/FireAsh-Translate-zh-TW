@@ -15,7 +15,7 @@ def main(archive):
     plugins={f.text(p)+'/'+f.text(n):zlib.decompress(c).decode('utf-8').replace('\r','')
              for p,m,files in f.loads((f.GAME/'Data/PluginScripts.rxdata').read_bytes()) for n,c in files}
     context=(f.ROOT/'tools/context_ui.rb').read_text(encoding='utf-8')
-    assert scripts['FireAsh_ZHTW_Runtime'].endswith(context)
+    assert scripts['FireAsh_ZHTW_Runtime'].endswith(context+'\n'+f.extra_text_code())
     vm=RubyVM(f.GAME)
     initialize(vm,scripts)
     vm.evaluate('''class OrderedHash < Hash

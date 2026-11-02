@@ -34,6 +34,8 @@ python 'D:\Code\Lab Testing\Artifacts\data\fire-ash-translate-zh-tw\tools\fire_a
 
 2026-11-02 起新增 `translations/npc-nicknames.json` 與 `tools/test_npc_nicknames.py`。固定訓練家暱稱不在原訊息表，必須獨立核對來源 SHA、完整覆蓋、明列保留及實際插件順序；不可用原訊息表 pending=0 代替此檢查。建置後執行 `python -B -X utf8 tools/test_npc_nicknames.py`；相容合併後加 `--scripts <合併套件的 Scripts.rxdata>`。最新套件／備份與限定翻譯範圍見 `npc-nickname-fix.md`。
 
+2026-11-02 起新增 `translations/extra-text.json` 與 `tools/extra_text.rb`：補不經語言檔查表的英文（字面顯示、`_INTL` 缺鍵、英文參數）。建置後執行 `python -B -X utf8 tools/test_extra_text.py`，相容合併後加 `--scripts`。範圍、刻意不處理的項目與還原見 `extra-text-fix.md`。
+
 安裝目錄可能另含寶可夢編輯器／EV 修正等已授權 MOD。不可為套用翻譯而直接還原或覆蓋它們；比對已安裝來源，必要時使用 `tools/merge_script_update.py` 將純翻譯變更合併進現況。衝突會拒絕合併，不能改寫舊 manifest 放行。現行相容版本、純翻譯基準與專用還原命令見 `battle-ui-fix.md`。
 
 ```powershell
