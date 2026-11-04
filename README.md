@@ -1,5 +1,7 @@
 # Pokémon Fire Ash 繁體中文化
 
+**2026-11-04：新增繁中＋全部現有額外功能的單一 EXE 安裝程式。** 玩家不用安裝 Python；選擇原版遊戲資料夾即可自動備份、套用及還原。首次安裝會自動下載約 16 MB 的 Noto 字型。整合寶可夢編輯器 v5 與遊戲提示／玩法 MOD v20；[下載此版](https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW/releases/tag/v3.7-extras.1)、[安裝說明與限制](tools/installer/README.md)。目前 repo 為私人，下載仍需存取權限。本版安裝／還原已在隔離副本驗證，未啟動遊戲遊玩驗收；下方依日期保留先前翻譯維護紀錄。
+
 **2026-11-02 NPC 暱稱漏翻已修正並套用：**補齊 214 種固定暱稱（例如 `Porygon Zero` →「多邊獸零號」），另有 2 個識別縮寫明列保留。修正經 ZUD／隨機隊伍插件重新定義後仍生效，玩家自訂暱稱不變。安裝 Scripts `7d75d0c1…`，保留編輯器 v5 與提示 MOD 第八版。3,470 筆訓練家資料的三條建隊路徑及 173 個 CPU 畫面案例通過；未啟動遊戲實測。詳見 [NPC 暱稱修正與還原](npc-nickname-fix.md)。
 
 **2026-11-01 情境誤譯與插件漏翻已修正並套用：**五月、薄霧場地、寄放盒桌布改用符合用途的譯文，保留人物姓名；補齊讀檔／極巨大冒險提示及選項，圖鑑屬性與命名鍵盤圖片也有中文。安裝 Scripts `8797f897…`、語言 `d4cc61cd…`，保留現有編輯器與提示 MOD。原生查詢與選項分支、173 個 CPU 畫面案例通過；未啟動遊戲驗收。詳見 [修正與還原紀錄](context-ui-fix.md)。
@@ -34,7 +36,7 @@
 
 ## 下載與安裝（或套用）
 
-目前只提供翻譯來源、工具、測試與文件，尚未發布安裝包，不建立 Release 或 tag。實機驗收完成並決定發布後，才會在 [最新 Release](https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW/releases/latest) 提供下載；該連結在首次發布前沒有可下載版本。
+目前提供 [v3.7-extras.1 整合安裝程式（預發行版）](https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW/releases/tag/v3.7-extras.1)。下載 EXE，選擇已解壓、包含 Game.exe 的原版遊戲資料夾，按「安裝全部功能」；詳見 [安裝、還原、版本限制與重建](tools/installer/README.md)。這是私人專案，未獲 repo 存取權限的玩家目前無法下載。下列路徑為先前本機維護資料，不是 EXE 的使用前提。
 
 目前產出均在 `D:\Code\Lab Testing\Artifacts\`：
 
