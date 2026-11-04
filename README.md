@@ -3,16 +3,17 @@
 把英文的同人遊戲 **Pokémon Fire Ash** 變成**全繁體中文**，並附送一包讓遊戲更好玩的額外功能。安裝只要**下載一個 EXE、選資料夾、按一個按鈕**；不用懂電腦，也不用另外裝任何程式。
 
 > [!IMPORTANT]
-> **這裡只有中文化補丁，沒有遊戲本體。** 請先到下面的官方連結下載遊戲（免費）：
+> **這裡只有中文化補丁，沒有遊戲本體。** 請先下載遊戲（免費）：
 >
-> 🎮 **遊戲官方發布頁：<https://eeveeexpo.com/threads/9489/>**
+> 🎮 **遊戲下載網站：<https://pokemonfireash.net/>**（Windows 版下載頁：<https://pokemonfireash.net/windows/>）
 >
-> 直接下載完整版（官方提供，含音樂與官方修正檔）：
-> - [MEGA 下載](https://mega.nz/file/F2QV2aSR#lRU_hYarsqe5ehE7YpkkNV3oSJAVzOPNAxsDzmVy00A)
-> - [Google Drive 下載](https://drive.google.com/file/d/1SYyhsfPQLyeSCDZd1tnNOqzunGLEafwu/view?usp=drive_link)
-> - 官方 Discord（也可以下載）：<https://discord.gg/tu3jyTh7JT>
+> 要下載**兩個檔案**，都要：
+> 1. [Pokemon Fire Ash 3.7.zip](https://archive.org/download/pfa_20260926/Pokemon%20Fire%20Ash%203.7.zip)：遊戲本體（約 546 MB，含音樂）
+> 2. [3.7.1 Patch.zip](https://archive.org/download/pfa_20260926/3.7.1%20Patch.zip)：官方 3.7.1 修正檔（約 1 MB）。**一定要裝**，中文化補丁是照 3.7.1 版製作的，少了它會裝不上。
 >
-> 下載連結取自官方發布頁（2026-11-04 查詢），官方日後換連結時，以發布頁為準。
+> 遊戲作者 Reinhartmax 本人的發布頁在 [Eevee Expo 論壇](https://eeveeexpo.com/threads/9489/)，那裡也有 [MEGA](https://mega.nz/file/F2QV2aSR#lRU_hYarsqe5ehE7YpkkNV3oSJAVzOPNAxsDzmVy00A)／[Google Drive](https://drive.google.com/file/d/1SYyhsfPQLyeSCDZd1tnNOqzunGLEafwu/view?usp=drive_link) 的完整版（已含 3.7.1）和[官方 Discord](https://discord.gg/tu3jyTh7JT)。上面的網站下載不了的話，改用這裡。
+>
+> 連結是 2026-11-04 查的；網站換了連結就以網站上的為準。下載網站如果叫你關掉防毒軟體，**不要照做**。
 
 📥 **中文化補丁下載：[FireAsh-zhTW-3.7-extras.2.exe](https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW/releases/download/v3.7-extras.2/FireAsh-zhTW-3.7-extras.2.exe)**（約 16 MB，[發布說明](https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW/releases/tag/v3.7-extras.2)）
 
@@ -66,39 +67,49 @@
 
 ### 第 1 步：下載遊戲並解壓縮
 
-1. 用上面的 [MEGA](https://mega.nz/file/F2QV2aSR#lRU_hYarsqe5ehE7YpkkNV3oSJAVzOPNAxsDzmVy00A) 或 [Google Drive](https://drive.google.com/file/d/1SYyhsfPQLyeSCDZd1tnNOqzunGLEafwu/view?usp=drive_link) 連結下載遊戲壓縮檔。
-2. 在下載好的壓縮檔上按**滑鼠右鍵 →「全部解壓縮」**。如果是 `.rar` 或 `.7z` 檔，Windows 打不開的話，請先安裝免費的 [7-Zip](https://www.7-zip.org/)，再按右鍵 → 7-Zip → 解壓縮。
-3. 一定要**完整解壓縮**，不要直接在壓縮檔裡面開遊戲。
-4. 解壓縮後打開資料夾，找到 **`Game.exe`**。**記住這個資料夾在哪裡**，等一下要用。
+1. 下載上面的兩個檔案：[Pokemon Fire Ash 3.7.zip](https://archive.org/download/pfa_20260926/Pokemon%20Fire%20Ash%203.7.zip) 和 [3.7.1 Patch.zip](https://archive.org/download/pfa_20260926/3.7.1%20Patch.zip)。遊戲檔很大（約 546 MB），要等一下。
+2. 在 `Pokemon Fire Ash 3.7.zip` 上按**滑鼠右鍵 →「全部解壓縮」**，等它跑完。一定要**完整解壓縮**，不要直接在壓縮檔裡面開遊戲。
+3. 打開解壓出來的資料夾，一層一層點進去，直到看見 **`Game.exe`**。**記住這個資料夾**，後面都叫它「遊戲資料夾」。
+
+### 第 2 步：裝上官方 3.7.1 修正檔
+
+1. 在 `3.7.1 Patch.zip` 上按右鍵 →「全部解壓縮」。
+2. 打開解壓出來的資料夾，裡面有一個 **`3.7.1 Patch`** 資料夾，點進去。會看到 `Changelog.txt`、`Data`、`Graphics` 三樣東西。
+3. 按 <kbd>Ctrl</kbd> + <kbd>A</kbd> 全選，按 <kbd>Ctrl</kbd> + <kbd>C</kbd> 複製。
+4. 打開「遊戲資料夾」（有 `Game.exe` 的那個），按 <kbd>Ctrl</kbd> + <kbd>V</kbd> 貼上。
+5. 跳出「取代或略過檔案」時，選「**取代目的地中的檔案**」。
+
+> [!NOTE]
+> 從作者 Eevee Expo 頁面的 MEGA／Google Drive 下載完整版的人，裡面已經有 3.7.1，這一步可以跳過。不確定的話照做也沒關係，重複裝一次不會怎樣。
 
 > [!TIP]
 > 遊戲資料夾建議放在 `D:\Games\` 這類自己建立的資料夾，**不要放在 `C:\Program Files`**，那裡常常會因為權限問題裝不上去。
 
-### 第 2 步：下載中文化補丁
+### 第 3 步：下載中文化補丁
 
 點這裡下載 👉 **[FireAsh-zhTW-3.7-extras.2.exe](https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW/releases/download/v3.7-extras.2/FireAsh-zhTW-3.7-extras.2.exe)**
 
 不用註冊或登入 GitHub。小技巧：**把這個 EXE 放進有 `Game.exe` 的遊戲資料夾裡**，等一下它會自動找到遊戲，連資料夾都不用選。
 
-### 第 3 步：確認遊戲已經關閉
+### 第 4 步：確認遊戲已經關閉
 
 如果遊戲開著，請先**正常存檔並關閉遊戲**。
 
-### 第 4 步：執行補丁
+### 第 5 步：執行補丁
 
 1. 雙擊 `FireAsh-zhTW-3.7-extras.2.exe`。
 2. 如果跳出藍色的「**Windows 已保護您的電腦**」視窗：按「**其他資訊**」→「**仍要執行**」。
    （這是因為補丁沒有付費購買數位簽章，並不是中毒。不放心的話，請看[常見問題](#-常見問題)裡的檢查方法。）
 
-### 第 5 步：選擇遊戲資料夾
+### 第 6 步：選擇遊戲資料夾
 
 在補丁視窗裡選擇**裡面有 `Game.exe` 的那個資料夾**。如果 EXE 本來就放在遊戲資料夾，路徑會自動填好。
 
-### 第 6 步：按「安裝全部功能」
+### 第 7 步：按「安裝全部功能」
 
 按下去之後等它跑完（會自動下載字型、備份原檔、安裝），看到「**安裝完成！**」就好了。
 
-### 第 7 步：開遊戲，切換成中文
+### 第 8 步：開遊戲，切換成中文
 
 1. 打開遊戲資料夾裡的 `Game.exe`。
 2. 進入遊戲後按選單鍵打開暫停選單，選 **Options**（設定）。如果還在開頭的「Continue／New Game」選單，那裡也有 **Options**。
@@ -115,11 +126,12 @@
 
 補丁會先檢查遊戲檔案，確認是它認得的版本才安裝，避免把遊戲弄壞。遇到這個訊息通常是：
 
-- 遊戲版本不是 3.7／3.7.1，或是官方換過壓縮檔內容。
+- **還沒裝 3.7.1 修正檔**（最常見）。請回到[第 2 步](#第-2-步裝上官方-371-修正檔)補裝，再執行補丁。
+- 遊戲版本不是 3.7.1，或是官方換過壓縮檔內容。
 - 遊戲裝過別的 MOD 或別的中文化。
 - 沒有完整解壓縮。
 
-請重新下載官方完整版、解壓縮到**新的空資料夾**，再裝一次。還是不行的話，請到 [Issues](https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW/issues) 回報，附上補丁顯示的訊息。
+請重新下載遊戲、解壓縮到**新的空資料夾**，裝上 3.7.1 修正檔，再裝一次。還是不行的話，請到 [Issues](https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW/issues) 回報，附上補丁顯示的訊息。
 </details>
 
 <details>
@@ -172,7 +184,7 @@ Get-FileHash .\FireAsh-zhTW-3.7-extras.2.exe
 
 以下是給想研究或協助維護的人看的，玩家可以略過。
 
-- **翻譯基準**：遊戲資料夾 3.7（內附 Changelog 3.7.1，程式內部版本 3.7.0），以檔案 SHA-256 判斷版本，見 `source-manifest.json`。
+- **翻譯基準**：3.7 加上官方 3.7.1 修正檔（程式內部版本仍顯示 3.7.0），以檔案 SHA-256 判斷版本，見 `source-manifest.json`。基準的 `Scripts.rxdata` 與 archive.org 上 `3.7.1 Patch.zip` 裡的同名檔大小相同（1,085,207 bytes），修正檔其他 16 個檔案的大小也和本機遊戲一致。
 - **翻譯數量**：原訊息表 40,775／42,534 個文字位置已翻譯，其餘 1,759 個是刻意保留的人名、暱稱、縮寫、程式識別碼；另補上 1,207 筆實際執行時才出現的文字、214 種 NPC 寶可夢暱稱與不經語言檔的直接顯示文字。各區段統計見 `coverage.json`。
 - **翻譯來源**：寶可夢、招式、道具、特性名稱取自 [PokeAPI](https://github.com/PokeAPI/pokeapi) 的官方繁中資料，其餘由 AI（Codex、Claude）翻譯並校對，未使用付費翻譯 API。
 - **主要檔案**：
@@ -188,7 +200,7 @@ Get-FileHash .\FireAsh-zhTW-3.7-extras.2.exe
 
 - **尚未完成整個遊戲的實機遊玩驗收**。文字與畫面已用遊戲本身的 Ruby 引擎做過大量自動測試，安裝程式也實際跑過安裝、重複安裝、還原、唯讀檔與中文路徑；但這些測試不等於把遊戲從頭玩到尾。
 - 只在 Windows 11 64 位元測試過，沒有在乾淨的 Windows 10 上測試。
-- 補丁是以作者本機的 3.7 版遊戲檔案製作，**沒有拿現在官網重新下載的壓縮檔驗證過**。如果官方換過檔案，補丁會拒絕安裝而不會硬裝，請到 Issues 回報。
+- 補丁是以維護者本機的 3.7＋3.7.1 遊戲檔案製作。3.7.1 修正檔只比對過檔案大小，**沒有實際下載遊戲壓縮檔核對雜湊**。如果檔案不同，補丁會拒絕安裝而不會硬裝，請到 Issues 回報。
 - 遊戲裡少數畫在圖片上的英文還沒翻；部分劇情提示（阿羅拉、伽勒爾段）比較簡略。
 - 「主線任務」與「!」提示是依遊戲資料推算，偶爾會有「有東西可拿但條件還沒達成」的情況。
 - 有問題歡迎到 [Issues](https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW/issues) 回報。
