@@ -1,6 +1,6 @@
 # 維護方式
 
-此工作副本已完成文字表，Claude 1 已套用本機並正在進行實機驗收，尚未完成實機驗收。來源維護於私人 repo https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW ，分支 main；本階段不建立 Release 或 tag。
+此工作副本已完成文字表與整合安裝包，尚未完成全部實機遊玩驗收。來源維護於公開 repo https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW ，分支 main；2026-11-04 已發布 v3.7-extras.1 預發行版，使用者同日同意公開原始碼、提交歷史與 EXE。
 
 ## 翻譯來源與優先順序
 
@@ -67,6 +67,6 @@ repo 僅收原文／譯文、術語、工具與文件；完整原版／修改後
 
 繁中模式停用三條一般文字路徑的三層陰影：`pbDrawShadowText`、`renderLineBrokenChunksWithShadow`、`drawSingleFormattedChar`；保留明確 outline 標記及英文模式的完整陰影呼叫序列。使用者選 A，本輪不加入 3 倍 UI／getter，也不改 Game.exe、mkxp.json 或 Game.ini。UI_Options／StartGame 必須維持原版，Graphics stub 必須保留 0.5..2.0 上限。原因見 [3x-engine-blocker.md](3x-engine-blocker.md)。驗證器失敗時應寫入 passed=false，不讓舊 PASS 看似仍有效。
 
-使用者已決定 repo 維持私人。來源修改前先 `git pull --ff-only`，修改後檢查 `git diff`、`git ls-files`，確認只有可 diff 的文字、工具與文件，再 commit、push。README、排除規則與 repo 設定參照私人 CoA-Translate-zh-TW；不把 CoA 用於二進位包的 `translations/` 排除規則直接套用，本專案的 `translations/` 是必須追蹤的 JSON／JSONL 來源。
+使用者於 2026-11-04 決定將既有 repo 改為公開，取代先前私人設定。來源修改前先 `git pull --ff-only`，修改後檢查 `git diff`、`git ls-files`，確認只有可 diff 的文字、工具與文件，再 commit、push。README 與排除規則沿用既有格式，repo 設定參照公開 D2Survivors-Translate-zh-TW；不把 CoA 用於二進位包的 `translations/` 排除規則直接套用，本專案的 `translations/` 是必須追蹤的 JSON／JSONL 來源。
 
 實機驗收尚未完成，本次只推送 main，不建立 Release、tag、workflow 或排程。後續發布與可見性變更需另行授權。使用者於 2026-11-01 已授權每次翻譯驗證完成後直接備份並套用至 `D:\Games\Pokemon Fire Ash\Pokemon Fire Ash 3.7`，不必再等 Claude 1 或逐次詢問；先確認遊戲正常退出，使用既有工具與 manifest 核對，不強停、不擅自啟動遊戲或改玩家存檔。套用後逐檔校驗，實機驗收結果另記，不改寫建置時的歷史報告。
