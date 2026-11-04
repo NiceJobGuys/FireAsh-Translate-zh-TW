@@ -1,6 +1,6 @@
 # 維護方式
 
-此工作副本已完成文字表與整合安裝包，尚未完成全部實機遊玩驗收。來源維護於公開 repo https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW ，分支 main；2026-11-04 已發布 v3.7-extras.1 預發行版，使用者同日同意公開原始碼、提交歷史與 EXE。
+此工作副本已完成文字表與整合安裝包，尚未完成全部實機遊玩驗收。來源維護於公開 repo https://github.com/NiceJobGuys/FireAsh-Translate-zh-TW ，分支 main；2026-11-04 已發布 v3.7-extras.2 預發行版，使用者同日同意公開原始碼、提交歷史與 EXE。
 
 ## 翻譯來源與優先順序
 

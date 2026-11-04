@@ -147,6 +147,8 @@ def rollback(game, folder, record):
         current = file_hash(target)
         if current not in (original, record['installed'][relative]):
             raise ValueError('檔案已被其他程式修改，停止還原：' + relative)
+        if current == original:
+            continue  # Already original (incl. absent); rewriting fails on read-only files.
         if original:
             saved = safe(folder, 'original/' + relative)
             if file_hash(saved) != original:
@@ -166,6 +168,12 @@ def install(game, font_dir=None, progress=lambda text: None):
     state = inspect(game, manifest)
     if state == 'already_installed':
         return {'status': state, 'message': '相同版本已完整安裝，無需重複套用。'}
+    # Before downloading or backing up: a read-only target would fail mid-transaction.
+    for relative in FILES:
+        target = safe(game, relative)
+        if target.exists() and not os.access(target, os.W_OK):
+            raise ValueError('遊戲檔案為唯讀，未變更遊戲：' + str(target) +
+                             '\n請在該檔案的「內容」取消勾選「唯讀」後重試。')
     require_closed()
     outputs = {FILES[0]: bsdiff4.patch(safe(game, FILES[0]).read_bytes(), blobs['scripts.bsdiff']),
                FILES[1]: blobs['language.dat'], FILES[3]: blobs['font-license.txt']}

@@ -11,7 +11,7 @@ import bsdiff4
 
 from installer import FILES, digest
 
-VERSION = '3.7-extras.1'
+VERSION = '3.7-extras.2'
 SCRIPT_SHA = '482efd03585fca9060f6dae9aed06a2f753e674b912aa7d8ed683a3eb9390668'
 LANGUAGE_SHA = 'd4cc61cdd16be413cca6838f2f9d8401945bce6339e2586b5d918076af414edf'
 FONT_COMMIT = 'f8d157532fbfaeda587e826d4cd5b21a49186f7c'

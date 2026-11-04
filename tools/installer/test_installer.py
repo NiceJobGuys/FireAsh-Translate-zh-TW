@@ -3,6 +3,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import stat
 import sys
 import unittest
 from unittest.mock import patch
@@ -137,6 +138,62 @@ class InstallerTests(unittest.TestCase):
         # Simulate an interrupted transaction after only Scripts was replaced.
         for relative in app.FILES[1:]:
             os.replace(self.game / relative, folder / ('interrupted-' + Path(relative).name))
+        self.assertEqual(app.run('restore', self.game)['status'], 'restored')
+        self.original()
+
+    def readonly(self, relative):
+        target = self.game / relative
+        os.chmod(target, stat.S_IREAD)
+        self.addCleanup(os.chmod, target, stat.S_IREAD | stat.S_IWRITE)
+        return target
+
+    def test_readonly_target_refused_before_download_or_backup(self):
+        target = self.readonly(app.FILES[0])
+        with patch.object(app, 'font_bytes', side_effect=AssertionError('font requested')):
+            with self.assertRaisesRegex(ValueError, '唯讀'):
+                self.install()
+        self.original()
+        self.assertFalse((self.game / app.BACKUP).exists())
+        self.assertFalse((self.game / 'FireAsh-Extras.lock').exists())
+        os.chmod(target, stat.S_IREAD | stat.S_IWRITE)
+        self.assertEqual(self.install()['status'], 'installed')
+        self.assertEqual(app.run('restore', self.game)['status'], 'restored')
+        self.original()
+
+    def deny_scripts(self):
+        # Every write onto Scripts is denied, as with the read-only attribute in 3.7-extras.1.
+        scripts = self.game / app.FILES[0]
+        replace = app.os.replace
+        def deny(source, target):
+            if Path(target) == scripts:
+                raise PermissionError(5, 'Access is denied', str(target))
+            return replace(source, target)
+        return patch.object(app.os, 'replace', side_effect=deny)
+
+    def test_rollback_skips_readonly_target_already_original(self):
+        with self.deny_scripts():
+            with self.assertRaises(PermissionError):
+                self.install()
+        record = app.read_json(next((self.game / app.BACKUP).glob('*/manifest.json')))
+        self.assertEqual(record['status'], 'rolled_back')
+        self.original()
+        self.assertEqual(self.install()['status'], 'installed')
+
+    def test_legacy_prepared_record_from_readonly_failure_recovers(self):
+        # Reproduce the stuck state 3.7-extras.1 left: rollback itself failed, record stays prepared.
+        with self.deny_scripts(), patch.object(app, 'rollback', side_effect=PermissionError(5, 'Access is denied')):
+            with self.assertRaises(PermissionError):
+                self.install()
+        record = app.read_json(next((self.game / app.BACKUP).glob('*/manifest.json')))
+        self.assertEqual(record['status'], 'prepared')
+        target = self.readonly(app.FILES[0])
+        self.assertEqual(app.run('restore', self.game)['status'], 'restored')
+        self.original()
+        self.assertFalse(os.access(target, os.W_OK), 'restore must not clear the read-only attribute')
+        with self.assertRaisesRegex(ValueError, '唯讀'):
+            self.install()
+        os.chmod(target, stat.S_IREAD | stat.S_IWRITE)
+        self.assertEqual(self.install()['status'], 'installed')
         self.assertEqual(app.run('restore', self.game)['status'], 'restored')
         self.original()
 
